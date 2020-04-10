@@ -104,59 +104,73 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #     print(f'Processed {line_count} lines.')
 
 # WALK SCORE CODE
-# walkscore_data = []
-# with open('neighborhoods.csv') as csv_file:
-#     csv_reader = csv.reader(csv_file, delimiter=',')
-#     line_count = 0
-#     for row in csv_reader:
-#         if line_count == 0:
-#             line_count+=1
-#             continue
+walkscore_data = []
+with open('neighborhoods.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            line_count+=1
+            continue
         
-#         neighborhood_data={}
-#         neighborhood_data["id"]=row[0]
-#         neighborhood_data["name"]=row[1]
-#         neighborhood_data["walkscore url"]=row[4]
+        neighborhood_data={}
+        neighborhood_data["id"]=row[0]
+        neighborhood_data["name"]=row[1]
+        neighborhood_data["walkscore url"]=row[4]
 
-#         response = requests.get(row[4], headers=headers)
-#         soup = BeautifulSoup(response.text, "html.parser")
+        response = requests.get(row[4], headers=headers)
+        soup = BeautifulSoup(response.text, "html.parser")
         
-#         ranking={}
-#         rankings_data=soup.find('tr', class_='active').find_all('td')
-#         ranking['rank']=int(rankings_data[0].text)
-#         ranking['walk score']=int(rankings_data[2].text)
-#         ranking['transit score']=int(rankings_data[3].text)
-#         ranking['bike score']=int(rankings_data[4].text)
-#         ranking['population']=int(rankings_data[5].text.replace(',', ''))
-#         neighborhood_data['rankings']=ranking
+        ranking={}
+        rankings_data=soup.find('tr', class_='active').find_all('td')
+        ranking['rank']=int(rankings_data[0].text)
+        ranking['walk score']=int(rankings_data[2].text)
+        ranking['transit score']=int(rankings_data[3].text)
+        ranking['bike score']=int(rankings_data[4].text)
+        ranking['population']=int(rankings_data[5].text.replace(',', ''))
+        neighborhood_data['rankings']=ranking
 
-#         eating_drinking={}
-#         # restaurants, bars and coffee shops
-#         eating_drinking_string=soup.find('div', class_='block-eat-drink').find('div', class_='span12').text
-#         eating_drinking_data=[int(i) for i in eating_drinking_string.replace(',', '').split() if i.isdigit()] 
-#         eating_drinking['restaurants']=eating_drinking_data[0]
-#         eating_drinking['shops']=eating_drinking_data[1]
-#         eating_drinking['time']=eating_drinking_data[2]
+        public_transport={}
+        public_transport_data=soup.find('div', class_='transit-route-div').text.replace(',', '').split(' ')
+        b="bus"
+        s="subway"
+        r="rail"
+        print(public_transport_data)
 
-#         neighborhood_data['eating drinking']=eating_drinking
+        public_transport['bus']=int(public_transport_data[public_transport_data.index(b)-1]) if (b in public_transport_data) else '-'
+        public_transport['subway']=int(public_transport_data[public_transport_data.index(s)-1]) if (s in public_transport_data) else '-'
+        public_transport['rail']=int(public_transport_data[public_transport_data.index(r)-1]) if (r in public_transport_data) else '-'
+        neighborhood_data['public transport']=public_transport
+
+        eating_drinking={}
+        # restaurants, bars and coffee shops
+        eating_drinking_string=soup.find('div', class_='block-eat-drink').find('div', class_='span12').text
+        eating_drinking_data=[int(i) for i in eating_drinking_string.replace(',', '').split() if i.isdigit()] 
+        eating_drinking['restaurants']=eating_drinking_data[0]
+        eating_drinking['shops']=eating_drinking_data[1]
+        eating_drinking['time']=eating_drinking_data[2]
+
+        neighborhood_data['eating drinking']=eating_drinking
         
-#         walkscore_data.append(neighborhood_data)
+        walkscore_data.append(neighborhood_data)
 
-#         line_count+=1
+        line_count+=1
         
-#     print(f'Processed {line_count} lines.')
+    print(f'Processed {line_count} lines.')
 
-# with open("walkscore.txt", 'w', encoding='utf-8') as f:
-#     json.dump(walkscore_data, f, ensure_ascii=False, indent=4)
+with open("walkscore.txt", 'w', encoding='utf-8') as f:
+    json.dump(walkscore_data, f, ensure_ascii=False, indent=4)
 
-niche_dir_path='/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/niche'
 
-# files=os.listdir('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/niche')
-all_data=[]
-for i in range(0,32):
-    with open(niche_dir_path+'/'+str(i)+'.json') as j:
-        data = json.load(j)
-        all_data.append(data)
+# COMBINE JSON
+# niche_dir_path='/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/niche'
 
-with open("niche.txt", 'w', encoding='utf-8') as f:
-    json.dump(all_data, f, ensure_ascii=False, indent=4)
+# # files=os.listdir('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/niche')
+# all_data=[]
+# for i in range(0,32):
+#     with open(niche_dir_path+'/'+str(i)+'.json') as j:
+#         data = json.load(j)
+#         all_data.append(data)
+
+# with open("niche.txt", 'w', encoding='utf-8') as f:
+#     json.dump(all_data, f, ensure_ascii=False, indent=4)

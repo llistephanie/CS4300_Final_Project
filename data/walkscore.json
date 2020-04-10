@@ -10,6 +10,11 @@
             "bike score": 84,
             "population": 12258
         },
+        "public transport": {
+            "bus": 8,
+            "subway": "-",
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 267,
             "shops": 29,
@@ -26,6 +31,11 @@
             "transit score": 100,
             "bike score": 94,
             "population": 52598
+        },
+        "public transport": {
+            "bus": 15,
+            "subway": 14,
+            "rail": 18
         },
         "eating drinking": {
             "restaurants": 1371,
@@ -44,6 +54,11 @@
             "bike score": 93,
             "population": 13724
         },
+        "public transport": {
+            "bus": 5,
+            "subway": "-",
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 604,
             "shops": 128,
@@ -60,6 +75,11 @@
             "transit score": 100,
             "bike score": 90,
             "population": 5279
+        },
+        "public transport": {
+            "bus": 5,
+            "subway": 5,
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 721,
@@ -78,6 +98,11 @@
             "bike score": 81,
             "population": 118829
         },
+        "public transport": {
+            "bus": 26,
+            "subway": 3,
+            "rail": 5
+        },
         "eating drinking": {
             "restaurants": 423,
             "shops": 18,
@@ -94,6 +119,11 @@
             "transit score": 96,
             "bike score": 96,
             "population": 60375
+        },
+        "public transport": {
+            "bus": 11,
+            "subway": "-",
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 960,
@@ -112,6 +142,11 @@
             "bike score": 84,
             "population": 27033
         },
+        "public transport": {
+            "bus": 36,
+            "subway": 9,
+            "rail": 2
+        },
         "eating drinking": {
             "restaurants": 547,
             "shops": 101,
@@ -128,6 +163,11 @@
             "transit score": 100,
             "bike score": 91,
             "population": 4579
+        },
+        "public transport": {
+            "bus": 17,
+            "subway": 4,
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 634,
@@ -146,6 +186,11 @@
             "bike score": 93,
             "population": 18635
         },
+        "public transport": {
+            "bus": 14,
+            "subway": 3,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 772,
             "shops": 63,
@@ -162,6 +207,11 @@
             "transit score": 100,
             "bike score": 94,
             "population": 34531
+        },
+        "public transport": {
+            "bus": 19,
+            "subway": 9,
+            "rail": 3
         },
         "eating drinking": {
             "restaurants": 1254,
@@ -180,6 +230,11 @@
             "bike score": 77,
             "population": 111094
         },
+        "public transport": {
+            "bus": 15,
+            "subway": 6,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 411,
             "shops": 15,
@@ -196,6 +251,11 @@
             "transit score": 100,
             "bike score": 91,
             "population": 51840
+        },
+        "public transport": {
+            "bus": 14,
+            "subway": "-",
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 1061,
@@ -214,6 +274,11 @@
             "bike score": 70,
             "population": 38367
         },
+        "public transport": {
+            "bus": 6,
+            "subway": 2,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 138,
             "shops": 18,
@@ -230,6 +295,11 @@
             "transit score": 100,
             "bike score": 88,
             "population": 39246
+        },
+        "public transport": {
+            "bus": 17,
+            "subway": 2,
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 736,
@@ -248,6 +318,11 @@
             "bike score": 93,
             "population": 3749
         },
+        "public transport": {
+            "bus": "-",
+            "subway": 1,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 543,
             "shops": 175,
@@ -264,6 +339,11 @@
             "transit score": 92,
             "bike score": 95,
             "population": 38641
+        },
+        "public transport": {
+            "bus": 7,
+            "subway": 3,
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 598,
@@ -282,6 +362,11 @@
             "bike score": 56,
             "population": 10180
         },
+        "public transport": {
+            "bus": 5,
+            "subway": 1,
+            "rail": 1
+        },
         "eating drinking": {
             "restaurants": 60,
             "shops": 6,
@@ -298,6 +383,11 @@
             "transit score": 100,
             "bike score": 79,
             "population": 49976
+        },
+        "public transport": {
+            "bus": 78,
+            "subway": 9,
+            "rail": 5
         },
         "eating drinking": {
             "restaurants": 1656,
@@ -316,6 +406,11 @@
             "bike score": 74,
             "population": 107403
         },
+        "public transport": {
+            "bus": 19,
+            "subway": 5,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 431,
             "shops": 17,
@@ -332,6 +427,11 @@
             "transit score": 100,
             "bike score": 80,
             "population": 22249
+        },
+        "public transport": {
+            "bus": 30,
+            "subway": "-",
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 647,
@@ -350,6 +450,11 @@
             "bike score": 95,
             "population": 3123
         },
+        "public transport": {
+            "bus": 8,
+            "subway": 8,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 723,
             "shops": 101,
@@ -366,6 +471,11 @@
             "transit score": 100,
             "bike score": 94,
             "population": 6464
+        },
+        "public transport": {
+            "bus": 2,
+            "subway": "-",
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 617,
@@ -384,6 +494,11 @@
             "bike score": 78,
             "population": 11608
         },
+        "public transport": {
+            "bus": 1,
+            "subway": 1,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 25,
             "shops": 4,
@@ -400,6 +515,11 @@
             "transit score": 100,
             "bike score": 93,
             "population": 11276
+        },
+        "public transport": {
+            "bus": 10,
+            "subway": 10,
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 891,
@@ -418,6 +538,11 @@
             "bike score": 94,
             "population": 21268
         },
+        "public transport": {
+            "bus": 8,
+            "subway": 1,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 293,
             "shops": 21,
@@ -434,6 +559,11 @@
             "transit score": 100,
             "bike score": 87,
             "population": 13170
+        },
+        "public transport": {
+            "bus": 32,
+            "subway": 16,
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 1456,
@@ -452,6 +582,11 @@
             "bike score": 90,
             "population": 17068
         },
+        "public transport": {
+            "bus": 17,
+            "subway": 6,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 682,
             "shops": 66,
@@ -468,6 +603,11 @@
             "transit score": 99,
             "bike score": 93,
             "population": 28930
+        },
+        "public transport": {
+            "bus": 4,
+            "subway": 1,
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 263,
@@ -486,6 +626,11 @@
             "bike score": 81,
             "population": 208013
         },
+        "public transport": {
+            "bus": 35,
+            "subway": 7,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 1089,
             "shops": 41,
@@ -502,6 +647,11 @@
             "transit score": 99,
             "bike score": 83,
             "population": 208776
+        },
+        "public transport": {
+            "bus": 22,
+            "subway": 7,
+            "rail": "-"
         },
         "eating drinking": {
             "restaurants": 771,
@@ -520,6 +670,11 @@
             "bike score": 71,
             "population": 158951
         },
+        "public transport": {
+            "bus": 25,
+            "subway": 5,
+            "rail": "-"
+        },
         "eating drinking": {
             "restaurants": 301,
             "shops": 16,
@@ -536,6 +691,11 @@
             "transit score": 100,
             "bike score": 93,
             "population": 34359
+        },
+        "public transport": {
+            "bus": 8,
+            "subway": 3,
+            "rail": 3
         },
         "eating drinking": {
             "restaurants": 913,
