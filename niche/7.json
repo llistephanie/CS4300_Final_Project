@@ -1,0 +1,54 @@
+{
+    "id": "7",
+    "name": "Flatiron",
+    "niche url": "https://www.niche.com/places-to-live/n/flatiron-district-new-york-city-ny/",
+    "description": "Flatiron District is a neighborhood in New York City, New York with a population of 6,458. Flatiron District is in New York County and is one of the best places to live in New York. Living in Flatiron District offers residents a dense urban feel and most residents rent their homes. In Flatiron District there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Flatiron District and residents tend to be liberal. The public schools in Flatiron District are above average.",
+    "real estate": {
+        "median home value": "$1,517,350",
+        "median rent": "$2,494",
+        "area feel": "Dense Urban",
+        "rent": "73%",
+        "own": "27%"
+    },
+    "residents": {
+        "median household income": "$167,170",
+        "families with children": "13%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "B",
+        "Housing": "C",
+        "Nightlife": "A+",
+        "Good for Families": "A",
+        "Diversity": "B+",
+        "Jobs": "B-",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A+",
+        "overall_grade": "A+"
+    },
+    "reviews": [
+        {
+            "stars": 3,
+            "text": "Police are in the area.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 5,
+            "text": "I love it here - it’s an all around amazing location. Great food, views, and energy. Would love to retire here, it’s wonderful.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I love the neighborhood. Close to downtown (for going out) and work (midtown). I definitely recommend this neighborhood for someone who is looking for a good central location with a great neighborhood feel.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "Over time, gentrification has occurred in my neighborhood and it has become too expensive to live here.",
+            "category": "Overall Experience"
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "id": "20",
+    "name": "NoHo",
+    "niche url": "https://www.niche.com/places-to-live/n/noho-new-york-city-ny/",
+    "description": "NoHo is a neighborhood in New York City, New York with a population of 2,809. NoHo is in New York County and is one of the best places to live in New York. Living in NoHo offers residents a dense urban feel and most residents rent their homes. In NoHo there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in NoHo and residents tend to be liberal. The public schools in NoHo are above average.",
+    "real estate": {
+        "median home value": "$1,617,720",
+        "median rent": "$3,135",
+        "area feel": "Dense Urban",
+        "rent": "72%",
+        "own": "28%"
+    },
+    "residents": {
+        "median household income": "$159,881",
+        "families with children": "13%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C+",
+        "Housing": "C-",
+        "Nightlife": "A+",
+        "Good for Families": "A",
+        "Diversity": "B-",
+        "Jobs": "C+",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A+",
+        "overall_grade": "A+"
+    },
+    "reviews": []
+}

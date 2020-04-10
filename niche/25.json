@@ -1,0 +1,39 @@
+{
+    "id": "25",
+    "name": "Theater District",
+    "niche url": "https://www.niche.com/places-to-live/n/theater-district-new-york-city-ny/",
+    "description": "Theater District is a neighborhood in New York City, New York with a population of 5,417. Theater District is in New York County and is one of the best places to live in New York. Living in Theater District offers residents a dense urban feel and most residents rent their homes. In Theater District there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Theater District and residents tend to be liberal. The public schools in Theater District are above average.",
+    "real estate": {
+        "median home value": "$906,969",
+        "median rent": "$2,512",
+        "area feel": "Dense Urban",
+        "rent": "93%",
+        "own": "7%"
+    },
+    "residents": {
+        "median household income": "$101,152",
+        "families with children": "5%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C-",
+        "Housing": "D+",
+        "Nightlife": "A+",
+        "Good for Families": "A-",
+        "Diversity": "A",
+        "Jobs": "C+",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A+",
+        "Commute": "A+",
+        "overall_grade": "A+"
+    },
+    "reviews": [
+        {
+            "stars": 4,
+            "text": "The Theater District is the center of New York City for me. It is where I work and play. Home to a great number of restaurants, bars, and, of course, Broadway, this neighborhood is home to a thriving LGBTQ community.",
+            "category": "Overall Experience"
+        }
+    ]
+}

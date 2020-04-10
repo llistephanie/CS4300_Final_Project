@@ -1,0 +1,546 @@
+[
+    {
+        "id": "0",
+        "name": "Battery Park",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Battery_Park_City",
+        "rankings": {
+            "rank": 36,
+            "walk score": 97,
+            "transit score": 100,
+            "bike score": 84,
+            "population": 12258
+        },
+        "eating drinking": {
+            "restaurants": 267,
+            "shops": 29,
+            "time": 5
+        }
+    },
+    {
+        "id": "1",
+        "name": "Chelsea",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Chelsea",
+        "rankings": {
+            "rank": 17,
+            "walk score": 99,
+            "transit score": 100,
+            "bike score": 94,
+            "population": 52598
+        },
+        "eating drinking": {
+            "restaurants": 1371,
+            "shops": 61,
+            "time": 5
+        }
+    },
+    {
+        "id": "2",
+        "name": "Chinatown",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Chinatown",
+        "rankings": {
+            "rank": 4,
+            "walk score": 100,
+            "transit score": 100,
+            "bike score": 93,
+            "population": 13724
+        },
+        "eating drinking": {
+            "restaurants": 604,
+            "shops": 128,
+            "time": 5
+        }
+    },
+    {
+        "id": "3",
+        "name": "Civic Center",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Civic_Center",
+        "rankings": {
+            "rank": 11,
+            "walk score": 99,
+            "transit score": 100,
+            "bike score": 90,
+            "population": 5279
+        },
+        "eating drinking": {
+            "restaurants": 721,
+            "shops": 54,
+            "time": 5
+        }
+    },
+    {
+        "id": "4",
+        "name": "East Harlem",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/East_Harlem",
+        "rankings": {
+            "rank": 42,
+            "walk score": 96,
+            "transit score": 99,
+            "bike score": 81,
+            "population": 118829
+        },
+        "eating drinking": {
+            "restaurants": 423,
+            "shops": 18,
+            "time": 5
+        }
+    },
+    {
+        "id": "5",
+        "name": "East Village",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/East_Village",
+        "rankings": {
+            "rank": 28,
+            "walk score": 98,
+            "transit score": 96,
+            "bike score": 96,
+            "population": 60375
+        },
+        "eating drinking": {
+            "restaurants": 960,
+            "shops": 91,
+            "time": 5
+        }
+    },
+    {
+        "id": "6",
+        "name": "Financial District",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Financial_District",
+        "rankings": {
+            "rank": 8,
+            "walk score": 100,
+            "transit score": 100,
+            "bike score": 84,
+            "population": 27033
+        },
+        "eating drinking": {
+            "restaurants": 547,
+            "shops": 101,
+            "time": 5
+        }
+    },
+    {
+        "id": "7",
+        "name": "Flatiron",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Flatiron_District",
+        "rankings": {
+            "rank": 3,
+            "walk score": 100,
+            "transit score": 100,
+            "bike score": 91,
+            "population": 4579
+        },
+        "eating drinking": {
+            "restaurants": 634,
+            "shops": 112,
+            "time": 5
+        }
+    },
+    {
+        "id": "8",
+        "name": "Gramercy",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Gramercy_Park",
+        "rankings": {
+            "rank": 14,
+            "walk score": 99,
+            "transit score": 100,
+            "bike score": 93,
+            "population": 18635
+        },
+        "eating drinking": {
+            "restaurants": 772,
+            "shops": 63,
+            "time": 5
+        }
+    },
+    {
+        "id": "9",
+        "name": "Greenwich Village",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Greenwich_Village",
+        "rankings": {
+            "rank": 10,
+            "walk score": 99,
+            "transit score": 100,
+            "bike score": 94,
+            "population": 34531
+        },
+        "eating drinking": {
+            "restaurants": 1254,
+            "shops": 91,
+            "time": 5
+        }
+    },
+    {
+        "id": "10",
+        "name": "Harlem",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Central_Harlem",
+        "rankings": {
+            "rank": 32,
+            "walk score": 97,
+            "transit score": 100,
+            "bike score": 77,
+            "population": 111094
+        },
+        "eating drinking": {
+            "restaurants": 411,
+            "shops": 15,
+            "time": 5
+        }
+    },
+    {
+        "id": "11",
+        "name": "Hell's Kitchen",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Hell%27s_Kitchen",
+        "rankings": {
+            "rank": 21,
+            "walk score": 99,
+            "transit score": 100,
+            "bike score": 91,
+            "population": 51840
+        },
+        "eating drinking": {
+            "restaurants": 1061,
+            "shops": 88,
+            "time": 5
+        }
+    },
+    {
+        "id": "12",
+        "name": "Inwood",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Inwood",
+        "rankings": {
+            "rank": 37,
+            "walk score": 97,
+            "transit score": 88,
+            "bike score": 70,
+            "population": 38367
+        },
+        "eating drinking": {
+            "restaurants": 138,
+            "shops": 18,
+            "time": 5
+        }
+    },
+    {
+        "id": "13",
+        "name": "Kips Bay",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Kips_Bay",
+        "rankings": {
+            "rank": 24,
+            "walk score": 98,
+            "transit score": 100,
+            "bike score": 88,
+            "population": 39246
+        },
+        "eating drinking": {
+            "restaurants": 736,
+            "shops": 72,
+            "time": 5
+        }
+    },
+    {
+        "id": "14",
+        "name": "Little Italy",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Little_Italy",
+        "rankings": {
+            "rank": 1,
+            "walk score": 100,
+            "transit score": 100,
+            "bike score": 93,
+            "population": 3749
+        },
+        "eating drinking": {
+            "restaurants": 543,
+            "shops": 175,
+            "time": 5
+        }
+    },
+    {
+        "id": "15",
+        "name": "Lower East Side",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Lower_East_Side",
+        "rankings": {
+            "rank": 53,
+            "walk score": 95,
+            "transit score": 92,
+            "bike score": 95,
+            "population": 38641
+        },
+        "eating drinking": {
+            "restaurants": 598,
+            "shops": 50,
+            "time": 5
+        }
+    },
+    {
+        "id": "16",
+        "name": "Marble Hill",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Marble_Hill",
+        "rankings": {
+            "rank": 59,
+            "walk score": 95,
+            "transit score": 87,
+            "bike score": 56,
+            "population": 10180
+        },
+        "eating drinking": {
+            "restaurants": 60,
+            "shops": 6,
+            "time": 5
+        }
+    },
+    {
+        "id": "17",
+        "name": "Midtown",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Midtown_East",
+        "rankings": {
+            "rank": 15,
+            "walk score": 99,
+            "transit score": 100,
+            "bike score": 79,
+            "population": 49976
+        },
+        "eating drinking": {
+            "restaurants": 1656,
+            "shops": 108,
+            "time": 5
+        }
+    },
+    {
+        "id": "18",
+        "name": "Morningside Heights",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/West_Harlem",
+        "rankings": {
+            "rank": 38,
+            "walk score": 97,
+            "transit score": 99,
+            "bike score": 74,
+            "population": 107403
+        },
+        "eating drinking": {
+            "restaurants": 431,
+            "shops": 17,
+            "time": 5
+        }
+    },
+    {
+        "id": "19",
+        "name": "Murray Hill",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Murray_Hill",
+        "rankings": {
+            "rank": 19,
+            "walk score": 99,
+            "transit score": 100,
+            "bike score": 80,
+            "population": 22249
+        },
+        "eating drinking": {
+            "restaurants": 647,
+            "shops": 63,
+            "time": 5
+        }
+    },
+    {
+        "id": "20",
+        "name": "NoHo",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/NoHo",
+        "rankings": {
+            "rank": 6,
+            "walk score": 100,
+            "transit score": 100,
+            "bike score": 95,
+            "population": 3123
+        },
+        "eating drinking": {
+            "restaurants": 723,
+            "shops": 101,
+            "time": 5
+        }
+    },
+    {
+        "id": "21",
+        "name": "Nolita",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/NoLita",
+        "rankings": {
+            "rank": 5,
+            "walk score": 100,
+            "transit score": 100,
+            "bike score": 94,
+            "population": 6464
+        },
+        "eating drinking": {
+            "restaurants": 617,
+            "shops": 142,
+            "time": 5
+        }
+    },
+    {
+        "id": "22",
+        "name": "Roosevelt Island",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Roosevelt_Island",
+        "rankings": {
+            "rank": 146,
+            "walk score": 79,
+            "transit score": 90,
+            "bike score": 78,
+            "population": 11608
+        },
+        "eating drinking": {
+            "restaurants": 25,
+            "shops": 4,
+            "time": 5
+        }
+    },
+    {
+        "id": "23",
+        "name": "SoHo",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/SoHo",
+        "rankings": {
+            "rank": 9,
+            "walk score": 100,
+            "transit score": 100,
+            "bike score": 93,
+            "population": 11276
+        },
+        "eating drinking": {
+            "restaurants": 891,
+            "shops": 96,
+            "time": 5
+        }
+    },
+    {
+        "id": "24",
+        "name": "Stuyvesant Town",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Stuyvesant_Town_-_Peter_Cooper_Village",
+        "rankings": {
+            "rank": 50,
+            "walk score": 95,
+            "transit score": 99,
+            "bike score": 94,
+            "population": 21268
+        },
+        "eating drinking": {
+            "restaurants": 293,
+            "shops": 21,
+            "time": 5
+        }
+    },
+    {
+        "id": "25",
+        "name": "Theater District",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Theater_District",
+        "rankings": {
+            "rank": 16,
+            "walk score": 99,
+            "transit score": 100,
+            "bike score": 87,
+            "population": 13170
+        },
+        "eating drinking": {
+            "restaurants": 1456,
+            "shops": 137,
+            "time": 5
+        }
+    },
+    {
+        "id": "26",
+        "name": "TriBeCa",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Tribeca",
+        "rankings": {
+            "rank": 12,
+            "walk score": 99,
+            "transit score": 100,
+            "bike score": 90,
+            "population": 17068
+        },
+        "eating drinking": {
+            "restaurants": 682,
+            "shops": 66,
+            "time": 5
+        }
+    },
+    {
+        "id": "27",
+        "name": "Two Bridges",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Two_Bridges",
+        "rankings": {
+            "rank": 26,
+            "walk score": 98,
+            "transit score": 99,
+            "bike score": 93,
+            "population": 28930
+        },
+        "eating drinking": {
+            "restaurants": 263,
+            "shops": 19,
+            "time": 5
+        }
+    },
+    {
+        "id": "28",
+        "name": "Upper East Side",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Upper_East_Side",
+        "rankings": {
+            "rank": 20,
+            "walk score": 99,
+            "transit score": 99,
+            "bike score": 81,
+            "population": 208013
+        },
+        "eating drinking": {
+            "restaurants": 1089,
+            "shops": 41,
+            "time": 5
+        }
+    },
+    {
+        "id": "29",
+        "name": "Upper West Side",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Upper_West_Side",
+        "rankings": {
+            "rank": 27,
+            "walk score": 98,
+            "transit score": 99,
+            "bike score": 83,
+            "population": 208776
+        },
+        "eating drinking": {
+            "restaurants": 771,
+            "shops": 31,
+            "time": 5
+        }
+    },
+    {
+        "id": "30",
+        "name": "Washington Heights",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/Washington_Heights",
+        "rankings": {
+            "rank": 45,
+            "walk score": 96,
+            "transit score": 97,
+            "bike score": 71,
+            "population": 158951
+        },
+        "eating drinking": {
+            "restaurants": 301,
+            "shops": 16,
+            "time": 5
+        }
+    },
+    {
+        "id": "31",
+        "name": "West Village",
+        "walkscore url": "https://www.walkscore.com/NY/New_York/West_Village",
+        "rankings": {
+            "rank": 7,
+            "walk score": 100,
+            "transit score": 100,
+            "bike score": 93,
+            "population": 34359
+        },
+        "eating drinking": {
+            "restaurants": 913,
+            "shops": 103,
+            "time": 5
+        }
+    }
+]
