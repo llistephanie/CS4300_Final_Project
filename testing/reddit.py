@@ -1,5 +1,5 @@
 import praw
-import csv
+import json
 
 #import requests 
 #import requests.auth
@@ -30,29 +30,37 @@ except:
 """
 
 print("Starting data download...")
-
-def get_posts(writer1, writer2, subreddit, subreddit_id):
+data = {}
+def get_posts(subreddit, subreddit_id):
     # https://praw.readthedocs.io/en/latest/code_overview/models/submission.html#praw.models.Submission
-    for submission in subreddit.hot(limit=200):
-        title = submission.title
-        body = submission.selftext
-        distinguished = submission.distinguished # whether the submission is distinguished
+    global data
+
+    for submission in subreddit.hot(limit=250):
+        #distinguished = submission.distinguished # whether the submission is distinguished
+        
         post_id = submission.id
-        original_content = submission.is_original_content # Whether submission is set as original content
-        upvote_ratio = submission.upvote_ratio
-        upvotes = submission.score
-        url = submission.url
+        data[post_id] = {}
+        entry = data[post_id]
+        entry["subreddit_id"] = subreddit_id
+        entry['title'] = submission.title
+        entry['body'] = submission.selftext
+        entry["upvote_ratio"] = float(submission.upvote_ratio)
 
-        writer1.writerow([subreddit_id, post_id, title, body, distinguished, original_content, upvote_ratio, upvotes, url])
-
+        #original_content = submission.is_original_content # Whether submission is set as original content
+        entry["upvotes"] = int(submission.score)
+        #url = submission.url
+        #writer1.writerow([subreddit_id, post_id, title, body, distinguished, original_content, upvote_ratio, upvotes, url])
+        
+        entry["comments"] = []
         for comment in submission.comments:
-            c_id = comment.id
-            c_body = comment.body
-            c_subredditid = comment.subreddit_id
-            c_score = comment.score
-            c_url = comment.permalink
-
-            writer2.writerow([post_id, c_id, c_body, c_score, c_url])
+            c_dict = {}
+            c_dict["comment_id"] = comment.id
+            c_dict["body"] = comment.body
+            c_dict["upvotes"] = int(comment.score)
+            entry["comments"].append(c_dict)
+            
+            #c_url = comment.permalink
+            #writer2.writerow([post_id, c_id, c_body, c_score, c_url])
     
 
 def readFile():
@@ -62,8 +70,8 @@ def readFile():
 
 def main():
     subreddit_list = readFile()
-    
-    with open("post_data.csv", "w", encoding="utf-8") as f1, open("comment_data.csv","w",encoding="utf-8") as f2:
+    """
+    with open("post_data.json", "w", encoding="utf-8") as f1, open("comment_data.csv","w",encoding="utf-8") as f2:
         writer1 = csv.writer(f1, delimiter=",", quotechar = '"')
         writer1.writerow(["subreddit_id", "submission_id", "title", "body", "distinguished","original content", "upvote ratio","upvotes","url"])
 
@@ -76,7 +84,16 @@ def main():
                 get_posts(writer1, writer2, subreddit, subreddit.id)
             except:
                 print("Could not retrieve: Subreddit " + s)
+    """
+    for s in subreddit_list:
+        subreddit = reddit.subreddit(s)
+        try:
+            get_posts(subreddit, subreddit.id)
+        except:
+            print("Could not retrieve: Subreddit " + s)
 
+    with open("reddit_data.json", "w") as f:
+        json.dump(data, f)
 main()
 
 

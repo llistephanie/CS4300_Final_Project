@@ -1,6 +1,5 @@
 AskNYC
 nycmeetups
-NYr4r 
 nycr4r
 BushwickHomes
 nyc_resistance
