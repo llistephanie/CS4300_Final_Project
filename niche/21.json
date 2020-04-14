@@ -1,0 +1,114 @@
+{
+    "id": "21",
+    "name": "Nolita",
+    "niche url": "https://www.niche.com/places-to-live/n/nolita-new-york-city-ny/",
+    "description": "Nolita is a neighborhood in New York City, New York with a population of 6,374. Nolita is in New York County and is one of the best places to live in New York. Living in Nolita offers residents a dense urban feel and most residents rent their homes. In Nolita there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Nolita and residents tend to be liberal. The public schools in Nolita are above average.",
+    "real estate": {
+        "median home value": "$2,000,000",
+        "median rent": "$2,308",
+        "area feel": "Dense Urban",
+        "rent": "88%",
+        "own": "12%"
+    },
+    "residents": {
+        "median household income": "$96,160",
+        "families with children": "8%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "B",
+        "Housing": "C",
+        "Nightlife": "A+",
+        "Good for Families": "A",
+        "Diversity": "A",
+        "Jobs": "C+",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A+",
+        "overall_grade": "A+"
+    },
+    "reviews": [
+        {
+            "stars": 3,
+            "text": "Currently I am unable to find a job due to lack of experience and time. I cannot commit to work 5 days a week, so I cannot take advantage of many openings.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "It would be nice if the potholes are fixed.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "There are different people everywhere. It's great.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "You don't ever hear about a car accident in this area.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Some people are healthy and some are not.  There is a gym nearby.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "There are plenty of retail opportunities, but I am majoring in Nursing, so I can count on my area to find a job.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Since the lack crime, many tourist come to visit and experience the old world architecture with the new world trends collide. The only crime I have witness personally in Soho tends to be done by drunks from nearby bars.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "I feel very safe to walk back home late at night.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "This is a great area to grow up in with its diverse population aiding to its uniqueness and accessibility to mass transit a real New York experience.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I honestly do enjoy living here.  It is calm and safe.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "It is a nice community.  It is kept quite neat.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "Trendy, overpriced, fun. Cheap delis are a lifesaver for the eternally broke like me, but affordable basics can be a bit hard to find. Even so, really fun stores to look around in, lots of pricey places with cheap events, a lot of local color.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "You can always try something different.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There is always a lot of people walking around.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "To get to a park you have to walk a few blocks.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There are plenty of grocery stores and local businesses, but they are a bit pricey for the average low income family.",
+            "category": "Things To Do"
+        }
+    ]
+}

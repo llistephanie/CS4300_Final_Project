@@ -1,0 +1,94 @@
+{
+    "id": "13",
+    "name": "Kips Bay",
+    "niche url": "https://www.niche.com/places-to-live/n/kips-bay-new-york-city-ny/",
+    "description": "Kips Bay is a neighborhood in New York City, New York with a population of 35,556. Kips Bay is in New York County and is one of the best places to live in New York. Living in Kips Bay offers residents a dense urban feel and most residents rent their homes. In Kips Bay there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Kips Bay and residents tend to be liberal. The public schools in Kips Bay are above average.",
+    "real estate": {
+        "median home value": "$813,419",
+        "median rent": "$2,403",
+        "area feel": "Dense Urban",
+        "rent": "78%",
+        "own": "22%"
+    },
+    "residents": {
+        "median household income": "$101,530",
+        "families with children": "9%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C+",
+        "Housing": "C",
+        "Nightlife": "A+",
+        "Good for Families": "A",
+        "Diversity": "A",
+        "Jobs": "C+",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A+",
+        "overall_grade": "A+"
+    },
+    "reviews": [
+        {
+            "stars": 4,
+            "text": "I never have any type of conflict.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "I feel very safe in my area, I never get rattled.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "It's okay, I've never had to call them.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 1,
+            "text": "Hospitals everywhere. Too much traffic and no good stores. No highly priced apartments. Too much of an urban feel . It honestly is bad!!!!!!!!!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I've lived in Kips Bay for my entire life. While there is some gentrification and housing for minorities could definitely be improved, everything is within convenience; food markets, schools, delis, movie theaters, parks, bars, restaurants, gyms, etc.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Moved to the area for internship related work, as it was the most affordable for the area and cut my commute to a fraction of the usual time. Families are always around, local grocery stores minutes away, everything at the palm of your hands.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Kips Bay is a fast-paced environment with loads of diversity. You can meet people from all over the world.Literally.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "It's very diverse, there are a bunch of things to do.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "It's a great place for people that like to have everything they need in a walking distance.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "It's the best city in the world!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "It's very nice and very comfortable.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 5,
+            "text": "There are many options for food and drinks all over the area.",
+            "category": "Things To Do"
+        }
+    ]
+}

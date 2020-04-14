@@ -1,0 +1,484 @@
+{
+    "id": "29",
+    "name": "Upper West Side",
+    "niche url": "https://www.niche.com/places-to-live/n/upper-west-side-new-york-city-ny/",
+    "description": "Upper West Side is a neighborhood in New York City, New York with a population of 210,552. Upper West Side is in New York County and is one of the best places to live in New York. Living in Upper West Side offers residents a dense urban feel and most residents rent their homes. In Upper West Side there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Upper West Side and residents tend to be liberal. The public schools in Upper West Side are above average.",
+    "real estate": {
+        "median home value": "$1,343,640",
+        "median rent": "$2,043",
+        "area feel": "Dense Urban",
+        "rent": "65%",
+        "own": "35%"
+    },
+    "residents": {
+        "median household income": "$133,064",
+        "families with children": "18%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C+",
+        "Housing": "C",
+        "Nightlife": "A+",
+        "Good for Families": "A+",
+        "Diversity": "A",
+        "Jobs": "B-",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A",
+        "overall_grade": "A+"
+    },
+    "reviews": [
+        {
+            "stars": 4,
+            "text": "This area has numerous residents that been here a very long time including myself. It is incredibly pet friendly and welcoming. The community also has yearly events that the residents seem to love attending each year.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "For Manhattan, this neighborhood is abnormally friendly. People are generally open and friendly. Fordham University and Julliard have small campuses at Lincoln Center, NYIT at Columbus Circle, and John Jay in Hell's Kitchen. This adds a whole other layer of community to the neighborhood.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Very windy and damp but overall not bad. No terrible weather.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "There are a lot of private gyms in the neighborhood as well as speciality classes available. There are not really any public options but there are some private gyms that are reasonably priced. People are relatively fit and physically active. When the weather gets warmer you can often see people jogging gang biking. There are also a number of hospitals near buy- St. Lukes and Roosevelt. Beyond these public hospitals there are many urgent care facilities in the neighborhood.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "These past two years the weather conditions have gotten more extreme. It seems the winter is colder and longer and the spring is colder as and shorter as well. The most essential things in my closet this past year have been my down jacket and my rain boots. \r\n\r\nSummers are the best time in NYC. That is when you can jog outside and enjoy the weather and explore the city more.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "I am not as familiar with job opportunities in this neighborhood as I have never working directly in the area that I live in. That being said the Upper West Side is quite residential so there are few corporations and or business offices in the neighborhood. \r\n\r\nThere are a lot of restaurants and new coffee shops in the neighborhood so there are probably more opportunities for service jobs then any other occupation in this area",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "People are welcoming and friendly on the street.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "It can get cold in the winter but not horrible",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "There are many vibrant businesses needing workers",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "I would love to see the dirt clean and the grime reduced - but I know that is asking too much.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The subways are nice to use, but I miss the privacy and decision-making my car allotted me.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The people are not incredibly friendly, but they bond through common experiences.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "The jobs are all poor. There are not many feasible opportunities to work in most fields because of the cost of living.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "The Upper West Side is a very fit neighborhood, where people run, do yoga and exercise at the gym.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "New York is a city of extremes; in the summer, it's incredibly hot and sticky, and in the winter, it's incredibly cold and windy.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "We have a fire and police department close by, many public transportation and city hall is not that far.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "There is not much of weather hazards in this areas I mostly dressed according to the season.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "Not many retail stores, mostly mom and pop store so you need to know someone to get a job.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "Everyone has well trained dogs!",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "The weather is beautiful! There are four distinct seasons.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "There isn't much crime in the area of the UWS that I live in, maybe up higher. I find it to be safe besides a few homeless people here and there that could be dangerous late at night.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Police are present and, for the most part, feel safe.  However, there has been an uptick in subway attacks and street safety (too much traffic) and lots more homeless and transient adults in the neighborhood.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Generally safe, but my building was broken into multiple times.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I do not see a lot of police presence. I am concerned about homeless people and some times homeless people who are acting deranged.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Not really much crime mostly everyone knows each other.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I honestly have not been aware of crimes and safety considering my neighborhood is safe to me but others I am not too sure, everyone has their own different situation in this area.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Many more unsafe feeling situations than further downtown.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 2,
+            "text": "I think its bad even though I live here and I am used to the occasional violent action that usually goes on in a projects area. But unlike me for people who do not live in this type of environment for them it is very scary and usually prefer not to come to these types of areas.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "No real issues of serious crime and I feel safe, although my Dad's car was vandalized recently (first time in 21 years).",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Because I am not fully submerged in this topic, I can not say for sure wether crime and safety rates are at their best or not.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "This has gotten increasingly better.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 5,
+            "text": "The Upper West Side is the second safest neighborhood in Manhattan, statistically speaking (right after Central Park). The area has a heavy concentration of wealth and families. This leads to a community that is actively improving their neighborhood and ensuring it's safety. The presence of landmarks such as Columbus Circle, Lincoln Center, and The Natural History Museum also ensure that there are police present constantly.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "It is an overall safe neighborhood for New York City.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "This is a very safe neighborhood. The area is mostly residential and there are a lot of families. The neighborhood is quiet at times but there are very few safety concerns.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "It is a city but the police are friendly",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "The Upper West Side is probably the safest neighborhood in New York City.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "There are rarely any crime committed in this area and there is no immediate danger around.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Compare to ten years ago when I was a toddler, the crime and the unclean environment is improving  a lot. More and more ethnic groups  are moving to my neighborhood and its getting very clean and casual hood.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 5,
+            "text": "I feel very safe walking around my neighborhood at any time. There are often people around that are clearly looking out for one another.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Lots of police but so many people so it's hard.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 5,
+            "text": "it's the best neighborhood in NYC to be honest. Great people, great personalities. Plenty of things to do and it never gets old. Between Riverside and Central Park - Broadway and Central Park West. Museum of natural history, the grand churches. Multiple cultures of foos. It's all amazing.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "The upper west side is a friendly and safe environment. I spend a lot of time here due to family living in the area and the great restaurants and food options.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "The Upper West Side is a wonderful place to live if you want to spend a few years in New York City. It's proximity to midtown Manhattan is great and there  are several subways that can you take you almost anywhere in the 5 boroughs. The Upper West Side has both family owned businesses and chains to give a nice taste of NYC. The only reason that I would give it a 4/5 is that it can be quite expensive to rent or buy an apartment here and they not super large.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "This is the most beautiful and the safest part of NYC. Nowhere in NYC is going to be pretty or safe if the current leadership doesn't clean up their act and clean up the streets. It's been so sad to watch the neighborhood decline with the rise in drug use and crime (which is happening, despite what the \"official\" reports say--the only reason those show record lows is because the city has stopped acting on certain offenses at the orders of the esteemed idiot).",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Living in Upper West Side (Columbia University community) overall is great. However, if you want to go outside especially in the evening, you should take extra care of yourself.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I love the environment and the accessibility to the parks in the area. \nThere are a lot of helpless people on the street who are not being taken care of.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Quiet residential area with great history. There's a nice amount of community without any exclusivity. Overall, great place to live",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I grew up in the upper west side, right by central park and it was great. Beautiful, quiet, calm. I was on the very upper end so it was a little less quiet and a little less safe than lower, but things have improved in recent years, I believe. I wish housing was more reasonable in size and pricing.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I love the Upper West Side. I love the community, I love the culture. I love the easy access to so many museum and the closeness to those in the Upper East Side. I multitude of parks is refreshing and I appreciate the amount of green space that there is in such a metropolitan area.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Overall, during my time on the Upper West Side, I have never felt threatened or been hurt. There is a varied range of stores for shoppers, from candy to tech, and there is a diverse community.  Museums, Central Park, Subway stations - you have access.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "My home, New York City's Upper West Side, is one of the best neighborhoods in the city for its diversity and tranquility. Imagine the entire world in one place.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "The upper west side is a good neighborhood. Not too crazy and pretty nice. Things are expensive, but I like the atmosphere and people.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "So much shopping but things are shutting down. The rent is high and supermarkets are disappearing. There is Trader Joe’s which is a good place and there is a DSW and Marshalls, Sephora, and my favorite, Lush. Aside from the shutting down it is still a fun, convenient, and happening place to live",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "There are lots of places open at late times in the night. The shops have things priced on the higher end but there is a variety of food and people from different cultures present. transportation is very easy which is a plus.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "It is very chill, relaxing, and convenient. It's also very safe. You can find restaurants, diners, supermarkets, and anything that you need basically here. But it's not that ideal for shopping or entertainment, of course.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "And what I like about the upper West side the different types of  i'm glad that it has some diversity but I could be a little bit more shopping centers and the mainand this is manage is that it still expensive to rent without public housing",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "It's great to be close to Riverside and Central Park. The upper west side has a lot to offer for activities, dining, and the arts.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "The area is becoming overrun with Columbia students and local businesses keep getting run out by high rents. Yet. There are still homeless harassing people... but the architecture and quiet are worth it.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Very nice neighborhood, amazing parks all around, good schools, a very family centered neighborhood. Can be expensive.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Manhattan Valley - Morningside is a neighborhood on the Upper West Side of Manhattan in New York City.  According to the 2000 census 48,983 people live in the community. Of the population, 44% are of Hispanic origin, 32% are African Americans, and 24% are Asians, whites, and other races.  Crime & Safety Report states the area as the second-safest place in Manhattan.  \n\nPresident Obama once lived two blocks away.  Seinfeld fans may appreciate visiting Tom's 24 hour coffee shop (where the show was taped.)  The 106th cross street was once home to the renowned jazz musician Edward Kennedy “Duke” Ellington. There are many restaurants named in his honor.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "Housing is relatively good here, but there is a lot of it. However,  I'm not sure how much of it is affordable.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "The rents have definitely been going up in this area.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 5,
+            "text": "The apartments available in the area are absolutely gorgeous. Unfortunately they tend to be expensive. But for the quality of living, the price tag is completely justifiable.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "Its new york city. I dont know what you are expecting. These questions do not make sense.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "The housing is great, there is really no issue in terms of the aesthetic or how well homes are taken care of. I don't mind the occasional graffiti so this is not really an issue for me. The biggest issue with the neighborhood is the dramatically rising cost of housing. \r\n\r\nI would say the best placed to reside in this neighborhood are near the riverside park or central park. Also the neighboring areas around Columbia University/Barnard/City College are beautiful and more reasonably priced.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "The Upper West Side is filled with beautiful old, pre-war apartment buildings and also single family homes. There are also modern contemporary apartment buildings with facilities and large spaces.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "The houses are lovely to look at. They have an amazing charm. Yet, they are extremely expensive.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 5,
+            "text": "To live in an area that is worldwide known and is viewed as one of the best places to live in the world. The housing is set up the best because there is countless people who try their hardest to find a living space in Manhattan and the growth of the community population growing, the housing is set up the best way to make everyone feel comfortable as well as satisfied.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "THERE HAS BEEN A LOT OF NEW DEVELOPMENTS, MAINLY, LUXURY. SO THE AREA HAS CHANGED",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "There are buildings and brownstones.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 5,
+            "text": "I love many of the restaurants in this area. I eat out regularly.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "There are a fe local restaurants that I absolutely love",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "I love the vibe and atmosphere of the neighborhood. There are so many stores and so many different places to eat. There are so many cultures represented in the restaurants. I can definitely get everything I need in this area.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "Thereare a lot of food options in this area. There are new restuarants constantly opening up as well as the old timers which have been in the neighborhood for some time but remain delicious. \r\n\r\nThere are a good number of new coffee shops that have opened up which have definitely been welcomed in the area. Currently some of my favorites are Irving Farm Roasters, Box Kite, and Aroma. They all have great food options as well. \r\n\r\nAs well the upper west side is known for having a large Jewish populaiton, as such there are great food options like Zabars (super marker), Barney's Greengass, and Fine and Shapiro that serve delicious lox, bagels, and pastrami. The best bagel in NYC is also at Absolute Bagels.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "On the upper west side there is a huge variety in terms of the stores that are nearby and accessible. There is a good mix of brand name/chain stores and boutiques. Though the neighborhood has changed significantly in the past years, bringing more Duane Reade and CVS stores on every other corner there are still a significant number of delis and a great variety of food options.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "It is a city but there are nice parks & lakes",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "A large number and variety of bars & restaurants.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "Wide variety of goods and services, good service.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There are some gorgeous parks, but they are not natural. They are manicured by gardeners.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "My neighborhood has absolutely wonderful attractions. The easy access to Broadway and the world acclaimed museums make this place a vibrant art and cultural center.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "Nature is not everywhere in New York, but the parks are beautiful.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "My local Whole Foods is in walking distance of my home, and it provides every item that I need and want, plus much more. The facility is pleasant, clean and the staff are very polite, and they'll always go out of their way to assist you. I also volunteer at a local soup kitchen, and much of our food comes from Whole Foods, in the form of gifts. They're a wholesome company, as their name suggests, and they take their customers seriously and regard them with respect.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "We have few parks that are mainly used to walk play sports or just jog not really much use for anything else.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 2,
+            "text": "There are many bars and many restaurants that provide good food and evioroment.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Mostly mom and pop store, you can get snacks and drinks easy but not much for fruits and vegetable.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There are a few big chains and countless privately owned shops. Many stores that I grew up, stores that you would find in a mall, are difficult to find.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "Food is always accessible and available. I would never go hungry. The pizza is wonderful and cheap. Most other food is slightly overpriced and delicious. Everything delivers, many places delver 24 hours a day.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "They're okay. Lots of chains.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "There are not many national parks in the area but the outdoors and the nature and trees and the view of the lights and the beauty of the city of art is just one of the most beautiful things a person could ever see.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "There are a wide spread of businesses that covers most of the communities satisfaction without having to leave the area much for things people need on the daily basis.",
+            "category": "Things To Do"
+        }
+    ]
+}

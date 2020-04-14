@@ -1,0 +1,414 @@
+{
+    "id": "12",
+    "name": "Inwood",
+    "niche url": "https://www.niche.com/places-to-live/n/inwood-new-york-city-ny/",
+    "description": "Inwood is a neighborhood in New York City, New York with a population of 52,447. Inwood is in New York County. Living in Inwood offers residents a dense urban feel and most residents rent their homes. In Inwood there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Inwood and residents tend to be liberal. The public schools in Inwood are above average.",
+    "real estate": {
+        "median home value": "$314,355",
+        "median rent": "$1,346",
+        "area feel": "Dense Urban",
+        "rent": "94%",
+        "own": "6%"
+    },
+    "residents": {
+        "median household income": "$52,369",
+        "families with children": "25%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C",
+        "Housing": "C-",
+        "Nightlife": "A+",
+        "Good for Families": "B+",
+        "Diversity": "A-",
+        "Jobs": "C-",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A",
+        "Outdoor Activities": "A",
+        "Commute": "B+",
+        "overall_grade": "B+"
+    },
+    "reviews": [
+        {
+            "stars": 5,
+            "text": "There is a variety of seasons in this area, when it's summer you know it and when it's winter you feel it also. The weather did not impact me dramatically. As long as I checked the weather before I left the house it was relatively good, rarely any surprising weather changes.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "The neighbors that I had while living their were very friendly. They opened up doors for me and if I needed help carrying luggage someone always offered a helping hand. Saying hello to a neighbor when you saw him/her was very normal.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "I am not inclined to really give a full opinion on this question because I did not apply for any jobs in the area. But based on observation the job outlook looked average. If you had experience and knew people in the area you were definitely favored more than ones who did not.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Don't have much of an opinion",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "No worries about natural disasters!",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "There are a few job opportunities and most of them need you to speak Spanish. I don't speak Spanish.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Things around here are adequate",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "I really wouldn't know because I don't work here.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Here public services are quick, fast and very convenient, fire departments are near by for any quick emergency, police cars and police trucks are always found around this area, ambulances and paramedics are just as much found here as fire trucks.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Jobs around this area, are not as good when it comes to how much it would pay, but restaurants are in abundance over here and requires skilled people for cooking and not skilled for cleaning or other things, also many clubs around here need security guards, supermarkets need clerks, people for packing, so jobs such as chefs, maintenance and construction workers are top employers around here",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Very few Rain, not much of storms maybe once in a year, not affected by tornadoes, hurricane or earthquakes.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "It's okay as long as you aren't just used to one type of temperature. We experience all four seasons to their fullest extent.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Employment is limited if you are just focusing on certain neighborhoods but the net is definitely widened if you are searching the city as a whole.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Public transportation is a must for this urban area. The MTA is not always the best but compared to other areas it runs pretty consistently. Only gripe is constant fare hikes are not on level with the upgrades/maintenance.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "mostly phone stores, gym such as planet fitness, and supermarkets.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Can be challenging if not prepared",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "A pool would be nice.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Everybody seems to get along",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Quiet neighborhood in the residential areas.  Picks up in intensity and can be very busy in commercial area.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Over the years, its improved very much. Its much safer and everything is very fixable without needing any police or firefighters involved. The police are visible and there when needed and so are the firefighters and hospitals in the area.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 5,
+            "text": "The police are quick to response to any emergency.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 2,
+            "text": "There isn't a local precinct in my community and it is worrisome when a crime occurs because the police are not prompt.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 5,
+            "text": "I feel pretty safe about the area, i can go a whatever time without worry.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Crimes have stayed the same. The police however should patrol more.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "we do not have much crime in my area so i would have to say that it is pretty safe",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "During the winter and spring I think things are normal nothing out of the ordinary however, during the summer everyone is out in the streets, so you will most likely see fights, arguments, and other craziness.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "So far crimee doesn't concern me very much in my area. A lot of people around 24/7",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "This is a very safe place to live.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "The crime and safety in the community is okay however its getting better with time.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I felt safe in my area, but that doesn't mean their was absolutely no crime that happened while I lived there. I knew that the police were involved in the area but I never needed to call them, therefore I do not know how effective they are. But I did know of some minor crimes that took place but not major ones.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Got robbed once but other than that, its been safe",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "There are recurring burglaries. Some shady looking characters hanging around parks, streets, sometimes.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Its great because crime such as homicide, selling of drugs and robbery barely happens and neighbors are alert to call the police and make sure the crime is solve on time",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "There is crime, but there is a sense of safety in numbers and your neighborhood looking out for their own.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Pot holes still not repaired from winter road salting, some buildings need outside flood lights",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Inwood is a very lively neighborhood mixed with a ton of different cultures. The community is very kind and there's always a local event whether it be for the kids or just the adults.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 2,
+            "text": "I've lived in the neighborhood for over 8 years and have witnessed it go dramatically downhill in the last few years. It's very sad. Big drug problem, violence, lots of aggressive speeding and erratic driving, dirt bikes speeding on sidewalks and in Inwood Hill Park. I no longer recommend this neighborhood and we are moving to Brooklyn next year. I wish the local police would wake up.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "So great honestly best place ever I love it a lot like you should move here if you don’t live here periodttttt",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 1,
+            "text": "Horrible. Schools are terrible. The neighborhood is dangerous. I don’t feel safe here or raising my child here. Rent is extremely high. Very overrated. I’ve lived here 10 yrs and conditions are just getting worse. Drug dealers outside of every building. Strong marijuana smell.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Inwood is a great neighborhood with great bars and nice restaurants while also being a quick express A train to the city. The 1 train is also right there. There are great food carts with empanadas and smoothie places if you want to go for something healthier!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Beautiful scenery and amazing restaurants. The entire neighborhood is full of culture and diversity. You can never find yourself bored or without something to do. Taking walks around Inwood Hill Park with friends and family or visiting The Cloisters in the summer and spring is a breathtaking sight.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "It’s actually a pretty good neighborhood, it has a couple parks where you could sit and relax and just watch people pass by or go for a quick jog or even walk you dog. It’s pretty dense with Hispanic culture but that’s what keeps this area lively. The further up you go passed 215 till you hit the bridge the less interesting and dull it gets since there’s not much going on over there I wish I get to see that area get more businesses that people would enjoy and hold events to get that area more recognition.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "I have never liked growing up here, in Inwood. It was always too loud, too many cars beeping at each other relentlessly. It was not a place I would have loved to call home. But over the years I realized that my neighborhood is one of the most diverse neighborhoods in the states, it makes me, a person of color, feel safe. Feeling safe is what home is all about.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "What I liked the most about living in Inwood is the convenience of having stores nearby.  Inwood is also a quiet neighborhood away from the college scene.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "I moved to the Inwood neighborhood about 10 years ago when I was 13 years old. It is a very populated neighborhood. There are many restaurants, bars, and clubs all through out the area, especially Latin/Dominican food, such as Inwood Local, Mamajuana, Mama Sushi. Since there are an abundant amount of bars, the neighborhood can at times tend to get noisy. The neighborhood has a great park to go running or to just meditate, it is called Inwood Hill Park. Nearby are many forms of public transportation like the A and 1 train.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I’ve lived on inwood for a few years now, I like the neighborhood, I honestly would like to see more kid friendly business, more activity for kids, where parent can take a Sunday afternoon to do activities sound the neighborhood with them!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I have been living  in the inwood area of Manhattan for a few years. The neighborhood is overall very friendly and family orientated. The area is changing and becoming modern, the apartments are very large. I feel living in Inwood, you can get more for your buck than in some other areas of Manhattan.  Living in this area I don't see much of violence or police activity, or gang activities which is a blessing considering I am raising two daughters in this neighborhood.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I love the cultural aspect of Inwood. There are many things to do from trying out great restaurants to taking a nice stroll in Inwood Hill Park.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Inwood is a very interesting place to live. It’s like a combination of Bronx and Manahattan, with makes it a good place for those who prefer one or the other.\n\nThe subway is close, specifically likes A and 1 run around this area, and some buses like the Bx7 and more.\n\nThere’s plenty of options when it comes to food, catering to different tastes.\n\nSome parts are quiet, others are loud. Parking is very limited.\n\nThings that I would like to see improve are: avalibility of more parking spots, and the reduction of night life activities around residences.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "People are very welcoming and very cultured. Inwood is very diverse and I love being able to walk outside and be able to go anywhere in the city.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I have lived in inwood all my life. It is a great location its on the cusp of a very lively neighborhood as well as a relaxed and quiet neighborhood. There is great food and nice family spots and parks near by. The only downside is the distance to downtown but that is made up with the express A train, it really doesn't feel long at all.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I love that the area is very safe. There are lots of shops, restaurants and bars. There is also a fish market and many take out food. There are 2 parks around the area as well as the cloisters.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I love my neighborhood because its kind of like the suburbs of the city. Its quite and great access to nature. what i would love more of is gyms other than planet fitness and more healthy options for eating out.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Living in Inwood has been a very exciting and thrilling experience. With everything being in walking distance, there is almost no way you could miss out on any fun. Whether its going hiking in Inwood Park or dancing the night away in some of their famous lounges, there is always something to do here. Not to mention that if anything \"crazy\" were to happen to you, the hospital is also right there! Inwood is filled with a lot of diversity; you can always get a taste of different cultures just by taking a walk through Broadway. The only down side to living here was finding parking. But that's only if you don't mind paying for the public garages.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I have actually been living pretty good in Inwood. Which is located in Uptown, Manhattan, NY. It's a calm and serene neighborhood most of the time. When something do happen, I see the police officers minutes after. The neighborhood it's 90% clean, and most try to keep it that way.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "Could be better. Rents are too high.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "The housing in the area was pretty good depending on if you are comfortable with apartment sized living spaces. I did not see any abandoned properties. The cost of living is about 3-4000 dollars per month and the best place in my opinion to reside is Inwood.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "It is a condensed urban area so there are lots of apartment buildings and it is hugely populated. The area is being advertised more so there is a new influx of people moving into the area.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "Mostly co-ops and very affordable compared to the rest of Manhattan.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "The food near this area was very good and based on the amount of people who went out at night so were the drinks.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "The area that I lived in was very convenient and affordable, their were coffee shops, restaurants, laundry mats, shops, and many more. I typically favored the coffee shops because they were very unique and comfortable. The laundry mats were convenient and almost always available when I needed  them and the customer service was polite and welcoming. The shops were average, not my favorite but matched the uniqueness of the area!",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Really great parks but accessibility but hiking trails aren't maintained",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Lot of restaurants and a few clubs. It just seems like its all aimed to please only one ethnicity.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Few good restaurants. Lots of supermarkets and pharmacies. No home improvement stores. No mall. No movie theater/cinema.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There are a few parks here which is rare in NYC, so I like that.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "I hardly visit the restaurants as I stated in last page, I'm not into drinking and partying. Food quality in most of these establishments are a second thought to drinks and entertainment.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Inwood is a changing neighborhood. The supermarkets are limited. The big draw in the last few years is the restaurants that are basically a night scene for younger people. They call my adjacent block Alcohol Alley, and I've seen it on the news twice for a problematic situation to living conditions. Noise, general partying disturbances to neighbors. There are many rats, mice and roaches. The other stores are just so-so. You can survive here by getting basics within walking distances.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Restaurants such as La Tina, Floridita, La nueva Espana, are great restaurant that offer tropical drinks/ Hispanic food.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Most stores are very close and its easy to get there by walking. Stores such as Jimmy Jazz, Jeans Bar, Footlocker are very easily found and close to this area. These stores are some of the popular ones among sneakers and clothes, other stores such as Game stop and Best Buy are good stores as well",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "There is a great variety of stores and because it is an urban area they are usually open late or at least for a certain time on a daily basis. Big emphasis on convenience of being able to find whatever you are looking for whether clothing, food or other goods.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There are sufficient enough parks/recreation locations where one can go about enjoying nature.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "The neighborhood has improved to where people come into the neighborhood for the events, food and the nightlife as well. There is a great variety of things to try.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "alot of mom and pop shops. many delis and salon.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "Ft. Tryon Park has many activities",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "No movie theater in the area.  In the past there were two.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "Nightlife, bar life has significantly increased",
+            "category": "Things To Do"
+        }
+    ]
+}

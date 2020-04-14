@@ -1,0 +1,504 @@
+{
+    "id": "10",
+    "name": "Harlem",
+    "niche url": "https://www.niche.com/places-to-live/n/harlem-new-york-city-ny/",
+    "description": "Harlem is a neighborhood in New York City, New York with a population of 181,379. Harlem is in New York County and is one of the best places to live in New York. Living in Harlem offers residents a dense urban feel and most residents rent their homes. In Harlem there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Harlem and residents tend to be liberal. The public schools in Harlem are above average.",
+    "real estate": {
+        "median home value": "$799,700",
+        "median rent": "$1,220",
+        "area feel": "Dense Urban",
+        "rent": "88%",
+        "own": "12%"
+    },
+    "residents": {
+        "median household income": "$52,101",
+        "families with children": "22%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C",
+        "Housing": "C-",
+        "Nightlife": "A+",
+        "Good for Families": "A-",
+        "Diversity": "A+",
+        "Jobs": "C",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A",
+        "Outdoor Activities": "A",
+        "Commute": "B+",
+        "overall_grade": "A-"
+    },
+    "reviews": [
+        {
+            "stars": 3,
+            "text": "Wish i could feel safer.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "This neighborhood is extremely family oriented most of us have known each other growing up, so through all negative circumstances we remain united. Most of the events in the community have come to an end years ago, due to the fact that our community center was shut down. Neighborhood trips and block parties were all established within the community center administration. I don't like the fact that we don't have a dog park because almost of us have pets. Some people are afraid of dogs so it would be useful to have an isolated area where pets can be walked and play. I also believe less loitering and trespassing would occur if NYCHA had security in building lobbies.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "University area, life revolves around it.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "After you live there for several years, the neighbors get to know you, and will reach out to speak to you.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The only employment to have in his area is construction. There is major construction in the neighborhood. A supermarket  is in the process of being build, therefore  major job opportunities.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The public service around this area excellent since there's a police station two blocks away. \r\n\r\nI remember this one time there was a fire in my building due to a electric heater the other of the apertment left on, se call the 911 and in about 5-8mims the police and firefighters were here helping out and evacuating the people out of the building. There's no crimes around here as i mention earlier. And the public service is really good",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Well we have public and private gyms. The gyms around here are very affordable the most popular gym around this area is planet fitness, they offer a great service and is very cheap to inscribe",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Actually around this area natural disaster don't occurred, the most we be getting is very hot summer that reach temperature of around 105 cercium. And very cold winters with alot of snow storm but beside that everything around this area is great",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Finding a job around here is not that easy since the store around here have the same employed for a very long time but for time to time nice job opportunities appeal around restaurant and store around here",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "It's okay for minimum wage",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "There weather is pretty good. There is nothing extreme or natural disasters.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "I can't get a good job close to my home. There are some stores at the nearby mall that is hiring tho.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "here we have a lot of ways to exercise \r\n\r\nthe gyms, the basketball couts,the soccer fields\r\n\r\nwe have a lot of healthy food everywhere.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "in this community the people are willing to help always if you need something you can ask trustingly.\r\n\r\nthey people usually tend to live here for a long time.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "well the weather here in new york it's sometimes a problem, specially in the winter time when we have the blizzars and the snow storms.\r\n\r\nthe spring still a bit cold but the summer and the fall are really nice.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "in this area i would say that is not such a big deal..\r\n\r\nwhat the people usually do for a living is ''anything'' \r\n\r\nof course i have to add that most of the people like what they do because they have got used to it\r\n\r\nhowever i wouldn't say that it is ''really bad'' but i wouldn't say that it is ''awesome'' either...",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "The weather is pretty average, cold in the winter, hot in the summer, nothing really extreme.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "Most people have to travel to find a decent job.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "it changes, and its mixed up a lot.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "It great during the day for the most part people are very friendly and likable. People greet each other as they walk by however at night you need to look over your shoulder.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "definitely needs more street lights.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "I am not afraid for my life when walking the streets",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "You almost never sees crime acts around here.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I've heard of crime around here but never really seen it. Everyone in the neighborhood knows each other one way or another and overall, it's pretty safe, even at night.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I haven't had any problems in the area but some may consider it \"sketchy\".",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Things happen but there are always police around.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "The crime in this area could be a bit less but I do feel very safe. I am comfortable when I move around especially during the daytime. Rarely do we hear about shootings but they do happen at times. I haven't recalled hearing of any robberies in my area so that is good. The police aren't always around the area but whenever there is an incident, you will see them around. The police do arrive in emergencies quickly and that I believe is very good.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 2,
+            "text": "The crime is not good people have gotten shot before in front of my building.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Sometimes it takes a while for the authorities to grab hold of a situation.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I feel mostly safe in my neighborhood.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "There are not many crimes that go on in this neighborhood, but before when I was younger there was a lot of crime I would say thks neighborhood has improved greatly. Before police would have people handcuffed on the floors in buildings, you always had to walk with at least one other person and now its pretty safe to walk alone even in the night.\r\n\r\nThere may be nights where there are creepy people, or people who are not thinking straight in the moment but usually your fine. There is also not much graffiti, or vandelism, maybe some homeless people steal some bread, or fruit but other than that it seems fine.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "I never had an issue in regards to my safety.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 2,
+            "text": "The criminal activity in my neighborhood makes it unfortunate for anyone who lives there. There are typically police officers present during certain hours, however, many people are able to get around getting caught drinking or smoking on the premises. There are sometimes shootouts involing individuals who live in other areas.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I live on riverside, it a quite area. I dont recall the last time I saw a police.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "The police are extremely vigilant and the 145th street station is very helpful in maintaining the order around the area.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Since this is an uptown neighborhood, it is common to have a higher crime rate. I never really feel like my safety is in danger and there are many more places in New York that are much more unsafe.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "When it comes to crime and safety I believe my neighborhood is an okay area due to the security around. Although the services could improve it's still fits us.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Slow response time, but there's improvement",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "As long as people keep to themselves and stay aware everything seems to be ok.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I've lived here all my life and have never seen an incident occur, that is not to say that they don't occur, but it is not as frequent as other parts of the city. On average, you will probably see at least one police car each day but that is common throughout the whole city. Sometimes you will see the police at subway stations. My safety concern pertains to groups of men always standing on the sidewalks at all times of the day and nights.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 5,
+            "text": "The culture of Harlem is still very vibrant, even with gentrification occurring. Having lived in Harlem for all of my life, I can truly say that this neighborhood is very connected, meaning that the people who have been here for a long time are very welcoming to people who are just moving here. There are a lot of public transportation options throughout Harlem which makes it for a very fast commute time to anywhere in the five boroughs, to the airport, and many other places.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Harlem is the jewel of New York City and mecha for Black America. There is so much history in these sidewalks and this culture pours out from the people like water from an open fire hydrant on a hot New York summer day. To live in this neighborhood is to feel the pulse of Community in a city of strangers. People here know their neighbors and care for them as if they were family. Harlem is home to many cultures that all coexist and support each other.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "I like Harlem which is a neighborhood centered in Manhatan and its commerce offers ease of finding what is necessary near any location. There is good energy and kindness from the citizens",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Many people refer to Harlem as an \"affordable\" Manhattan neighborhood but this is only true when comparing it to downtown (and anything looks affordable compared to downtown Manhattan). There are very robust and diverse communities within Harlem (Spanish Harlem and Little Senegal for example). For context I am someone who has lived in Harlem for all of their life so far (18 years) so I'm basing ratings like \"Public Schools\" on when I attended.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I like that my neighborhood has different kinds of foods and clothing stores. Everyone knows each other, we are a good community.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "There is still a sense of community in this neighborhood unlike the rest of New York City, where no one knows their neighbors. There is vast gentrification happening, which is both good and bad. Good because the neighborhood is a lot safer than what it used to be, and bad because it takes away part of that good old Harlem soul. What is left of a prominent jazz scene, diverse community of people of all different ethnic, racial, and economic backgrounds, bustling small businesses, and a general nice vibe. Can get a bit sketchy at night and can be full of odd characters, but I've never once felt deliberately unsafe.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "The restaurants and the community is amazing but sometimes I don't always feel safe. However, the amount of love that is radiating from here is awesome.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I love living in Harlem because there are so many places to go; eating, shopping and hang out spots. Harlem is so diverse now, it is more so than ever. There is never a place in Harlem where you will not enjoy going to.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "It’s good . I have fun they love and I love them I really and just trying to get this done to that I can say that I did a scholarship",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "If you work in the city and want to live in the city but can't afford it, Harlem is the next best thing. Rent prices are going up but I think it's pretty similar to some parts of Brooklyn and LIC. The 20 min commute to midtown is the best thing ever. There are multiple subway lines to get you to any part of the city. Food options are somewhat diverse but there is a heavy concentration of African American establishments. There are lots of bars and nightclubs (I never been to them so I can't give an informative review on them).  Harlem is very neighborly. I always receive warm and friendly greetings from familiar and unfamiliar faces. Crime is everywhere but I always feel safe walking around (even when walking my dog at 12am).",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I love living in Harlem near Columbia University! It is under much construction but every day we see something new getting remodeled or completed and it makes this side of Harlem look very beautiful!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I really enjoy living in Harlem. The diversity of this neighborhood is apparent in terms of cultural, ethnic, and socioeconomic status. I think this is the beauty of this neighborhood - everyone is welcome.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "There's is a lot of stores around Harlem so if you like shopping then living around here isn't too bad. Also there's a deli on almost every corner.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Harlem is a place that is very different than most places. I love Harlem because there are so many different cultures that live here. For instance, you can find Puerto Rican, Dominican, Mexican, African, and Jamaican Food all within a 5 minute walk from each other. One thing that I somewhat dislike is that it can get very loud sometimes do to its large population.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Every time I have the opportunity glance at the beauty of the historical streets of Harlem, it never fails to amazed me. The welcoming breeze that strikes every pore of your face, with a certain smell of fried chicken that would eventually lead people to covert as new customers of Popeye's, the colorful streets that copes along as the seasons transitions, the old structured buildings that takes anyone to a 90's movie, the concerts hosted by honks with a special collaboration of sirens, the countless waves of individuals, who's similarities cannot be seen with the bare eye. This numerous traits not only provides their tourist with unique free entertainment, but it also demonstrate why Harlem is the perfect example a veteran, who worked throughout years, and has finally received their retirement paycheck. I fell in love with this place, and if a tourist ever asked me what are some of the best areas in NYC Harlem would always be number one on my recommended list.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I love Harlem! Despite my reservations. The people are friendly, easy access to the rest of NYC. However, the parks need to be redone and we need more businesses to take a chance on Harlem.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "my experiences in this part of town were very good. I lived in all around Harlem since 2011. The people, the culture, environment has/t been anything but great. slowly you would notice the gentrification happening around with fancy restaurants taking over small shops and bodegas. The sad truth but the neighborhood is good for raising families and living independently.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "Harlem is unclean with unpleasant odors.  Sadly, there are many addicts and homeless people on the streets. However, the location is convenient and there are free programs for children. There are also many restaurants to choose from.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "HARLEM HAS CHANGED A LOT THROUGHOUT THE YEARS AND ITS MOSTLY NOT A DOMINANT AREA WITH MIX CULTURE BUT THERE STILL IS A LOT OF VIOLENCE IN THE AREA I JUST WISH I COULD GET MY MOM OUT THE PROJECTS.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "The culture, food, and transportation here are all great. It's easy to get to any neighborhood in NYC from here. The rent could be  little lower though.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "I like where i live there is just crime and drugs and that's not good.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "The housing isn't terrible, although the cleaning procedures should be more strict thoughout all of the buildings, and on weekends as well.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Some buildings are kept up, and have been renovated. Some are cared for very poorly. All are expensive, and getting more so.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "This neighborhood has mostly apartments and a couple of brownstones.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "There's a lot of building not much houses however enough apartments for many families.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 5,
+            "text": "The community I live is not messy it's a well organized clean community",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "There are tons of new housing units being built constantly but they are rarely affordable",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Of all of the boroughs, I think upper manhattan is one of the few places that hasn't doubled in living costs in the past few years. It's one of the few places that has remained affordable, but it isn't necessarily very nice.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Its not great in many aspects still, but pricing in this particular area are good compared to the rest of the city (not to the country, however). It is getting better slowly in other aspects as well.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Housing is sufficient in this community. However, as a Harlem resident for more than 10 years, abandoned or dilapidated houses are a consistent presence in this community and it has done very little in either renovating or demolishing such houses.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "There are apartment buildings with only 6 floors so its comfortable and management does a good job of making sure the buildings are clean. Although the rent could be a little more pricey then for what we get.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "The housing area is alright",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Short and sweet: walk-ups, million-dollar brownstones and duplexes, and old buildings converted into condos.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 2,
+            "text": "The quality of housing is very poor. Everyone lives in run down apartment buildings.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "Italian, Asian, Creole, Southern, Spanish, American dishes. Londel's Supper Club, Melba's, Chocolate, Red Rooster, Sylvia's",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "The area is saturated with restaurants. My favorite is Londel's Supper Club. Also, the Red Rooster,and the famous Sylvia's .",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "There are a lot of good restaurant around here, the most popular are Harlem public and social appear.\r\n\r\nHarlem public is more of a bar type of restaurant, homemade hamburger is their speciality. Social appear is more of a sociable restaurant were you can go and sit down and have a good meal with your friends and family\r\n\r\nI love their yuca fries and Asian chicken wings",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "One of the best store around here is call \"papasito\" is a Hispanic specifically a Dominican store, they sell everything in there even cook food with my the way is delicious. They offer their customers a great service always with a smile on their face.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "We have lots of conservatories, parks, etc",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "They are a wide variety of different kinds of food in the area",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "It has an A rating for the restaurants",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "There are a lot of places to eat. The place is overflowing with fast food restaurant however there are some nice sit down places.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Its pretty good. There are a lot of good shops. I can buy everything that I need close to my home.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "i think that the restaurants here are the best part of the area because of the variety\r\n\r\nItalian,Dominican,Arabian,Cuban,American,etc...\r\n\r\nyou can have what ever you want and i would say that they are quiet affordable somes\r\n\r\nmore than others but that's up to each place.\r\n\r\nsummarizing i will say that they are great.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "here in this area there is a lot of different kinds of stores\r\n\r\nthe most popular are the super markets and the restaurants  \r\n\r\ni would definitely say that in this area you can have what you want whether you are a picky eater or not\r\n\r\nin most of the restaurants here the food goes from ''pretty good'' to ''excellent''...",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There's a lot of fast food options in Harlem, but there are no healthy options in this area.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "The number of small businesses has been decreasing every year due to the gentrification that Harlem has been going through recently.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 2,
+            "text": "As a healthy consumer i believe we have too many fast food restaurants and not enough options for those who try to live a healthier life style.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Theres for the most part accessible however not as extravagant.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "There are many different types of cuisines around my area and some places food taste good",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Usually depends on what you need but many stores usually have what you need",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "Love all of the new places that pop up at least once a month. It's going to be the new hot spot in a few years!!",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "I can generally get everything I need within walking distance, restaurant and bar scene is growing rapidly!",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "New York city has the most fabulous tourists attractions",
+            "category": "Things To Do"
+        }
+    ]
+}

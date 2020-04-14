@@ -1,0 +1,39 @@
+{
+    "id": "14",
+    "name": "Little Italy",
+    "niche url": "https://www.niche.com/places-to-live/n/little-italy-new-york-city-ny/",
+    "description": "Little Italy is a neighborhood in New York City, New York with a population of 3,740. Little Italy is in New York County and is one of the best places to live in New York. Living in Little Italy offers residents a dense urban feel and most residents rent their homes. In Little Italy there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Little Italy and residents tend to be liberal. The public schools in Little Italy are above average.",
+    "real estate": {
+        "median home value": "$814,686",
+        "median rent": "$1,280",
+        "area feel": "Dense Urban",
+        "rent": "93%",
+        "own": "7%"
+    },
+    "residents": {
+        "median household income": "$70,346",
+        "families with children": "17%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "B",
+        "Housing": "C-",
+        "Nightlife": "A+",
+        "Good for Families": "A",
+        "Diversity": "A",
+        "Jobs": "C",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A+",
+        "overall_grade": "A"
+    },
+    "reviews": [
+        {
+            "stars": 5,
+            "text": "I love my neighborhood. My neighbors are friendly and we exchange greetings. I've gotten to know shop owners and regulars on my street, and they know me. This makes this huge city feel small and intimate.",
+            "category": "Overall Experience"
+        }
+    ]
+}

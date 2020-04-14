@@ -1,0 +1,74 @@
+{
+    "id": "8",
+    "name": "Gramercy",
+    "niche url": "https://www.niche.com/places-to-live/n/gramercy-new-york-city-ny/",
+    "description": "Gramercy is a neighborhood in New York City, New York with a population of 20,060. Gramercy is in New York County and is one of the best places to live in New York. Living in Gramercy offers residents a dense urban feel and most residents rent their homes. In Gramercy there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Gramercy and residents tend to be liberal. The public schools in Gramercy are above average.",
+    "real estate": {
+        "median home value": "$883,315",
+        "median rent": "$2,410",
+        "area feel": "Dense Urban",
+        "rent": "63%",
+        "own": "37%"
+    },
+    "residents": {
+        "median household income": "$126,549",
+        "families with children": "10%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C",
+        "Housing": "C",
+        "Nightlife": "A+",
+        "Good for Families": "A",
+        "Diversity": "B+",
+        "Jobs": "C+",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A+",
+        "overall_grade": "A+"
+    },
+    "reviews": [
+        {
+            "stars": 3,
+            "text": "There are a lot of workers in the area of many companies and many industries. Its a great place to look but there is not affordable living near this area so that must be kept in mind.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "The area has a great night life but I would like to see less homeless and psychologically impaired in the streets and out into a shelter",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "My experience from living this past year at my school’s dorms in Gramercy was very positive. \nA walking distance from the east village and Chelsea, living in Gramercy feels like a nice and quiet place that is also close to all the hip and growing areas in the city. The Gramercy Park is one of the most beautiful getaways in the city, but only residents of this area are allowed to get in with a unique key. You’ll have to walk to the East Village for the cool bars, although there some moderate bars around Gramercy. Overall I believe that this area fits most for students or families.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Gramercy is a diverse area, full of friendly residents, including college students, local businesses, and art.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "This beautiful neighborhood is very safe and has plenty of shopping, restaurants, and nightlife. The architecture of the buildings surrounding the exclusive Gramercy Park is very classic and picturesque.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I lived in Stuyvesant Town and later in Peter Cooper Village and both are fantastic. I loved the area and both provide easy access to express buses uptown and cross town, L at 14th street, and 4,5,6 trains. PCV and Stuyuvesant Town are possibly the best value apartments in the whole city. The grounds around PCV and Stuy Town are wonderful and super dog and family friendly. It's amazing to be able to live in such a quiet, calm area tucked into such a chaotic city. ",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "The local businesses are always changing and abundant, always check yelp for up to date reviews, numbers and websites.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There's a large variety of businesses , which I like.",
+            "category": "Things To Do"
+        }
+    ]
+}

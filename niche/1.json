@@ -1,0 +1,329 @@
+{
+    "id": "1",
+    "name": "Chelsea",
+    "niche url": "https://www.niche.com/places-to-live/n/chelsea-new-york-city-ny/",
+    "description": "Chelsea is a neighborhood in New York City, New York with a population of 59,305. Chelsea is in New York County and is one of the best places to live in New York. Living in Chelsea offers residents a dense urban feel and most residents rent their homes. In Chelsea there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Chelsea and residents tend to be liberal. The public schools in Chelsea are above average.",
+    "real estate": {
+        "median home value": "$1,186,000",
+        "median rent": "$2,139",
+        "area feel": "Dense Urban",
+        "rent": "72%",
+        "own": "28%"
+    },
+    "residents": {
+        "median household income": "$124,332",
+        "families with children": "10%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "B-",
+        "Housing": "C",
+        "Nightlife": "A+",
+        "Good for Families": "A+",
+        "Diversity": "A",
+        "Jobs": "B-",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A+",
+        "overall_grade": "A+"
+    },
+    "reviews": [
+        {
+            "stars": 3,
+            "text": "Because of the large verity of businesses in my area, finding a job does not seem too difficult. However, many places do not say whether they are hiring or what positions are open.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The farmer's market always has the same vendors, but it's New York - most people keep to themselves",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "It's pretty cold in the winter and very hot in the summer, but with the right winter coat and air conditioning, you can handle anything.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "I'm a student, so I'm not entirely sure what the job market is like; I work on campus.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Great right now. Spring. Winter is very cold. Fall is nice. Summer bit hot",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Employment in this area ranges from  just retail and fast food restaurants.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "New York is fairly temperate but the effects of climate change can be felt. Especially with hurricane Sandy many New Yorkers became aware of how vulnerable they were to flooding. We've experienced more violent storms in recent years. Overall the fall and spring are the most amenable to everyone. In the winter everyone's in a rush to make it from one warm building to another and in the summer with all the metal, glass and concrete the hear can become oppressive. But overall the weather in NYC is pretty great.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "There's a fair number of politically active people in the area and there's a fair number of disaffected individuals who don't care. Almost everyone has some cause though. Whether its local community or political or environmental. Almost everyone has an activist streak for their own cause.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "As cynical as New Yorkers may be cynical we on average do have pretty great public services.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "The transportation available in New York is the best. The only downside is that the number of people using it causes its own issues. Cars are a problem during rush hour, trains get crowded, buses get crowded, every thing is there its just a matter of timing your way around a big rush.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The job market is fairly disparate in New York. There's a decent number of minimum wage jobs working in the service industry (cashier, waitress, etc.) and there's a fair number of internships for college students who are looking for experience in the field (although because its New York almost all of these are highly desirable and competitive) then there's jobs in your field of interest that are usually fairly difficult to find. But jobs are scarce everywhere so New York is hardly an exception. It's the cost of living that makes the minimum wage jobs hard.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "I can't say what goes on behind closed doors but for the most part there are few displays of obviously drug or alcohol abusing individuals in public. There's the occasional homeless person but its not very frequent or on every block. In terms of fitness there's always people biking in the bike lanes or running nearby.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "It's Chelsea. There's gay people. It's New York. There's every race, religion, and background. The only thing that New York is short on is conservatives and poor people. Conservatives because its New York. We're pretty freakin liberal. Poor people definitely live in New York but the high cost of living, especially in this neighborhood, often excludes those of a lower socio-economic class.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The seasons are from one extreme to another. Hot hot summers and frigid cold winters with a short spring and fall. Snow/ice creates a lot of transportation issues.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Large gay community, many jewish people live nearby. A lot of international people including students. They are all very nice people it seems and have had no issues with any of these people.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "It seems like everyone likes to keep to themselves for the most part. No one has ever been nasty to me so I think the community is generally a nice and inviting neighborhood.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "There are many gyms nearby and healthy food options. People definitely seem to care about their image in Chelsea Manhattan",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Taxi Drivers and commuters are always in a hurry. Pedestrians have to cross with extreme caution because drivers don't care if you are in the road, they wouldn't be afraid to hit you",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Most people in this area are highly involved in the fashion industry. Jobs in fashion are readily available. Its also common to see any type of design job open in the Chelsea area. Its a design oriented place to be in Manhattan",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Its not a very bad neighborhood, if you are looking for tranquility and a neighborhood where its safe to be outside more often this would be it.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "It's a large city, so there's bound to be some crime, but it hasn't impacted me negatively and my neighborhood is fairly safe, even at night.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Police are violent in this country tho. So im not sure",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Chelsea has very limited crime and is generally a safe neighborhood. While the police aren't always visible they're around when called. In any situation however its more important to be aware, and be safe in when and where you're walking. A little but if street smarts goes a long way in staying safe.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Very little crime in this area. Some streets you should avoid because they aren't well lit.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 5,
+            "text": "I enjoy the all the art galleries and small shopping boutiques. Also, there’s many great eats around the neighborhood especially with the new Hudson Yards shopping center. Chelsea can be very lively or chill and quiet depending of the of the week. I love living in such a great neighborhood.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Hudson Yards is awsome! You have the Highline where you yaou can escape in a scenerary of trees, shrubs, plants and hear birds sing in a bustling city of Manhattan. a great palce to take pictures, free classes and entertainment. The Vessel, Shed, Mall, Chelsea Market, Google... will leave you breathless. Also, you can talk a lovely stroll by the Hudson River where you several choices or boat rides, the Intrepid Musem, see New Jersey, or go row boating or kayaking. You are near 34th and 42nd Streets to shop, eat, Broadway shows, Movies... So much to do!!!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "This neighborhood I would say is pretty safe compared to others but its also very dirty, trashbags everywhere... but besides that its pretty and theres lots of things to do such as; chelsea piers, parks, children park, dog park, food (chinese, italian, japanese, and fast food chains)",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Visitor in the city and thought it was a nice area. would definitely visit again. great experience and people were nice. safe area. Cons are that the place is not very affordable and the real estate prices are inflated; however, this is typical of new york city.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Chelsea is really nice for people who are foodies, or really into art. It has a lot of both. It is also very family friendly with Chelsea piers being so close and there are a few public parks in the neighborhood. The main problem is the rent and cost of living here is very high.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Love how lively it is! There is Chelsea market, Chelsea piers sports center, a YMCA, many pizzerias, Trader Joe's, Whole Foods, and access to many trains. One of the downsides though is that it is extremely overpriced to live here. One avocado can be $4 in most stores.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Overall the neighborhood is a great, I’d say there’s still room for growth when it comes to food variety. Suprisingly, there aren’t many healthy super markets in Chelsea. Safety could be improved a bit, mostly around the high schools in Chelsea.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I LOVE THE DIVERSITY AND MANY CULTURE. IS A LITTLE AREA AND VERY SAFE. EVERYTHING IS IN YOUR HANDS AND VERY EASY TO LIVE. I LOVE THE OPPORTUNITIES RIGHT THERE.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Love it. It’s very industrial and tons of things to do they have great eateries and shopping centers the people are great it’s family friendly and animal friendly",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "it's a very good neighborhood. Quiet and not too many crimes around it. it's safe! you can see the police protecting the area. one of the things that I like about Chelsea is that it is located between downtown and midtown. Wherever a person moves in Chelsea will be close to the 34th street and nearby the piers. if you live between 9th ave and 8th ave, you can walk to the piers which is two blocks away from those avenue.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "The community seems very nice as a temporary living environment. It has its faults, like most areas, where there places where people do unusual things, but there are rarely any incidents that occur in this area since it is very populated.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "A great neighbourhood - centrally located with incredible access to transportation, amazing food, and lots to do!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I grew up in this neighborhood. It is a diverse and rich community. People from all over the world. You meet fantastic people who take care of each other and care for one another. You have great schools near, plus everything you can possible need is walking distance. Recommend this neighborhood to anyone moving there.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I spent the past four years of my life going to high school in Chelsea. This area gained quite the respect from me. Not only does it have an extensive accepting vibe, it is filled with tons of activities and opportunities. Whether it be strolling the High Line on warm spring mornings or finding a great meal with friends, Chelsea exhibits a form of livelihood. It became a home for me as I walked past beautiful townhouses and identifying with art in museums like the Whitney. Chelsea also has amazing art galleries, each having their own sense of vivacity. This area is one of the most splendid I have spent my time in.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Beautiful neighborhood. Great tree-lined streets. Plenty of dining and shopping options. One of the best neighborhoods in NYC.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I have lived here for several years.  There are many studios for spin, yoga, pilates, and gyms.  The food is good. The neighborhood is safe.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I have been a Chelsea resident ever since I was 9 years old. Chelsea has a small town mentality, but a big town atmosphere. Night life is nonexistent, but it is a pleasant place to stay.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I love the highline,and all the new high rise buildings under new construction. The west side of Manhattan and the Hudson is really changing the skyline and the community.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "There is a lot going on in the area between tourists, and those heading to the office, however, it is an area of Manhattan that has something to offer. Chelsea is home to the world famous Madison Square Garden (MSG) and Pennsylvania Station (Penn Station). It is also home to the High Line Park- which is an abandoned railroad track that has been renovated into a park (great views). Chelsea is also known for its Fashion District, with streets of fabric and trim shops, to the world famous fashion university, Fashion Institute of Technology. The area also has many historical buildings- like the historical US Post Office on 8th Avenue. It is a more saturated area of Manhattan, and is rather safe.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Chelsea is a great area to live. Lots of places to eat and streets are never crowded. Also, tree lined streets are definitely pretty all year round!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Everyone lives in apartments, so there isn't much greenery, but there are a lot of awesome buildings around. Housing is very expensive, though, particularly in this area",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Very little square footage per person for a large amount of money. Very little storage space and rarely private parking areas",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "There are a good amount of local businesses around my area, however, they have been at a decline for some years now. This is because of the rising taxes and property costs make opening and running a small, independent business a lot harder than it used to be.  The end result is numerous big business stores but a decreased amount of smaller stores",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "There are so many amazing places around to eat and grocery shop at. Bars have fun events like trivia night, unlimited brunch opportunities, and delicious food for all budgets.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "Trader Joe's is the best grocery store I've ever shopped in - everything is cheap and delicious. There are tons of convenience stores on every block, great for buying toothpaste or a midnight snack. Tons of amazing restaurants - Thai at Republic, teriyaki at Glaze, salads at Chopp'd, brunch at Penny Farthing or Brazen Fox!",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "pizzerias, chipotle, mcdonalds, wendy's, taco bell, chinese food, thai food, plenty to go around",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Thing is I generally buy from big companies like CVS, Rite Aids, Duane Read. I dont really see mom and pop shops",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "New York and especially the Chelsea neighborhood has amazing nightlife, and restaurants. The only are where it can fall short is price point although it can be a matter of opinion how expensive something is and often the more affordable options are pretty low key local spots.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "New York actually has some of the best tap water in the country and so drinking from the tap is perfectly acceptable. We get our water from reservoirs upstate some of which are currently being threatened by fracking. Otherwise it's a fairly clean city with its own fair amount of litter and pollution as is to be expected of a city this size.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "It's New York. There's Madison square garden for the huge events. There's innumerable number of small venues for independent artists. There's comedy clubs, art museums and galleries, dance theaters, music shows, you name it its in New York.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "Chelsea has the absolute best variety of stores. There's a large number of small businesses that do everything from bagels (A true sign of a good neighborhood. Any New Yorker can tell you a neighborhood is only as good as the bagels you can get there) to coffee and restaurants are amazing. There's of course the requisite number of chains from McDonald's to Starbucks and probably a odd number of health supplement stores (vitamin shoppe, GMC, whole body). In terms of availability of places to go and things to do Chelsea is the absolute best.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "There is a very wide variety of food options in Manhattan. In my opinion it has the most options of any other city in the U.S.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "It's NYC so parks and nature are very limited. Of what NYC does have to offer, I think that it is sufficient. The parks could be better taken care of.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "Madison Square Garden is the largest attraction in this area. Conveniently located near by is Penn station. There are also events held at FIT such as fashion shows and outdoor flea markets.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "NYC has such a diverse selection of stores, mom and pop shops. big companies, and other businesses. I live in Chelsea and this area has so much to offer such as shopping, restaurants, transportation, educational facilities, parks and sporting events.",
+            "category": "Things To Do"
+        }
+    ]
+}

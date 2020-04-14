@@ -1,0 +1,94 @@
+{
+    "id": "19",
+    "name": "Murray Hill",
+    "niche url": "https://www.niche.com/places-to-live/n/murray-hill-new-york-city-ny/",
+    "description": "Murray Hill is a neighborhood in New York City, New York with a population of 26,091. Murray Hill is in New York County and is one of the best places to live in New York. Living in Murray Hill offers residents a dense urban feel and most residents rent their homes. In Murray Hill there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Murray Hill and residents tend to be liberal. The public schools in Murray Hill are above average.",
+    "real estate": {
+        "median home value": "$875,334",
+        "median rent": "$2,761",
+        "area feel": "Dense Urban",
+        "rent": "59%",
+        "own": "41%"
+    },
+    "residents": {
+        "median household income": "$135,597",
+        "families with children": "11%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "B-",
+        "Housing": "C",
+        "Nightlife": "A+",
+        "Good for Families": "A",
+        "Diversity": "A-",
+        "Jobs": "C+",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A+",
+        "overall_grade": "A+"
+    },
+    "reviews": [
+        {
+            "stars": 3,
+            "text": "There is a little bit from all four seasons here. The changes in weather can be felt as the months go by. There has been a small number of minor natural disasters that effected city life and operations.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Roadwork and sidewalk maintenance is often left unfinished",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "The only times when sirens run through the streets are when EMTs and fire trucks pass or when there is a car accident.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "It's a very certainly located neighborhood, you're close to midtown and downtown respectively. There's a vast variety of dining options as well as bar's, sometimes on the weekends the bar's can be annoying however. It can definitely be a friendly neighborhood with a \"small town\" feel to some extent, my local dry cleaner, deli, bar, restaurant and pharmacy all know me on a first name basis and generally know what I want without having to ask me. Love the neighborhood!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "The area is very calm with lots of young folks. In a very accessible location. Decent food options. Deli's and Duane Reades everywhere",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Very nice area. Quiet, but not too quiet. A lot of good food options in walking distance, as well as many local grocery store options. Also the 6 train runs right down Park Avenue and is in walking distance.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I moved to Murray Hill after living in the East Village, a different neighborhood in downtown New York, for the past four years. Morning to Murray Hill was a little bit of a culture shock. I was very used to artsy vibe of East Village, constantly pulsating and always entertaining -  performers in Union Square and Tompkins Square Park, unique stores, vibrant nightlife, etc. It is also a very student-populated area due to the proximity to NYU. Murray Hill is very much a young professional's neighborhood, filled with 20-30 something year olds who moved here after college (such as myself). The neighborhood is filled with less quirky characters and a lot more happy hour specials. Though a tad more serious and toned down than the downtown neighborhoods, there is nevertheless a good selection of restaurants and bars, and not as quiet at night as areas like the Financial District or Upper East Side.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Murray Hill neighborhood is filled with people from different cultures, businesses, and living complexes. There's always something to do or somewhere to go such as the grocery store, pizza store, newspaper stand, restaurants, clothing boutique, pharmacy, movie theater, and libraries. Murray Hill feels safe because there’s a sense of community, closure, and security. The mixture of locals, commuters, and tourists enhances the diversity in the neighborhood. The neighborhood is often quiet, but once it hits rush hour during the afternoon and at nighttime, that’s when the streets become the busiest. From all 5 boroughs, I’m glad I chose to live in such a welcoming place.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Great neighborhood but rent prices keep increasing",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I like living in my area, it's loud and exciting.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "The neighborhood is relatively peaceful. There are rarely any incidents in the area. There are two grocery stores with in a two block radius. There are also enough restaurants and gyms. The city bus runs frequently on their route. The cost of housing may be a little high. There are no vacant properties for long periods of time.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 5,
+            "text": "There are many chain stores and restaurants owned by bigger companies. In the quieter streets the are some local businesses.",
+            "category": "Things To Do"
+        }
+    ]
+}

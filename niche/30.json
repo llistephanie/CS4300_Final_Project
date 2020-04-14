@@ -1,0 +1,489 @@
+{
+    "id": "30",
+    "name": "Washington Heights",
+    "niche url": "https://www.niche.com/places-to-live/n/washington-heights-new-york-city-ny/",
+    "description": "Washington Heights is a neighborhood in New York City, New York with a population of 144,864. Washington Heights is in New York County. Living in Washington Heights offers residents a dense urban feel and most residents rent their homes. In Washington Heights there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Washington Heights and residents tend to be liberal. The public schools in Washington Heights are above average.",
+    "real estate": {
+        "median home value": "$463,449",
+        "median rent": "$1,304",
+        "area feel": "Dense Urban",
+        "rent": "91%",
+        "own": "9%"
+    },
+    "residents": {
+        "median household income": "$54,514",
+        "families with children": "21%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C",
+        "Housing": "C-",
+        "Nightlife": "A+",
+        "Good for Families": "B+",
+        "Diversity": "A",
+        "Jobs": "C-",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A",
+        "Outdoor Activities": "A",
+        "Commute": "A-",
+        "overall_grade": "B+"
+    },
+    "reviews": [
+        {
+            "stars": 3,
+            "text": "The area is improving but still lacks resources like good grocery store, movie theater and clothing shops.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "Most people in my community keep to themselves. It is not friendly at all. However, their are man events in my community, including youth group.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Not many job opportunities, but there are some.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Some individuals care for their healths, others do not. Hospital could be better, but they're pretty good in comparison to others.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "there is a big difference in health practices between the medica/dental/nursing students and physicians that live in washington heights, and the surrounding community.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The community is okay. i just feel we could be doing better.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "The worst that could happen is that it starts snowing.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "One can find a temporary job around here. I do not recommend finding a professional job around here.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Cold in winter. Hot in summer.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "I'm not too involved with the public services, but I do know they do their job.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Recently, many gyms have been opening up. It's encouraging many to start going.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Some days are bad, some days are very great. Overall, the weather here is ideal for a typical New York day.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "There's no real way to find a strong job here, but if you're looking for part time or just something to do until you can find a bigger job, I suppose it's okay here.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "It's cold but we cope with it.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "Not many jobs out there.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Lots of snow this winter but it melts pretty quickly!",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The hospital system I'm sure employs a fair amount of people, since I am in medical school I hope to get a job at the hospital - sort of a unique circumstance I think compared to the rest of the population",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The weather doesn't get bad since I live in the city. Its a few snow storms and thunderstorms but no tornadoes, hurricanes, earthquakes, etc.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "There are no good jobs unless you are apart of a union, working at a family business like a restaurant, speak Spanish, or work at fast food restaurants like McDonalds.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Living on the city, there are a whole lot of cars which makes it difficult for parking spaces. My neighborhood does have a subway and plenty of bus stops. Transportation is very helpful.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "I know crime happens in my area yet its not something that is constantly talked or heard about. The police are very visible and quick to respond. As a 22 yearly female, I feel very safe in this area.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "I've been living in this neighborhood since I've been born. I've never had an issue with public safety and society. It's very calm and no one bothers anyone.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I feel safe in my neighborhood.  I don't stay out late though.  And I wouldn't go into certain areas east of my nabe.  It can get sketchy on the east side.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Things happen but not often",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "There is a nearby police station so the cops are always on patrol which is very important in todays world. There is a very good and reliable sense of safety.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Just like any other rural area in NY there is very little crime happening in the area. Yes every once in a while something will happen but the overall crime rate has continue to drop over the years.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Crime has never seemed to be an issue.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "There have only been a few instances of crime since I moved in 10 years ago.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "no concerns in this area",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I feel comfortable walking in this area because it is two blocks from a major hospital complex so there is security, lights and cameras all around. Also, there are a lot of families who have lived in this area for many years.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Crime in my neighborhood is something that has declined greatly over the years. It is rare to hear about a serious crime here, unlike other parts of the city.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "I see some small crimes, grafitti etc., but once called the police and they responded adequately.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Crime rate is not as bad as it could be but still need to keep an eye out there are cops around but it can be dark and unsafe in some areas.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "This is a safe area, I am not very concerned with crime.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 2,
+            "text": "The crime and safety in this area is very bad. It is bad because sometimes there  are drugs around my block and a lot of fighting.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "It's NYC there's always going to be suspicious activity, but it's nothing super scary.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 1,
+            "text": "Crime is everywhere. We need more protection in the neighborhood.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 1,
+            "text": "There's always crime and theft.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Things happen like robberies, gun violence, drugs, etc. Police know about it and try they best to stop it I guess.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 2,
+            "text": "Crime will never stop until one decides it.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I like the diversity and how there is a lot of college students in the area. There are also elementary schools and endless opportunities.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Washington Heights is brimming with diversity and is in proximate distance to everything in both Manhattan and the Bronx. It has a rich history as a neighborhood and has largely preserved that heritage. The neighborhood's affordability has been shifting for the last few decades, becoming increasingly gentrified. However, native residents are still very much in the neighborhood. Dominican and Latin American businesses and restaurants are in ample supply in Washington Heights.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I went to school here - Yeshiva university is a great school located here in Washington Heights. There were lots of places for me to eat lunch and i did feel safe for the most part when commuting to and from Soho.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 2,
+            "text": "Washington Heights is the Bronx with Manhattan prices - same discount stores, same population of Dominicans, same Spanish-speaking restaurants, etc., all in danger of gentrification because poor or cheapo white people (I know a debt ridden moocher who lives here) don't mind pricing out longtime residents just to boast they have a \"Manhattan address\" Please. Move to the Bronx instead and get over yourself.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "What I like about Washington Heights is that is a diverse community. Everyone is always around or trying to help out others.  They have a lot of upcoming stores and job opportunities. What I would like to see change is the parking arrangements, It is so hard to find parking around the neighborhood so with all these upcoming stores we hardly have parking now imagine how much harder it will be once all the stores (target, NY&Co, etc) are up and running.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Great place to raise a family and enjoy everything New York has to offer without the hassle of living directly in the city.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I have spent the majority of my living in Washington heights.  It is a community that I was born to love.  Many of Dominicans reside in Washington Heights and everyone is so friendly.  One thing I would change is the cleanliness of the streets.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "Washington Heights is full of great hispanic culture. It is a very convenient place to live in in the city considering it is very close to the city. However, drugs are still very prevalent.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I have lived in Washington Heights for 18 years and I still very much love it to this day. While many safety issues could change, I think the neighborhood is very unique and can continue to grow in many ways.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "As someone who has lived here their entire life I can truly say it is such fun lively neighborhood. The people are great and there is a variety of stores open late.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "It is a great diverse neighborhood with easy access to all of new york city and all it has to offer.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "WASHINGTON HEIGHTS HAS A SERENE ATMOSPHERE, AND FAMILY CENTRIC NEIGHBORHOODS.  AND, THE RENTS ARE ON THE AFFORDABLE SIDE. WOULD LOVE TO SEE BROADWAY GET CLEANED UP.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "The Heights feel very familiar, being from Puerto Rico and having spent years living in a community with a large Dominican population, but it is so much more than that. There are many good restaurants to choose from, a beautiful theater, bustling city life, and the impressive sights surrounding the Washington Bridge. There are also many gorgeous churches, plenty of schools and community centers to choose from, and a lifestyle close enough to the rest of Manhattan to make contact with it easy, but considerably less expensive. And last but not least, the Columbia Presbyterian Hospital, and many doctors' offices that take all sorts of medical plans. It's a pretty good place to live or pass through.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "Great restaurants and foods. Vegetables an Fruits are with great prices. The majority of people are from the Dominican Republic. Schools are not very good.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Located in northern Manhattan, I enjoy that Washington Heights is a safe are of New York City. It's close to good restaurants all along 181st St., close to parks (like Riverside Park), and near reliable transit. It's also a growing community given the amount of students that are coming up to this area to be closer to the CUMC campus. I feel happy to have found a neighborhood that I can thoroughly recommend to friends, and still be close to the family I have across the GWB!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "My experience living in Washington Heights has been pretty good. I got settled here in the year 2000 with my Dad and sisters. My aunt and cousins' live only a block away from us which meant constant small gatherings during holidays and or outings together. It is a neighborhood that is referred to as \"The mini Domincan Republic\" because the majority of residents living here are of Dominican descent. I was blessed to meet my now best friend of 15 plus years here. Renting here is fairly cheap and the location is very convenient with your A, C and 1 trains being within walking distance. Every street is tree lined and because the neighborhood sits right above Harlem and just below the Bronx every resident is blessed to look out of their window to see the great views of either the Hudson River, Bronx and or New Jersey.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "My neighborhood is becoming more and more diverse and multi-cultural. It is a large area with bounteous kinds of transportation hubs. Hence, people from all over are there. The only downside is the police do not crack down on the crack epidemic there, the drug addicts always are in front of churches and public areas, making it feel a bit unsafe.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Living  near a park it is nice to see different peoples enjoying the same activities. There are a lot of dogs around. Great food, great culture , and great peoples",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I love the area, lucky to have been raised here and see it grow. Lots of nice restaurants in my area and a more affordable part of the city. There are lots of beautiful parks and a true sense of community. I know almost everyone in my neighborhood.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "Washington heights is a neighborhood that is changing very fast recently. Lots of cafe's and restaurant have been opened last  2 years. The main residents of this neighborhood are Dominicans and there are so mane Spanish stores there. The safest and nicest area is by the Riverside Drive close to the Presbyterian Hospital. The area is supported by 2 train lines and they are working fine. Except  of few bars by 150st most of the neighborhood is not night life friendly.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "There are a lot of older buildings that need renovation",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "The quality of housing is okay because its very hard to find affordable places to live in New York City. Their are many abandoned properties in the right side of my block. Some of best areas to reside  in are located on  the upper north side.\r\n\r\n.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Many of the building in the area are old but it's a decent area.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 1,
+            "text": "Area is pretty noisy during the summertime.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Living in my area is okay, you'll manage the noise.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Housing has become very expensive, rent has increased",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "It could be worse, it is standard New York City apartment housing.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 2,
+            "text": "Most of the housing I. This area is substandard",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "It's alright, because it is New York, after all...",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 1,
+            "text": "NY is very exspensive.Low income families stay on the waiting list for years.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Urban Upper Manhattan- not much to say.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "There are many small businesses around my are functional and decently priced.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Many similar restaurants, but they are in high demand.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "Riverbank, Riverside, and other local parks are near by whenever anyone wants to spend some time with nature. Central Park and Van Cortland Park are also within a reasonable distance.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "If you go outside you may see pieces of nature but it is not sufficient for everyone.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 2,
+            "text": "Food is really bad in this area. There are selected few that actually know what they are doing.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Local businesses are very convenient in both location and money wise but the quality is low.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "For the most part, it's convenient.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "The food around here is mostly Hispanic. Being Hispanic myself, it's great. I enjoy the meals all the time. Lately in the past two years, it's expanding to have foods of other nationalities and even healthier restaurants. The area is slowly but surely expanding it's variety.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "Around this area, everything is basically very local. Most, if not all, are owned by people of Hispanic descent. They are very helpful, and you can find what you need. There isn't anything you really can't find.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 1,
+            "text": "Everything is so dirty. It's sad.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Not the healthiest but it'll do.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "Local businesses are really nearby and easy to get to by walking.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 2,
+            "text": "A lot of dominican food which gets old if you are not dominican, i think. I like chipotle honestly and the thai place Tung Thong is very good. No really places to go \"out\", especially not dancing/clubbing. Heights tavern is a good bar, never been to Coogans but people like it.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Sort of run-down, although prices are cheap",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There are not enough diverse restaurants.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "I cannot find everything I need in this area. Most of all there is not enough laundromat so its always crowded and the machines are not always working.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "They did the play ground over. There is a play ground on the block that I believe is housing property but its been closed for years. No one came to fix it yet.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There are mostly Hispanic restaurants in this area. There are fast food restaurants and grocery stores that are open late so its not a lot of healthy options to choose from.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "The stores in my area are not upscale.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Nature is beautiful in this area. I live near a doggy park with a view of the George Washington bridge and trees. But, there aren't much surroundings on wildlife.",
+            "category": "Things To Do"
+        }
+    ]
+}

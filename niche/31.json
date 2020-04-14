@@ -1,0 +1,134 @@
+{
+    "id": "31",
+    "name": "West Village",
+    "niche url": "https://www.niche.com/places-to-live/n/west-village-new-york-city-ny/",
+    "description": "West Village is a neighborhood in New York City, New York with a population of 34,539. West Village is in New York County and is one of the best places to live in New York. Living in West Village offers residents a dense urban feel and most residents rent their homes. In West Village there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in West Village and residents tend to be liberal. The public schools in West Village are above average.",
+    "real estate": {
+        "median home value": "$1,150,160",
+        "median rent": "$2,262",
+        "area feel": "Dense Urban",
+        "rent": "65%",
+        "own": "35%"
+    },
+    "residents": {
+        "median household income": "$136,910",
+        "families with children": "10%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C+",
+        "Housing": "C",
+        "Nightlife": "A+",
+        "Good for Families": "A",
+        "Diversity": "B",
+        "Jobs": "B-",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A+",
+        "Outdoor Activities": "A",
+        "Commute": "A+",
+        "overall_grade": "A+"
+    },
+    "reviews": [
+        {
+            "stars": 3,
+            "text": "I don't know that many people in my area, but most have a liberal agenda to so far left that they are off the map.  It's pretty progressive here in this neck of the woods, even the public schools here are hands on and so highly desired there is a waiting list.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "In the winter it's not great, but it's the northeast and it gets cold.  Luckily New York City has effective snowplows that get the job done fairly quickly.  As for potholes it's an issue because there are a lot of older streets in the area, many of which are cobble stone and they can cave in a bit as they were originally made for the weight of horses and carriages not cars and delivery trucks.  In the summer it can get really really hot because of the sidewalks and pollution from stores nearby and buildings the heat can feel like its radiating from every direction, the sun, concrete below and stores, dresses and shorts are helpful.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Driving in the New York City is not recommended there is a lot of traffic, especially going cross town and parking on the street is pretty much a nightmare.  That being said the village is really great to walk in the streets are more narrow than most so if there are big tour groups going by it can be a little annoying to pass through and there is the occasional remnants of dog poop on the street, but it is New York and you will probably find that anywhere.  Biking is made very accessible in this area with at least 4 bike share stations in a 10 block radius that I can think of on the spot, also many of the streets have been renovated to create more space for a bike lane which is helpful.  The downsides are the small streets, traffic and parking.  Also cars don't always pay attention to the bike lanes especially if there is traffic and one lane.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "Most of the jobs available in the area are retail or food related.  There aren't office buildings.  Most people work in other parts of Manhattan that live here, probably Midtown or Tribeca and have to commute.  Otherwise I would say most people end up freelancing because there are a lot of successful artists and actors that live here and in that case there are some great cafes like Grounded and 11th St. that are fairly quiet and have great wifi that people can work on if they need a break from their apartment.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "A lot of people have been moving into the community from outside of new york and even outside of the country.  The rents are some of the most expensive in the city, many old timers that are here are only able to live here because they have rent control.  The community isn't as strong as it once was, but thats mostly because the people moving in work all the time in order to afford rent or they buy a place as a city home and live in California.  There are lots of dogs in the area though and by the river and in Washington Square park there are dog runs, so I would say over all fairly friendly.  In some of the rental's the landlords do ask for people to not have pets, but most people own or are in a condo or co-op here I would say so it's not an issue.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "The new families moving in tend to be very health conscious because they have children, so there aren't many smokers.  In fact a health food store is moving in on my block which is representative of the food choices people care about in the neighborhood.  There are also numerous yoga studios and luxury gyms that many people utilize as well as the citi bikes and the hudson river park trails there are endless options for exercise.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The local governments are obsessed with tourism and spending money to bring in tourism.  This neighborhood ends up getting lots of government attention because it is such a tourist attraction and the residents are fairly wealthy.  However the police aren't always that receptive to calls and don't always come quickly.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "I have lived here my whole life and have always felt very safe.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "There is not much crime in the area, the police precinct is a few blocks away from where I live.  In all the years I have lived here the biggest crimes have been robbery's because the neighborhood does have a lot of wealthy residents that go away to other houses for vacation and leave their apartments unattended or drunk crimes, such as noise complaints.  The public intoxication crimes that sometimes cause vandalism etc. effect me directly because a bar called Automatic Slims is on my block, my guess is for other people it might not be as much of an issue as most streets are residential only.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "Amazing neighborhood, however you are mostly paying for the location as most apartments are really small.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Beautiful residential neighborhood!! Right next to Chelsea and Meatpacking, and super close to SoHo.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Really wonderful place to grow up, but definitely becoming more gentrified/losing its character. The Meatpacking District has become a very popular area for young partygoers and tourists, which has made the area a lot more expensive. Bleecker Street is now all high end boutiques. Still, there are good schools, playgrounds, and it's overall very safe, so it's a good place for children. The Whitney and smaller pop up galleries mean there is always something to see or do, and it is very accessible by a multitude of trains. More diverse in food than in people or income.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "By far the best neighborhood I've ever lived in.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "What I like most about New York City is the walkability and the abundance of things to do, free events, and educational as well as career opportunities.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "The West Village is such an incredible neighborhood to live and grow up in.  It has changed a lot over the years, the only downside is it's rising costs that make it almost impossible to rent in.  However that being said there is lots of things to do and some of the best Italian Restaurants in the city are located in the area.  NYU is nearby so there is a great influx of students and the New School also has a few buildings in the area so there is a huge emphasis on the arts.  The neighborhood also has a great history and is integral to the beginnings of New York.  In the warm weather the Hudson river is a great place to be, and there are lots of little parks to sit in, boutiques to shop at and cafes to meet friends at or do some quiet reading.  It's a community and although there are lots of wealthy non- New Yorkers moving in there is still a local newspaper and government of old timers with rent control that aren't going anywhere until they die.  A great place to be just wish it was much more affordable.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "I put okay because if you live in this neighborhood and are lucky to live in a brownstone then your life is much easier.  Otherwise many of the apartments in the area are very old and because the neighborhood is so desired landlords have renovated them to half the size to create more studios and make the building more profitable.  Rent is outrageous here and if I have a couple million to throw down on a brownstone or condo they are worth it, in a great area and they are fairly large also charming.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "The food in this area is amazing there is a little bit of EVERYTHING.  There are food trucks, diners, delis, bodega's, five star eatery's, celebrity chef restaurants, and almost every cuisine a person could think of.  The only downside is it can be expensive if you don't know where to go.  Upside is almost anywhere you go will be delicious and the restaurants are all clean.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "New York City is the not place to move to if you want mountains and parks and general greenery.  There is central park and prospect park, but those both require a trip on the subway to get to.  The parks department has put in a lot of money to redo the Hudson River Park and piers and they have put in a lot of plant and grassy areas, however most of the grass is fake as it's easier to upkeep and these spots in the summer do get extremely crowded.  This area is better than most though because of the close proximity to the river parks.  The beaches are not that great Coney Island is pretty dirty and ALWAYS crowded, Rockaway in Queens is better but it sure is a trek to get to.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "For all entertainment or luxury needs this neighborhood has got you covered.  Restaurants and boutiques and retail especially.  West 4th street and Hudson st for food and Bleeker st has most of peoples needs for retail.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "This neighborhood is a HUGE attraction for tourists, it's close to the meatpacking district where all the fashionable bars and restaurants like pastis are and an easy walk to the Chelsea market as well.  In the west village NYU makes it's home which draws students from all nationalities and they hold many events in Washington Square park available to the public.  There are also a few libraries that host movie nights and poetry circles.  Restaurants are everywhere and some of the most highly rated on Zagat are here.  It's also historical and many streets have cobble stones reminiscent of an old new york, and many streets are also not on the grid so many tourists end up getting lost, hopefully they are able to find a village native to point them in the right direction because I've even encountered native new yorkers get lost in the area if they are unfamiliar.  The parks department also hosts a lot of concert events during the summer and programs for children in the winter.",
+            "category": "Things To Do"
+        }
+    ]
+}

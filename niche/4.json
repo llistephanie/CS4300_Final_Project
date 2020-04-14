@@ -1,0 +1,484 @@
+{
+    "id": "4",
+    "name": "East Harlem",
+    "niche url": "https://www.niche.com/places-to-live/n/east-harlem-new-york-city-ny/",
+    "description": "East Harlem is a neighborhood in New York City, New York with a population of 118,883. East Harlem is in New York County and is one of the best places to live in New York. Living in East Harlem offers residents a dense urban feel and most residents rent their homes. In East Harlem there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in East Harlem and residents tend to be liberal. The public schools in East Harlem are above average.",
+    "real estate": {
+        "median home value": "$936,528",
+        "median rent": "$1,037",
+        "area feel": "Dense Urban",
+        "rent": "93%",
+        "own": "7%"
+    },
+    "residents": {
+        "median household income": "$41,825",
+        "families with children": "23%"
+    },
+    "scores": {
+        "Public Schools": "B",
+        "Crime & Safety": "C",
+        "Housing": "C-",
+        "Nightlife": "A+",
+        "Good for Families": "A-",
+        "Diversity": "A+",
+        "Jobs": "C-",
+        "Weather": "B-",
+        "Cost of Living": "C-",
+        "Health & Fitness": "A",
+        "Outdoor Activities": "A",
+        "Commute": "A",
+        "overall_grade": "A-"
+    },
+    "reviews": [
+        {
+            "stars": 2,
+            "text": "community around here is bad. you know who lives around but no one here socializes.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "You just have to know which hospitals to go to–some are FAR better than others.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "Winters are frigid so it is in your best interest to invest in a warm winter coat. Summers are also hot (90f during July-August) so shorts and flip flops are a must. But we don't have to worry about natural disasters such as earthquakes, wildfires, etc.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Its good because their is public transportation everywhere in the area that I live",
+            "category": "Community"
+        },
+        {
+            "stars": 1,
+            "text": "NYPD don't care about people here unless it benefits their own quota or they get a raise. It will always be like this in areas like these.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "Since this area is considered a \"poor'' area most people don't work out, instead most people would get their exercise walking or running after a bus/train.",
+            "category": "Community"
+        },
+        {
+            "stars": 1,
+            "text": "No one cares about anyone here. Parents yell and curse at their kids & some even physically hit them from what I've seen living here. Unless you have a reward for someone here they won't even care for/about you.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "My area takes weather like the rest of New York City, since it's on a hill technically flooding will never be an issue. Snow never tends to be a problem since NYCHA is out shoveling. Spring time-Fall is usually when the NYPD are out in full force since people here don't know how to act like civil human beings instead of fighting, shootouts and drug deals.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "Many people in this area are either jobless or working just-above minimum wage jobs. Those that want to work for a decent living while living in this area seek jobs elsewhere (midtown, other boroughs, etc.).",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Considering how expensive the area is, you would think that there would be more free public services. The libraries are almost null and void and there isn't much to offer. Maybe offering free dance classes or economic classes for college students struggling with student loans would be great.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "In the summer, although it is nice to be in New York City when it happens can be slightly unbearable. With the humidity and the heat creating a vortex of sweat, smeared make up, and possible ruined dresses while waiting for the subway, it makes you want to stay inside with the air conditioner blowing on the highest setting. However, once fall sets in the colors around Central Park and the rest of the area are made to make all of your instagram followers jealous. The sweltering heat calms down and settles into a nice breeze that is perfect for walks around the city. Once winter hits, the wind becomes normally cold, but as long as you bundle up with a scarf, hat, and gloves you survive the long winter months. My favorite season is definitely spring here! The weather is ideal and it brings a sense of comfort with sundresses, sandals and Rita's ice.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "Most are mom and pop restaurants, so it is a little difficult to find some employment, but with a little research and countless job applications you will find employment. Most places even put signs up in their windows to let you know that they are hiring as well.",
+            "category": "Community"
+        },
+        {
+            "stars": 5,
+            "text": "The people clean when it comes to bad weathers they have the tools to clean it up and we don't have problems .",
+            "category": "Community"
+        },
+        {
+            "stars": 1,
+            "text": "The drug abuse in this area is very high you can smell weed outside the windows, people are not very active, there is hospital but majority in my building have STD's.",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "Its really not that good they barely care about us the people who live in Harlem .",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "The employment in this area is high because there is more stores and more job opportunity for unemployed people.",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Its not very safe to say just be as friendly, people like to gossip and start trouble,the people are not friendly .",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "Employment is generally not the best anywhere right now, and the same applies to this area.",
+            "category": "Community"
+        },
+        {
+            "stars": 4,
+            "text": "There really isn't any bad weather over here",
+            "category": "Community"
+        },
+        {
+            "stars": 2,
+            "text": "Its pretty basic over here just small businesses",
+            "category": "Community"
+        },
+        {
+            "stars": 3,
+            "text": "They recently put extra lights around which is better so much light at night, definitely better than before.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I rarely see any body getting robbed or anything. But when walking I do see groups of young men standing that if you mess with them could lead to a fight. But that's about it. People rarely get shot around here. But it does happen once in a while. It's usually people hanging around the wrong crowds.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Overall the crime in this neighborhood is low and safety is moderate, just as long as you keep to yourself one should be fine.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "I have not felt uncomfortable living in this area. I see cops patrolling around pretty often.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I feel safe in this area. I never seen any crimes happened.  Also my child like the area because of his lot of friends live here. There is no racial or ethnic discrimination I found. Police are always helpful. I found them sometimes  in front of our building and they try to save us even though we don't need.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "people get shot a lot during the summer and winter you should be more worried about the cops then people",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "I do see police around often, just walking around but I never seen any police brutality.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 2,
+            "text": "The safety itself is not bad it the crimes and the amounts of times the police is seen. Some crimes just downfall because the police is on the look out but if it wasn't the crimes would not have changed.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 2,
+            "text": "They're is a lot of drug users around in the neighborhood",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 1,
+            "text": "Its not that good you can not have your phone out because it will be snatched out of your hand , gang members live in this area which is why during the daytime you will hear shootings or fights also in the night",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 2,
+            "text": "In East Harlem everyone here tends to watch out for themselves and no one else, the police here also tend to target others based on race or assumption. There's a lot of crime in the area most of the time it's over some arguments that have been taken too far from a couple of just a drunk person bothering the wrong crowd. If you aren't from here or don't fit in it's best not to talk to anyone in the area since the wrong crowd always gets arrested here. Drugs are a main concern to the police here but they never make an effort to even try to stop it let alone suppress it.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "In the Upper East Side, it seems almost impossible to get away with anything, which is great. There are usually cops at every crosswalk along with marked cars and other officers in the area. Every once in a while, you do hear a passing siren,but nothing has happened so far in the area.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "There's still crime but its not all that bad people usually leave each other alone",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "There is the existence of the NYPD officers here",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 4,
+            "text": "The police are visible and there is a station nearby. I haven't seen any crime and I feel safe.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "There is crime but its not something that happens everyday. Police tend to be visible especially in areas with lots of people.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "There are times when you think everything is okay in the neighborhood then you hear something on the news about a shooting or a killing going on around where I live. The crime rate just started increasing here a couple months ago because I don't remember ever feeling unsafe to be walking home in my neighborhood.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Over the years crime rates in East Harlem have slightly decreased but is showing signs of reoccurring due to gangs influencing the youth. Law enforcement is quite frequent, especially at night.",
+            "category": "Crime & Safety"
+        },
+        {
+            "stars": 3,
+            "text": "Dangerous at night, but to be expected from this area. Lot's of shootings, relatively dirty area. Food swamp with lots of fast food restaurants. Lots of Trees, and close to Central Park. Recent increase in police action.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I intend to move back to my family roots that go back more than a century in the historic area of Italian Harlem. I missed it so much and feel at home here. Suburbs of Westchester are overrated and people are not so friendly and not so safe.East Harlem has all the convenience to everything and most down to earth people. Never had an issue with safety.Proud of its immigrants history",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 2,
+            "text": "It's one of the cheapest neighborhoods in Manhattan, but you get what you pay for. It is convenient to live here. Grocery stores, restaurants, food chains, laundromats, and everything else can be found on most blocks. \nOn the other hand, safety for women is not great. I personally try to stay in after it has gotten dark. Busy streets, however, can often make it feel safer. \nIt is dirty, and many buildings have mice, rats, or other rodent problems.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "My experience in East Harlem has been very mixed; especially growing and seeing things that I never noticed when I was younger. The things that I finally noticed was the cultural importance of the latino community, with the influence and impact of the community being shown in multiple places throughout the neighborhood.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "The area is “up and coming” but at a slow pace. Downside is too many drug users and beggars outside of apartment buildings harassing people. Trash and human waste takes over 125th street. Police is present but do not enforce sanitation laws. Not a lot of residents take pride in the area.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Quiet neighborhood and a great change of pace in Manhattan! Neighborhoods can be sketchy however pretty average. Harlem is currently going through gentrification so prices on real estate are increasing (naturally since it's Manhattan), and more stores are being opened.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "My family came from Italy in the late 1800s and settled in East Harlem. Best times of my life growing up here back in the days of Italian Harlem. I still come down to my catholic parish of Our Lady of Mt Carmel Church and the Giglio Feast in August on Pleasant Avenue. I also like the diversity of the area today because my grandparents came here for a better life. The neighborhood has shaped me into the person I am today. Very safe when I’m here to hang out.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "East Harlem is a lower class neighborhood in manhattan, most people are living in poverty and welfare. The crime rates are higher since 40 years ago due to homicide. In education, there are more students drop out of high school than other neighborhoods in manhattan because of gang activity, pregnancy, and family issues such as substance abuse. However, the neighborhood is gentrificated in a good way by enrolling charter schools for students to succeed for college so that the dropout rates will reduce and better playgrounds for children to be safe, but there’s a downside with gentrification according to the locals who lived in East Harlem for 30 plus years, small business owners began to move out, residents cannot afford their rent due to new landlords, and new apartments in empty space that can affect them. Although, East Harlem should be a safe neighborhood and for visitors to come or to live and to have a better future for the locals.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I was born and raised in East Harlem so I am very accustomed to it. Over the past few years it has developed exponentially. With more and more diverse food spots, shops, and housing. Many of the parks have been revamped as well. There are still some sore spots but with time it will get better.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "Also known as Spanish Harlem, it is a very hispanic-based area with tons of delicious food options. The culture is amazing in this area and many affordable stores!",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "I lived here for 5 years and love my corner of the neighborhood. The food is incredible, especially the bakery on 116 and second. The crosstown bus is slow, but there's generally not a lot of traffic. Its safe at night if you're walking with a buddy.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Everything is really close, from grocery stores to subway stations. The bad thing is that it is really dirt and people are not very committed to keep the neighborhood clean.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "So far, it has been an excellent neighborhood. Good connectivity with the rest of Manhattan, good stores like Costco and Aldi, public transportation has a good commute time.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "I've been living in East Harlem for little over a year. I really admire the hard working people in the neighborhood. No matter the time of day or night you will always find a little Mexican food stand open for business. There are shops and restaurants around for people to enjoy at low cost. If there is one thing I would change is the cost of living. It's getting more and more expensive and there's a lot of low income families that have been living in the neighborhood for years who may not be able to live here no more.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "East Harlem has changed drastically in the last 30 years.  Once mainly a heavy populated Puerto Rican community, it's now more diversified.  Many people from other Latin American countries have moved in, as well as those from Europe.  While I don't have issues with this, I am witnessing more mistrust among the new immigrants here.  Also. many youths today are not participating in outside sports and there is still drug activity and crime in a more intellectual level.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 5,
+            "text": "East Harlem is the true definition of  a New York City neighborhood. All ethnicities, religions, and walks of life, co-exisiting happily, taking care of & supporting each-other. I can’t imagine living anywhere else.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "Many housing projects, and crime that comes with it... dealing, shootings, etc. Biggest draw is East River shopping mall which is really big box stores",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "Undergoing gentrification. The neighborhood has lots of new restaurants, greenery, and overall feels safer.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "I like the fact that East Harlem has a lot of restaurants, cafes, banks, pharmacies,   schools, and community areas. It's conveniently close to the subway station an has a bus stop, at least, every two blocks. \nI will like to see the Eat Harlem cleaner.",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 4,
+            "text": "East Harlem is an up and coming place in Manhattan. At the moment it is a quiet neighborhood that could use some improvements. It is community driven but could use some new business (food, nightlife, etc.).",
+            "category": "Overall Experience"
+        },
+        {
+            "stars": 3,
+            "text": "I love my house because it is new building and everything good.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 1,
+            "text": "I live in an apartment so there are no driveways, just parking lots. The buildings are built quite closely together and most of them are comprised of the same burnt brick pattern.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Its in Harlem so you are going to see poop on the streets and drugs but their is no houses just apartments you barely see anything abandoned",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 1,
+            "text": "The projects run this area. No one cleans here, violence is a very big factor here and the people think that NYC is their personal garbage. Abandoned buildings here don't even get rebuilt, they just sit there with no one making an effort here. Everyone relies on food stamps and welfare for their rent and such and won't put effort into looking for a job, it makes me sick when I see people not taking advantage of the opportunity they have infront of them!",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "It's New York City, not everything will be fit to everyone's suburban dream, but it is a great area and city.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "where i live now its great a lot better then where i used to live. Not the greats but its good enough i would recommend to others",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 4,
+            "text": "Even though I live in a small apartment, it is very well kept and maintained.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Roaches and mice! Utilities are fine. Apartments fill quickly.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "this is an urban area there's no houses, just building",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "The rent can be pretty expensive. Housing is usually in poor neighborhoods.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "For the people that have been living here already, the inside of the house looks old and worn out. We have nothing new, for the new people, the inside of their home is beautiful because they have the new furniture. There is a roach problem and the workers refuse to help.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 3,
+            "text": "Housing in East Harlem is generally NYC Housing Authority maintained poorly with mass amounts of vandalism (graffiti) and unsanitary sidewalks.",
+            "category": "Real Estate"
+        },
+        {
+            "stars": 1,
+            "text": "There's no outdoor activities unless you count going to Central Park or jogging/biking around the neighborhood.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "It's NYC so there's ALWAYS something to eat regardless of the time! Tons of delivery places offer take-out during late hours, you just have to search for them!",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "There's tons of corner stores that are usually open 24/7",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "East Harlem, also known as Spanish Harlem, is home to numerous hair and nail salons. The amalgamation of different cultures and backgrounds can been seen here as well. Although they may not be considered fine dining, there are endless Spanish restaurants serving tacos and other ethic cuisines.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 1,
+            "text": "Its the city there no nature just go to central park",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "Their is alot of restaurants with different ethnic food that are really good",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 2,
+            "text": "There are only two bars here that would give you the experience of a good night out, most of them are small results of gentrification in my area, other wise most of the time if there were to be a place were most people could go for a \"good night\" at the end of the day it would turn into a post for the NYPD to hang out in order to get criminals.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "The stores in my area are usually Spanish since I live in Spanish Harlem, most of the people here always like to eat/drink so there are tons of Spanish bars and restaurants. There is also some cigar stores around here too since most people in this area love to smoke. The only popular stores around here are the fast food restaurants, electronic stores and the giant mall on 117st and Pleasant ave that attracts the most people anyway.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "It depends on if you walk a little bit uptown or a little bit downtown.  A few blocks downtown, you begin to see all the bars, diners, and diverse restaurants that are a bit more pricey. A few blocks uptown and you begin to see Hispanic restaurants and the occasional street vendor that are more affordable.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "They're not the best, but the perk is that they generally tend to be cheaper. The Hispanic restaurants serve pretty good food at reasonable prices.  There are average grocery stores, but they're more affordable.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "Seamless makes this area the best! It allows you to order from restaurants that are within a 10 mile radius, with their menu on display. Also, there is a great dive bar called Bar Coastal that has the best wings and popcorn shrimp, along with excellent staff.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "Ricky's has become one of my favorite retailers!",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 5,
+            "text": "There is stores everywhere you go nothing bad about that.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "there's a lot of different places to get food around here but yet again they pretty much are all the same",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "Its NYC  not much of an outdoor life, we'er called the concert jungle  for a different reason",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "there's basic businesses most of them are the same a different type of store would be great",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "The restaurants around the area are all top quality, perfect for any type of meal.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "All the stores and businesses are generally nice in this area. Well maintained and presentable.",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 3,
+            "text": "There is a lot of fast food stores around me",
+            "category": "Things To Do"
+        },
+        {
+            "stars": 4,
+            "text": "I visit different Laundromats, stores, retails shops, etc.  Majority of them are easy to get to and are clean.  If one store doesn't have what i need, then, another store in the area usually does.  I don't have to go far to go shopping which makes life easier for me.",
+            "category": "Things To Do"
+        }
+    ]
+}
