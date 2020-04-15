@@ -2,7 +2,8 @@
 import csv
 import json
 import re
-from nltk.tokenize import word_tokenize
+from nltk.tokenize import sent_tokenize, word_tokenize
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 punctuation = ['.','!',',','?',')','(','"',"'",'[',']']
 def creatingNeighborhoods():
@@ -117,6 +118,27 @@ def preprocessing(text):
 			continue
 		cleaned_tokens.append(t)
 	return cleaned_tokens
+
+# untested
+def sentiment_analysis(data, neighborhood_mapping):
+	# https://github.com/cjhutto/vaderSentiment
+
+	analyzer = SentimentIntensityAnalyzer()
+	for k,v in neighborhood_mapping.items():
+		for post_id in v:
+			body = data[post_id]["body"]
+			sentence_list = sent_tokenize(body)
+			comments = data[post_id][comments]
+			for c in comments:
+				sentence_list.append(sent_tokenize(c["body"]))
+			print(sentence_list)
+
+			score = 0 
+			for s in sentence_list:
+			    score+=analyzer.polarity_scores(s)["compound"]
+			score /= len(sentence_list)
+			# pos if score >= 0.05, neg if <= -0.05, neutral otherwise
+
 
 def main():
 	neighborhood_mapping = creatingNeighborhoods()
