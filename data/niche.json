@@ -1,7 +1,6 @@
-[
-    {
+{
+    "Battery Park": {
         "id": "0",
-        "name": "Battery Park",
         "niche url": "https://www.niche.com/places-to-live/n/battery-park-city-new-york-city-ny/",
         "description": "Battery Park City is a neighborhood in New York City, New York with a population of 13,258. Battery Park City is in New York County and is one of the best places to live in New York. Living in Battery Park City offers residents a dense urban feel and most residents rent their homes. In Battery Park City there are a lot of bars, restaurants, coffee shops, and parks. Many families and young professionals live in Battery Park City and residents tend to be liberal. The public schools in Battery Park City are above average.",
         "real estate": {
@@ -73,9 +72,8 @@
             }
         ]
     },
-    {
+    "Chelsea": {
         "id": "1",
-        "name": "Chelsea",
         "niche url": "https://www.niche.com/places-to-live/n/chelsea-new-york-city-ny/",
         "description": "Chelsea is a neighborhood in New York City, New York with a population of 59,305. Chelsea is in New York County and is one of the best places to live in New York. Living in Chelsea offers residents a dense urban feel and most residents rent their homes. In Chelsea there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Chelsea and residents tend to be liberal. The public schools in Chelsea are above average.",
         "real estate": {
@@ -402,9 +400,8 @@
             }
         ]
     },
-    {
+    "Chinatown": {
         "id": "2",
-        "name": "Chinatown",
         "niche url": "https://www.niche.com/places-to-live/n/chinatown-new-york-city-ny/",
         "description": "Chinatown is a neighborhood in New York City, New York with a population of 20,271. Chinatown is in New York County and is one of the best places to live in New York. Living in Chinatown offers residents a dense urban feel and most residents rent their homes. In Chinatown there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Chinatown and residents tend to be liberal. The public schools in Chinatown are above average.",
         "real estate": {
@@ -686,9 +683,8 @@
             }
         ]
     },
-    {
+    "Civic Center": {
         "id": "3",
-        "name": "Civic Center",
         "niche url": "https://www.niche.com/places-to-live/n/civic-center-new-york-city-ny/",
         "description": "Civic Center is a neighborhood in New York City, New York with a population of 3,931. Civic Center is in New York County and is one of the best places to live in New York. Living in Civic Center offers residents a dense urban feel and most residents rent their homes. In Civic Center there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Civic Center and residents tend to be liberal. The public schools in Civic Center are above average.",
         "real estate": {
@@ -719,9 +715,8 @@
         },
         "reviews": []
     },
-    {
+    "East Harlem": {
         "id": "4",
-        "name": "East Harlem",
         "niche url": "https://www.niche.com/places-to-live/n/east-harlem-new-york-city-ny/",
         "description": "East Harlem is a neighborhood in New York City, New York with a population of 118,883. East Harlem is in New York County and is one of the best places to live in New York. Living in East Harlem offers residents a dense urban feel and most residents rent their homes. In East Harlem there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in East Harlem and residents tend to be liberal. The public schools in East Harlem are above average.",
         "real estate": {
@@ -1203,9 +1198,8 @@
             }
         ]
     },
-    {
+    "East Village": {
         "id": "5",
-        "name": "East Village",
         "niche url": "https://www.niche.com/places-to-live/n/east-village-new-york-city-ny/",
         "description": "East Village is a neighborhood in New York City, New York with a population of 73,711. East Village is in New York County and is one of the best places to live in New York. Living in East Village offers residents a dense urban feel and most residents rent their homes. In East Village there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in East Village and residents tend to be liberal. The public schools in East Village are above average.",
         "real estate": {
@@ -1692,9 +1686,8 @@
             }
         ]
     },
-    {
+    "Financial District": {
         "id": "6",
-        "name": "Financial District",
         "niche url": "https://www.niche.com/places-to-live/n/financial-district-new-york-city-ny/",
         "description": "Financial District is a neighborhood in New York City, New York with a population of 25,965. Financial District is in New York County and is one of the best places to live in New York. Living in Financial District offers residents a dense urban feel and most residents rent their homes. In Financial District there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Financial District and residents tend to be liberal. The public schools in Financial District are above average.",
         "real estate": {
@@ -1851,9 +1844,8 @@
             }
         ]
     },
-    {
+    "Flatiron": {
         "id": "7",
-        "name": "Flatiron",
         "niche url": "https://www.niche.com/places-to-live/n/flatiron-district-new-york-city-ny/",
         "description": "Flatiron District is a neighborhood in New York City, New York with a population of 6,458. Flatiron District is in New York County and is one of the best places to live in New York. Living in Flatiron District offers residents a dense urban feel and most residents rent their homes. In Flatiron District there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Flatiron District and residents tend to be liberal. The public schools in Flatiron District are above average.",
         "real estate": {
@@ -1905,9 +1897,8 @@
             }
         ]
     },
-    {
+    "Gramercy": {
         "id": "8",
-        "name": "Gramercy",
         "niche url": "https://www.niche.com/places-to-live/n/gramercy-new-york-city-ny/",
         "description": "Gramercy is a neighborhood in New York City, New York with a population of 20,060. Gramercy is in New York County and is one of the best places to live in New York. Living in Gramercy offers residents a dense urban feel and most residents rent their homes. In Gramercy there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Gramercy and residents tend to be liberal. The public schools in Gramercy are above average.",
         "real estate": {
@@ -1979,9 +1970,8 @@
             }
         ]
     },
-    {
+    "Greenwich Village": {
         "id": "9",
-        "name": "Greenwich Village",
         "niche url": "https://www.niche.com/places-to-live/n/greenwich-village-new-york-city-ny/",
         "description": "Greenwich Village is a neighborhood in New York City, New York with a population of 27,838. Greenwich Village is in New York County and is one of the best places to live in New York. Living in Greenwich Village offers residents a dense urban feel and most residents rent their homes. In Greenwich Village there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Greenwich Village and residents tend to be liberal. The public schools in Greenwich Village are above average.",
         "real estate": {
@@ -2093,9 +2083,8 @@
             }
         ]
     },
-    {
+    "Harlem": {
         "id": "10",
-        "name": "Harlem",
         "niche url": "https://www.niche.com/places-to-live/n/harlem-new-york-city-ny/",
         "description": "Harlem is a neighborhood in New York City, New York with a population of 181,379. Harlem is in New York County and is one of the best places to live in New York. Living in Harlem offers residents a dense urban feel and most residents rent their homes. In Harlem there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Harlem and residents tend to be liberal. The public schools in Harlem are above average.",
         "real estate": {
@@ -2597,9 +2586,8 @@
             }
         ]
     },
-    {
+    "Hell's Kitchen": {
         "id": "11",
-        "name": "Hell's Kitchen",
         "niche url": "https://www.niche.com/places-to-live/n/hells-kitchen-new-york-city-ny/",
         "description": "Hell&apos;s Kitchen is a neighborhood in New York City, New York with a population of 52,837. Hell&apos;s Kitchen is in New York County and is one of the best places to live in New York. Living in Hell&apos;s Kitchen offers residents a dense urban feel and most residents rent their homes. In Hell&apos;s Kitchen there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Hell&apos;s Kitchen and residents tend to be liberal. The public schools in Hell&apos;s Kitchen are above average.",
         "real estate": {
@@ -2886,9 +2874,8 @@
             }
         ]
     },
-    {
+    "Inwood": {
         "id": "12",
-        "name": "Inwood",
         "niche url": "https://www.niche.com/places-to-live/n/inwood-new-york-city-ny/",
         "description": "Inwood is a neighborhood in New York City, New York with a population of 52,447. Inwood is in New York County. Living in Inwood offers residents a dense urban feel and most residents rent their homes. In Inwood there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Inwood and residents tend to be liberal. The public schools in Inwood are above average.",
         "real estate": {
@@ -3300,9 +3287,8 @@
             }
         ]
     },
-    {
+    "Kips Bay": {
         "id": "13",
-        "name": "Kips Bay",
         "niche url": "https://www.niche.com/places-to-live/n/kips-bay-new-york-city-ny/",
         "description": "Kips Bay is a neighborhood in New York City, New York with a population of 35,556. Kips Bay is in New York County and is one of the best places to live in New York. Living in Kips Bay offers residents a dense urban feel and most residents rent their homes. In Kips Bay there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Kips Bay and residents tend to be liberal. The public schools in Kips Bay are above average.",
         "real estate": {
@@ -3394,9 +3380,8 @@
             }
         ]
     },
-    {
+    "Little Italy": {
         "id": "14",
-        "name": "Little Italy",
         "niche url": "https://www.niche.com/places-to-live/n/little-italy-new-york-city-ny/",
         "description": "Little Italy is a neighborhood in New York City, New York with a population of 3,740. Little Italy is in New York County and is one of the best places to live in New York. Living in Little Italy offers residents a dense urban feel and most residents rent their homes. In Little Italy there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Little Italy and residents tend to be liberal. The public schools in Little Italy are above average.",
         "real estate": {
@@ -3433,9 +3418,8 @@
             }
         ]
     },
-    {
+    "Lower East Side": {
         "id": "15",
-        "name": "Lower East Side",
         "niche url": "https://www.niche.com/places-to-live/n/lower-east-side-new-york-city-ny/",
         "description": "Lower East Side is a neighborhood in New York City, New York with a population of 60,055. Lower East Side is in New York County and is one of the best places to live in New York. Living in Lower East Side offers residents a dense urban feel and most residents rent their homes. In Lower East Side there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Lower East Side and residents tend to be liberal. The public schools in Lower East Side are above average.",
         "real estate": {
@@ -3712,9 +3696,8 @@
             }
         ]
     },
-    {
+    "Marble Hill": {
         "id": "16",
-        "name": "Marble Hill",
         "niche url": "https://www.niche.com/places-to-live/n/marble-hill-new-york-city-ny/",
         "description": "Marble Hill is a neighborhood in New York City, New York with a population of 8,636. Marble Hill is in New York County. Living in Marble Hill offers residents a dense urban feel and most residents rent their homes. In Marble Hill there are a lot of bars, restaurants, coffee shops, and parks. Many families and young professionals live in Marble Hill and residents tend to be liberal. The public schools in Marble Hill are above average.",
         "real estate": {
@@ -3841,9 +3824,8 @@
             }
         ]
     },
-    {
+    "Midtown": {
         "id": "17",
-        "name": "Midtown",
         "niche url": "https://www.niche.com/places-to-live/n/midtown-new-york-city-ny/",
         "description": "Midtown is a neighborhood in New York City, New York with a population of 68,451. Midtown is in New York County and is one of the best places to live in New York. Living in Midtown offers residents a dense urban feel and most residents rent their homes. In Midtown there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Midtown and residents tend to be liberal. The public schools in Midtown are above average.",
         "real estate": {
@@ -4120,9 +4102,8 @@
             }
         ]
     },
-    {
+    "Morningside Heights": {
         "id": "18",
-        "name": "Morningside Heights",
         "niche url": "https://www.niche.com/places-to-live/n/morningside-heights-new-york-city-ny/",
         "description": "Morningside Heights is a neighborhood in New York City, New York with a population of 37,197. Morningside Heights is in New York County and is one of the best places to live in New York. Living in Morningside Heights offers residents a dense urban feel and most residents rent their homes. In Morningside Heights there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Morningside Heights and residents tend to be liberal. The public schools in Morningside Heights are above average.",
         "real estate": {
@@ -4324,9 +4305,8 @@
             }
         ]
     },
-    {
+    "Murray Hill": {
         "id": "19",
-        "name": "Murray Hill",
         "niche url": "https://www.niche.com/places-to-live/n/murray-hill-new-york-city-ny/",
         "description": "Murray Hill is a neighborhood in New York City, New York with a population of 26,091. Murray Hill is in New York County and is one of the best places to live in New York. Living in Murray Hill offers residents a dense urban feel and most residents rent their homes. In Murray Hill there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Murray Hill and residents tend to be liberal. The public schools in Murray Hill are above average.",
         "real estate": {
@@ -4418,9 +4398,8 @@
             }
         ]
     },
-    {
+    "NoHo": {
         "id": "20",
-        "name": "NoHo",
         "niche url": "https://www.niche.com/places-to-live/n/noho-new-york-city-ny/",
         "description": "NoHo is a neighborhood in New York City, New York with a population of 2,809. NoHo is in New York County and is one of the best places to live in New York. Living in NoHo offers residents a dense urban feel and most residents rent their homes. In NoHo there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in NoHo and residents tend to be liberal. The public schools in NoHo are above average.",
         "real estate": {
@@ -4451,9 +4430,8 @@
         },
         "reviews": []
     },
-    {
+    "Nolita": {
         "id": "21",
-        "name": "Nolita",
         "niche url": "https://www.niche.com/places-to-live/n/nolita-new-york-city-ny/",
         "description": "Nolita is a neighborhood in New York City, New York with a population of 6,374. Nolita is in New York County and is one of the best places to live in New York. Living in Nolita offers residents a dense urban feel and most residents rent their homes. In Nolita there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Nolita and residents tend to be liberal. The public schools in Nolita are above average.",
         "real estate": {
@@ -4565,9 +4543,8 @@
             }
         ]
     },
-    {
+    "Roosevelt Island": {
         "id": "22",
-        "name": "Roosevelt Island",
         "niche url": "https://www.niche.com/places-to-live/n/roosevelt-island-new-york-city-ny/",
         "description": "Roosevelt Island is a neighborhood in New York City, New York with a population of 11,346. Roosevelt Island is in New York County and is one of the best places to live in New York. Living in Roosevelt Island offers residents a dense urban feel and most residents rent their homes. In Roosevelt Island there are a lot of restaurants, coffee shops, and parks. Many young professionals and retirees live in Roosevelt Island and residents tend to be liberal. The public schools in Roosevelt Island are above average.",
         "real estate": {
@@ -4634,9 +4611,8 @@
             }
         ]
     },
-    {
+    "SoHo": {
         "id": "23",
-        "name": "SoHo",
         "niche url": "https://www.niche.com/places-to-live/n/soho-new-york-city-ny/",
         "description": "SoHo is a neighborhood in New York City, New York with a population of 11,268. SoHo is in New York County and is one of the best places to live in New York. Living in SoHo offers residents a dense urban feel and most residents rent their homes. In SoHo there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in SoHo and residents tend to be liberal. The public schools in SoHo are above average.",
         "real estate": {
@@ -4708,9 +4684,8 @@
             }
         ]
     },
-    {
+    "Stuyvesant Town": {
         "id": "24",
-        "name": "Stuyvesant Town",
         "niche url": "https://www.niche.com/places-to-live/n/stuyvesant-town-new-york-city-ny/",
         "description": "Stuyvesant Town is a neighborhood in New York City, New York with a population of 21,104. Stuyvesant Town is in New York County and is one of the best places to live in New York. Living in Stuyvesant Town offers residents a dense urban feel and most residents rent their homes. In Stuyvesant Town there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Stuyvesant Town and residents tend to be liberal. The public schools in Stuyvesant Town are above average.",
         "real estate": {
@@ -4822,9 +4797,8 @@
             }
         ]
     },
-    {
+    "Theater District": {
         "id": "25",
-        "name": "Theater District",
         "niche url": "https://www.niche.com/places-to-live/n/theater-district-new-york-city-ny/",
         "description": "Theater District is a neighborhood in New York City, New York with a population of 5,417. Theater District is in New York County and is one of the best places to live in New York. Living in Theater District offers residents a dense urban feel and most residents rent their homes. In Theater District there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Theater District and residents tend to be liberal. The public schools in Theater District are above average.",
         "real estate": {
@@ -4861,9 +4835,8 @@
             }
         ]
     },
-    {
+    "TriBeCa": {
         "id": "26",
-        "name": "TriBeCa",
         "niche url": "https://www.niche.com/places-to-live/n/tribeca-new-york-city-ny/",
         "description": "Tribeca is a neighborhood in New York City, New York with a population of 17,134. Tribeca is in New York County and is one of the best places to live in New York. Living in Tribeca offers residents a dense urban feel and most residents rent their homes. In Tribeca there are a lot of bars, restaurants, coffee shops, and parks. Many families and young professionals live in Tribeca and residents tend to be liberal. The public schools in Tribeca are above average.",
         "real estate": {
@@ -4950,9 +4923,8 @@
             }
         ]
     },
-    {
+    "Two Bridges": {
         "id": "27",
-        "name": "Two Bridges",
         "niche url": "https://www.niche.com/places-to-live/n/two-bridges-new-york-city-ny/",
         "description": "Two Bridges is a neighborhood in New York City, New York with a population of 13,143. Two Bridges is in New York County. Living in Two Bridges offers residents a dense urban feel and most residents rent their homes. In Two Bridges there are a lot of bars, restaurants, coffee shops, and parks. Many retirees live in Two Bridges and residents tend to be liberal. The public schools in Two Bridges are above average.",
         "real estate": {
@@ -5014,9 +4986,8 @@
             }
         ]
     },
-    {
+    "Upper East Side": {
         "id": "28",
-        "name": "Upper East Side",
         "niche url": "https://www.niche.com/places-to-live/n/upper-east-side-new-york-city-ny/",
         "description": "Upper East Side is a neighborhood in New York City, New York with a population of 208,381. Upper East Side is in New York County and is one of the best places to live in New York. Living in Upper East Side offers residents a dense urban feel and most residents rent their homes. In Upper East Side there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Upper East Side and residents tend to be liberal. The public schools in Upper East Side are above average.",
         "real estate": {
@@ -5273,9 +5244,8 @@
             }
         ]
     },
-    {
+    "Upper West Side": {
         "id": "29",
-        "name": "Upper West Side",
         "niche url": "https://www.niche.com/places-to-live/n/upper-west-side-new-york-city-ny/",
         "description": "Upper West Side is a neighborhood in New York City, New York with a population of 210,552. Upper West Side is in New York County and is one of the best places to live in New York. Living in Upper West Side offers residents a dense urban feel and most residents rent their homes. In Upper West Side there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals and retirees live in Upper West Side and residents tend to be liberal. The public schools in Upper West Side are above average.",
         "real estate": {
@@ -5757,9 +5727,8 @@
             }
         ]
     },
-    {
+    "Washington Heights": {
         "id": "30",
-        "name": "Washington Heights",
         "niche url": "https://www.niche.com/places-to-live/n/washington-heights-new-york-city-ny/",
         "description": "Washington Heights is a neighborhood in New York City, New York with a population of 144,864. Washington Heights is in New York County. Living in Washington Heights offers residents a dense urban feel and most residents rent their homes. In Washington Heights there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in Washington Heights and residents tend to be liberal. The public schools in Washington Heights are above average.",
         "real estate": {
@@ -6246,9 +6215,8 @@
             }
         ]
     },
-    {
+    "West Village": {
         "id": "31",
-        "name": "West Village",
         "niche url": "https://www.niche.com/places-to-live/n/west-village-new-york-city-ny/",
         "description": "West Village is a neighborhood in New York City, New York with a population of 34,539. West Village is in New York County and is one of the best places to live in New York. Living in West Village offers residents a dense urban feel and most residents rent their homes. In West Village there are a lot of bars, restaurants, coffee shops, and parks. Many young professionals live in West Village and residents tend to be liberal. The public schools in West Village are above average.",
         "real estate": {
@@ -6380,4 +6348,4 @@
             }
         ]
     }
-]
+}

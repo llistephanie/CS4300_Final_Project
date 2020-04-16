@@ -310,80 +310,163 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #     section_name=c.find('div', class_='textIntent-title1').text.strip().replace(':', '')
 #     neighborhood_data[section_name]={'short': c.find('div', class_='textIntent-title2').text.strip(), 'long': c.find('div', class_='textIntent-body').text.strip()}
 
-compass_data = []
-with open('data/neighborhoods.csv') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
-    line_count = 0
-    for row in csv_reader:
-        if line_count == 0:
-            line_count+=1
-            continue
-        # elif line_count < 22:
-        #     line_count+=1
-        #     continue
-        neighborhood_data={}
-        neighborhood_data["id"]=row[0]
-        neighborhood_data["name"]=row[1]
-        if row[5]=="":
-            continue
-        neighborhood_data["compass url"]=row[5]
-        url=row[5]
-        response = requests.get(url, headers=headers)
-        soup = BeautifulSoup(response.text, "html.parser")
+# # REAL COMPASS CODE 
+# compass_data = []
+# with open('data/neighborhoods.csv') as csv_file:
+#     csv_reader = csv.reader(csv_file, delimiter=',')
+#     line_count = 0
+#     for row in csv_reader:
+#         if line_count == 0:
+#             line_count+=1
+#             continue
+#         # elif line_count < 22:
+#         #     line_count+=1
+#         #     continue
+#         neighborhood_data={}
+#         neighborhood_data["id"]=row[0]
+#         neighborhood_data["name"]=row[1]
+#         if row[5]=="":
+#             continue
+#         neighborhood_data["compass url"]=row[5]
+#         url=row[5]
+#         response = requests.get(url, headers=headers)
+#         soup = BeautifulSoup(response.text, "html.parser")
 
-        neighborhood_id=soup.find('div', class_='block-group')['class'][-1].split('-')[0]
-        # print(soup)
-        tags_data = soup.find('ul', class_='tags').find_all('li')
+#         neighborhood_id=soup.find('div', class_='block-group')['class'][-1].split('-')[0]
+#         # print(soup)
+#         tags_data = soup.find('ul', class_='tags').find_all('li')
 
-        tags=[]
-        for t in tags_data:
-            tags.append(t.text.lower())
+#         tags=[]
+#         for t in tags_data:
+#             tags.append(t.text.lower())
 
-        neighborhood_data['tags']=tags
+#         neighborhood_data['tags']=tags
 
-        # quickhits_classname=neighborhood_id+'-introQuickHitsContainer'
-        # quickhits_data = soup.find('div', class_=quickhits_classname).find_all('div', class_='textIntent-caption1')
-        # quickhits_labels=["WHAT TO EXPECT", "THE LIFESTYLE", "WHAT NOT TO EXPECT", "THE MARKET", "YOU'LL FALL IN LOVE WITH"]
-        # quickhits={}
-        # for (idx,l) in enumerate(quickhits_labels):
-        #     quickhits[l]=quickhits_data[idx*2+1].text.strip()
+#         # quickhits_classname=neighborhood_id+'-introQuickHitsContainer'
+#         # quickhits_data = soup.find('div', class_=quickhits_classname).find_all('div', class_='textIntent-caption1')
+#         # quickhits_labels=["WHAT TO EXPECT", "THE LIFESTYLE", "WHAT NOT TO EXPECT", "THE MARKET", "YOU'LL FALL IN LOVE WITH"]
+#         # quickhits={}
+#         # for (idx,l) in enumerate(quickhits_labels):
+#         #     quickhits[l]=quickhits_data[idx*2+1].text.strip()
             
-        # neighborhood_data['quick hits']=quickhits
+#         # neighborhood_data['quick hits']=quickhits
 
-        nearestsubways=[]
+#         nearestsubways=[]
 
-        nearestsubways_classname=neighborhood_id+'-locationDetailsSubway'
-        nearestsubways_data=soup.find('div', class_=nearestsubways_classname).find_all('img')
-        for n in nearestsubways_data:
-            line_number=n['src'].split('/')[6].split('_transit.png')[0]
-            line={}
-            line['line']=line_number
-            line['img']=n['src']
-            nearestsubways.append(line)
+#         nearestsubways_classname=neighborhood_id+'-locationDetailsSubway'
+#         nearestsubways_data=soup.find('div', class_=nearestsubways_classname).find_all('img')
+#         for n in nearestsubways_data:
+#             line_number=n['src'].split('/')[6].split('_transit.png')[0]
+#             line={}
+#             line['line']=line_number
+#             line['img']=n['src']
+#             nearestsubways.append(line)
 
-        neighborhood_data['nearest subways']=nearestsubways
+#         neighborhood_data['nearest subways']=nearestsubways
 
-        commutetimes_data=soup.find('div', class_='commute--times').find_all('div')
-        commutetimes={}
-        for c in commutetimes_data:
-            dest=c.text.strip().split('\n')[0]
-            t=c.text.replace('m','').replace('h', '')
-            times=[int(i) for i in t.split() if i.isdigit()]
-            commutetimes[dest]={'train': times[0], 'car': times[1]}
+#         commutetimes_data=soup.find('div', class_='commute--times').find_all('div')
+#         commutetimes={}
+#         for c in commutetimes_data:
+#             dest=c.text.strip().split('\n')[0]
+#             t=c.text.replace('m','').replace('h', '')
+#             times=[int(i) for i in t.split() if i.isdigit()]
+#             commutetimes[dest]={'train': times[0], 'car': times[1]}
 
-        neighborhood_data['commute times']=commutetimes
+#         neighborhood_data['commute times']=commutetimes
 
-        aroundtheblock_data=soup.find(id='around_the_block').find_all('div', class_='slide__inner__section')
-        neighborhood_data['description']=aroundtheblock_data[0].find('div', class_='textIntent-body').text.strip()
+#         aroundtheblock_data=soup.find(id='around_the_block').find_all('div', class_='slide__inner__section')
+#         neighborhood_data['description']=aroundtheblock_data[0].find('div', class_='textIntent-body').text.strip()
 
-        for (idx,c) in enumerate(aroundtheblock_data):
-            if idx==0:
-                continue
-            section_name=c.find('div', class_='textIntent-title1').text.strip().replace(':', '')
-            neighborhood_data[section_name]={'short': c.find('div', class_='textIntent-title2').text.strip(), 'long': c.find('div', class_='textIntent-body').text.strip()}
+#         for (idx,c) in enumerate(aroundtheblock_data):
+#             if idx==0:
+#                 continue
+#             section_name=c.find('div', class_='textIntent-title1').text.strip().replace(':', '')
+#             neighborhood_data[section_name]={'short': c.find('div', class_='textIntent-title2').text.strip(), 'long': c.find('div', class_='textIntent-body').text.strip()}
 
-        compass_data.append(neighborhood_data)
+#         compass_data.append(neighborhood_data)
 
-with open("data/compass.txt", 'w', encoding='utf-8') as f:
-    json.dump(compass_data, f, ensure_ascii=False, indent=4)
+# with open("data/compass.txt", 'w', encoding='utf-8') as f:
+#     json.dump(compass_data, f, ensure_ascii=False, indent=4)
 
+
+# url="https://streeteasy.com/neighborhoods/battery-park-city/"
+
+# session = requests.Session()
+# response = session.get(url, headers=headers)
+# soup = BeautifulSoup(response.text, "html.parser")
+
+# neighborhood_data={}
+# neighborhood_data['location']=soup.find('h1')
+# neighborhood_data['description']=soup.find('p', class_='description')
+
+# # neighborhood_data
+# # specifics={}
+# print(soup)
+# specifics_data=soup.find('div', class_='spicifics').find_all('div', class_='spicifics-text')
+
+# for s in specifics_data:
+#     h=s.find('h4').text.lower()
+#     neighborhood_data[h]=s.find('p').text
+
+# neighborhood_data['housing']=soup.find(id='by-the-numbers').find('p', class_='hide_it_content')
+
+# neighborhood_data['more']=[p.text for p in soup.find(id='scenes').find_all('p')]
+
+# print(neighborhood_data)
+
+
+# STREETEASY CODE
+# import webbrowser
+
+# streeteasy_data={}
+# with open('data/streeteasy.csv') as csv_file:
+#     csv_reader = csv.reader(csv_file, delimiter=',')
+#     line_count = 0
+#     keys=[]
+#     for row in csv_reader:
+#         if line_count == 0:
+#             keys.extend([r.strip().replace('\ufeff', '') for r in row])
+#             # print(keys)
+#             line_count+=1
+#             continue
+        
+        
+#         neighborhood_data={}
+        
+#         for (idx,r) in enumerate(row):
+#             neighborhood_data[keys[idx]]=r.strip().replace('\"', '').replace('.', '. ')
+
+
+#         # neighborhood_data["id"]=row[0]
+#         # # neighborhood_data["name"]=row[1]
+#         # neighborhood_data["streeteasy url"]=row[2]
+
+
+#         # webbrowser.open_new_tab(row[6])
+
+
+
+#         streeteasy_data[row[1]]=neighborhood_data
+
+# # print(streeteasy_data)
+
+# with open("data/streeteasy.txt", 'w', encoding='utf-8') as f:
+#     json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
+
+original="data/walkscore.json"
+
+with open(original) as f:
+    data = json.load(f)
+    # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
+
+new_data={}
+for d in data:
+    name=d['name']
+    del d['name']
+    new_data[name]=d
+# del d[key]
+
+new_file_name=f"{original.split('.')[0]}.txt"
+
+with open(new_file_name, 'w', encoding='utf-8') as f:
+    json.dump(new_data, f, ensure_ascii=False, indent=4)

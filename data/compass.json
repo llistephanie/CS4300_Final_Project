@@ -1,7 +1,6 @@
-[
-    {
+{
+    "Battery Park": {
         "id": "0",
-        "name": "Battery Park",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/battery-park-city/",
         "tags": [
             "high-powered professionals",
@@ -78,9 +77,8 @@
             "long": "Battery Park City is a far departure from the other densely-populated parts of downtown Manhattan. There's a sense of calm that dictates the character of the neighborhood, from the laid-back attitude of residents to the serene stillness of the parks and public spaces."
         }
     },
-    {
+    "Chelsea": {
         "id": "1",
-        "name": "Chelsea",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/chelsea/",
         "tags": [
             "diverse & eclectic",
@@ -190,9 +188,8 @@
             "long": "Chelsea is a diverse neighborhood with a rich history of social activism and artistic expression. It welcomes neighbors of all kinds to add to its charm."
         }
     },
-    {
+    "Chinatown": {
         "id": "2",
-        "name": "Chinatown",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/chinatown/",
         "tags": [
             "diverse & eclectic",
@@ -282,9 +279,8 @@
             "long": "Chinatown's residents are active in preserving their traditions. One of the most popular destinations for residents and tourists is the Museum of Chinese in America."
         }
     },
-    {
+    "Civic Center": {
         "id": "3",
-        "name": "Civic Center",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/tribeca/",
         "tags": [
             "1/2/3/train",
@@ -379,9 +375,8 @@
             "long": "The uncluttered, simple grace of Tribeca allows for the small details of the neighborhood to shine."
         }
     },
-    {
+    "East Harlem": {
         "id": "4",
-        "name": "East Harlem",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/east-harlem/",
         "tags": [
             "cultural enclave",
@@ -450,9 +445,8 @@
             "long": "Through decades of cultural influx and socio-economic challenges, East Harlem has endured as a home for authentic cultural expression. From progressive after school and public education initiatives to landmark churches and eateries, East Harlem’s rapidly emerging future remains ever-rooted in a monumental past."
         }
     },
-    {
+    "East Village": {
         "id": "5",
-        "name": "East Village",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/east-village/",
         "tags": [
             "dusk until dawn nightlife",
@@ -524,9 +518,8 @@
             "long": "Living in the East Village harkens back to a time when Andy Warhol trained his next superstars and Keith Haring learned to paint his iconic pop art."
         }
     },
-    {
+    "Financial District": {
         "id": "6",
-        "name": "Financial District",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/financial-district/",
         "tags": [
             "tourist attraction",
@@ -626,9 +619,8 @@
             "long": "In the Financial District, seemingly conflicting architecture combines to create one of the most beautiful skylines in the city. Sleek, towering skyscrapers loom as an impressive reminder of the city’s commercial might."
         }
     },
-    {
+    "Flatiron": {
         "id": "7",
-        "name": "Flatiron",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/flatiron/",
         "tags": [
             "great for families",
@@ -726,9 +718,8 @@
             "long": "Flatiron has grown from an industrial neighborhood centered around one major architectural landmark into a residential area teeming with historic significance and cultural pride."
         }
     },
-    {
+    "Gramercy": {
         "id": "8",
-        "name": "Gramercy",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/gramercy/",
         "tags": [
             "4/5/6 train",
@@ -813,9 +804,8 @@
             "long": "Trees, flowers, and small gardens line almost every every street in Gramercy."
         }
     },
-    {
+    "Greenwich Village": {
         "id": "9",
-        "name": "Greenwich Village",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/greenwich-village/",
         "tags": [
             "tourist attraction",
@@ -910,9 +900,8 @@
             "long": "Throughout it’s history, Greenwich Village has always been a breeding ground for important, influential New Yorkers. Maybe that’s why it feels like with just the right amount of persistence..."
         }
     },
-    {
+    "Harlem": {
         "id": "10",
-        "name": "Harlem",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/harlem/",
         "tags": [
             "cultural enclave",
@@ -994,9 +983,8 @@
             "long": "Legendary music and food venues are only a few reasons to love life here. Residents of all ages and stages revel in the equal sense of historical significance and current cultural cachet."
         }
     },
-    {
+    "Hell's Kitchen": {
         "id": "11",
-        "name": "Hell's Kitchen",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/hells-kitchen/",
         "tags": [
             "diverse & eclectic",
@@ -1078,9 +1066,8 @@
             "long": "Hell’s Kitchen has come a long way from its rough-and-tumble history. New developments and businesses are springing up throughout the neighborhood, and extending the skyline onward and upward."
         }
     },
-    {
+    "Kips Bay": {
         "id": "13",
-        "name": "Kips Bay",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/murray-hill/",
         "tags": [
             "4/5/6 train",
@@ -1154,9 +1141,8 @@
             "long": "Murray Hill is a neighborhood that prides itself on bringing a refreshing simplicity to living life in the city."
         }
     },
-    {
+    "Little Italy": {
         "id": "14",
-        "name": "Little Italy",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/little-italy/",
         "tags": [
             "for foodies",
@@ -1242,9 +1228,8 @@
             "long": "Visitors of Little Italy come to experience the Italian culture brought from overseas. Tourists and residents alike enjoy freshly rolled cigars and authentic gelato, all reminders of the neighborhood's Italian roots."
         }
     },
-    {
+    "Lower East Side": {
         "id": "15",
-        "name": "Lower East Side",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/lower-east-side/",
         "tags": [
             "live music",
@@ -1315,9 +1300,8 @@
             "long": "Even though the Lower East Side is synonymous with the party scene, those who live in the neighborhood love it for its well-worn, homely touches of community."
         }
     },
-    {
+    "Midtown": {
         "id": "17",
-        "name": "Midtown",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/midtown-east/",
         "tags": [
             "great for families",
@@ -1426,9 +1410,8 @@
             "long": "While Midtown East is best known for being in the center of everything, for many residents the prime appeal is the tranquil setting along the East River. Many high-rise towers offer views stretching out over the river to Queens, up to the Ed Koch Queensboro Bridge, and across the skyline of Midtown Manhattan. A popular amenity in the neighborhood is a rooftop deck offering sweeping views."
         }
     },
-    {
+    "Murray Hill": {
         "id": "19",
-        "name": "Murray Hill",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/murray-hill/",
         "tags": [
             "4/5/6 train",
@@ -1502,9 +1485,8 @@
             "long": "Murray Hill is a neighborhood that prides itself on bringing a refreshing simplicity to living life in the city."
         }
     },
-    {
+    "NoHo": {
         "id": "20",
-        "name": "NoHo",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/noho/",
         "tags": [
             "commercial",
@@ -1594,9 +1576,8 @@
             "long": "Noho is known for its distinctive architectural style. Whether it’s Classical or Renaissance-inspired, Noho displays an eclectic mix of facades around every corner."
         }
     },
-    {
+    "Nolita": {
         "id": "21",
-        "name": "Nolita",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/nolita/",
         "tags": [
             "vibrant",
@@ -1657,9 +1638,8 @@
             "long": "The streets of Nolita look like outdoor galleries where brick walls become a colorful backdrop for passerbys."
         }
     },
-    {
+    "SoHo": {
         "id": "23",
-        "name": "SoHo",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/soho/",
         "tags": [
             "trendy",
@@ -1773,9 +1753,8 @@
             "long": "The cobblestone side streets are a peaceful respite from the well-travelled main streets."
         }
     },
-    {
+    "Theater District": {
         "id": "25",
-        "name": "Theater District",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/theater-district/",
         "tags": [
             "soaring skyscrapers",
@@ -1886,9 +1865,8 @@
             "long": "Larger-than-life commercial outposts and talent spanning Broadway and beyond attract visitors and residents from all walks of life and corners of the globe."
         }
     },
-    {
+    "TriBeCa": {
         "id": "26",
-        "name": "TriBeCa",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/tribeca/",
         "tags": [
             "1/2/3/train",
@@ -1983,9 +1961,8 @@
             "long": "The uncluttered, simple grace of Tribeca allows for the small details of the neighborhood to shine."
         }
     },
-    {
+    "Upper East Side": {
         "id": "28",
-        "name": "Upper East Side",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/upper-east-side/",
         "tags": [
             "4/5/6/q train",
@@ -2075,9 +2052,8 @@
             "long": "Although the Upper East Side can feel far away from the rest of the city, you’ll be so taken by the beauty of this quiet, lush neighborhood that you probably won’t mind."
         }
     },
-    {
+    "Upper West Side": {
         "id": "29",
-        "name": "Upper West Side",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/upper-west-side/",
         "tags": [
             "1/2/3 train",
@@ -2167,9 +2143,8 @@
             "long": "Cozy brick apartment buildings and tree-lined streets give the neighborhood an intimate and friendly vibe, like a childhood home imported to NYC."
         }
     },
-    {
+    "West Village": {
         "id": "31",
-        "name": "West Village",
         "compass url": "https://www.compass.com/neighborhood-guides/nyc/west-village/",
         "tags": [
             "chic",
@@ -2282,4 +2257,4 @@
             "long": "You’ll fall in love with the effortless grace of the West Village and its residents - especially those on four legs."
         }
     }
-]
+}
