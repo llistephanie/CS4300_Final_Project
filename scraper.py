@@ -453,20 +453,119 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 # with open("data/streeteasy.txt", 'w', encoding='utf-8') as f:
 #     json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
 
-original="data/walkscore.json"
+# NEIGHBORHOOD NAME AS KEY
+# original="data/walkscore.json"
 
-with open(original) as f:
-    data = json.load(f)
-    # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
+# with open(original) as f:
+#     data = json.load(f)
+#     # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
 
-new_data={}
-for d in data:
-    name=d['name']
-    del d['name']
-    new_data[name]=d
-# del d[key]
+# new_data={}
+# for d in data:
+#     name=d['name']
+#     del d['name']
+#     new_data[name]=d
+# # del d[key]
 
-new_file_name=f"{original.split('.')[0]}.txt"
+# new_file_name=f"{original.split('.')[0]}.txt"
 
-with open(new_file_name, 'w', encoding='utf-8') as f:
-    json.dump(new_data, f, ensure_ascii=False, indent=4)
+# with open(new_file_name, 'w', encoding='utf-8') as f:
+#     json.dump(new_data, f, ensure_ascii=False, indent=4)
+
+# STREET ADVISOR
+
+path="https://www.streetadvisor.com/east-village-manhattan-new-york-city-new-york"
+
+neighborhood_data={}
+response = requests.get(path, headers=headers)
+soup = BeautifulSoup(response.text, "html.parser")
+
+neighborhood_data["rating"]=float(soup.find('span', class_='average').text)
+neighborhood_data["great for"]=[x.text for x in soup.find('div', class_='greatfor').find_all('li')]
+neighborhood_data["not great for"]=[x.text for x in soup.find('div', class_='notgreatfor').find_all('li')]
+neighborhood_data["who lives here?"]=[x.text for x in soup.find('div', class_='wholiveshere').find_all('li')]
+
+reviews_data=soup.find_all('div', class_='review-content')
+
+# for (idx,r) in enumerate(reviews_data):
+#     print(r)
+#     print(r.find('div', class_='description').text.strip().replace('\r', ''))
+# reviews_header_data=rev.find_all('div', class_='review-header')
+# reviews_body_data=rev.find_all('div', class_='review-content')
+# reviews_data=re
+print(reviews_data[1])
+# reviews=[]
+# for r in reviews_data:
+#     review={}
+#     # rh=reviews_header_data[idx]
+#     # rb=reviews_body_data[idx]
+
+#     # print(rh)
+#     # print(rb)
+
+#     # print("*************")
+#     print(r)
+#     review["rating"]=r.find('span', class_='overall-rating-star').find('span').text.strip()
+#     review["title"]=r.find('h3').text.strip().replace('"', '')
+#     review["description"]=r.find('div', class_='review-content').find('div', class_='description').text.strip().replace('\r', '')
+#     reviews.append(review)
+
+# neighborhood_data["reviews"]=reviews
+
+# streetadvisor_data[row[1]]=neighborhood_data
+
+# with open(f"data/{row[0]}.txt", 'w', encoding='utf-8') as f:
+#     json.dump(neighborhood_data, f, ensure_ascii=False, indent=4)
+
+
+
+# STREET ADVISOR CODE
+# WALK SCORE CODE
+# streetadvisor_data = {}
+# with open('data/neighborhoods.csv') as csv_file:
+#     csv_reader = csv.reader(csv_file, delimiter=',')
+#     line_count = 0
+#     for row in csv_reader:
+#         if line_count == 0:
+#             line_count+=1
+#             continue
+        
+#         neighborhood_data={}
+#         neighborhood_data["id"]=row[0]
+#         neighborhood_data["street advisor url"]=row[7]
+
+#         response = requests.get(row[7], headers=headers)
+#         soup = BeautifulSoup(response.text, "html.parser")
+
+#         neighborhood_data["rating"]=float(soup.find('span', class_='average').text)
+#         neighborhood_data["great for"]=[x.text for x in soup.find('div', class_='greatfor').find_all('li')]
+#         neighborhood_data["not great for"]=[x.text for x in soup.find('div', class_='notgreatfor').find_all('li')]
+#         neighborhood_data["who lives here?"]=[x.text for x in soup.find('div', class_='wholiveshere').find_all('li')]
+
+#         reviews_header_data=soup.find_all('div', class_='review-header')
+
+#         reviews_body_data=soup.find_all('div', class_='review-content')
+
+#         reviews=[]
+#         for idx in range(len(reviews_body_data)):
+#             review={}
+#             rh=reviews_header_data[idx]
+#             rb=reviews_body_data[idx]
+#             review["rating"]=rh.find('span', class_='rating').text.strip()
+#             review["title"]=rb.find('h3').text.strip().replace('"', '')
+#             review["description"]=rb.find('div', class_='description').text.strip().replace('\r', '')
+#             reviews.append(review)
+
+#         neighborhood_data["reviews"]=reviews
+
+#         streetadvisor_data[row[1]]=neighborhood_data
+
+#         with open(f"data/{row[0]}.txt", 'w', encoding='utf-8') as f:
+#             json.dump(neighborhood_data, f, ensure_ascii=False, indent=4)
+
+#         line_count+=1
+        
+#     print(f'Processed {line_count} lines.')
+
+# with open("data/streetadvisor.txt", 'w', encoding='utf-8') as f:
+#     json.dump(streetadvisor_data, f, ensure_ascii=False, indent=4)
