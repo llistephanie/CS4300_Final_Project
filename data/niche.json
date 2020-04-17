@@ -70,7 +70,17 @@
                 "text": "There are many dry cleaners in the area, too many really, but they are all great. The restaurants are few in numbers but are all decent. There are not enough nice cafes or bookstores. You can get most of the things you need here, though.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "20%",
+            "10-17 years": "6%",
+            "18-24 years": "2%",
+            "25-34 years": "18%",
+            "35-44 years": "25%",
+            "45-54 years": "15%",
+            "55-64 years": "7%",
+            "65+ years": "8%"
+        }
     },
     "Chelsea": {
         "id": "1",
@@ -398,7 +408,17 @@
                 "text": "NYC has such a diverse selection of stores, mom and pop shops. big companies, and other businesses. I live in Chelsea and this area has so much to offer such as shopping, restaurants, transportation, educational facilities, parks and sporting events.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "5%",
+            "10-17 years": "4%",
+            "18-24 years": "10%",
+            "25-34 years": "28%",
+            "35-44 years": "16%",
+            "45-54 years": "12%",
+            "55-64 years": "12%",
+            "65+ years": "12%"
+        }
     },
     "Chinatown": {
         "id": "2",
@@ -681,7 +701,17 @@
                 "text": "Chinatown is walking distance to many different neighborhoods.  The Lower East Side, Soho, the financial district, south street seaport, etc.  Their are endless things to do here. Any type of food you would like is pretty much walking distance. Their are outdoor movies and concerts in the summer.  Many different parks, museums, art galleries, etc.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "7%",
+            "10-17 years": "4%",
+            "18-24 years": "12%",
+            "25-34 years": "19%",
+            "35-44 years": "15%",
+            "45-54 years": "11%",
+            "55-64 years": "12%",
+            "65+ years": "22%"
+        }
     },
     "Civic Center": {
         "id": "3",
@@ -713,7 +743,17 @@
             "Commute": "A+",
             "Overall Grade": "A+"
         },
-        "reviews": []
+        "reviews": [],
+        "age distribution": {
+            "<10 years": "6%",
+            "10-17 years": "3%",
+            "18-24 years": "26%",
+            "25-34 years": "20%",
+            "35-44 years": "16%",
+            "45-54 years": "10%",
+            "55-64 years": "7%",
+            "65+ years": "13%"
+        }
     },
     "East Harlem": {
         "id": "4",
@@ -1196,7 +1236,17 @@
                 "text": "I visit different Laundromats, stores, retails shops, etc.  Majority of them are easy to get to and are clean.  If one store doesn't have what i need, then, another store in the area usually does.  I don't have to go far to go shopping which makes life easier for me.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "11%",
+            "10-17 years": "10%",
+            "18-24 years": "11%",
+            "25-34 years": "18%",
+            "35-44 years": "13%",
+            "45-54 years": "12%",
+            "55-64 years": "11%",
+            "65+ years": "13%"
+        }
     },
     "East Village": {
         "id": "5",
@@ -1684,7 +1734,17 @@
                 "text": "The area is just like every other neighborhood there is nothing out of the ordinary.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "4%",
+            "10-17 years": "5%",
+            "18-24 years": "19%",
+            "25-34 years": "27%",
+            "35-44 years": "13%",
+            "45-54 years": "10%",
+            "55-64 years": "10%",
+            "65+ years": "12%"
+        }
     },
     "Financial District": {
         "id": "6",
@@ -1842,7 +1902,17 @@
                 "text": "As this is a growing area, in the next few years I expect to see immense growth in the areas that are currently lacking. There will be a lot more groceries stores, restaurants & bars. But, surprisingly, mom & pop businesses are still thriving.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "7%",
+            "10-17 years": "3%",
+            "18-24 years": "14%",
+            "25-34 years": "36%",
+            "35-44 years": "19%",
+            "45-54 years": "8%",
+            "55-64 years": "7%",
+            "65+ years": "5%"
+        }
     },
     "Flatiron": {
         "id": "7",
@@ -1895,7 +1965,17 @@
                 "text": "Over time, gentrification has occurred in my neighborhood and it has become too expensive to live here.",
                 "category": "Overall Experience"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "9%",
+            "10-17 years": "2%",
+            "18-24 years": "10%",
+            "25-34 years": "29%",
+            "35-44 years": "20%",
+            "45-54 years": "8%",
+            "55-64 years": "11%",
+            "65+ years": "10%"
+        }
     },
     "Gramercy": {
         "id": "8",
@@ -1968,7 +2048,17 @@
                 "text": "There's a large variety of businesses , which I like.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "5%",
+            "10-17 years": "3%",
+            "18-24 years": "23%",
+            "25-34 years": "28%",
+            "35-44 years": "12%",
+            "45-54 years": "10%",
+            "55-64 years": "10%",
+            "65+ years": "11%"
+        }
     },
     "Greenwich Village": {
         "id": "9",
@@ -2081,7 +2171,17 @@
                 "text": "Wonderful, fit both the college and visiting community!",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "5%",
+            "10-17 years": "4%",
+            "18-24 years": "18%",
+            "25-34 years": "24%",
+            "35-44 years": "13%",
+            "45-54 years": "9%",
+            "55-64 years": "10%",
+            "65+ years": "17%"
+        }
     },
     "Harlem": {
         "id": "10",
@@ -2584,7 +2684,17 @@
                 "text": "New York city has the most fabulous tourists attractions",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "12%",
+            "10-17 years": "8%",
+            "18-24 years": "10%",
+            "25-34 years": "21%",
+            "35-44 years": "14%",
+            "45-54 years": "14%",
+            "55-64 years": "11%",
+            "65+ years": "11%"
+        }
     },
     "Hell's Kitchen": {
         "id": "11",
@@ -2872,7 +2982,17 @@
                 "text": "There is a nice variety of different food and beverages.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "5%",
+            "10-17 years": "3%",
+            "18-24 years": "9%",
+            "25-34 years": "32%",
+            "35-44 years": "17%",
+            "45-54 years": "14%",
+            "55-64 years": "10%",
+            "65+ years": "11%"
+        }
     },
     "Inwood": {
         "id": "12",
@@ -3285,7 +3405,17 @@
                 "text": "Nightlife, bar life has significantly increased",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "11%",
+            "10-17 years": "9%",
+            "18-24 years": "10%",
+            "25-34 years": "20%",
+            "35-44 years": "14%",
+            "45-54 years": "13%",
+            "55-64 years": "10%",
+            "65+ years": "14%"
+        }
     },
     "Kips Bay": {
         "id": "13",
@@ -3378,7 +3508,17 @@
                 "text": "There are many options for food and drinks all over the area.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "5%",
+            "10-17 years": "2%",
+            "18-24 years": "20%",
+            "25-34 years": "29%",
+            "35-44 years": "12%",
+            "45-54 years": "9%",
+            "55-64 years": "9%",
+            "65+ years": "13%"
+        }
     },
     "Little Italy": {
         "id": "14",
@@ -3416,7 +3556,17 @@
                 "text": "I love my neighborhood. My neighbors are friendly and we exchange greetings. I've gotten to know shop owners and regulars on my street, and they know me. This makes this huge city feel small and intimate.",
                 "category": "Overall Experience"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "6%",
+            "10-17 years": "3%",
+            "18-24 years": "8%",
+            "25-34 years": "27%",
+            "35-44 years": "14%",
+            "45-54 years": "10%",
+            "55-64 years": "11%",
+            "65+ years": "20%"
+        }
     },
     "Lower East Side": {
         "id": "15",
@@ -3694,7 +3844,17 @@
                 "text": "Many restaurants around the area.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "8%",
+            "10-17 years": "7%",
+            "18-24 years": "8%",
+            "25-34 years": "17%",
+            "35-44 years": "12%",
+            "45-54 years": "14%",
+            "55-64 years": "14%",
+            "65+ years": "21%"
+        }
     },
     "Marble Hill": {
         "id": "16",
@@ -3822,7 +3982,17 @@
                 "text": "There are many restaurants at affordable prices and are easy to get to.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "16%",
+            "10-17 years": "9%",
+            "18-24 years": "10%",
+            "25-34 years": "15%",
+            "35-44 years": "11%",
+            "45-54 years": "16%",
+            "55-64 years": "11%",
+            "65+ years": "13%"
+        }
     },
     "Midtown": {
         "id": "17",
@@ -4100,7 +4270,17 @@
                 "text": "This area is known as Herald Square where there is a small outdoor seating area for locals and tourists to enjoy. Throughout the year, there are food events held in this area. This area is also next to Korea Town which is a busy street filled with restaurants, entertainment and stores that typically opened 24 hours.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "6%",
+            "10-17 years": "2%",
+            "18-24 years": "6%",
+            "25-34 years": "28%",
+            "35-44 years": "18%",
+            "45-54 years": "10%",
+            "55-64 years": "11%",
+            "65+ years": "19%"
+        }
     },
     "Morningside Heights": {
         "id": "18",
@@ -4303,7 +4483,17 @@
                 "text": "The businesses in the area do a great job of making it feel like a small neighborhood even though you are in the middle of Manhattan.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "6%",
+            "10-17 years": "4%",
+            "18-24 years": "34%",
+            "25-34 years": "22%",
+            "35-44 years": "8%",
+            "45-54 years": "7%",
+            "55-64 years": "7%",
+            "65+ years": "13%"
+        }
     },
     "Murray Hill": {
         "id": "19",
@@ -4396,7 +4586,17 @@
                 "text": "There are many chain stores and restaurants owned by bigger companies. In the quieter streets the are some local businesses.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "7%",
+            "10-17 years": "3%",
+            "18-24 years": "7%",
+            "25-34 years": "29%",
+            "35-44 years": "14%",
+            "45-54 years": "12%",
+            "55-64 years": "10%",
+            "65+ years": "17%"
+        }
     },
     "NoHo": {
         "id": "20",
@@ -4428,7 +4628,17 @@
             "Commute": "A+",
             "Overall Grade": "A+"
         },
-        "reviews": []
+        "reviews": [],
+        "age distribution": {
+            "<10 years": "7%",
+            "10-17 years": "4%",
+            "18-24 years": "6%",
+            "25-34 years": "34%",
+            "35-44 years": "17%",
+            "45-54 years": "11%",
+            "55-64 years": "8%",
+            "65+ years": "13%"
+        }
     },
     "Nolita": {
         "id": "21",
@@ -4541,7 +4751,17 @@
                 "text": "There are plenty of grocery stores and local businesses, but they are a bit pricey for the average low income family.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "6%",
+            "10-17 years": "0%",
+            "18-24 years": "17%",
+            "25-34 years": "28%",
+            "35-44 years": "18%",
+            "45-54 years": "10%",
+            "55-64 years": "9%",
+            "65+ years": "13%"
+        }
     },
     "Roosevelt Island": {
         "id": "22",
@@ -4609,7 +4829,17 @@
                 "text": "Its being great alot of fun activties around the island I live in.  Every thing is nearby and easier to get stuff you want like a shop and the post office just door steps away.",
                 "category": "Overall Experience"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "8%",
+            "10-17 years": "4%",
+            "18-24 years": "7%",
+            "25-34 years": "23%",
+            "35-44 years": "13%",
+            "45-54 years": "14%",
+            "55-64 years": "12%",
+            "65+ years": "18%"
+        }
     },
     "SoHo": {
         "id": "23",
@@ -4682,7 +4912,17 @@
                 "text": "Atmosphere is very trendy but the downside is it does attract tourist and crowds. One of the most sought after living areas in Manhattan which makes it one of the most sought after in the country. Definitely would live here again. Real estate prices in this area will likely continue to rise.",
                 "category": "Overall Experience"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "13%",
+            "10-17 years": "4%",
+            "18-24 years": "6%",
+            "25-34 years": "23%",
+            "35-44 years": "16%",
+            "45-54 years": "12%",
+            "55-64 years": "12%",
+            "65+ years": "14%"
+        }
     },
     "Stuyvesant Town": {
         "id": "24",
@@ -4795,7 +5035,17 @@
                 "text": "Independant shops are quickly being replaced with big corporation stores",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "7%",
+            "10-17 years": "5%",
+            "18-24 years": "13%",
+            "25-34 years": "23%",
+            "35-44 years": "12%",
+            "45-54 years": "12%",
+            "55-64 years": "13%",
+            "65+ years": "15%"
+        }
     },
     "Theater District": {
         "id": "25",
@@ -4833,7 +5083,17 @@
                 "text": "The Theater District is the center of New York City for me. It is where I work and play. Home to a great number of restaurants, bars, and, of course, Broadway, this neighborhood is home to a thriving LGBTQ community.",
                 "category": "Overall Experience"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "4%",
+            "10-17 years": "1%",
+            "18-24 years": "9%",
+            "25-34 years": "31%",
+            "35-44 years": "19%",
+            "45-54 years": "14%",
+            "55-64 years": "10%",
+            "65+ years": "13%"
+        }
     },
     "TriBeCa": {
         "id": "26",
@@ -4921,7 +5181,17 @@
                 "text": "Tribeca was once the neighborhood of trailblazers who settled into the community before it was \"the place to be.\"  One would awaken to the aroma of the Martinson's Coffee warehouse located at what now is Robert DiNero's hotel and restaurant at the southwest corner of Greenwich and North Moore Streets.  On weekdays, one would encounter the hustle and bustle of  egg and cheese purveyors at their warehouses, that are now condo lofts, scattered throughout the neighborhood; now offices workers dominate those streets.  Evenings used to remind me of nights in the low desert of the Mojave Desert in Southern California, sans the cry of coyotes.  Now, there are street lights along Greenwich Street where  stop signs once were while teens used it as a football field.  The  peaceful nights, aromatic days, and easy commute attracted me to Tribeca.  The shopping, restaurants, and enviable housing deal keep me here, though not necessarily in that order.",
                 "category": "Overall Experience"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "18%",
+            "10-17 years": "6%",
+            "18-24 years": "3%",
+            "25-34 years": "19%",
+            "35-44 years": "20%",
+            "45-54 years": "16%",
+            "55-64 years": "10%",
+            "65+ years": "8%"
+        }
     },
     "Two Bridges": {
         "id": "27",
@@ -4984,7 +5254,17 @@
                 "text": "Its on the 2nd to toppest floor. They only charge electric and rent, water is free.",
                 "category": "Real Estate"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "7%",
+            "10-17 years": "7%",
+            "18-24 years": "6%",
+            "25-34 years": "11%",
+            "35-44 years": "11%",
+            "45-54 years": "15%",
+            "55-64 years": "14%",
+            "65+ years": "29%"
+        }
     },
     "Upper East Side": {
         "id": "28",
@@ -5242,7 +5522,17 @@
                 "text": "The local businesses near where I live are great!!",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "10%",
+            "10-17 years": "5%",
+            "18-24 years": "5%",
+            "25-34 years": "23%",
+            "35-44 years": "15%",
+            "45-54 years": "13%",
+            "55-64 years": "10%",
+            "65+ years": "19%"
+        }
     },
     "Upper West Side": {
         "id": "29",
@@ -5725,7 +6015,17 @@
                 "text": "There are a wide spread of businesses that covers most of the communities satisfaction without having to leave the area much for things people need on the daily basis.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "10%",
+            "10-17 years": "6%",
+            "18-24 years": "5%",
+            "25-34 years": "18%",
+            "35-44 years": "15%",
+            "45-54 years": "13%",
+            "55-64 years": "13%",
+            "65+ years": "20%"
+        }
     },
     "Washington Heights": {
         "id": "30",
@@ -6213,7 +6513,17 @@
                 "text": "Nature is beautiful in this area. I live near a doggy park with a view of the George Washington bridge and trees. But, there aren't much surroundings on wildlife.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "10%",
+            "10-17 years": "7%",
+            "18-24 years": "10%",
+            "25-34 years": "22%",
+            "35-44 years": "13%",
+            "45-54 years": "13%",
+            "55-64 years": "11%",
+            "65+ years": "14%"
+        }
     },
     "West Village": {
         "id": "31",
@@ -6346,6 +6656,16 @@
                 "text": "This neighborhood is a HUGE attraction for tourists, it's close to the meatpacking district where all the fashionable bars and restaurants like pastis are and an easy walk to the Chelsea market as well.  In the west village NYU makes it's home which draws students from all nationalities and they hold many events in Washington Square park available to the public.  There are also a few libraries that host movie nights and poetry circles.  Restaurants are everywhere and some of the most highly rated on Zagat are here.  It's also historical and many streets have cobble stones reminiscent of an old new york, and many streets are also not on the grid so many tourists end up getting lost, hopefully they are able to find a village native to point them in the right direction because I've even encountered native new yorkers get lost in the area if they are unfamiliar.  The parks department also hosts a lot of concert events during the summer and programs for children in the winter.",
                 "category": "Things To Do"
             }
-        ]
+        ],
+        "age distribution": {
+            "<10 years": "6%",
+            "10-17 years": "3%",
+            "18-24 years": "6%",
+            "25-34 years": "27%",
+            "35-44 years": "17%",
+            "45-54 years": "12%",
+            "55-64 years": "14%",
+            "65+ years": "15%"
+        }
     }
 }

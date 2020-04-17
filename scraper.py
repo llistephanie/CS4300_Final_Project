@@ -474,27 +474,27 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 
 # STREET ADVISOR
 
-path="https://www.streetadvisor.com/east-village-manhattan-new-york-city-new-york"
+# path="https://www.streetadvisor.com/east-village-manhattan-new-york-city-new-york"
 
-neighborhood_data={}
-response = requests.get(path, headers=headers)
-soup = BeautifulSoup(response.text, "html.parser")
+# neighborhood_data={}
+# response = requests.get(path, headers=headers)
+# soup = BeautifulSoup(response.text, "html.parser")
 
-neighborhood_data["rating"]=float(soup.find('span', class_='average').text)
-neighborhood_data["great for"]=[x.text for x in soup.find('div', class_='greatfor').find_all('li')]
-neighborhood_data["not great for"]=[x.text for x in soup.find('div', class_='notgreatfor').find_all('li')]
-neighborhood_data["who lives here?"]=[x.text for x in soup.find('div', class_='wholiveshere').find_all('li')]
+# neighborhood_data["rating"]=float(soup.find('span', class_='average').text)
+# neighborhood_data["great for"]=[x.text for x in soup.find('div', class_='greatfor').find_all('li')]
+# neighborhood_data["not great for"]=[x.text for x in soup.find('div', class_='notgreatfor').find_all('li')]
+# neighborhood_data["who lives here?"]=[x.text for x in soup.find('div', class_='wholiveshere').find_all('li')]
 
-reviews_data=soup.find_all('div', class_='review-content')
+# reviews_data=soup.find_all('div', class_='review-content')
 
-# for (idx,r) in enumerate(reviews_data):
-#     print(r)
-#     print(r.find('div', class_='description').text.strip().replace('\r', ''))
-# reviews_header_data=rev.find_all('div', class_='review-header')
-# reviews_body_data=rev.find_all('div', class_='review-content')
-# reviews_data=re
-print(reviews_data[1])
-# reviews=[]
+# # for (idx,r) in enumerate(reviews_data):
+# #     print(r)
+# #     print(r.find('div', class_='description').text.strip().replace('\r', ''))
+# # reviews_header_data=rev.find_all('div', class_='review-header')
+# # reviews_body_data=rev.find_all('div', class_='review-content')
+# # reviews_data=re
+# print(reviews_data[1])
+# # reviews=[]
 # for r in reviews_data:
 #     review={}
 #     # rh=reviews_header_data[idx]
@@ -569,3 +569,60 @@ print(reviews_data[1])
 
 # with open("data/streetadvisor.txt", 'w', encoding='utf-8') as f:
 #     json.dump(streetadvisor_data, f, ensure_ascii=False, indent=4)
+
+
+
+# NICHE AGE 
+
+
+# data = {}
+# with open('data/neighborhoods.csv') as csv_file:
+#     csv_reader = csv.reader(csv_file, delimiter=',')
+#     line_count = 0
+#     for row in csv_reader:
+#         if line_count == 0:
+#             line_count+=1
+#             continue
+#         # elif line_count < 22:
+#         #     line_count+=1
+#         #     continue
+#         neighborhood_data={}
+#         # neighborhood_data["id"]=row[0]
+#         # neighborhood_data["name"]=
+#         # neighborhood_data["niche url"]=row[3]+'residents/'
+#         response = requests.get(row[3]+'residents/', headers=headers)
+#         soup = BeautifulSoup(response.text, "html.parser")
+#         age_data = soup.find_all('div', class_='breakdown--bar_chart')[3].find_all('li', class_='fact__table__row')
+#         ages={}
+#         for a in age_data:
+#             age=a.find('div', class_='fact__table__row__label').text
+#             value=a.find('div', class_='fact__table__row__value').text
+#             ages[age]=value
+        
+#         name=row[1]
+#         print(name)
+#         data[name]={"age distribution": ages}
+#         print(data)
+
+# with open("data/ages.txt", 'w', encoding='utf-8') as f:
+#     json.dump(data, f, ensure_ascii=False, indent=4)
+
+
+# ADD AGE DATA
+
+with open("data/niche.json") as f:
+    data = json.load(f)
+    # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
+
+with open("data/ages.json") as f:
+    age_data = json.load(f)
+    # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
+
+new_data={}
+for k,v in data.items():
+    v["age distribution"]=age_data[k]["age distribution"]
+    new_data[k]=v
+# del d[key]
+
+with open("data/niche.txt", 'w', encoding='utf-8') as f:
+    json.dump(new_data, f, ensure_ascii=False, indent=4)
