@@ -614,15 +614,20 @@ with open("data/niche.json") as f:
     data = json.load(f)
     # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
 
-with open("data/ages.json") as f:
-    age_data = json.load(f)
-    # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
+# with open("data/ages.json") as f:
+#     age_data = json.load(f)
+#     # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
 
-new_data={}
-for k,v in data.items():
-    v["age distribution"]=age_data[k]["age distribution"]
-    new_data[k]=v
-# del d[key]
+# new_data={}
+# for k,v in data.items():
+#     v["age distribution"]=age_data[k]["age distribution"]
+#     new_data[k]=v
+# # del d[key]
 
-with open("data/niche.txt", 'w', encoding='utf-8') as f:
-    json.dump(new_data, f, ensure_ascii=False, indent=4)
+# with open("data/niche.txt", 'w', encoding='utf-8') as f:
+#     json.dump(new_data, f, ensure_ascii=False, indent=4)
+
+
+for r in data['Battery Park']['reviews']:
+    with open("reviewtext.txt", "a") as f:
+        f.write(f"{r['text']}\n")
