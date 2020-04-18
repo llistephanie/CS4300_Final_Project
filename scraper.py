@@ -416,7 +416,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 
 
 # STREETEASY CODE
-# import webbrowser
+import webbrowser
 
 # streeteasy_data={}
 # with open('data/streeteasy.csv') as csv_file:
@@ -610,8 +610,8 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 
 # ADD AGE DATA
 
-with open("data/niche.json") as f:
-    data = json.load(f)
+# with open("data/niche.json") as f:
+#     data = json.load(f)
     # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
 
 # with open("data/ages.json") as f:
@@ -628,6 +628,52 @@ with open("data/niche.json") as f:
 #     json.dump(new_data, f, ensure_ascii=False, indent=4)
 
 
-for r in data['Battery Park']['reviews']:
-    with open("reviewtext.txt", "a") as f:
-        f.write(f"{r['text']}\n")
+# for r in data['Battery Park']['reviews']:
+#     with open("reviewtext.txt", "a") as f:
+#         f.write(f"{r['text']}\n")
+
+def nameToUrl(n):
+    switch = {
+        "Stuyvesant Town": "stuyvesant-town-peter-cooper-village",
+        "Battery Park": "battery-park-city", 
+        'Midtown': "midtown-east",
+        "Hell's Kitchen": "hells-kitchen",
+        "Harlem": "central-harlem", 
+        "Gramercy": "gramercy-park",
+        "Flatiron": "flatiron-district"
+    }
+    return switch.get(n, n.replace(' ', '-').lower()) 
+
+data = {}
+with open('data/neighborhoods.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            line_count+=1
+            continue
+        neighborhood_data={}
+        url_name=nameToUrl(row[1])
+        renthop_url=f"https://www.renthop.com/average-rent-in/{url_name}/nyc"
+        response = requests.get(renthop_url, headers=headers)
+        soup = BeautifulSoup(response.text, "html.parser")
+        # print(soup.find('table'))
+        rent={}
+        breakdowns=["Bottom 25%", "Median", "Top 25%"]
+        beds=soup.find('table').find_all('tr')[2:]
+        for b in beds:
+            prices={}
+            all_beds=b.find_all('td', class_='font-size-9')
+            for (idx,price) in enumerate(all_beds[1:]):
+                prices[breakdowns[idx]]=price.text
+            rent[all_beds[0].text]=prices
+            
+        data[row[1]]=rent
+
+with open("data/renthop.txt", 'w', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+
+        
+
+        
