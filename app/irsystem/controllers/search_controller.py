@@ -22,3 +22,9 @@ def search():
 	output_message = "Your age: " + age + " Commute: " + commute_type + " Safety: " + safety + " Budget: " + budget + " Some: " + some
 	data = range(5)
 	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
+
+@irsystem.route('/', methods=['GET'])
+def initial_search():
+	data = []
+	output_message=''
+	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
