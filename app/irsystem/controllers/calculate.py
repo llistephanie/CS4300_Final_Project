@@ -54,7 +54,9 @@ for x in neighborhood_list:
 
 def load_crime_and_descriptions():
 	"""
-	Function adds in the attributes "description" and "safety_score" for each neighborhood
+	Function adds in the attributes "description" and "safety_score" for each neighborhood.
+	Description is pulled from the niche data
+	Safety score ranges from (0-100)
 	"""
 	global data # declare global in order to update global data variable
 	with open("data/safety.json","r") as f:
@@ -135,7 +137,7 @@ def calculateBudget(minBudget, maxBudget):
 
 # TESTING
 # print(calculateAgeScore(22))
-#print(calculateBudget(2800,2900))
+# print(calculateBudget(2800,2900))
 
 
 def main():
