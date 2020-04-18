@@ -135,7 +135,7 @@ def calculateBudget(minBudget, maxBudget):
 
 # TESTING
 # print(calculateAgeScore(22))
-print(calculateBudget(2800,2900))
+#print(calculateBudget(2800,2900))
 
 
 def main():
@@ -144,6 +144,6 @@ def main():
 	"""
 	load_crime_and_descriptions()
 
-	print(data)
+	#print(data)
 
 main()
