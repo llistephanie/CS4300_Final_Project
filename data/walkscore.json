@@ -1,7 +1,6 @@
-[
-    {
+{
+    "Battery Park": {
         "id": "0",
-        "name": "Battery Park",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Battery_Park_City",
         "rankings": {
             "rank": 36,
@@ -21,9 +20,8 @@
             "time": 5
         }
     },
-    {
+    "Chelsea": {
         "id": "1",
-        "name": "Chelsea",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Chelsea",
         "rankings": {
             "rank": 17,
@@ -43,9 +41,8 @@
             "time": 5
         }
     },
-    {
+    "Chinatown": {
         "id": "2",
-        "name": "Chinatown",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Chinatown",
         "rankings": {
             "rank": 4,
@@ -65,9 +62,8 @@
             "time": 5
         }
     },
-    {
+    "Civic Center": {
         "id": "3",
-        "name": "Civic Center",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Civic_Center",
         "rankings": {
             "rank": 11,
@@ -87,9 +83,8 @@
             "time": 5
         }
     },
-    {
+    "East Harlem": {
         "id": "4",
-        "name": "East Harlem",
         "walkscore url": "https://www.walkscore.com/NY/New_York/East_Harlem",
         "rankings": {
             "rank": 42,
@@ -109,9 +104,8 @@
             "time": 5
         }
     },
-    {
+    "East Village": {
         "id": "5",
-        "name": "East Village",
         "walkscore url": "https://www.walkscore.com/NY/New_York/East_Village",
         "rankings": {
             "rank": 28,
@@ -131,9 +125,8 @@
             "time": 5
         }
     },
-    {
+    "Financial District": {
         "id": "6",
-        "name": "Financial District",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Financial_District",
         "rankings": {
             "rank": 8,
@@ -153,9 +146,8 @@
             "time": 5
         }
     },
-    {
+    "Flatiron": {
         "id": "7",
-        "name": "Flatiron",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Flatiron_District",
         "rankings": {
             "rank": 3,
@@ -175,9 +167,8 @@
             "time": 5
         }
     },
-    {
+    "Gramercy": {
         "id": "8",
-        "name": "Gramercy",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Gramercy_Park",
         "rankings": {
             "rank": 14,
@@ -197,9 +188,8 @@
             "time": 5
         }
     },
-    {
+    "Greenwich Village": {
         "id": "9",
-        "name": "Greenwich Village",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Greenwich_Village",
         "rankings": {
             "rank": 10,
@@ -219,9 +209,8 @@
             "time": 5
         }
     },
-    {
+    "Harlem": {
         "id": "10",
-        "name": "Harlem",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Central_Harlem",
         "rankings": {
             "rank": 32,
@@ -241,9 +230,8 @@
             "time": 5
         }
     },
-    {
+    "Hell's Kitchen": {
         "id": "11",
-        "name": "Hell's Kitchen",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Hell%27s_Kitchen",
         "rankings": {
             "rank": 21,
@@ -263,9 +251,8 @@
             "time": 5
         }
     },
-    {
+    "Inwood": {
         "id": "12",
-        "name": "Inwood",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Inwood",
         "rankings": {
             "rank": 37,
@@ -285,9 +272,8 @@
             "time": 5
         }
     },
-    {
+    "Kips Bay": {
         "id": "13",
-        "name": "Kips Bay",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Kips_Bay",
         "rankings": {
             "rank": 24,
@@ -307,9 +293,8 @@
             "time": 5
         }
     },
-    {
+    "Little Italy": {
         "id": "14",
-        "name": "Little Italy",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Little_Italy",
         "rankings": {
             "rank": 1,
@@ -329,9 +314,8 @@
             "time": 5
         }
     },
-    {
+    "Lower East Side": {
         "id": "15",
-        "name": "Lower East Side",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Lower_East_Side",
         "rankings": {
             "rank": 53,
@@ -351,9 +335,8 @@
             "time": 5
         }
     },
-    {
+    "Marble Hill": {
         "id": "16",
-        "name": "Marble Hill",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Marble_Hill",
         "rankings": {
             "rank": 59,
@@ -373,9 +356,8 @@
             "time": 5
         }
     },
-    {
+    "Midtown": {
         "id": "17",
-        "name": "Midtown",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Midtown_East",
         "rankings": {
             "rank": 15,
@@ -395,9 +377,8 @@
             "time": 5
         }
     },
-    {
+    "Morningside Heights": {
         "id": "18",
-        "name": "Morningside Heights",
         "walkscore url": "https://www.walkscore.com/NY/New_York/West_Harlem",
         "rankings": {
             "rank": 38,
@@ -417,9 +398,8 @@
             "time": 5
         }
     },
-    {
+    "Murray Hill": {
         "id": "19",
-        "name": "Murray Hill",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Murray_Hill",
         "rankings": {
             "rank": 19,
@@ -439,9 +419,8 @@
             "time": 5
         }
     },
-    {
+    "NoHo": {
         "id": "20",
-        "name": "NoHo",
         "walkscore url": "https://www.walkscore.com/NY/New_York/NoHo",
         "rankings": {
             "rank": 6,
@@ -461,9 +440,8 @@
             "time": 5
         }
     },
-    {
+    "Nolita": {
         "id": "21",
-        "name": "Nolita",
         "walkscore url": "https://www.walkscore.com/NY/New_York/NoLita",
         "rankings": {
             "rank": 5,
@@ -483,9 +461,8 @@
             "time": 5
         }
     },
-    {
+    "Roosevelt Island": {
         "id": "22",
-        "name": "Roosevelt Island",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Roosevelt_Island",
         "rankings": {
             "rank": 146,
@@ -505,9 +482,8 @@
             "time": 5
         }
     },
-    {
+    "SoHo": {
         "id": "23",
-        "name": "SoHo",
         "walkscore url": "https://www.walkscore.com/NY/New_York/SoHo",
         "rankings": {
             "rank": 9,
@@ -527,9 +503,8 @@
             "time": 5
         }
     },
-    {
+    "Stuyvesant Town": {
         "id": "24",
-        "name": "Stuyvesant Town",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Stuyvesant_Town_-_Peter_Cooper_Village",
         "rankings": {
             "rank": 50,
@@ -549,9 +524,8 @@
             "time": 5
         }
     },
-    {
+    "Theater District": {
         "id": "25",
-        "name": "Theater District",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Theater_District",
         "rankings": {
             "rank": 16,
@@ -571,9 +545,8 @@
             "time": 5
         }
     },
-    {
+    "TriBeCa": {
         "id": "26",
-        "name": "TriBeCa",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Tribeca",
         "rankings": {
             "rank": 12,
@@ -593,9 +566,8 @@
             "time": 5
         }
     },
-    {
+    "Two Bridges": {
         "id": "27",
-        "name": "Two Bridges",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Two_Bridges",
         "rankings": {
             "rank": 26,
@@ -615,9 +587,8 @@
             "time": 5
         }
     },
-    {
+    "Upper East Side": {
         "id": "28",
-        "name": "Upper East Side",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Upper_East_Side",
         "rankings": {
             "rank": 20,
@@ -637,9 +608,8 @@
             "time": 5
         }
     },
-    {
+    "Upper West Side": {
         "id": "29",
-        "name": "Upper West Side",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Upper_West_Side",
         "rankings": {
             "rank": 27,
@@ -659,9 +629,8 @@
             "time": 5
         }
     },
-    {
+    "Washington Heights": {
         "id": "30",
-        "name": "Washington Heights",
         "walkscore url": "https://www.walkscore.com/NY/New_York/Washington_Heights",
         "rankings": {
             "rank": 45,
@@ -681,9 +650,8 @@
             "time": 5
         }
     },
-    {
+    "West Village": {
         "id": "31",
-        "name": "West Village",
         "walkscore url": "https://www.walkscore.com/NY/New_York/West_Village",
         "rankings": {
             "rank": 7,
@@ -703,4 +671,4 @@
             "time": 5
         }
     }
-]
+}
