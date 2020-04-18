@@ -256,7 +256,13 @@
             "Top 25%": "$5,000"
         }
     },
-    "Marble Hill": {},
+    "Marble Hill": {
+        "1BR": {
+            "Bottom 25%": "$1,500",
+            "Median": "$1,708",
+            "Top 25%": "$2,000"
+        }
+    },
     "Midtown": {
         "Studio": {
             "Bottom 25%": "$2,270",

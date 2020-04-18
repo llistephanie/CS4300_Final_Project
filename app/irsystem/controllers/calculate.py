@@ -52,6 +52,11 @@ data = {}
 for x in neighborhood_list:
 	data[x] = {}
 
+def mergeDict(original, updates, key_name):
+    for k,v in updates.items():
+        new_val={key_name: v}
+        original[k].update(new_val)
+
 def load_crime_and_descriptions():
 	"""
 	Function adds in the attributes "description" and "safety_score" for each neighborhood.
@@ -59,7 +64,7 @@ def load_crime_and_descriptions():
 	Safety score ranges from (0-100)
 	"""
 	global data # declare global in order to update global data variable
-	with open("data/safety.json","r") as f:
+	with open("./data/safety.json","r") as f:
 		input_data = json.load(f)
 
 	data.update(input_data)
@@ -76,7 +81,6 @@ def calculateAgeScore(age):
         niche_data = json.load(f)
     
     age_dist=["<10 years", "10-17 years", "18-24 years", "25-34 years", "35-44 years", "45-54 years", "55-64 years","65+ years"]
-    neighborhoods=list(niche_data.keys())
 
     age_dist=""
     if age<10:
@@ -123,29 +127,60 @@ def calculateAgeScore(age):
     # # 1.      0.15625 0.125   0.46875 0.15625 0.125   0.34375 0.21875 0.03125
     # # 0.125   0.09375 0.09375 0.25    0.125  ]
 
-    return { neighborhoods[i] :v for i,v in enumerate(normalized)}
+    norm_age_scores={ neighborhood_list[i] :v for i,v in enumerate(normalized)}
+
+    # data.update(norm_age_scores)
+    mergeDict(data, norm_age_scores, "age score")
+    return norm_age_scores
 
 def calculateBudget(minBudget, maxBudget):
-    with open("./data/niche.json") as f:
-        niche_data = json.load(f)
+    with open("./data/renthop.json") as f:
+        renthop_data = json.load(f)
     
-    median_rent=np.array([(k,int(v["real estate"]["median rent"].replace('$', '').replace(',', ''))) for k,v in niche_data.items()])
+    with open("./data/renthop.json") as f:
+        renthop_data = json.load(f)
+    
+    fit_budget=[]
+    # top_25s=[]
+    # essentially finding percentage of homes under [min,max] range 
+    for k,v in renthop_data.items():
 
-    print(median_rent)
+        bottom=int(v.get("Studio", v.get("1BR"))["Bottom 25%"].replace('$','').replace(',', ''))
+        median=int(v.get("Studio", v.get("1BR"))["Median"].replace('$','').replace(',', ''))
+        top=int(v.get("Studio", v.get("1BR"))["Top 25%"].replace('$','').replace(',', ''))
+        # top_25s.append(top)
 
+        my_range=set(list(range(minBudget, maxBudget)))
+        n_range=set(list(range(bottom, top)))
 
+        intersect=my_range.intersection(n_range)
+        percentage_points=50.0/(top-bottom)
+        
+        if(len(intersect)==0):
+            fit_budget.append(0)
+        else:
+            fit_budget.append((max(intersect)-min(intersect))*percentage_points)
 
-# TESTING
-# print(calculateAgeScore(22))
-# print(calculateBudget(2800,2900))
+    fit_budget=np.array(fit_budget)
+    normalized=(fit_budget-min(fit_budget))/(max(fit_budget)-min(fit_budget))*100
+
+    keywords={}
+    # if maxBudget>=mean(top_25s):
+        # for text analysis
+    norm_budget_scores={ neighborhood_list[i] :v for i,v in enumerate(normalized)}
+
+    # data.update(norm_budget_scores)
+    mergeDict(data, norm_budget_scores, "budget score")
+    return norm_budget_scores
 
 
 def main():
-	"""
+    """
 	Function will be loading all the data to update the global data variable
 	"""
-	load_crime_and_descriptions()
-
-	#print(data)
+    # load_crime_and_descriptions()
+    calculateBudget(1500, 1750)
+    calculateAgeScore(22)
+    print(data)
 
 main()
