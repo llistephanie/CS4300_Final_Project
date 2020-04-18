@@ -8,7 +8,7 @@
             <p>Project Name: {{ name }}</p>
             <p>Student Name: ({{ netid }})</p>
         </div>
-        <form class="form-inline global-search">
+        <form class="form-inline global-search" method="POST">
             <h1 style="font-size: 55px; font-family:Futura; color: #4285F4">
                 C
                 <span style="color: #EA4335; ">S</span>
@@ -17,23 +17,44 @@
                 <span style="color: #34A853; ">0</span>
                 <span style="color: #EA4335; ">0</span>
             </h1>
-            
+
             <br><br>
-            
+
             <div class="form-group">
-                <input id="input" type="text" name="search" class="form-control" placeholder="Your Input">
+                <input id="input" type="text" name="age" class="form-control" placeholder="Age">
+                <select id="commute" name="commute-type">
+                  <option value="Walk">Walk</option>
+                  <option value="Bike">Bike</option>
+                  <option value="Car" selected>Car</option>
+                  <option value="Public-Transit">Public Transit</option>
+                </select>
+                <br><br>
+                <p>Safety (1-5)</p>
+                <input type="range" id="vol" name="safety" min="1" max="5">
+                <p>Budget (0-5000)</p>
+                <input type="range" id="vol" name="budget" min="0" max="5000">
+                <select id="some" name="some">
+                  <option value="coffee-shops">Coffee Shops</option>
+                  <option value="watching-movies">Watching Movies</option>
+                  <option value="nightlife">Nightlife</option>
+                  <option value="music">Music</option>
+                  <option value="theater">Theater</option>
+                  <option value="restaurants">Restaurants</option>
+                  <option value="shopping">Shopping</option>
+                  <option value="architecture">Architecture</option>
+                  <option value="outdoors">Outdoors</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-info"> Go! </button>
         </form>
         <form class="form-inline global-search">
         {% if data %}
             <h1>{{output_message}}</h1>
-            {% for d in data %}  
+            <!-- {% for d in data %}
                 <br>
                 <p>{{d}}</p>
-            {% endfor %}
+            {% endfor %} -->
         {% endif %}
         </form>
     </body>
-
 </html>
