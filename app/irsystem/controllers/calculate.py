@@ -583,10 +583,10 @@ def cosine_sim(query,
     query_toks = query[0]
     query_tf = query[1]
     query_norm = query[2]
-    all_toks = query_toks.extend(related_words)
+    # all_toks = query_toks.extend(related_words)
 
     # calculate numerator
-    for term in related_words:
+    for term in query_toks:
         if term in idf.keys():
             list_of_postings = index[term]
             q_i = query_tf[term] * idf[term]
@@ -625,7 +625,8 @@ def get_related_words(likes):
 def calculateTextSimLikes(likes_list):
     prefix = 'app/irsystem/controllers/data/'
     query_str = ' '.join(likes_list)
-    related_words = get_related_words(likes_list)
+    related_words = ' '.join(get_related_words(likes_list))
+    query_extended = query_str + ' ' + related_words
 
     with open(prefix + 'niche.json') as niche_file, open(prefix + 'streeteasy.json') as streeteasy_file, \
             open(prefix + 'compass.json') as compass_file, open(prefix + 'reddit_data.json') as reddit_file:
@@ -642,7 +643,7 @@ def calculateTextSimLikes(likes_list):
         inv_idx = build_inverted_index(tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
-        query_info = compute_query_info(query_str, idf, treebank_tokenizer)
+        query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
         return cosine_sim(query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
 
 # def main():
