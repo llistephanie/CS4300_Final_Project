@@ -572,6 +572,7 @@ def cosine_sim(query, index, idf, doc_norms, tokenizer):
     # to_list.sort(key=lambda tup: tup[1], reverse=True)
     # return to_list
 
+
 def print_cossim_results(id_to_neighborhoods, query, results):
     print("#" * len(query))
     print(query)
