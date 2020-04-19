@@ -270,7 +270,7 @@
             "short": "A quiet neighborhood with little street congestion.",
             "long": "Chinatown is known for its busy atmosphere and heavy foot traffic. Tourists and vendors pack the sidewalks, making it very congested during the daytime."
         },
-        "THE RENTAL MARKET": {
+        "THE MARKET": {
             "short": "Primarily walk-up buildings, but a few condo buildings have popped up in recent years.",
             "long": "The majority of Chinatown's apartments are walk-ups above restaurants and shops."
         },
@@ -509,7 +509,7 @@
             "short": "A quiet, residential area free of street traffic from nightlife outside their doorstep.",
             "long": "The neighborhood is fairly expensive, and finding an affordable home can be difficult."
         },
-        "THE RENTAL MARKET": {
+        "THE MARKET": {
             "short": "Good value in pre-war walkups (especially farther east), but very few doorman or highrise buildings.",
             "long": "Pre-war walk-ups are the norm; very few high-rise or doorman buildings exist in the East Village."
         },
