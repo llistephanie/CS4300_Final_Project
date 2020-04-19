@@ -237,39 +237,7 @@ def calculateCommuteScore(commuteType):
     mergeDict(data, norm_commute_scores, "commute score")
     return norm_commute_scores
 
-
-def getTopNeighborhoods(query):
-
-    with open("app/irsystem/controllers/data/neighborhoods.json", "r") as f:
-        all_data = json.load(f)
-
-    with open("app/irsystem/controllers/data/niche.json") as f:
-        niche_data = json.load(f)
-
-    loadCrimeScores()
-    calculateBudget(int(query['budget-min']), int(query['budget-max']))
-    calculateAgeScore(query['age'])
-    calculateCommuteScore(query['commute-type'])
-    calculateTextSimLikes(query['likes'])
-    safetyWeight = 0.25*(int(query['safety'])/5)
-    otherWeights = (1.0-safetyWeight)/3
-
-    neighborhood_scores = []
-    for k, v in data.items():
-        score = otherWeights*v['budget score']+otherWeights*v['age score'] + \
-            otherWeights*v['commute score']+safetyWeight*v['safety score']
-        neighborhood_scores.append((k, score))
-    top_neighborhoods = sorted(
-        neighborhood_scores, key=lambda x: x[1], reverse=True)[:10]
-
-    best_matches = []
-    for (name, score) in top_neighborhoods:
-        n = {'name': name, 'score': round(score, 2), 'image-url': all_data[name]['images'].split(
-            ',')[0], 'description': niche_data[name]['description']}
-        best_matches.append(n)
-    return best_matches
-
-
+# Activities/Likes Score Code
 def tokenize(text):
     """Returns a list of words that make up the text.
     Params: {text: String}
@@ -647,3 +615,34 @@ def calculateTextSimLikes(likes_list):
 #     print(data)
 
 # main()
+
+def getTopNeighborhoods(query):
+
+    with open("app/irsystem/controllers/data/neighborhoods.json", "r") as f:
+        all_data = json.load(f)
+
+    with open("app/irsystem/controllers/data/niche.json") as f:
+        niche_data = json.load(f)
+
+    loadCrimeScores()
+    calculateBudget(int(query['budget-min']), int(query['budget-max']))
+    calculateAgeScore(query['age'])
+    calculateCommuteScore(query['commute-type'])
+    calculateTextSimLikes(query['likes'])
+    safetyWeight = 0.25*(int(query['safety'])/5)
+    otherWeights = (1.0-safetyWeight)/3
+
+    neighborhood_scores = []
+    for k, v in data.items():
+        score = otherWeights*v['budget score']+otherWeights*v['age score'] + \
+            otherWeights*v['commute score']+safetyWeight*v['safety score']
+        neighborhood_scores.append((k, score))
+    top_neighborhoods = sorted(
+        neighborhood_scores, key=lambda x: x[1], reverse=True)[:10]
+
+    best_matches = []
+    for (name, score) in top_neighborhoods:
+        n = {'name': name, 'score': round(score, 2), 'image-url': all_data[name]['images'].split(
+            ',')[0], 'description': niche_data[name]['description']}
+        best_matches.append(n)
+    return best_matches
