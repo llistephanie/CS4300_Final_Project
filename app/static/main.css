@@ -1,261 +1,261 @@
 @media (min-width: 1200px) {
-    .container {
-      max-width: 970px;
-    }
+  .container {
+    max-width: 970px;
   }
-  @media (min-width: 400px) {
-    .global-search {
-      padding: 20px 0;
-      text-align: center;
-    }
-    body {
-      padding-top: 15%;
-      padding-bottom: 15px;
-    }
-    .global-search {
-      text-align: center;
-      padding: 10px;
-    }
-    .global-search .form-control {
-      width: 500px;
-    }
-    .global-search * {
-      display: inline-block;
-      margin-bottom: 0;
-    }
-  }
-  .topcorner {
-    position: absolute;
-    top: 2%;
-    right: 2%;
-    width: 200px;
-    font-size: 12px;
-  }
-  .btn {
-    background-color: #4285f4;
-    border: none;
-  }
-  .step-links a {
-    color: #4285f4;
-  }
-  
-  body {
-    background-image: url("people-walking-near-concrete-buildings-1557547.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    font-family: "Lato";
-    font-weight: 300;
-    font-display: swap;
-    background-attachment: fixed;
-    height: 100px;
-    overflow: scroll;
-  }
-  
-  #app {
-    background-color: rgba(0, 0, 0, 0.6);
-    /* background-color: rgba(255, 255, 255, 1); */
-    width: 100%;
-    min-height: 100%;
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-  }
-  
-  h1 {
-    padding-bottom: 20px;
-    font-family: "Lexend Giga";
-    letter-spacing: -3px;
-    width: 70%;
-    text-transform: uppercase;
-    margin-top: 10%;
-    display: inline-block;
-  }
-  
-  h4 {
-    background-color: #a9333d87;
-    border: 1px solid #a9333d87;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  /* Multi select */
-  .chosen-container-active .chosen-choices {
-    border: 1px solid rgb(220, 59, 63);
-    border-radius: 4px;
-    box-shadow: none;
-  }
-  
-  .chosen-container-multi .chosen-choices {
-    width: 500px;
-    background: transparent;
-    margin: 10px;
-    /* border: 1px solid rgb(220, 59, 63); */
-    border: 1px solid #fff;
-    border-radius: 4px;
-    font-size: 25px;
-  }
-  
-  .chosen-container .chosen-drop {
-    margin-top: px;
-    /* margin-left: -250px; */
-    left: 20px;
-    width: 150px;
-    text-align: left;
-    background: transparent;
-    border: 0;
-    color: #fff;
-    box-shadow: none;
-  }
-  
-  ul.chosen-results {
-    width: 100%;
-    font-size: 12px;
-  }
-  
-  li.active-result {
-    color: #fff;
-  }
-  
-  .chosen-container-multi .chosen-choices li.search-choice {
-    background: transparent;
-    /* color: #fff; */
-    /* background-image: none; */
-    box-shadow: none;
-    /* border: 1px solid rgb(220, 59, 63); */
-    border: 1px solid #4784f7;
-    padding: 5px 20px 5px 5px;
-    /* background-color: rgba(220, 59, 63, 0.6); */
-    height: 35px;
-    line-height: 25px;
-  }
-  
-  .chosen-container .chosen-drop {
-    border: 0px;
-  }
-  
-  .chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
-    filter: brightness(1.75);
-  }
-  
-  .chosen-container-multi .chosen-choices li.search-field input[type="text"] {
-    /* color: rgb(220, 59, 63); */
-    color: #aaa;
-    font-size: 20px;
-    font-size: 20px;
-    height: 35px;
-    padding: 5px;
-    font-weight: 100;
-  }
-  
-  #input {
-    width: 40px;
-    height: 35px;
-    font-size: 25px;
-  }
-  
-  input[type="number"] {
-    padding: 5px;
-    border: 0px;
-    background-color: #00000000;
-    color: #4784f7;
-    text-shadow: 0px 0px 10px #000;
-    font-weight: 400;
-  }
-  
-  input[type="number"]:focus {
-    border-color: #333;
-  }
-  
-  select#commute {
-    background-color: transparent;
-    color: #4784f7;
-    text-shadow: 0px 0px 10px #000;
-    width: 177px;
-    height: 35px;
-    font-size: 25px;
-    border: 0px;
-    font-weight: 400;
-  }
-  
-  .form-group {
-    font-size: 25px;
-    line-height: 40px;
-  }
-
-  input#budget {
-    --range-color: #4784f7;
 }
-  
-  /* Chrome, Safari, Edge, Opera */
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+@media (min-width: 400px) {
+  .global-search {
+    padding: 20px 0;
+    text-align: center;
   }
-  
-  /* Firefox */
-  input[type="number"] {
-    -moz-appearance: textfield;
+  body {
+    padding-top: 15%;
+    padding-bottom: 15px;
   }
-  
-  .chosen-container-multi .chosen-drop .result-selected {
-    color: rgb(138, 138, 138);
-    font-style: italic;
-  }
-  
-  .chosen-container-multi .chosen-choices li.search-choice span {
-    font-size: 18px;
-    color: #4784f7;
-    font-weight: 400;
-  }
-  
-  span {
-    font-size: 12px;
-    color: #cecece;
-  }
-  
-  input#budget {
-    height: 40px;
-  }
-  
-  /*   results */
-  
-  .result {
-    display: inline-block;
-    width: 30%;
-    min-width: 350px;
-    margin: 10px;
-    vertical-align: top;
-  }
-  
-  .result p {
-    text-align: left;
-    padding: 20px;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: normal;
-  }
-  
-  .result h3 {
-    line-height: 40px;
-    font-size: 24px;
+  .global-search {
+    text-align: center;
     padding: 10px;
-    font-family: "Lexend Giga";
-    letter-spacing: -3.5px;
   }
-  
-  .result h5 {
-    /* color: #76f576; */
-    font-size: 18px;
-    line-height: 18px;
+  .global-search .form-control {
+    width: 500px;
   }
-  
-  span.safety {
-    color: #4784f7;
-    text-shadow: 0px 0px 10px #000;
-    font-size: 25px;
-    font-weight: 400;
+  .global-search * {
+    display: inline-block;
+    margin-bottom: 0;
   }
-  
+}
+.topcorner {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 200px;
+  font-size: 12px;
+}
+.btn {
+  background-color: #4285f4;
+  border: none;
+}
+.step-links a {
+  color: #4285f4;
+}
+
+body {
+  background-image: url("people-walking-near-concrete-buildings-1557547.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-family: "Lato";
+  font-weight: 300;
+  font-display: swap;
+  background-attachment: fixed;
+  height: 100px;
+  overflow: scroll;
+}
+
+#app {
+  background-color: rgba(0, 0, 0, 0.6);
+  /* background-color: rgba(255, 255, 255, 1); */
+  width: 100%;
+  min-height: 100%;
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+h1 {
+  padding-bottom: 20px;
+  font-family: "Lexend Giga";
+  letter-spacing: -3px;
+  width: 70%;
+  text-transform: uppercase;
+  margin-top: 10%;
+  display: inline-block;
+}
+
+h4 {
+  background-color: #a9333d87;
+  border: 1px solid #a9333d87;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Multi select */
+.chosen-container-active .chosen-choices {
+  border: 1px solid rgb(220, 59, 63);
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.chosen-container-multi .chosen-choices {
+  width: 500px;
+  background: transparent;
+  margin: 10px;
+  /* border: 1px solid rgb(220, 59, 63); */
+  border: 1px solid #fff;
+  border-radius: 4px;
+  font-size: 25px;
+}
+
+.chosen-container .chosen-drop {
+  margin-top: px;
+  /* margin-left: -250px; */
+  left: 20px;
+  width: 150px;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  box-shadow: none;
+}
+
+ul.chosen-results {
+  width: 100%;
+  font-size: 12px;
+}
+
+li.active-result {
+  color: #fff;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice {
+  background: transparent;
+  /* color: #fff; */
+  /* background-image: none; */
+  box-shadow: none;
+  /* border: 1px solid rgb(220, 59, 63); */
+  border: 1px solid #4784f7;
+  padding: 5px 20px 5px 5px;
+  /* background-color: rgba(220, 59, 63, 0.6); */
+  height: 35px;
+  line-height: 25px;
+}
+
+.chosen-container .chosen-drop {
+  border: 0px;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+  filter: brightness(1.75);
+}
+
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  /* color: rgb(220, 59, 63); */
+  color: #aaa;
+  font-size: 20px;
+  font-size: 20px;
+  height: 35px;
+  padding: 5px;
+  font-weight: 100;
+}
+
+#input {
+  width: 40px;
+  height: 35px;
+  font-size: 25px;
+}
+
+input[type="number"] {
+  padding: 5px;
+  border: 0px;
+  background-color: #00000000;
+  color: #4784f7;
+  text-shadow: 0px 0px 10px #000;
+  font-weight: 400;
+}
+
+input[type="number"]:focus {
+  border-color: #333;
+}
+
+select#commute {
+  background-color: transparent;
+  color: #4784f7;
+  text-shadow: 0px 0px 10px #000;
+  width: 177px;
+  height: 35px;
+  font-size: 25px;
+  border: 0px;
+  font-weight: 400;
+}
+
+.form-group {
+  font-size: 25px;
+  line-height: 40px;
+}
+
+input#budget {
+  --range-color: #4784f7;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.chosen-container-multi .chosen-drop .result-selected {
+  color: rgb(138, 138, 138);
+  font-style: italic;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice span {
+  font-size: 18px;
+  color: #4784f7;
+  font-weight: 400;
+}
+
+span {
+  /* font-size: 12px; */
+  color: #cecece;
+}
+
+input#budget {
+  height: 40px;
+  width: 300px;
+}
+
+/*   results */
+
+.result {
+  display: inline-block;
+  width: 30%;
+  min-width: 350px;
+  margin: 10px;
+  vertical-align: top;
+}
+
+.result p {
+  text-align: left;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+}
+
+.result h3 {
+  line-height: 40px;
+  font-size: 24px;
+  padding: 10px;
+  font-family: "Lexend Giga";
+  letter-spacing: -3.5px;
+}
+
+.result h5 {
+  /* color: #76f576; */
+  font-size: 18px;
+  line-height: 18px;
+}
+
+span.safety {
+  color: #4784f7;
+  text-shadow: 0px 0px 10px #000;
+  font-size: 25px;
+  font-weight: 400;
+}

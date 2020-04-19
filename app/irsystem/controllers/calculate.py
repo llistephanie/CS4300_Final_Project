@@ -44,19 +44,19 @@ neighborhood_list = ['Battery Park',
 n_neighborhoods = len(neighborhood_list)
 treebank_tokenizer = TreebankWordTokenizer()
 
-relevant_keywords = {"Coffee Shops": ["coffee shops", "tea", "coffee", "cafe", "cafes", "coffee shop", "coffee stores", "bakeries", "bookstores"],
-                     "Working Out": ["working out", "gym", "yoga", "run", "skating", "basketball", "volleyball", "running"],
-                     "Watching Movies": ["watching movies", "movie theatre", "movies", "movie"],
-                     "Nightlife": ["nightlife", "bars", "going out", "clubs", "rooftops", "party", "cocktail", "drinking", "partiers"],
+relevant_keywords = {"Coffee Shops": ["coffee","tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
+                     "Working Out": ["gym", "gyms", "yoga", "run", "skating", "basketball", "volleyball", "running"],
+                     "Watching Movies": ["film", "theatre", "movies", "movie"],
+                     "Nightlife": ["nightlife", "bars", "clubs", "rooftops", "party", "cocktail", "drinking", "partiers"],
                      "Music": ["music", "entertainment", "jazz", "performance", "performances", "concert", "talent"],
-                     "Theater": ["theatre", "entertainment", "house theaters", "broadway", "performances", "off-Broadway", "dance", "drama", "talent", "shows"],
-                     "Restaurants": ["restaurants", "restaurant", "foodie", "foodies", "food", "eat", "eateries", "culinary", "cuisine", "bistros", "dining", "meal", "farmer's market", "eats", "snack"],
+                     "Theater": ["theatre", "entertainment", "theaters", "broadway", "performances", "off-Broadway", "dance", "drama", "talent", "shows"],
+                     "Restaurants": ["restaurants", "restaurant", "foodie", "foodies", "food", "eat", "eateries", "culinary", "cuisine", "bistros", "dining", "meal", "farmer's", "market", "eats", "snack"],
                      "Shopping": ["shopping", "shopper", "boutiques", "shopper's", "commercial", "fashion-forward", "fashion", "retailers", "commerce", "stores", "markets"],
                      "Art": ["art", "artsy", "architecture", "buildings", "artists", "gallery", "galleries", "artistic", "photographers", "sculptors", "painters", "trendy", "bohemian", "creative", "museum", "museums", "picturesque", "creative"],
-                     "Outdoors": ["outdoors", "parks", "park", "recreation", "waterfront", "public spaces", "outdoor spaces", "trees", "flowers", "garden", "gardens", "picnics", "green", "nature", "greenspace", "green spaces", "open spaces", "bike", "water", "biking", "kayaking", "boating", "piers", "pier"],
+                     "Outdoors": ["outdoors", "parks", "park", "recreation", "waterfront", "spaces", "outdoor", "trees", "flowers", "garden", "gardens", "picnics", "green", "nature", "greenspace", "open", "bike", "water", "biking", "kayaking", "boating", "piers", "pier"],
                      "Expensive": ["expensive", "pricey", "luxury", "affluent", "posh", "expensive"],
                      "Affordable": ["affordable", "inexpensive", "below-market", "diverse budgets", "cheap"],
-                     "Quiet": ["quiet", "escape", "peaceful", "serene", "calm", "laid-back", "tranquil", "mellow", "low key", "low-key", "early to bed", "secluded", "simplicity", "empty", "uncluttered", "simple", "slower", "relaxed", "grace", "crowded"],
+                     "Quiet": ["quiet", "escape", "peaceful", "serene", "calm", "laid-back", "tranquil", "mellow", "low key", "low-key", "early", "secluded", "simplicity", "empty", "uncluttered", "simple", "slower", "relaxed", "grace", "crowded"],
                      "Loud": ["loud", "lively", "fast-paced", "congested", "energetic", "traffic", "hustle", "noise", "vibrant", "packed", "tight"], 
                      "Old": ["old"], 
                      "Young": ["young", "students", "younger"], 
@@ -628,9 +628,11 @@ def getTopNeighborhoods(query):
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
     calculateCommuteScore(query['commute-type'])
-    calculateTextSimLikes(query['likes'])
+    print_cossim_results(calculateTextSimLikes(query['likes']))
     safetyWeight = 0.25*(int(query['safety'])/5)
     otherWeights = (1.0-safetyWeight)/3
+
+
 
     neighborhood_scores = []
     for k, v in data.items():
