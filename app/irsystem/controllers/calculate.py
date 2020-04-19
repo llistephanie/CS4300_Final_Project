@@ -43,6 +43,11 @@ neighborhood_list = ['Battery Park',
                      'West Village']
 n_neighborhoods = len(neighborhood_list)
 treebank_tokenizer = TreebankWordTokenizer()
+neighborhood_name_to_id = {}
+for neighborhood_id in range(len(neighborhood_list)):
+    neighborhood = neighborhood_list[neighborhood_id]
+    neighborhood_name_to_id[neighborhood] = neighborhood_id
+neighborhood_id_to_name = {v:k for k,v in neighborhood_name_to_id.items()}
 
 relevant_keywords = {"Coffee Shops": ["coffee","tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
                      "Working Out": ["gym", "gyms", "yoga", "run", "skating", "basketball", "volleyball", "running"],
@@ -622,11 +627,6 @@ def calculateTextSimLikes(likes_list):
         compass_data = json.load(compass_file)
         tokenize_methods = [tokenize_niche, tokenize_streeteasy, tokenize_compass]
         data_files = [niche_data, streeteasy_data, compass_data]
-        neighborhood_name_to_id = {}
-        for neighborhood_id in range(len(neighborhood_list)):
-            neighborhood = neighborhood_list[neighborhood_id]
-            neighborhood_name_to_id[neighborhood] = neighborhood_id
-        neighborhood_id_to_name = {v:k for k,v in neighborhood_name_to_id.items()}
         inv_idx = build_inverted_index(tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
@@ -657,7 +657,8 @@ def getTopNeighborhoods(query):
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
     calculateCommuteScore(query['commute-type'])
-    print_cossim_results(calculateTextSimLikes(query['likes']))
+    print_cossim_results(neighborhood_id_to_name, ' '.join(query['likes']),
+                         calculateTextSimLikes(query['likes']))
     safetyWeight = 0.25*(int(query['safety'])/5)
     otherWeights = (1.0-safetyWeight)/3
 
