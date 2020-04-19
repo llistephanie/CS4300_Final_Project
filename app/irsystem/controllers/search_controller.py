@@ -19,11 +19,15 @@ def search():
 		safety = request.form["safety"]
 		budget_min = int(((5000 - 0) / 100) *  int(request.form.getlist('budget')[0]))
 		budget_max = int(((5000 - 0) / 100) *  int(request.form.getlist('budget')[1]))
-		some = request.form["some"]
-		
-	output_message = "Your age: " + age + " Commute: " + commute_type + " Safety: " + safety + " Budget: " + str(budget_min) + "-" + str(budget_max) + " Some: " + some
+		likes = request.form.getlist('likes')
 	
-	query={'age': age, 'commute-type': commute_type, 'safety': safety, 'budget-min': budget_min, 'budget-max': budget_max, 'some': some}
+	likes_string=""
+	for l in likes:
+		likes_string=likes_string + " " + l
+
+	output_message = "Your age: " + age + " Commute: " + commute_type + " Safety: " + safety + " Budget: " + str(budget_min) + "-" + str(budget_max) + " likes: " + likes_string
+	
+	query={'age': age, 'commute-type': commute_type, 'safety': safety, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes}
 
 	data=getTopNeighborhoods(query)
 	print(data)

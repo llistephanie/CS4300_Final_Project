@@ -19,20 +19,20 @@ neighborhood_list = ['Battery Park',
                      'Harlem',
                      "Hell's Kitchen",
                      'Inwood',
-                     'Kips bay',
+                     'Kips Bay',
                      'Little Italy',
                      'Lower East Side',
                      'Marble Hill',
                      'Midtown',
                      'Morningside Heights',
                      'Murray Hill',
-                     'Noho',
+                     'NoHo',
                      'Nolita',
                      'Roosevelt Island',
-                     'Soho',
+                     'SoHo',
                      'Stuyvesant Town',
                      'Theater District',
-                     'Tribeca',
+                     'TriBeCa',
                      'Two Bridges',
                      'Upper East Side',
                      'Upper West Side',
@@ -52,6 +52,7 @@ Includes the following components:
 data = {}
 for x in neighborhood_list:
 	data[x] = {}
+
 
 def mergeDict(original, updates, key_name):
     for k,v in updates.items():
@@ -78,6 +79,11 @@ def calculateAgeScore(age):
     Output:
         age_scores  dictionary indexed by neighborhood of score (0-100) assigned to each
     """
+    if age=='':
+        age=24
+    else:
+        age=int(age)
+
     with open("app/irsystem/controllers/data/niche.json") as f:
         niche_data = json.load(f)
     
@@ -135,6 +141,8 @@ def calculateAgeScore(age):
     return norm_age_scores
 
 def calculateBudget(minBudget, maxBudget):
+    print(f"MIN BUDGET {minBudget}")
+    print(f"MAX BUDGET {maxBudget}")
     with open("app/irsystem/controllers/data/renthop.json") as f:
         renthop_data = json.load(f)
 
@@ -160,6 +168,7 @@ def calculateBudget(minBudget, maxBudget):
             fit_budget.append((max(intersect)-min(intersect))*percentage_points)
 
     fit_budget=np.array(fit_budget)
+    # print(f"fit budget {fit_budget}")
     normalized=(fit_budget-min(fit_budget))/(max(fit_budget)-min(fit_budget))*100
 
     # keywords={}
@@ -185,18 +194,27 @@ def calculateCommuteScore(commuteType):
 
 def getTopNeighborhoods(query):
 
-    print("HI IM IN " + os.getcwd())
+    with open("app/irsystem/controllers/data/neighborhoods.json","r") as f:
+        all_data = json.load(f)
+    
+    with open("app/irsystem/controllers/data/niche.json") as f:
+        niche_data = json.load(f)
 
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
-    calculateAgeScore(int(query['age']))
+    calculateAgeScore(query['age'])
     calculateCommuteScore(query['commute-type'])
 
     neighborhood_scores=[]
     for k,v in data.items():
         score=0.33*v['budget score']+0.33*v['age score']+0.33*v['commute score']
         neighborhood_scores.append((k,score))
+    top_neighborhoods=sorted(neighborhood_scores, key = lambda x: x[1], reverse=True)[:10]
 
-    return sorted(neighborhood_scores, key = lambda x: x[1], reverse=True)[:10]
+    best_matches=[]
+    for (name,score) in top_neighborhoods:
+        n={'name': name, 'score': round(score, 2), 'image-url': all_data[name]['images'].split(',')[0], 'description': niche_data[name]['description']}
+        best_matches.append(n)
+    return best_matches
 
 # def main():
 #     """
