@@ -72,7 +72,7 @@
       "short": "Expensive. Large rental complexes and condo buildings with many amenities.",
       "long": "Unlike the rest of New York City, there are no walk-ups or brownstones in Battery Park City. Residents find homes in luxury high-rise condo and rental buildings, most of which are outfitted with concierges, gyms, and parking garages."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The immaculate upkeep and peaceful environment of this beautifully-planned neighborhood.",
       "long": "Battery Park City is a far departure from the other densely-populated parts of downtown Manhattan. There's a sense of calm that dictates the character of the neighborhood, from the laid-back attitude of residents to the serene stillness of the parks and public spaces."
     }
@@ -183,7 +183,7 @@
       "short": "Newer high-rise buildings, sprawling warehouses, and some steals in post-war walk-ups.",
       "long": "In Chelsea, price points are high for luxury buildings, and slightly more affordable for smaller walk-ups."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The class and culture, minus the pretension.",
       "long": "Chelsea is a diverse neighborhood with a rich history of social activism and artistic expression. It welcomes neighbors of all kinds to add to its charm."
     }
@@ -274,7 +274,7 @@
       "short": "Primarily walk-up buildings, but a few condo buildings have popped up in recent years.",
       "long": "The majority of Chinatown's apartments are walk-ups above restaurants and shops."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The immersive cultural experience in a prime downtown location.",
       "long": "Chinatown's residents are active in preserving their traditions. One of the most popular destinations for residents and tourists is the Museum of Chinese in America."
     }
@@ -370,7 +370,7 @@
       "short": "Luxury living in lofts and elevator buildings, but at a cost.",
       "long": "High-rise luxury buildings are abundant in Tribeca. The units in Tribeca are big, but residents pay a high price for square-footage. Many have gorgeous waterfront views."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The understated elegance, tucked away from busy downtown Manhattan.",
       "long": "The uncluttered, simple grace of Tribeca allows for the small details of the neighborhood to shine."
     }
@@ -440,7 +440,7 @@
       "short": "Affordable. Walk-ups and brownstone building apartments are most popular, with an increasing number of luxury condo and co-op units on the southern end of the neighborhood.",
       "long": "Low-rise pre-war buildings are available throughout the neighborhood, and make up the majority of options as you move further north. Longtime (and knew residents in the know) also take advantage of a variety of rent-stabilized housing options. Land and space is more affordable in East Harlem and renters can get great value for a large apartment that they might not be able to find elsewhere."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The balance of cultural tradition, community-friendly spaces, and sense of growth.",
       "long": "Through decades of cultural influx and socio-economic challenges, East Harlem has endured as a home for authentic cultural expression. From progressive after school and public education initiatives to landmark churches and eateries, East Harlem’s rapidly emerging future remains ever-rooted in a monumental past."
     }
@@ -513,7 +513,7 @@
       "short": "Good value in pre-war walkups (especially farther east), but very few doorman or highrise buildings.",
       "long": "Pre-war walk-ups are the norm; very few high-rise or doorman buildings exist in the East Village."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The creative, gritty, and independent energy of one of the most iconic neighborhoods in Manhattan.",
       "long": "Living in the East Village harkens back to a time when Andy Warhol trained his next superstars and Keith Haring learned to paint his iconic pop art."
     }
@@ -614,7 +614,7 @@
       "short": "Great value in luxury and high-rise buildings.",
       "long": "With a mix of walk-ups and luxury buildings, FiDi has a wealth of quality real-estate options for a variety of budgets."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The architecture: glossy skyscrapers and cobblestone streets set against breathtaking ocean views.",
       "long": "In the Financial District, seemingly conflicting architecture combines to create one of the most beautiful skylines in the city. Sleek, towering skyscrapers loom as an impressive reminder of the city’s commercial might."
     }
@@ -713,7 +713,7 @@
       "short": "Pricey with very low vacancy rates. Luxury buildings with brand-new amenities, and a few walk-ups buildings.",
       "long": "Because Flatiron is predominantly a commercial neighborhood, there are fewer options for apartments than other places in the city. The neighborhood has a fair number of recently developed luxury buildings on Broadway, Park Avenue, and Fifth Avenue. They often come with all-inclusive gyms, rooftops, and doorman service, but also come with hefty price tags."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "Historic preservation in the middle of busy Manhattan.",
       "long": "Flatiron has grown from an industrial neighborhood centered around one major architectural landmark into a residential area teeming with historic significance and cultural pride."
     }
@@ -799,7 +799,7 @@
       "short": "Walk-ups and doorman buildings galore, and more affordable options out in Stuy Town.",
       "long": "In Gramercy, you’ll find a number of doorman buildings which offer a considerable amount of space, but at a high cost."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The lush greenery on almost every block.",
       "long": "Trees, flowers, and small gardens line almost every every street in Gramercy."
     }
@@ -895,7 +895,7 @@
       "short": "Generally expensive, but plenty of options across a diverse blend of walk-ups, brownstones, and doorman buildings.",
       "long": "Some residents might find pre-war walk-ups on side streets, but will often pay for the idyllic location rather than the space."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The communal culture of this down-to-earth, embracing neighborhood.",
       "long": "Throughout it’s history, Greenwich Village has always been a breeding ground for important, influential New Yorkers. Maybe that’s why it feels like with just the right amount of persistence..."
     }
@@ -978,7 +978,7 @@
       "short": "Affordable nineteenth century apartments and brownstones are becoming more competitive, and new developments are popping up throughout the neighborhood.",
       "long": "Charming, historic brownstones and walk-ups are relatively abundant, especially from 125th to 145th streets."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The rich history and widespread sense of community.",
       "long": "Legendary music and food venues are only a few reasons to love life here. Residents of all ages and stages revel in the equal sense of historical significance and current cultural cachet."
     }
@@ -1061,7 +1061,7 @@
       "short": "Mostly affordable walkups and doorman buildings, and newer luxury-high rise buildings.",
       "long": "In Hell’s Kitchen zoning laws cap most buildings in the neighborhood to six stories, so homes tend to be in walk-ups, townhouses or brownstones."
     },
-    "YOU’LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The way this up-and-coming neighborhood continues to evolve while staying close to its roots.",
       "long": "Hell’s Kitchen has come a long way from its rough-and-tumble history. New developments and businesses are springing up throughout the neighborhood, and extending the skyline onward and upward."
     }
@@ -1136,7 +1136,7 @@
       "short": "Very reasonable. You can find great deals for spacious apartments in high-rise buildings.",
       "long": "In Murray Hill you’ll find brownstones, townhouses, and a number of spacious mid-rise condo buildings."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The welcoming, down-to-earth energy in this convenient and comfortable neighborhood.",
       "long": "Murray Hill is a neighborhood that prides itself on bringing a refreshing simplicity to living life in the city."
     }
@@ -1223,7 +1223,7 @@
       "short": "Competitive. Co-op buildings and walk-ups have low turnover rates and prices are consistently on the rise.",
       "long": "Most residential buildings in the neighborhood are walk-up apartments above restaurants or storefronts."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "Italian cultural charm set in downtown Manhattan.",
       "long": "Visitors of Little Italy come to experience the Italian culture brought from overseas. Tourists and residents alike enjoy freshly rolled cigars and authentic gelato, all reminders of the neighborhood's Italian roots."
     }
@@ -1295,7 +1295,7 @@
       "short": "Affordable. Mainly pre-war walk-ups, but there are a few newer luxury high-rise buildings.",
       "long": "A handful of modern luxury high-rises have sprung up in recent years, but most apartments are pre-war walk-ups."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The free-spirit tradition of this diverse, welcoming community.",
       "long": "Even though the Lower East Side is synonymous with the party scene, those who live in the neighborhood love it for its well-worn, homely touches of community."
     }
@@ -1405,7 +1405,7 @@
       "short": "A mix of new development luxury condos and prestigious co-ops, plus more affordable walk-up rentals.",
       "long": "With an array of of stately prewar towers and sleek  full-service high-rises, there are lots of options in Midtown East, particularly at the higher end of the market. Classic townhouses provide even more options for spacious luxury homes. Beyond the luxury condo and coop buildings, renters will find plenty of options, particularly in the Turtle Bay section east of Lexington Avenue."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The city skyline and waterfront vistas, best seen from above.",
       "long": "While Midtown East is best known for being in the center of everything, for many residents the prime appeal is the tranquil setting along the East River. Many high-rise towers offer views stretching out over the river to Queens, up to the Ed Koch Queensboro Bridge, and across the skyline of Midtown Manhattan. A popular amenity in the neighborhood is a rooftop deck offering sweeping views."
     }
@@ -1480,7 +1480,7 @@
       "short": "Very reasonable. You can find great deals for spacious apartments in high-rise buildings.",
       "long": "In Murray Hill you’ll find brownstones, townhouses, and a number of spacious mid-rise condo buildings."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The welcoming, down-to-earth energy in this convenient and comfortable neighborhood.",
       "long": "Murray Hill is a neighborhood that prides itself on bringing a refreshing simplicity to living life in the city."
     }
@@ -1571,7 +1571,7 @@
       "short": "Pricey. New luxury buildings near Bowery and walk-ups on side streets are some of the most highly sought-after in the downtown market.",
       "long": "Noho has a relatively diverse mix of real-estate options, albeit in low quantities. Lofts and walk-ups lend themselves to a classic old-New York feel throughout the neighborhood."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The unique architectural design and rich artistic history.",
       "long": "Noho is known for its distinctive architectural style. Whether it’s Classical or Renaissance-inspired, Noho displays an eclectic mix of facades around every corner."
     }
@@ -1633,7 +1633,7 @@
       "short": "Competitive. Manicured pre-war walk-ups with low turnover rates.",
       "long": "In a neighborhood that's only four blocks wide, apartments can be hard to find. Turnover rates are low because many residents know that if they leave Nolita, it might be difficult to come back."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The effortlessly cool charm of this small but vibrant neighborhood.",
       "long": "The streets of Nolita look like outdoor galleries where brick walls become a colorful backdrop for passerbys."
     }
@@ -1748,7 +1748,7 @@
       "short": "High price points and low vacancies.",
       "long": "In Soho, spaces are tight and price tags high. Most buildings are walk-ups or luxury co-ops."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "Quaint cobblestone side streets, cast-iron facades, and the bohemian energy.",
       "long": "The cobblestone side streets are a peaceful respite from the well-travelled main streets."
     }
@@ -1860,7 +1860,7 @@
       "short": "Competitively priced. Modern doorman buildings become more expensive as you move further north toward Central Park South.",
       "long": "Newcomers are pleasantly surprised to find competitively priced studio apartments and penthouses in the heart of Times Square."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "Endless people-watching and entertainment options.",
       "long": "Larger-than-life commercial outposts and talent spanning Broadway and beyond attract visitors and residents from all walks of life and corners of the globe."
     }
@@ -1956,7 +1956,7 @@
       "short": "Luxury living in lofts and elevator buildings, but at a cost.",
       "long": "High-rise luxury buildings are abundant in Tribeca. The units in Tribeca are big, but residents pay a high price for square-footage. Many have gorgeous waterfront views."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The understated elegance, tucked away from busy downtown Manhattan.",
       "long": "The uncluttered, simple grace of Tribeca allows for the small details of the neighborhood to shine."
     }
@@ -2047,7 +2047,7 @@
       "short": "Reasonable apartments for diverse budgets, and expansive townhouses for a higher cost.",
       "long": "The Upper East Side real-estate is the stuff of legends, especially townhouses and luxury doorman buildings on Fifth, Madison and Park Avenue."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "Staying close to home - everything you need is in this sprawling, self-contained Manhattan retreat.",
       "long": "Although the Upper East Side can feel far away from the rest of the city, you’ll be so taken by the beauty of this quiet, lush neighborhood that you probably won’t mind."
     }
@@ -2138,7 +2138,7 @@
       "short": "Pricey high-rises and townhouses, but buildings farther north can be more affordable.",
       "long": "The Upper West Side has a large number of condo, co-ops and high-rise buildings."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The intimate and inviting spirit of the neighborhood.",
       "long": "Cozy brick apartment buildings and tree-lined streets give the neighborhood an intimate and friendly vibe, like a childhood home imported to NYC."
     }
@@ -2252,7 +2252,7 @@
       "short": "Brownstones, mid-rise co-ops, and walkups. Low vacancy rates lead to a high demand for inventory.",
       "long": "The West Village is known for its stunning brownstones, co-ops, and condos."
     },
-    "YOU'LL FALL IN LOVE WITH": {
+    "FALL IN LOVE": {
       "short": "The small-town European vibe.",
       "long": "You’ll fall in love with the effortless grace of the West Village and its residents - especially those on four legs."
     }

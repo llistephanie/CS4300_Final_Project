@@ -87,10 +87,6 @@
     box-shadow: none;
   }
   
-  .chosen-container.chosen-container-multi.chosen-with-drop.chosen-container-active {
-    /* width: 30px; */
-  }
-  
   .chosen-container-multi .chosen-choices {
     width: 500px;
     background: transparent;
@@ -103,7 +99,8 @@
   
   .chosen-container .chosen-drop {
     margin-top: px;
-    margin-left: -250px;
+    /* margin-left: -250px; */
+    left: 20px;
     width: 150px;
     text-align: left;
     background: transparent;
