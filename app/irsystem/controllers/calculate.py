@@ -618,7 +618,8 @@ def print_cossim_results(id_to_neighborhoods, query, results):
 def calculateTextSimLikes(likes_list):
     prefix = 'app/irsystem/controllers/data/'
     query_str = ' '.join(likes_list)
-    with open(prefix + 'niche.json') as niche_file, open(prefix + 'streeteasy.json') as streeteasy_file, open(prefix + 'compass.json') as compass_file, open(prefix + 'reddit_data.json') as reddit_file:
+    with open(prefix + 'niche.json') as niche_file, open(prefix + 'streeteasy.json') as streeteasy_file, \
+            open(prefix + 'compass.json') as compass_file:
         niche_data = json.load(niche_file)
         streeteasy_data = json.load(streeteasy_file)
         compass_data = json.load(compass_file)
