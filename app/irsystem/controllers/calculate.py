@@ -60,8 +60,10 @@ relevant_keywords = {"Coffee Shops": ["coffee","tea", "shops", "cafe", "cafes", 
                      "Loud": ["loud", "lively", "fast-paced", "congested", "energetic", "traffic", "hustle", "noise", "vibrant", "packed", "tight"], 
                      "Old": ["old"], 
                      "Young": ["young", "students", "younger"], 
-                     "Modern": ["modern", "high-rises", "skyscrapers", "lofts", "skyline", "industrial", "posh", "elevator", "doorman"], 
-                     "Rustic": ["rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world", "character"]}
+                     "Modern": ["modern", "high-rises", "skyscrapers", "lofts", "skyline", "industrial", "posh", \
+                                "elevator", "doorman"],
+                     "Rustic": ["rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world", \
+                                "character"]}
 
 """
 Shared data containing all the scores and information for each neighborhood.
@@ -481,7 +483,8 @@ def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
             idf_dict[term] = idf
     return idf_dict
 
-def compute_norms(index, idf, n_neighborhoods):
+
+def compute_neighborhood_norms(index, idf, n_neighborhoods):
     """ Precompute the euclidean norm of each document.
 
     Arguments
@@ -513,13 +516,36 @@ def compute_norms(index, idf, n_neighborhoods):
     return np.sqrt(norm_array)
 
 
-def cosine_sim(query, index, idf, doc_norms, tokenizer):
+def compute_query_info(query, idf, tokenizer):
+    toks = treebank_tokenizer.tokenize(query.lower())
+    query_tf = {}
+    # term frequencies in query
+    for tok in set(toks):
+        query_tf[tok] = toks.count(tok)
+    # get norm of query
+    query_norm_inner_sum = 0
+    for word in toks:
+        if word in idf.keys():
+            query_norm_inner_sum += math.pow(query_tf[word] * idf[word] , 2)
+    query_norm = math.sqrt(query_norm_inner_sum)
+    return toks, query_tf, query_norm
+
+def cosine_sim(query,
+               related_words,
+               index,
+               idf,
+               doc_norms,
+               tokenizer):
     """ Search the collection of documents for the given query based on cosine similarity
 
     Arguments
     =========
-    query: string,
-        The query we are looking for.
+    query: Tuple,
+        (x,y,z) where x = the tokens of the query we are looking for, y = dictionary (k,v) where k is a token and v is
+        the term frequency of k in the query we are looking for, z = norm of the query we are looking for.
+
+    related_words: String list,
+        list of terms that are related to some words in the query and could be used in adding to the score of a neighborhood.
 
     index: an inverted index as above
 
@@ -541,18 +567,10 @@ def cosine_sim(query, index, idf, doc_norms, tokenizer):
 
     """
     score_dict = {}
-    query_toks = tokenizer.tokenize(query.lower())
-    query_tf = {}
-
-    # term frequencies in query
-    for tok in set(query_toks):
-        query_tf[tok] = query_toks.count(tok)
-    # get norm of query
-    query_norm_inner_sum = 0
-    for word in query_toks:
-        if word in idf.keys():
-            query_norm_inner_sum += math.pow(query_tf[word] * idf[word] , 2)
-    query_norm = math.sqrt(query_norm_inner_sum)
+    query_toks = query[0]
+    query_tf = query[1]
+    query_norm = query[2]
+    # all_toks = query_toks.extend(related_words)
 
     # calculate numerator
     for term in query_toks:
@@ -583,10 +601,22 @@ def print_cossim_results(id_to_neighborhoods, query, results):
         print()
 
 
+def get_related_words(likes):
+    related_tokens_list = []
+    for like in likes:
+        if like in relevant_keywords.keys():
+            related_tokens_list.extend(relevant_keywords[like])
+    return related_tokens_list
+
+
 def calculateTextSimLikes(likes_list):
     prefix = 'app/irsystem/controllers/data/'
     query_str = ' '.join(likes_list)
-    with open(prefix + 'niche.json') as niche_file, open(prefix + 'streeteasy.json') as streeteasy_file, open(prefix + 'compass.json') as compass_file, open(prefix + 'reddit_data.json') as reddit_file:
+    related_words = ' '.join(get_related_words(likes_list))
+    query_extended = query_str + ' ' + related_words
+
+    with open(prefix + 'niche.json') as niche_file, open(prefix + 'streeteasy.json') as streeteasy_file, \
+            open(prefix + 'compass.json') as compass_file, open(prefix + 'reddit_data.json') as reddit_file:
         niche_data = json.load(niche_file)
         streeteasy_data = json.load(streeteasy_file)
         compass_data = json.load(compass_file)
@@ -599,10 +629,9 @@ def calculateTextSimLikes(likes_list):
         neighborhood_id_to_name = {v:k for k,v in neighborhood_name_to_id.items()}
         inv_idx = build_inverted_index(tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
-        doc_norms = compute_norms(inv_idx, idf, n_neighborhoods)
-        return cosine_sim(query_str, inv_idx, idf, doc_norms, treebank_tokenizer)
-
-
+        doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
+        query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
+        return cosine_sim(query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
 
 # def main():
 #     """
