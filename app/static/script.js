@@ -4,6 +4,7 @@ $(function () {
   $(".chosen-select").chosen({
     no_results_text: "Oops, nothing found!",
   });
+
 });
 
 const formatter = new Intl.NumberFormat("en-US", {
@@ -12,7 +13,7 @@ const formatter = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 2,
 });
 
-function updateBudget() {
+function updateBudgetLabels() {
   low = parseInt($("#budget").attr("value").split(",")[0]);
   high = parseInt($("#budget").attr("value").split(",")[1]);
 
@@ -24,4 +25,29 @@ function updateBudget() {
 
   $(".budget-min").text(formatter.format(actualMin).slice(0, -3));
   $(".budget-max").text(formatter.format(actualMax).slice(0, -3));
+}
+
+function updateSafetyLabel() {
+  score = parseInt(parseInt($("#safety").val()));
+  label = ""
+
+  switch (score) {
+    case 1:
+      label="not at all important"
+      break;
+    case 2:
+      label="not very important"
+      break;
+    case 3:
+      label="somewhat important"
+      break;
+    case 4:
+      label="very important"
+      break;
+    default:
+      label="extremely important"
+  }
+  $(".safety").text(label);
+
+
 }

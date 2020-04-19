@@ -26,7 +26,7 @@
   }
   .topcorner {
     position: absolute;
-    bottom: 2%;
+    top: 2%;
     right: 2%;
     width: 200px;
     font-size: 12px;
@@ -163,7 +163,8 @@
     padding: 5px;
     border: 0px solid #ccc;
     background-color: #00000000;
-    color: #fff;
+    color: #4784f7;
+    text-shadow: 0px 0px 10px #000;
   }
   
   input[type="number"]:focus {
@@ -172,7 +173,8 @@
   
   select#commute {
     background-color: transparent;
-    color: #fff;
+    color: #4784f7;
+    text-shadow: 0px 0px 10px #000;
     width: 177px;
     height: 35px;
     font-size: 25px;
@@ -202,52 +204,58 @@
     color: rgb(138, 138, 138);
     font-style: italic;
   }
-
+  
   .chosen-container-multi .chosen-choices li.search-choice span {
     font-size: 18px;
-    color:  #fff;
-}
-  
+    color: #fff;
+  }
   
   span {
-      font-size: 12px;
-      color: #cecece;
+    font-size: 12px;
+    color: #cecece;
   }
   
   input#budget {
-      height: 40px;
+    height: 40px;
   }
-
-/*   results */
-
-.result {
+  
+  /*   results */
+  
+  .result {
     display: inline-block;
     width: 30%;
+    min-width: 350px;
+    margin: 10px;
     vertical-align: top;
-}
-
-.result p {
+  }
+  
+  .result p {
     text-align: left;
     padding: 20px;
     font-size: 12px;
     line-height: 16px;
     font-weight: normal;
-}
-
-.result h3 {
+  }
+  
+  .result h3 {
     line-height: 40px;
-    font-weight : 200;
+    font-weight: 200;
     font-size: 24px;
     padding: 10px;
     font-family: "Lexend Giga";
     letter-spacing: -3.5px;
-
-}
-
-.result h5 {
+  }
+  
+  .result h5 {
     color: #76f576;
-    font-size: 18px; 
+    font-size: 18px;
     font-weight: 500;
     line-height: 18px;
-}
-
+  }
+  
+  span.safety {
+      color: #4784f7;
+      text-shadow: 0px 0px 10px #000;
+      font-size: 25px;
+      font-weight: 1200;
+  }

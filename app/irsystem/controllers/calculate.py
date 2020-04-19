@@ -59,17 +59,19 @@ def mergeDict(original, updates, key_name):
         new_val={key_name: v}
         original[k].update(new_val)
 
-def load_crime_and_descriptions():
+def loadCrimeScores():
 	"""
 	Function adds in the attributes "description" and "safety_score" for each neighborhood.
 	Description is pulled from the niche data
 	Safety score ranges from (0-100)
 	"""
-	global data # declare global in order to update global data variable
-	with open("./data/safety.json","r") as f:
+	# global data # declare global in order to update global data variable
+    
+	with open("app/irsystem/controllers/data/safety.json","r") as f:
 		input_data = json.load(f)
-
-	data.update(input_data)
+	mergeDict(data, input_data, "safety score")
+	return input_data
+	# data.update(input_data)
 
 def calculateAgeScore(age):
     """
@@ -79,6 +81,8 @@ def calculateAgeScore(age):
     Output:
         age_scores  dictionary indexed by neighborhood of score (0-100) assigned to each
     """
+
+    print(f"[AGE] {data}")
     if age=='':
         age=24
     else:
@@ -141,12 +145,11 @@ def calculateAgeScore(age):
     return norm_age_scores
 
 def calculateBudget(minBudget, maxBudget):
-    print(f"MIN BUDGET {minBudget}")
-    print(f"MAX BUDGET {maxBudget}")
     with open("app/irsystem/controllers/data/renthop.json") as f:
         renthop_data = json.load(f)
 
     fit_budget=[]
+    print(f"[BUDGET] {data}")
     # top_25s=[]
     # essentially finding percentage of homes under [min,max] range 
     for k,v in renthop_data.items():
@@ -168,7 +171,6 @@ def calculateBudget(minBudget, maxBudget):
             fit_budget.append((max(intersect)-min(intersect))*percentage_points)
 
     fit_budget=np.array(fit_budget)
-    # print(f"fit budget {fit_budget}")
     normalized=(fit_budget-min(fit_budget))/(max(fit_budget)-min(fit_budget))*100
 
     # keywords={}
@@ -183,6 +185,8 @@ def calculateBudget(minBudget, maxBudget):
 def calculateCommuteScore(commuteType):
     with open("app/irsystem/controllers/data/walkscore.json") as f:
         walkscore_data = json.load(f)
+    
+    print(f"[COMMUTE] {data}")
     
     type_key={'walk': "walk score", 'bike': "bike score", 'public transit': "transit score", 'car': "transit score"}
 
@@ -199,14 +203,19 @@ def getTopNeighborhoods(query):
     
     with open("app/irsystem/controllers/data/niche.json") as f:
         niche_data = json.load(f)
-
+    
+    loadCrimeScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
     calculateCommuteScore(query['commute-type'])
+    safetyWeight=0.25*(int(query['safety'])/5)
+    otherWeights=(1.0-safetyWeight)/3
+
 
     neighborhood_scores=[]
     for k,v in data.items():
-        score=0.33*v['budget score']+0.33*v['age score']+0.33*v['commute score']
+        print(v['safety score'])
+        score=otherWeights*v['budget score']+otherWeights*v['age score']+otherWeights*v['commute score']+safetyWeight*v['safety score']
         neighborhood_scores.append((k,score))
     top_neighborhoods=sorted(neighborhood_scores, key = lambda x: x[1], reverse=True)[:10]
 

@@ -37,6 +37,7 @@
             type="number"
             name="age"
             class="form-control"
+            default="22"
           />
           years old and I like to commute by
           <select id="commute" name="commute-type">
@@ -45,9 +46,9 @@
             <option value="Car" selected>Car</option>
             <option value="Public Transit">Public Transit</option>
           </select>
-          <br /><br />
-          <p>Safety (1-5)</p>
-          <input type="range" id="vol" name="safety" min="1" max="5" />
+          <br>
+          Safety is <span class="safety">somewhat important</span> to me
+          <input type="range" id="safety" name="safety" min="1" max="5" onchange="updateSafetyLabel()" />
           <!-- <p>Budget (0-5000)</p>
                 <input type="range" id="vol" name="budget" min="0" max="5000"> -->
           <br />
@@ -58,7 +59,7 @@
             value="0,5000"
             name="budget"
             id="budget"
-            onchange="updateBudget()"
+            onchange="updateBudgetLabels()"
           />
           <span class="budget-max">$5,000</span>
           <br />
