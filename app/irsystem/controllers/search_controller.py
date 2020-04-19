@@ -1,6 +1,7 @@
 from . import *
 from app.irsystem.models.helpers import *
 from app.irsystem.models.helpers import NumpyEncoder as NumpyEncoder
+from app.irsystem.controllers.calculate import getTopNeighborhoods
 
 project_name = "The Perfect Neighborhood"
 net_id = "Stephanie Chang (sc2524), Kati Hsu (kyh24), Robert Zhang (rdz26), Sneha Kumar (sk2279), Shirley Kabir (szk4)"
@@ -16,11 +17,17 @@ def search():
 		age = request.form["age"]
 		commute_type = request.form["commute-type"]
 		safety = request.form["safety"]
-		budget = request.form["budget"]
+		budget_min = int(((5000 - 0) / 100) *  int(request.form.getlist('budget')[0]))
+		budget_max = int(((5000 - 0) / 100) *  int(request.form.getlist('budget')[1]))
 		some = request.form["some"]
+		
+	output_message = "Your age: " + age + " Commute: " + commute_type + " Safety: " + safety + " Budget: " + str(budget_min) + "-" + str(budget_max) + " Some: " + some
+	
+	query={'age': age, 'commute-type': commute_type, 'safety': safety, 'budget-min': budget_min, 'budget-max': budget_max, 'some': some}
 
-	output_message = "Your age: " + age + " Commute: " + commute_type + " Safety: " + safety + " Budget: " + budget + " Some: " + some
-	data = range(5)
+	data=getTopNeighborhoods(query)
+	print(data)
+
 	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
 
 @irsystem.route('/', methods=['GET'])

@@ -1,6 +1,7 @@
 import json
 import numpy as np
 from sklearn import preprocessing
+import os
 
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
@@ -77,7 +78,7 @@ def calculateAgeScore(age):
     Output:
         age_scores  dictionary indexed by neighborhood of score (0-100) assigned to each
     """
-    with open("./data/niche.json") as f:
+    with open("app/irsystem/controllers/data/niche.json") as f:
         niche_data = json.load(f)
     
     age_dist=["<10 years", "10-17 years", "18-24 years", "25-34 years", "35-44 years", "45-54 years", "55-64 years","65+ years"]
@@ -134,12 +135,9 @@ def calculateAgeScore(age):
     return norm_age_scores
 
 def calculateBudget(minBudget, maxBudget):
-    with open("./data/renthop.json") as f:
+    with open("app/irsystem/controllers/data/renthop.json") as f:
         renthop_data = json.load(f)
-    
-    with open("./data/renthop.json") as f:
-        renthop_data = json.load(f)
-    
+
     fit_budget=[]
     # top_25s=[]
     # essentially finding percentage of homes under [min,max] range 
@@ -164,7 +162,7 @@ def calculateBudget(minBudget, maxBudget):
     fit_budget=np.array(fit_budget)
     normalized=(fit_budget-min(fit_budget))/(max(fit_budget)-min(fit_budget))*100
 
-    keywords={}
+    # keywords={}
     # if maxBudget>=mean(top_25s):
         # for text analysis
     norm_budget_scores={ neighborhood_list[i] :v for i,v in enumerate(normalized)}
@@ -173,14 +171,41 @@ def calculateBudget(minBudget, maxBudget):
     mergeDict(data, norm_budget_scores, "budget score")
     return norm_budget_scores
 
+def calculateCommuteScore(commuteType):
+    with open("app/irsystem/controllers/data/walkscore.json") as f:
+        walkscore_data = json.load(f)
+    
+    type_key={'walk': "walk score", 'bike': "bike score", 'public transit': "transit score", 'car': "transit score"}
 
-def main():
-    """
-	Function will be loading all the data to update the global data variable
-	"""
-    # load_crime_and_descriptions()
-    calculateBudget(1500, 1750)
-    calculateAgeScore(22)
-    print(data)
+    commute_scores=np.array([int(v['rankings'][type_key[commuteType.lower()]]) for k,v in walkscore_data.items()])
+    normalized=(commute_scores-min(commute_scores))/(max(commute_scores)-min(commute_scores))*100
+    norm_commute_scores={ neighborhood_list[i] :v for i,v in enumerate(normalized)}
+    mergeDict(data, norm_commute_scores, "commute score")
+    return norm_commute_scores
 
-main()
+def getTopNeighborhoods(query):
+
+    print("HI IM IN " + os.getcwd())
+
+    calculateBudget(int(query['budget-min']), int(query['budget-max']))
+    calculateAgeScore(int(query['age']))
+    calculateCommuteScore(query['commute-type'])
+
+    neighborhood_scores=[]
+    for k,v in data.items():
+        score=0.33*v['budget score']+0.33*v['age score']+0.33*v['commute score']
+        neighborhood_scores.append((k,score))
+
+    return sorted(neighborhood_scores, key = lambda x: x[1], reverse=True)[:10]
+
+# def main():
+#     """
+# 	Function will be loading all the data to update the global data variable
+# 	"""
+#     # load_crime_and_descriptions()
+#     calculateBudget(1500, 1750)
+#     calculateAgeScore(22)
+#     calculateCommuteScore('walk')
+#     print(data)
+
+# main()
