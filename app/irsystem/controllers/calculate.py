@@ -629,7 +629,7 @@ def calculateTextSimLikes(likes_list):
             neighborhood = neighborhood_list[neighborhood_id]
             neighborhood_name_to_id[neighborhood] = neighborhood_id
         neighborhood_id_to_name = {v:k for k,v in neighborhood_name_to_id.items()}
-        inv_idx = build_inverted_index(tokenize, neighborhood_name_to_id, data_files, tokenize_methods, neighborhood_list)
+        inv_idx = build_inverted_index(tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
         doc_norms = compute_norms(inv_idx, idf, n_neighborhoods)
         return cosine_sim(query_str, inv_idx, idf, doc_norms, treebank_tokenizer)
