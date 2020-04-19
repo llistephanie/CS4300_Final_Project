@@ -1,5 +1,6 @@
 <html>
   <head>
+    <title>The Perfect Neighborhood</title>
     <link rel="stylesheet" href="/static/multirange.css" />
     <!-- <link rel="stylesheet" href="/static/bootstrap.min.css"> -->
     <link
@@ -7,9 +8,10 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,900,900i&display=swap"
+      href="https://fonts.googleapis.com/css?family=Roboto:200,300,300i,400,400i,500,500i,700,900,900i&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
     <link
       href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css"
       rel="stylesheet"
@@ -37,7 +39,7 @@
             type="number"
             name="age"
             class="form-control"
-            default="22"
+            value="22"
           />
           years old and I like to commute by
           <select id="commute" name="commute-type">
@@ -52,6 +54,7 @@
           <!-- <p>Budget (0-5000)</p>
                 <input type="range" id="vol" name="budget" min="0" max="5000"> -->
           <br />
+          My budget looks like 
           <span class="budget-min">$0</span>
           <input
             type="range"
@@ -64,21 +67,22 @@
           <span class="budget-max">$5,000</span>
           <br />
 
-          I like to... <select
+          I like ... <select
             multiple
             class="chosen-select"
             name="likes"
           >
             <option value=""></option>
-            <option value="coffee-shops">Coffee Shops</option>
-            <option value="watching-movies">Watching Movies</option>
-            <option value="nightlife">Nightlife</option>
-            <option value="music">Music</option>
-            <option value="theater">Theater</option>
-            <option value="restaurants">Restaurants</option>
-            <option value="shopping">Shopping</option>
-            <option value="architecture">Architecture</option>
-            <option value="outdoors">Outdoors</option>
+            <option value="Working Out">Working Out</option>
+            <option value="Coffee Shops">Coffee Shops</option>
+            <option value="Watching Movies">Watching Movies</option>
+            <option value="Nightlife">Nightlife</option>
+            <option value="Music">Music</option>
+            <option value="Theater">Theater</option>
+            <option value="Restaurants">Restaurants</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Art">Art</option>
+            <option value="Outdoors">Outdoors</option>
           </select>
 
           <!-- <select multiple="multiple" id="likes" name="likes">
@@ -105,7 +109,8 @@
           <br />
           <h3>{{d['name']}}</h3>
           <br />
-          <img src="{{d['image-url']}}" width="300" />
+          <!-- <img src="{{d['image-url']}}" width="300" /> -->
+          <div style="background-image: url({{d['image-url']}}); height: 300px; width: 400px; border: 1px solid black; background-size: cover; background-repeat: no-repeat; background-position: center;" class="neighborhood-image"> </div>
           <br />
           <h5>{{d['score']}}</h5>
           <p>{{d['description']}}</p>
