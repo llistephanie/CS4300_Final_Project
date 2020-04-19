@@ -601,7 +601,7 @@ def print_cossim_results(id_to_neighborhoods, query, results):
     print("#" * len(query))
     print(query)
     print("#" * len(query))
-    for score, neighborhood_id in results[:10]:
+    for neighborhood_id, score in results.items():
         print("[{:.2f}] {})".format(score, id_to_neighborhoods[neighborhood_id]))
         print()
 
