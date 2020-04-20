@@ -11,7 +11,10 @@
       href="https://fonts.googleapis.com/css?family=Roboto:200,300,300i,400,400i,500,500i,700,900,900i&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i,900,900i&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css"
       rel="stylesheet"
@@ -48,13 +51,20 @@
             <option value="Car" selected>Car</option>
             <option value="Public Transit">Public Transit</option>
           </select>
-          <br>
+          <br />
           Safety is <span class="safety">somewhat important</span> to me
-          <input type="range" id="safety" name="safety" min="1" max="5" onchange="updateSafetyLabel()" />
+          <input
+            type="range"
+            id="safety"
+            name="safety"
+            min="1"
+            max="5"
+            onchange="updateSafetyLabel()"
+          />
           <!-- <p>Budget (0-5000)</p>
                 <input type="range" id="vol" name="budget" min="0" max="5000"> -->
           <br />
-          My budget looks like 
+          My budget looks like
           <span class="budget-min">$0</span>
           <input
             type="range"
@@ -67,11 +77,8 @@
           <span class="budget-max">$5,000</span>
           <br />
 
-          I like ... <select
-            multiple
-            class="chosen-select"
-            name="likes"
-          >
+          I like ...
+          <select multiple class="chosen-select" name="likes">
             <option value=""></option>
             <option value="Working Out">Working Out</option>
             <option value="Coffee Shops">Coffee Shops</option>
@@ -103,18 +110,21 @@
       <form class="form-inline global-search">
         {% if data %}
         <h4>{{output_message}}</h4>
-        <br>
+        <br />
         {% for d in data %}
         <div class="result">
           <br />
           <h3>{{d['name']}}</h3>
           <br />
           <!-- <img src="{{d['image-url']}}" width="300" /> -->
-          <div style="background-image: url({{d['image-url']}}); height: 300px; width: 400px; border: 1px solid black; background-size: cover; background-repeat: no-repeat; background-position: center;" class="neighborhood-image"> </div>
+          <div
+            style="background-image: url({{d['image-url']}}); height: 300px; width: 400px; border: 1px solid black; background-size: cover; background-repeat: no-repeat; background-position: center;"
+            class="neighborhood-image"
+          ></div>
           <br />
           <h5>{{d['score']}}</h5>
-          <table>
-            <tbody>
+          <center>
+            <table>
               <tr>
                 <td>{{d['budget']}}</td>
                 <td>{{d['age']}}</td>
@@ -129,8 +139,8 @@
                 <td>safety</td>
                 <td>likes</td>
               </tr>
-            </tbody>
-          </table>
+            </table>
+          </center>
           <p>{{d['description']}}</p>
         </div>
         {% endfor %} {% endif %}

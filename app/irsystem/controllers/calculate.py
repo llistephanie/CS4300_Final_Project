@@ -603,9 +603,12 @@ def cosine_sim(query,
                     score_dict[neighborhood_id] += prod
                 else:
                     score_dict[neighborhood_id] += prod
+    
     divide_dict = {k: v/(doc_norms[k] * query_norm)
                    for k, v in score_dict.items()}
+
     return {k: v for k, v in sorted(divide_dict.items(), key=lambda tup: tup[1], reverse=True)}
+
     # to_list = [(k, v) for k, v in divide_dict.items()]
     # to_list.sort(key=lambda tup: tup[1], reverse=True)
     # return to_list
@@ -649,17 +652,21 @@ def calculateTextSimLikes(likes_list):
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods,
                           min_df=0, max_df_ratio=0.95)
+        
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
         query_info = compute_query_info(
             query_extended, idf, treebank_tokenizer)
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
             query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
-
+    
+    included_ids=set(likes_scores.keys())
+    zero_scored_neighborhoods=list(set(neighborhood_id_to_name.keys()).difference(included_ids))
+    for z in zero_scored_neighborhoods:
+        likes_scores[z]=0.0
     likes_scores_list=[(k,v) for k,v in likes_scores.items()]
+
     likes_scores=sorted(likes_scores_list, key=lambda x: x[1])
-    print("HELLO")
-    print(len(likes_scores))
     likes_scores = np.array([l[1] for l in likes_scores])
 
     normalized = (likes_scores-min(likes_scores)) / \
@@ -701,16 +708,18 @@ def getTopNeighborhoods(query):
     # print_cossim_results(neighborhood_id_to_name, ' '.join(query['likes']),
     #                      calculateTextSimLikes(query['likes']))
 
-    safetyWeight = 0.2*(int(query['safety'])/5)
-    otherWeights = (1.0-safetyWeight)/4
+    totalOtherScores= 4 if len(query['likes'])>0 else 3
+    safetyPercentage= 0.2 if len(query['likes'])>0 else 0.25
+    safetyWeight = safetyPercentage * (int(query['safety'])/5.0)
+    otherWeights = (1.0-safetyWeight)/totalOtherScores
 
     neighborhood_scores = []
     for k, v in data.items():
-        print(k)
-        print(v['likes score'])
+
         score = otherWeights*v['budget score']+otherWeights*v['age score'] + otherWeights * \
             v['commute score']+safetyWeight * \
-            v['safety score']+otherWeights*v['likes score']
+            v['safety score']+ (otherWeights*v['likes score'] if len(query['likes'])>0 else 0.0)
+        
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
     top_neighborhoods = sorted(
