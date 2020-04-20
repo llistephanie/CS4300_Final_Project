@@ -30,7 +30,6 @@ def search():
 	query={'age': age, 'commute-type': commute_type, 'safety': safety, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes}
 
 	data=getTopNeighborhoods(query)
-	print(data)
 
 	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
 

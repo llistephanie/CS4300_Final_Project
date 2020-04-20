@@ -189,7 +189,8 @@ def calculateBudget(minBudget, maxBudget):
         renthop_data = json.load(f)
 
     fit_budget = []
-    # top_25s=[]
+    top_25s = []
+    bottom_25s = []
     # essentially finding percentage of homes under [min,max] range
     for k, v in renthop_data.items():
 
@@ -199,7 +200,8 @@ def calculateBudget(minBudget, maxBudget):
                      "Median"].replace('$', '').replace(',', ''))
         top = int(v.get("Studio", v.get("1BR"))[
                   "Top 25%"].replace('$', '').replace(',', ''))
-        # top_25s.append(top)
+        top_25s.append(top)
+        bottom_25s.append(bottom)
 
         my_range = set(list(range(minBudget, maxBudget)))
         n_range = set(list(range(bottom, top)))
@@ -214,11 +216,20 @@ def calculateBudget(minBudget, maxBudget):
                               * percentage_points)
 
     fit_budget = np.array(fit_budget)
+
+    # keywords={}
+    if maxBudget >= np.mean(np.array(top_25s)):
+        expensive_scores=np.array(list(calculateTextSimLikes(['Expensive']).values()))
+        fit_budget=fit_budget+expensive_scores
+
+
+    if minBudget <= np.mean(np.array(bottom_25s)):
+        affordable_scores=np.array(list(calculateTextSimLikes(['Affordable']).values()))
+        fit_budget=fit_budget+affordable_scores
+
     normalized = (fit_budget-min(fit_budget)) / \
         (max(fit_budget)-min(fit_budget))*100
 
-    # keywords={}
-    # if maxBudget>=mean(top_25s):
     # for text analysis
     norm_budget_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
@@ -603,7 +614,7 @@ def cosine_sim(query,
                     score_dict[neighborhood_id] += prod
                 else:
                     score_dict[neighborhood_id] += prod
-    
+
     divide_dict = {k: v/(doc_norms[k] * query_norm)
                    for k, v in score_dict.items()}
 
@@ -632,7 +643,7 @@ def get_related_words(likes):
     return related_tokens_list
 
 
-def calculateTextSimLikes(likes_list):
+def calculateTextSimLikes(likes_list, merge_dict=False):
     prefix = 'app/irsystem/controllers/data/'
     query_str = ' '.join(likes_list)
     related_words = ' '.join(get_related_words(likes_list))
@@ -652,21 +663,24 @@ def calculateTextSimLikes(likes_list):
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods,
                           min_df=0, max_df_ratio=0.95)
-        
+
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
         query_info = compute_query_info(
             query_extended, idf, treebank_tokenizer)
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
             query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
-    
-    included_ids=set(likes_scores.keys())
-    zero_scored_neighborhoods=list(set(neighborhood_id_to_name.keys()).difference(included_ids))
-    for z in zero_scored_neighborhoods:
-        likes_scores[z]=0.0
-    likes_scores_list=[(k,v) for k,v in likes_scores.items()]
 
-    likes_scores=sorted(likes_scores_list, key=lambda x: x[1])
+    # print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
+
+    included_ids = set(likes_scores.keys())
+    zero_scored_neighborhoods = list(
+        set(neighborhood_id_to_name.keys()).difference(included_ids))
+    for z in zero_scored_neighborhoods:
+        likes_scores[z] = 0.0
+    likes_scores_list = [(k, v) for k, v in likes_scores.items()]
+
+    likes_scores = sorted(likes_scores_list, key=lambda x: x[0])
     likes_scores = np.array([l[1] for l in likes_scores])
 
     normalized = (likes_scores-min(likes_scores)) / \
@@ -675,8 +689,8 @@ def calculateTextSimLikes(likes_list):
     norm_likes_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
 
-    # data.update(norm_budget_scores)
-    mergeDict(data, norm_likes_scores, "likes score")
+    if merge_dict:
+        mergeDict(data, norm_likes_scores, "likes score")
     return norm_likes_scores
 
 
@@ -704,12 +718,9 @@ def getTopNeighborhoods(query):
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
     calculateCommuteScore(query['commute-type'])
-    calculateTextSimLikes(query['likes'])
-    # print_cossim_results(neighborhood_id_to_name, ' '.join(query['likes']),
-    #                      calculateTextSimLikes(query['likes']))
-
-    totalOtherScores= 4 if len(query['likes'])>0 else 3
-    safetyPercentage= 0.2 if len(query['likes'])>0 else 0.25
+    calculateTextSimLikes(query['likes'], True)
+    totalOtherScores = 4 if len(query['likes']) > 0 else 3
+    safetyPercentage = 0.2 if len(query['likes']) > 0 else 0.25
     safetyWeight = safetyPercentage * (int(query['safety'])/5.0)
     otherWeights = (1.0-safetyWeight)/totalOtherScores
 
@@ -718,8 +729,9 @@ def getTopNeighborhoods(query):
 
         score = otherWeights*v['budget score']+otherWeights*v['age score'] + otherWeights * \
             v['commute score']+safetyWeight * \
-            v['safety score']+ (otherWeights*v['likes score'] if len(query['likes'])>0 else 0.0)
-        
+            v['safety score'] + (otherWeights*v['likes score']
+                                 if len(query['likes']) > 0 else 0.0)
+
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
     top_neighborhoods = sorted(
@@ -727,6 +739,7 @@ def getTopNeighborhoods(query):
 
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
-        n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'description': niche_data[name]['description']}
+        n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
+            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'description': niche_data[name]['description']}
         best_matches.append(n)
     return best_matches
