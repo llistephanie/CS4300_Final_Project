@@ -113,6 +113,24 @@
           <div style="background-image: url({{d['image-url']}}); height: 300px; width: 400px; border: 1px solid black; background-size: cover; background-repeat: no-repeat; background-position: center;" class="neighborhood-image"> </div>
           <br />
           <h5>{{d['score']}}</h5>
+          <table>
+            <tbody>
+              <tr>
+                <td>{{d['budget']}}</td>
+                <td>{{d['age']}}</td>
+                <td>{{d['commute']}}</td>
+                <td>{{d['safety']}}</td>
+                <td>{{d['likes']}}</td>
+              </tr>
+              <tr>
+                <td>budget</td>
+                <td>age</td>
+                <td>commute</td>
+                <td>safety</td>
+                <td>likes</td>
+              </tr>
+            </tbody>
+          </table>
           <p>{{d['description']}}</p>
         </div>
         {% endfor %} {% endif %}

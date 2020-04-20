@@ -47,9 +47,9 @@ neighborhood_name_to_id = {}
 for neighborhood_id in range(len(neighborhood_list)):
     neighborhood = neighborhood_list[neighborhood_id]
     neighborhood_name_to_id[neighborhood] = neighborhood_id
-neighborhood_id_to_name = {v:k for k,v in neighborhood_name_to_id.items()}
+neighborhood_id_to_name = {v: k for k, v in neighborhood_name_to_id.items()}
 
-relevant_keywords = {"Coffee Shops": ["coffee","tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
+relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
                      "Working Out": ["gym", "gyms", "yoga", "run", "skating", "basketball", "volleyball", "running"],
                      "Watching Movies": ["film", "theatre", "movies", "movie"],
                      "Nightlife": ["nightlife", "bars", "clubs", "rooftops", "party", "cocktail", "drinking", "partiers"],
@@ -62,12 +62,12 @@ relevant_keywords = {"Coffee Shops": ["coffee","tea", "shops", "cafe", "cafes", 
                      "Expensive": ["expensive", "pricey", "luxury", "affluent", "posh", "expensive"],
                      "Affordable": ["affordable", "inexpensive", "below-market", "diverse budgets", "cheap"],
                      "Quiet": ["quiet", "escape", "peaceful", "serene", "calm", "laid-back", "tranquil", "mellow", "low key", "low-key", "early", "secluded", "simplicity", "empty", "uncluttered", "simple", "slower", "relaxed", "grace", "crowded"],
-                     "Loud": ["loud", "lively", "fast-paced", "congested", "energetic", "traffic", "hustle", "noise", "vibrant", "packed", "tight"], 
-                     "Old": ["old"], 
-                     "Young": ["young", "students", "younger"], 
-                     "Modern": ["modern", "high-rises", "skyscrapers", "lofts", "skyline", "industrial", "posh", \
+                     "Loud": ["loud", "lively", "fast-paced", "congested", "energetic", "traffic", "hustle", "noise", "vibrant", "packed", "tight"],
+                     "Old": ["old"],
+                     "Young": ["young", "students", "younger"],
+                     "Modern": ["modern", "high-rises", "skyscrapers", "lofts", "skyline", "industrial", "posh",
                                 "elevator", "doorman"],
-                     "Rustic": ["rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world", \
+                     "Rustic": ["rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world",
                                 "character"]}
 
 """
@@ -109,7 +109,6 @@ def loadCrimeScores():
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
     mergeDict(data, norm_safety_scores, "safety score")
     return norm_safety_scores
-
 
 
 def calculateAgeScore(age):
@@ -178,7 +177,7 @@ def calculateAgeScore(age):
     # # 1.      0.15625 0.125   0.46875 0.15625 0.125   0.34375 0.21875 0.03125
     # # 0.125   0.09375 0.09375 0.25    0.125  ]
 
-    norm_age_scores = {neighborhood_list[i]                       : v for i, v in enumerate(normalized)}
+    norm_age_scores = {neighborhood_list[i]: v for i, v in enumerate(normalized)}
 
     # data.update(norm_age_scores)
     mergeDict(data, norm_age_scores, "age score")
@@ -245,6 +244,8 @@ def calculateCommuteScore(commuteType):
     return norm_commute_scores
 
 # Activities/Likes Score Code
+
+
 def tokenize(text):
     """Returns a list of words that make up the text.
     Params: {text: String}
@@ -260,7 +261,7 @@ def tokenize_niche(tokenize_method, input_niche, input_neighborhood):
     """Returns a list of words contained in a neighborhood's niche
        description.
     Params: {tokenize_method: Function (a -> b),
-    		 input_niche: JSON
+                 input_niche: JSON
              input_neighborhood: String}
     Returns: List
     """
@@ -337,16 +338,20 @@ def tokenize_compass(tokenize_method, input_compass, input_neighborhood):
             tokenized_desc = tokenize_method(desc)
             token_list.extend(tokenized_desc)
         if lifestyle is not None:
-            tokenized_lifestyle = tokenize_method(lifestyle['short'] + ' ' + lifestyle['long'])
+            tokenized_lifestyle = tokenize_method(
+                lifestyle['short'] + ' ' + lifestyle['long'])
             token_list.extend(tokenized_lifestyle)
         if market is not None:
-            tokenized_market = tokenize_method(market['short'] + ' ' + market['long'])
+            tokenized_market = tokenize_method(
+                market['short'] + ' ' + market['long'])
             token_list.extend(tokenized_market)
         if highlight is not None:
-            tokenized_highlight = tokenize_method(highlight['short'] + ' ' + highlight['long'])
+            tokenized_highlight = tokenize_method(
+                highlight['short'] + ' ' + highlight['long'])
             token_list.extend(tokenized_highlight)
         if expectation is not None:
-            tokenized_expectation = tokenize_method(expectation['short'] + ' ' + expectation['long'])
+            tokenized_expectation = tokenize_method(
+                expectation['short'] + ' ' + expectation['long'])
             token_list.extend(tokenized_expectation)
     return token_list
 
@@ -363,8 +368,10 @@ def get_neighborhood_tokens(tokenizer, data_files, tokenize_methods, input_neigh
     tokenize_streeteasy = tokenize_methods[1]
     tokenize_compass = tokenize_methods[2]
     tokens = tokenize_niche(tokenizer, data_files[0], input_neighborhood)
-    tokens.extend(tokenize_streeteasy(tokenizer, data_files[1], input_neighborhood))
-    tokens.extend(tokenize_compass(tokenizer, data_files[2], input_neighborhood))
+    tokens.extend(tokenize_streeteasy(
+        tokenizer, data_files[1], input_neighborhood))
+    tokens.extend(tokenize_compass(
+        tokenizer, data_files[2], input_neighborhood))
     return tokens
 
 
@@ -372,8 +379,8 @@ def build_word_neighborhood_count(tokenizer, data, tokenize_methods, input_neigh
     """Returns a dictionary with the number of times each distinct word appears in a neighborhood
         Params: {tokenize_method: Function (a -> b),
                  data: List,
-			 	 tokenize_data_methods: List,
-             	 input_neighborhoods: String List}
+                                 tokenize_data_methods: List,
+                 input_neighborhoods: String List}
         Returns: Dict
     """
     word_neighborhood_count = {}
@@ -383,10 +390,13 @@ def build_word_neighborhood_count(tokenizer, data, tokenize_methods, input_neigh
     tokenize_compass = tokenize_methods[2]
     # creates dictionary of unique words as keys and set of neighborhoods that the word appears in
     for neighborhood in input_neighborhoods:
-        tokenized_niche= set(tokenize_niche(tokenizer, data[0], neighborhood))
-        tokenized_streeteasy = set(tokenize_streeteasy(tokenizer, data[1], neighborhood))
-        tokenized_compass = set(tokenize_compass(tokenizer, data[2], neighborhood))
-        neighborhood_tokens = tokenized_niche.union(tokenized_streeteasy).union(tokenized_compass)
+        tokenized_niche = set(tokenize_niche(tokenizer, data[0], neighborhood))
+        tokenized_streeteasy = set(tokenize_streeteasy(
+            tokenizer, data[1], neighborhood))
+        tokenized_compass = set(tokenize_compass(
+            tokenizer, data[2], neighborhood))
+        neighborhood_tokens = tokenized_niche.union(
+            tokenized_streeteasy).union(tokenized_compass)
         for word in neighborhood_tokens:
             if word in word_to_neighborhoods.keys():
                 word_to_neighborhoods[word].add(neighborhood)
@@ -427,9 +437,10 @@ def tf(word_w, neighborhood_n, input_word_matrix, types_to_i):
     """
     word_idx = types_to_i[word_w]
     w_freq = input_word_matrix[neighborhood_n][word_idx]
-    all_words = input_word_matrix[neighborhood_n,:]
+    all_words = input_word_matrix[neighborhood_n, :]
     total_num_words = np.sum(all_words)
     return w_freq/(total_num_words + 1)
+
 
 def build_inverted_index(tokenize_method,
                          neighborhoods_to_id,
@@ -438,7 +449,8 @@ def build_inverted_index(tokenize_method,
     """ Builds an inverted index from the messages."""
     inv_idx = {}
     for neighborhood_name, neighborhood_id in neighborhoods_to_id.items():
-        tokens = get_neighborhood_tokens(tokenize_method, data, tokenize_data_methods, neighborhood_name)
+        tokens = get_neighborhood_tokens(
+            tokenize_method, data, tokenize_data_methods, neighborhood_name)
         distinct_toks = set(tokens)
         for tok in distinct_toks:
             tok_count = tokens.count(tok)
@@ -531,9 +543,10 @@ def compute_query_info(query, idf, tokenizer):
     query_norm_inner_sum = 0
     for word in toks:
         if word in idf.keys():
-            query_norm_inner_sum += math.pow(query_tf[word] * idf[word] , 2)
+            query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
     query_norm = math.sqrt(query_norm_inner_sum)
     return toks, query_tf, query_norm
+
 
 def cosine_sim(query,
                related_words,
@@ -590,7 +603,8 @@ def cosine_sim(query,
                     score_dict[neighborhood_id] += prod
                 else:
                     score_dict[neighborhood_id] += prod
-    divide_dict = { k: v/(doc_norms[k] * query_norm) for k, v in score_dict.items() }
+    divide_dict = {k: v/(doc_norms[k] * query_norm)
+                   for k, v in score_dict.items()}
     return {k: v for k, v in sorted(divide_dict.items(), key=lambda tup: tup[1], reverse=True)}
     # to_list = [(k, v) for k, v in divide_dict.items()]
     # to_list.sort(key=lambda tup: tup[1], reverse=True)
@@ -602,7 +616,8 @@ def print_cossim_results(id_to_neighborhoods, query, results):
     print(query)
     print("#" * len(query))
     for neighborhood_id, score in results.items():
-        print("[{:.2f}] {})".format(score, id_to_neighborhoods[neighborhood_id]))
+        print("[{:.2f}] {})".format(
+            score, id_to_neighborhoods[neighborhood_id]))
         print()
 
 
@@ -620,18 +635,43 @@ def calculateTextSimLikes(likes_list):
     related_words = ' '.join(get_related_words(likes_list))
     query_extended = query_str + ' ' + related_words
 
+    likes_scores = []
+
     with open(prefix + 'niche.json') as niche_file, open(prefix + 'streeteasy.json') as streeteasy_file, \
             open(prefix + 'compass.json') as compass_file, open(prefix + 'reddit_data.json') as reddit_file:
         niche_data = json.load(niche_file)
         streeteasy_data = json.load(streeteasy_file)
         compass_data = json.load(compass_file)
-        tokenize_methods = [tokenize_niche, tokenize_streeteasy, tokenize_compass]
+        tokenize_methods = [tokenize_niche,
+                            tokenize_streeteasy, tokenize_compass]
         data_files = [niche_data, streeteasy_data, compass_data]
-        inv_idx = build_inverted_index(tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
-        idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
+        inv_idx = build_inverted_index(
+            tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
+        idf = compute_idf(inv_idx, n_neighborhoods,
+                          min_df=0, max_df_ratio=0.95)
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
-        query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
-        return cosine_sim(query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
+        query_info = compute_query_info(
+            query_extended, idf, treebank_tokenizer)
+        # score, doc id use neighborhood_id_to_name
+        likes_scores = cosine_sim(
+            query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
+
+    likes_scores_list=[(k,v) for k,v in likes_scores.items()]
+    likes_scores=sorted(likes_scores_list, key=lambda x: x[1])
+    print("HELLO")
+    print(len(likes_scores))
+    likes_scores = np.array([l[1] for l in likes_scores])
+
+    normalized = (likes_scores-min(likes_scores)) / \
+        (max(likes_scores)-min(likes_scores))*100
+
+    norm_likes_scores = {
+        neighborhood_list[i]: v for i, v in enumerate(normalized)}
+
+    # data.update(norm_budget_scores)
+    mergeDict(data, norm_likes_scores, "likes score")
+    return norm_likes_scores
+
 
 # def main():
 #     """
@@ -657,24 +697,27 @@ def getTopNeighborhoods(query):
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
     calculateCommuteScore(query['commute-type'])
-    print_cossim_results(neighborhood_id_to_name, ' '.join(query['likes']),
-                         calculateTextSimLikes(query['likes']))
-    safetyWeight = 0.25*(int(query['safety'])/5)
-    otherWeights = (1.0-safetyWeight)/3
+    calculateTextSimLikes(query['likes'])
+    # print_cossim_results(neighborhood_id_to_name, ' '.join(query['likes']),
+    #                      calculateTextSimLikes(query['likes']))
 
-
+    safetyWeight = 0.2*(int(query['safety'])/5)
+    otherWeights = (1.0-safetyWeight)/4
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = otherWeights*v['budget score']+otherWeights*v['age score'] + \
-            otherWeights*v['commute score']+safetyWeight*v['safety score']
-        neighborhood_scores.append((k, score))
+        print(k)
+        print(v['likes score'])
+        score = otherWeights*v['budget score']+otherWeights*v['age score'] + otherWeights * \
+            v['commute score']+safetyWeight * \
+            v['safety score']+otherWeights*v['likes score']
+        neighborhood_scores.append(
+            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
     top_neighborhoods = sorted(
         neighborhood_scores, key=lambda x: x[1], reverse=True)[:10]
 
     best_matches = []
-    for (name, score) in top_neighborhoods:
-        n = {'name': name, 'score': round(score, 2), 'image-url': all_data[name]['images'].split(
-            ',')[0], 'description': niche_data[name]['description']}
+    for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
+        n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'description': niche_data[name]['description']}
         best_matches.append(n)
     return best_matches
