@@ -17,15 +17,16 @@ def search():
 		age = request.form["age"]
 		commute_type = request.form["commute-type"]
 		safety = request.form["safety"]
-		budget_min = int(((5000 - 0) / 100) *  int(request.form.getlist('budget')[0]))
-		budget_max = int(((5000 - 0) / 100) *  int(request.form.getlist('budget')[1]))
+		budget=[int(b) for b in request.form.getlist('budget')]
+		budget_min = int(((5000 - 0) / 100) *  int(min(budget)))
+		budget_max = int(((5000 - 0) / 100) *  int(max(budget)))
 		likes = request.form.getlist('likes')
 	
 	likes_string=""
 	for l in likes:
 		likes_string=likes_string + " " + l
 
-	output_message = "Your age: " + age + " Commute: " + commute_type + " Safety: " + safety + " Budget: " + str(budget_min) + "-" + str(budget_max) + " likes: " + likes_string
+	output_message = "Age: " + age + " Commute Type: " + commute_type + " Safety Priority: " + safety + " Budget: $" + str(budget_min) + "-" + str(budget_max) + " Activities: " + likes_string
 	
 	query={'age': age, 'commute-type': commute_type, 'safety': safety, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes}
 

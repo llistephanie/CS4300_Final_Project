@@ -80,13 +80,25 @@ h1 {
   display: inline-block;
 }
 
-h4 {
-  background-color: #ffffffb8;
-  border: 1px solid #ffffffc7;
+.query_confirmation {
+  /* background-color: #ffffffb8; */
+  /* border: 1px solid #ffffffc7; */
   padding: 10px;
   border-radius: 3px;
   font-weight: 300;
-  color: #000;
+  color: #fff;
+  /* font-family: "Lora"; */
+  width: 75%;
+  display: inline-block;
+  text-align: left;
+  font-size: 14px;
+}
+
+.query_confirmation b {
+  font-family: "Lora";
+  text-align: left;
+  font-size: 20px;
+  font-style: italic;
 }
 
 /* Multi select */

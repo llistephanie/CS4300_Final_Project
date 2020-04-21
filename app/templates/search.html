@@ -19,7 +19,10 @@
       href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900|Lora:400,400i,500,500i,600,600i,700,700i|Manrope:300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900|Lora:400,400i,500,500i,600,600i,700,700i|Manrope:300,400,500,600,700,800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/static/main.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -110,7 +113,10 @@
       </form>
       <form class="form-inline global-search">
         {% if data %}
-        <h4>{{output_message}}</h4>
+        <div class="query_confirmation">
+          <b>your query</b><br />
+          {{output_message}}
+        </div>
         <br />
         {% for d in data %}
         <div class="result">
