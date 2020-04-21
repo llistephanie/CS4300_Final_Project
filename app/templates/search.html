@@ -68,17 +68,17 @@
           <!-- <p>Budget (0-5000)</p>
                 <input type="range" id="vol" name="budget" min="0" max="5000"> -->
           <br />
-          My budget looks like
+          My monthly budget looks like
           <span class="budget-min">$0</span>
           <input
             type="range"
             multiple
-            value="0,5000"
+            value="0,4000"
             name="budget"
             id="budget"
             onchange="updateBudgetLabels()"
           />
-          <span class="budget-max">$5,000</span>
+          <span class="budget-max">$4,000</span>
           <br />
 
           I like ...
@@ -113,11 +113,11 @@
       </form>
       <form class="form-inline global-search">
         {% if data %}
-        <div class="query_confirmation">
+        <!-- <div class="query_confirmation">
           <b>your query</b><br />
           {{output_message}}
-        </div>
-        <br />
+        </div> -->
+        <!-- <br /> -->
         {% for d in data %}
         <div class="result">
           <br />
