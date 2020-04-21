@@ -26,10 +26,11 @@
 }
 .topcorner {
   position: absolute;
-  top: 2%;
+  /* top: 2%; */
   right: 2%;
   width: 200px;
   font-size: 12px;
+  text-align: right;
 }
 .btn {
   background-color: #4285f4;
@@ -44,7 +45,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
-  font-family: "Lato";
+  /* font-family: "Lato"; */
+  font-family: "Heebo";
   font-weight: 300;
   font-display: swap;
   background-attachment: fixed;
@@ -53,7 +55,7 @@ body {
 }
 
 #app {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.75);
   /* background-color: rgba(255, 255, 255, 1); */
   width: 100%;
   min-height: 100%;
@@ -65,19 +67,26 @@ body {
 
 h1 {
   padding-bottom: 20px;
-  font-family: "Lexend Giga";
-  letter-spacing: -3px;
-  width: 70%;
-  text-transform: uppercase;
+  /* font-family: "Lexend Giga"; */
+  font-family: "Heebo";
+  /* text-transform: uppercase; */
+  /* letter-spacing: -3px; */
+  width: 75%;
+  font-size: 40px;
+  font-weight: 100;
+  /* font-style: italic; */
+  /* text-transform: uppercase; */
   margin-top: 10%;
   display: inline-block;
 }
 
 h4 {
-  background-color: #a9333d87;
-  border: 1px solid #a9333d87;
+  background-color: #ffffffb8;
+  border: 1px solid #ffffffc7;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 3px;
+  font-weight: 300;
+  color: #000;
 }
 
 /* Multi select */
@@ -233,24 +242,34 @@ input#budget {
 
 .result p {
   text-align: left;
-  padding: 20px;
+  /* padding: 20px; */
   font-size: 12px;
   line-height: 16px;
-  font-weight: normal;
+  font-weight: 200;
 }
 
 .result h3 {
   line-height: 40px;
   font-size: 24px;
   padding: 10px;
-  font-family: "Lexend Giga";
-  letter-spacing: -3.5px;
+  /* font-family: "Lexend Giga"; */
+  font-family: "Lora";
+  /* letter-spacing: -3px; */
+  font-weight: normal;
+  /* font-style: italic; */
 }
 
 .result h5 {
   /* color: #76f576; */
   font-size: 18px;
   line-height: 18px;
+}
+
+.result h6 {
+  font-size: 14px;
+  text-transform: none;
+  font-family: "Lora";
+  text-align: left;
 }
 
 span.safety {

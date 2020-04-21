@@ -19,6 +19,7 @@
       href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900|Lora:400,400i,500,500i,600,600i,700,700i|Manrope:300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/main.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -118,7 +119,7 @@
           <br />
           <!-- <img src="{{d['image-url']}}" width="300" /> -->
           <div
-            style="background-image: url({{d['image-url']}}); height: 300px; width: 400px; border: 1px solid black; background-size: cover; background-repeat: no-repeat; background-position: center;"
+            style="background-image: url({{d['image-url']}}); height: 300px; width: 100%; border: 1px solid black; background-size: cover; background-repeat: no-repeat; background-position: center;"
             class="neighborhood-image"
           ></div>
           <br />
@@ -141,7 +142,10 @@
               </tr>
             </table>
           </center>
-          <p>{{d['description']}}</p>
+          <h6>{{d['short description']}}</h6>
+          {% for para in d['long description'] %}
+          <p>{{para}}</p>
+          {% endfor %}
         </div>
         {% endfor %} {% endif %}
       </form>

@@ -49,6 +49,8 @@ for neighborhood_id in range(len(neighborhood_list)):
     neighborhood_name_to_id[neighborhood] = neighborhood_id
 neighborhood_id_to_name = {v: k for k, v in neighborhood_name_to_id.items()}
 
+
+
 relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
                      "Working Out": ["gym", "gyms", "yoga", "run", "skating", "basketball", "volleyball", "running"],
                      "Watching Movies": ["film", "theatre", "movies", "movie"],
@@ -68,7 +70,10 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                      "Modern": ["modern", "high-rises", "skyscrapers", "lofts", "skyline", "industrial", "posh",
                                 "elevator", "doorman"],
                      "Rustic": ["rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world",
-                                "character"]}
+                                "character"],
+                     "Trendy": ["trendy"],
+                     "Posh": ["posh"],
+                     "college": ["college"]}
 
 """
 Shared data containing all the scores and information for each neighborhood.
@@ -89,6 +94,21 @@ def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
         original[k].update(new_val)
+
+# with open("/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/app/irsystem/controllers/data/compass.json", "r") as f:
+#     data1 = json.load(f)
+
+
+# with open("/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/app/irsystem/controllers/data/streeteasy.json", "r") as f:
+#     data2 = json.load(f)
+
+
+
+# have=set(list(data2.keys())).union(set(list(data1.keys())))
+# missing=set(neighborhood_list).difference(have)
+# print(list(missing))
+
+# ['Two Bridges', 'Stuyvesant Town', 'Marble Hill']
 
 
 def loadCrimeScores():
@@ -219,13 +239,14 @@ def calculateBudget(minBudget, maxBudget):
 
     # keywords={}
     if maxBudget >= np.mean(np.array(top_25s)):
-        expensive_scores=np.array(list(calculateTextSimLikes(['Expensive']).values()))
-        fit_budget=fit_budget+expensive_scores
-
+        expensive_scores = np.array(
+            list(calculateTextSimLikes(['Expensive']).values()))
+        fit_budget = fit_budget+expensive_scores
 
     if minBudget <= np.mean(np.array(bottom_25s)):
-        affordable_scores=np.array(list(calculateTextSimLikes(['Affordable']).values()))
-        fit_budget=fit_budget+affordable_scores
+        affordable_scores = np.array(
+            list(calculateTextSimLikes(['Affordable']).values()))
+        fit_budget = fit_budget+affordable_scores
 
     normalized = (fit_budget-min(fit_budget)) / \
         (max(fit_budget)-min(fit_budget))*100
@@ -696,15 +717,18 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
 # def main():
 #     """
-# 	Function will be loading all the data to update the global data variable
-# 	"""
+#         Function will be loading all the data to update the global data variable
+#         """
 #     # load_crime_and_descriptions()
-#     calculateBudget(1500, 1750)
-#     calculateAgeScore(22)
-#     calculateCommuteScore('walk')
-#     print(data)
+#     # calculateBudget(1500, 1750)
+#     # calculateAgeScore(22)
+#     # calculateCommuteScore('walk')
+#     print(calculateTextSimLikes(['college']))
+#     # print(data)
+
 
 # main()
+
 
 def getTopNeighborhoods(query):
 
@@ -713,6 +737,9 @@ def getTopNeighborhoods(query):
 
     with open("app/irsystem/controllers/data/niche.json") as f:
         niche_data = json.load(f)
+    
+    with open("app/irsystem/controllers/data/goodmigrations.json") as f:
+        goodmigrations_data = json.load(f)
 
     loadCrimeScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
@@ -740,6 +767,6 @@ def getTopNeighborhoods(query):
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
-            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'description': niche_data[name]['description']}
+            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")}
         best_matches.append(n)
     return best_matches

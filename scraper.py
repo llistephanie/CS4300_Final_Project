@@ -6,6 +6,8 @@ import csv
 import json
 import os
 
+import webbrowser
+
 # headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9", "Accept-Language": "en-US,en;q=0.9", "Accept-Encoding": "gzip, deflate, br", "DNT": "1", "Connection": "close", "Upgrade-Insecure-Requests": "1"}
 headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0", 
@@ -416,7 +418,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 
 
 # STREETEASY CODE
-import webbrowser
+
 
 # streeteasy_data={}
 # with open('data/streeteasy.csv') as csv_file:
@@ -634,44 +636,47 @@ import webbrowser
 
 # def nameToUrl(n):
 #     switch = {
-#         "Stuyvesant Town": "stuyvesant-town-peter-cooper-village",
-#         "Battery Park": "battery-park-city", 
-#         'Midtown': "midtown-east",
-#         "Hell's Kitchen": "hells-kitchen",
-#         "Harlem": "central-harlem", 
-#         "Gramercy": "gramercy-park",
-#         "Flatiron": "flatiron-district"
 #     }
 #     return switch.get(n, n.replace(' ', '-').lower()) 
 
-# data = {}
-# with open('data/neighborhoods.csv') as csv_file:
-#     csv_reader = csv.reader(csv_file, delimiter=',')
-#     line_count = 0
-#     for row in csv_reader:
-#         if line_count == 0:
-#             line_count+=1
-#             continue
-#         neighborhood_data={}
-#         url_name=nameToUrl(row[1])
-#         renthop_url=f"https://www.renthop.com/average-rent-in/{url_name}/nyc"
-#         response = requests.get(renthop_url, headers=headers)
-#         soup = BeautifulSoup(response.text, "html.parser")
-#         # print(soup.find('table'))
-#         rent={}
-#         breakdowns=["Bottom 25%", "Median", "Top 25%"]
-#         beds=soup.find('table').find_all('tr')[2:]
-#         for b in beds:
-#             prices={}
-#             all_beds=b.find_all('td', class_='font-size-9')
-#             for (idx,price) in enumerate(all_beds[1:]):
-#                 prices[breakdowns[idx]]=price.text
-#             rent[all_beds[0].text]=prices
-            
-#         data[row[1]]=rent
+data = {}
+with open('data/neighborhoods.csv') as csv_file:
+    csv_reader = csv.reader(csv_file, delimiter=',')
+    line_count = 0
+    for row in csv_reader:
+        if line_count == 0:
+            line_count+=1
+            continue
+        neighborhood_data={}
+        goodmigrations_url=row[9]
+        response = requests.get(goodmigrations_url, headers=headers)
+        soup = BeautifulSoup(response.text, "html.parser")
+        neighborhood_data['id']=row[0]
+        neighborhood_data['goodmigrations url']=goodmigrations_url
+        neighborhood_data['short description']=soup.find('div', class_='progress_title').text
+        ld=soup.find('div', class_='col-md-8').find_all('p')
+        neighborhood_data['long description']=""
+        # print(row[1])
+        for l in ld:
+            # print(l)
+            neighborhood_data['long description']=neighborhood_data['long description']+ "<br> "+l.text
+        data[row[1]]=neighborhood_data
+        
+        # prices={}
+        # prices_data=soup.find('div', class_='min_height255')[0].find('div', class_='row')[1].find_all('div', class_='progress_status')
+        # for p in prices_data:
+        #     prices[p.find('div', class_='col-md-3').text]=p.find('div', class_='show_price_in_mob').text
+        
 
-# with open("data/renthop.txt", 'w', encoding='utf-8') as f:
-#     json.dump(data, f, ensure_ascii=False, indent=4)
+
+        
+# response = requests.get("https://goodmigrations.com/city-guides/new-york-city/west-village", headers=headers)
+# soup = BeautifulSoup(response.text, "html.parser")
+# print(soup.find_all('div', class_='progress_title'))
+
+
+with open("data/goodmigrations.txt", 'w', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
 
 
 # import pandas as pd
@@ -693,7 +698,7 @@ import webbrowser
 # json.dump(']', jsonfile)
 
 
-# NEIGHBORHOOD NAME AS KEY
+# NEIGHBORHOOD CSV
 # original="data/neighborhoods.csv"
 
 # with open(original) as f:
@@ -713,20 +718,20 @@ import webbrowser
 #     json.dump(new_data, f, ensure_ascii=False, indent=4)
 
 # NEIGHBORHOOD NAME AS KEY
-original="neighborhoods.json"
+# original="neighborhoods.json"
 
-with open(original) as f:
-    data = json.load(f)
-    # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
+# with open(original) as f:
+#     data = json.load(f)
+#     # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
 
-new_data={}
-for d in data:
-    name=d['name']
-    del d['name']
-    new_data[name]=d
-# del d[key]
+# new_data={}
+# for d in data:
+#     name=d['name']
+#     del d['name']
+#     new_data[name]=d
+# # del d[key]
 
-new_file_name=f"{original.split('.')[0]}.txt"
+# new_file_name=f"{original.split('.')[0]}.txt"
 
-with open(new_file_name, 'w', encoding='utf-8') as f:
-    json.dump(new_data, f, ensure_ascii=False, indent=4)
+# with open(new_file_name, 'w', encoding='utf-8') as f:
+#     json.dump(new_data, f, ensure_ascii=False, indent=4)
