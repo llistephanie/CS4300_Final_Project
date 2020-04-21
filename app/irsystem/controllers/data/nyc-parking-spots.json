@@ -1,0 +1,160 @@
+{ "Battery Park":
+     {
+         "Number of Lots":9,
+         "Car-Score":2.137767221
+     },
+ "Chelsea":
+     {
+         "Number of Lots":0,
+         "Car-Score":0
+     },
+ "Chinatown":
+     {
+         "Number of Lots":45,
+         "Car-Score":10.6888361
+     },
+ "Civic Center":
+     {
+         "Number of Lots":40,
+         "Car-Score":9.501187648
+     },
+ "East Harlem":
+     {
+         "Number of Lots":30,
+         "Car-Score":7.125890736
+     },
+ "East Village":
+     {
+         "Number of Lots":55,
+         "Car-Score":13.06413302
+     },
+ "Financial District":
+     {
+         "Number of Lots":30,
+         "Car-Score":7.125890736
+     },
+ "Flatiron":
+     {
+         "Number of Lots":35,
+         "Car-Score":8.313539192
+     },
+ "Gramercy":
+     {
+         "Number of Lots":35,
+         "Car-Score":8.313539192
+     },
+ "Greenwich Village":
+     {
+         "Number of Lots":135,
+         "Car-Score":32.06650831
+     },
+ "Harlem":
+     {
+         "Number of Lots":34,
+         "Car-Score":8.076009501
+     },
+ "Hell's Kitchen":
+     {
+         "Number of Lots":144,
+         "Car-Score":34.20427553
+     },
+ "Inwood":
+     {
+         "Number of Lots":24,
+         "Car-Score":5.700712589
+     },
+ "Kips Bay":
+     {
+         "Number of Lots":74,
+         "Car-Score":17.57719715
+     },
+ "Little Italy":
+     {
+         "Number of Lots":45,
+         "Car-Score":10.6888361
+     },
+ "Lower East Side":
+     {
+         "Number of Lots":17,
+         "Car-Score":4.038004751
+     },
+ "Marble Hill":
+     {
+         "Number of Lots":74,
+         "Car-Score":17.57719715
+     },
+ "Midtown":
+     {
+         "Number of Lots":421,
+         "Car-Score":100
+     },
+ "Morningside Heights":
+     {
+         "Number of Lots":47,
+         "Car-Score":11.16389549
+     },
+ "Murray Hill":
+     {
+         "Number of Lots":74,
+         "Car-Score":17.57719715
+     },
+ "NoHo":
+     {
+         "Number of Lots":21,
+         "Car-Score":4.988123515
+     },
+ "Nolita":
+     {
+         "Number of Lots":21,
+         "Car-Score":4.988123515
+     },
+ "Roosevelt Island":
+     {
+         "Number of Lots":1,
+         "Car-Score":0.237529691
+     },
+ "SoHo":
+     {
+         "Number of Lots":66,
+         "Car-Score":15.67695962
+     },
+ "Stuyvesant Town":
+     {
+         "Number of Lots":42,
+         "Car-Score":9.976247031
+     },
+ "Theater District":
+     {
+         "Number of Lots":180,
+         "Car-Score":42.75534442
+     },
+ "TriBeCa":
+     {
+         "Number of Lots":55,
+         "Car-Score":13.06413302
+     },
+ "Two Bridges":
+     {
+         "Number of Lots":17,
+         "Car-Score":4.038004751
+     },
+ "Upper East Side":
+     {
+         "Number of Lots":252,
+         "Car-Score":59.85748219
+     },
+ "Upper West Side":
+     {
+         "Number of Lots":74,
+         "Car-Score":17.57719715
+     },
+ "Washington Heights":
+     {
+         "Number of Lots":35,
+         "Car-Score":8.313539192
+     },
+ "West Vilage":
+     {
+         "Number of Lots":23,
+         "Car-Score":5.463182898
+     }}

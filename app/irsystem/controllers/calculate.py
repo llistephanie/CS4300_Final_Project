@@ -77,7 +77,7 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
 
 """
 Shared data containing all the scores and information for each neighborhood.
-Scores will be a value from 
+Scores will be a value from
 Includes the following components:
     - description (of the neighborhood)
     - commute scores
@@ -263,11 +263,22 @@ def calculateBudget(minBudget, maxBudget):
 def calculateCommuteScore(commuteType):
     with open("app/irsystem/controllers/data/walkscore.json") as f:
         walkscore_data = json.load(f)
-    type_key = {'walk': "walk score", 'bike': "bike score",
-                'public transit': "transit score", 'car': "transit score"}
+    with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
+        carscore_data = json.load(c)
 
-    commute_scores = np.array(
-        [int(v['rankings'][type_key[commuteType.lower()]]) for k, v in walkscore_data.items()])
+    type_key = {'walk': "walk score", 'bike': "bike score",
+                'public transit': "transit score"}
+
+    if commuteType.lower() in ['walk', 'bike', 'public transit']:
+        commute_scores = np.array(
+            [int(v['rankings'][type_key[commuteType.lower()]]) for k, v in walkscore_data.items()])
+    else:
+        car_scores = np.array(
+            [int(v['Car-Score']) for k, v in carscore_data.items()])
+        walk_scores = np.array(
+            [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
+        commute_scores = np.add(.2* car_scores, .8*walk_scores)
+    print(commute_scores)
     normalized = (commute_scores-min(commute_scores)) / \
         (max(commute_scores)-min(commute_scores))*100
     norm_commute_scores = {
@@ -737,7 +748,7 @@ def getTopNeighborhoods(query):
 
     with open("app/irsystem/controllers/data/niche.json") as f:
         niche_data = json.load(f)
-    
+
     with open("app/irsystem/controllers/data/goodmigrations.json") as f:
         goodmigrations_data = json.load(f)
 
