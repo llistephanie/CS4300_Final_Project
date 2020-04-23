@@ -787,7 +787,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     # print(f"MIN SCORE {min(likes_scores)}")
     # print(f"MIN SCORE {max(likes_scores)}")
 
-    normalized = zscoreCalculate(likes_score)# (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
+    normalized = zscoreCalculate(likes_scores)# (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
 
     norm_likes_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
