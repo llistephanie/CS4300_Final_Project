@@ -93,13 +93,18 @@ function updateSafetyLabel() {
 $(function () {
   // updateBudget();
 
-  $(".chosen-select").chosen({
-    no_results_text: "Oops, nothing found!",
-  });
+  // $(".chosen-select").chosen({
+  //   no_results_text: "Oops, nothing found!",
+  // });
 
-  $(".result h5").each(function (index) {
-    score = parseFloat($(this).text());
-    $(this).css("color", numberToColorHsl(score));
-    console.log(index + ": " + $(this).text());
-  });
+  // $(".result h5").each(function (index) {
+  //   score = parseFloat($(this).text());
+  //   $(this).css("color", numberToColorHsl(score));
+  //   console.log(index + ": " + $(this).text());
+  // });
 });
+
+// function loadResults() {
+//   console.log("hello world");
+//   $("#results").show()
+// }

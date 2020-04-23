@@ -17,9 +17,11 @@ def search():
 		age = request.form["age"]
 		commute_type = request.form["commute-type"]
 		safety = request.form["safety"]
-		budget=[int(b) for b in request.form.getlist('budget')]
-		budget_min = int(((5000 - 0) / 100) *  int(min(budget)))
-		budget_max = int(((5000 - 0) / 100) *  int(max(budget)))
+		budget_min=int(request.form["budget-min"])
+		budget_max=int(request.form["budget-max"])
+		# budget=[int(b) for b in request.form.getlist('budget')]
+		# budget_min = int(((5000 - 0) / 100) *  int(min(budget)))
+		# budget_max = int(((5000 - 0) / 100) *  int(max(budget)))
 		likes = request.form.getlist('likes')
 	
 	likes_string=""
@@ -31,6 +33,9 @@ def search():
 	query={'age': age, 'commute-type': commute_type, 'safety': safety, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes}
 
 	data=getTopNeighborhoods(query)
+	
+	print(data)
+
 
 	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
 

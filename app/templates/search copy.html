@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <title>The Perfect Neighborhood</title>
+    <link rel="stylesheet" href="/static/multirange.css" />
+    <!-- <link rel="stylesheet" href="/static/bootstrap.min.css"> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lexend+Giga|Lora:700|Manrope&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:200,300,300i,400,400i,500,500i,700,900,900i&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i,900,900i&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900|Lora:400,400i,500,500i,600,600i,700,700i|Manrope:300,400,500,600,700,800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+    <script src="/static/multirange.js"></script>
+    <script src="/static/script.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="topcorner">
+        <p>Project Name: {{ name }}</p>
+        <p>Student Name: ({{ netid }})</p>
+      </div>
+      <form class="form-inline global-search" method="POST">
+        <h1>Manhattan Neighborhood Recommender</h1>
+
+        <div class="form-group">
+          I'm
+          <input
+            id="input"
+            type="number"
+            name="age"
+            class="form-control"
+            value="22"
+          />
+          years old and I like to commute by
+          <select id="commute" name="commute-type">
+            <option value="Walk">Walk</option>
+            <option value="Bike">Bike</option>
+            <option value="Car" selected>Car</option>
+            <option value="Public Transit">Public Transit</option>
+          </select>
+          <br />
+          Safety is <span class="safety">somewhat important</span> to me
+          <input
+            type="range"
+            id="safety"
+            name="safety"
+            min="1"
+            max="5"
+            onchange="updateSafetyLabel()"
+          />
+          <!-- <p>Budget (0-5000)</p>
+                <input type="range" id="vol" name="budget" min="0" max="5000"> -->
+          <br />
+          My budget looks like
+          <span class="budget-min">$0</span>
+          <input
+            type="range"
+            multiple
+            value="0,5000"
+            name="budget"
+            id="budget"
+            onchange="updateBudgetLabels()"
+          />
+          <span class="budget-max">$5,000</span>
+          <br />
+
+          I like ...
+          <select multiple class="chosen-select" name="likes">
+            <option value=""></option>
+            <option value="Working Out">Working Out</option>
+            <option value="Coffee Shops">Coffee Shops</option>
+            <option value="Watching Movies">Watching Movies</option>
+            <option value="Nightlife">Nightlife</option>
+            <option value="Music">Music</option>
+            <option value="Theater">Theater</option>
+            <option value="Restaurants">Restaurants</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Art">Art</option>
+            <option value="Outdoors">Outdoors</option>
+          </select>
+
+          <!-- <select multiple="multiple" id="likes" name="likes">
+                    <option value="coffee-shops">Coffee Shops</option>
+                    <option value="watching-movies">Watching Movies</option>
+                    <option value="nightlife">Nightlife</option>
+                    <option value="music">Music</option>
+                    <option value="theater">Theater</option>
+                    <option value="restaurants">Restaurants</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="architecture">Architecture</option>
+                    <option value="outdoors">Outdoors</option>
+                  </select> -->
+        </div>
+        <br />
+        <button type="submit" class="btn btn-info">Go!</button>
+      </form>
+      <form class="form-inline global-search">
+        {% if data %}
+        <div class="query_confirmation">
+          <b>your query</b><br />
+          {{output_message}}
+        </div>
+        <br />
+        {% for d in data %}
+        <div class="result">
+          <br />
+          <h3>{{d['name']}}</h3>
+          <br />
+          <!-- <img src="{{d['image-url']}}" width="300" /> -->
+          <div
+            style="background-image: url({{d['image-url']}}); height: 300px; width: 100%; border: 1px solid black; background-size: cover; background-repeat: no-repeat; background-position: center;"
+            class="neighborhood-image"
+          ></div>
+          <br />
+          <h5>{{d['score']}}</h5>
+          <center>
+            <table>
+              <tr>
+                <td>{{d['budget']}}</td>
+                <td>{{d['age']}}</td>
+                <td>{{d['commute']}}</td>
+                <td>{{d['safety']}}</td>
+                <td>{{d['likes']}}</td>
+              </tr>
+              <tr>
+                <td>budget</td>
+                <td>age</td>
+                <td>commute</td>
+                <td>safety</td>
+                <td>likes</td>
+              </tr>
+            </table>
+          </center>
+          <h6>{{d['short description']}}</h6>
+          {% for para in d['long description'] %}
+          <p>{{para}}</p>
+          {% endfor %}
+        </div>
+        {% endfor %} {% endif %}
+      </form>
+    </div>
+  </body>
+</html>
