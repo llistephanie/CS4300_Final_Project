@@ -314,8 +314,8 @@ def analysis():
 
             new_k = final_keys[k]
             final_data[new_k] = {}
-            final_data[new_k]["description"] = v["description"]
-            final_data[new_k]["safety_score"] = v["final_score"]
+            #final_data[new_k]["description"] = v["description"]
+            final_data[new_k] = v["sentiment"]#["safety_score"] = v["final_score"]
             #print(sentiment_weight)
             #print(crime_weight)
 
