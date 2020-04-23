@@ -155,12 +155,12 @@
       </div>
       {% if data %}
       <div id="results">
-        <h2>Top</h2>
-        <div id="filters">
-          <a href="top" class="active">Overall</a> <a href="budget">Budget</a>
-          <a href="age">Age</a> <a href="commute">Commute</a>
-          <a href="keywords">Keywords</a>
-        </div>
+        <h2>Top Picks</h2>
+        <section id="filters">
+          <a class="active" onclick="sort(this)">Overall</a> <a onclick="sortBudget(this)">Budget</a>
+          <a onclick="sortAge(this)">Age</a> <a onclick="sortCommute(this)">Commute</a>
+          <a onclick="sortLikes(this)">Keywords</a>
+        </section>
         <form class="form-inline global-search">
           <!-- <div class="query_confirmation">
             <b>your query</b>
@@ -170,7 +170,7 @@
           <br />
           {% for d in data %}
 
-          <div class="result">
+          <div class="result" overall-order="{{d['score']}}" age-order="{{d['age']}}" commute-order="{{d['commute']}}" budget-order="{{d['budget']}}" likes-order="{{d['likes']}}">
             <div
               style="background-image: url({{d['image-url']}});"
               class="neighborhood-image"
