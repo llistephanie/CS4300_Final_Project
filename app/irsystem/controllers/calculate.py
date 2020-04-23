@@ -92,6 +92,23 @@ for x in neighborhood_list:
     data[x] = {}
 
 
+def zscoreCalculate(data_list):
+    arr = np.array(data_list)
+    mean = np.mean(data_list)
+    std = np.std(data_list)
+
+    # max_score = 3
+    # min_score = -3
+    new_scores = []
+    for x in data_list():
+        score = (x - mean)/std
+        score = (score+3)*100/6 
+
+        if (score > 100): score = 100
+        new_scores.append(score)
+
+    return new_scores
+
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
@@ -124,8 +141,8 @@ def loadCrimeScores():
         safety_data = json.load(f)
 
     percentages = np.array([float(v) for k, v in safety_data.items()])
-    normalized = (percentages-min(percentages)) / \
-        (max(percentages)-min(percentages))*100
+    normalized = zscoreCalculate(percentages)#(percentages-min(percentages)) / \
+    #(max(percentages)-min(percentages))*100
     norm_safety_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
     mergeDict(data, norm_safety_scores, "safety score")
@@ -249,8 +266,8 @@ def calculateBudget(minBudget, maxBudget):
             list(calculateTextSimLikes(['Affordable']).values()))
         fit_budget = fit_budget+affordable_scores
 
-    normalized = (fit_budget-min(fit_budget)) / \
-        (max(fit_budget)-min(fit_budget))*100
+    normalized = zscoreCalculate(fit_budget)#(fit_budget-min(fit_budget)) / \
+    #(max(fit_budget)-min(fit_budget))*100
 
     # for text analysis
     norm_budget_scores = {
@@ -280,8 +297,8 @@ def calculateCommuteScore(commuteType):
             [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
         commute_scores = np.add(.2* car_scores, .8*walk_scores)
     print(commute_scores)
-    normalized = (commute_scores-min(commute_scores)) / \
-        (max(commute_scores)-min(commute_scores))*100
+    normalized = zscoreCalculate(commute_scores)#(commute_scores-min(commute_scores)) / \
+    #(max(commute_scores)-min(commute_scores))*100
     norm_commute_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
     mergeDict(data, norm_commute_scores, "commute score")
@@ -770,7 +787,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     # print(f"MIN SCORE {min(likes_scores)}")
     # print(f"MIN SCORE {max(likes_scores)}")
 
-    normalized = (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
+    normalized = zscoreCalculate(likes_score)# (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
 
     norm_likes_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
