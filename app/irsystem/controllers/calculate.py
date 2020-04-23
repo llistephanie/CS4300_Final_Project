@@ -100,7 +100,7 @@ def zscoreCalculate(data_list):
     # max_score = 3
     # min_score = -3
     new_scores = []
-    for x in data_list():
+    for x in (data_list):
         score = (x - mean)/std
         score = (score+3)*100/6 
 
