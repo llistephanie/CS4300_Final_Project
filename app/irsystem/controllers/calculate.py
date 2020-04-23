@@ -5,6 +5,9 @@ import math
 from nltk.tokenize import TreebankWordTokenizer
 from sklearn import preprocessing
 import os
+import nltk
+# nltk.download('wordnet')
+# from nltk.corpus import wordnet as wn
 
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
@@ -48,7 +51,6 @@ for neighborhood_id in range(len(neighborhood_list)):
     neighborhood = neighborhood_list[neighborhood_id]
     neighborhood_name_to_id[neighborhood] = neighborhood_id
 neighborhood_id_to_name = {v: k for k, v in neighborhood_name_to_id.items()}
-
 
 
 relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
@@ -101,7 +103,6 @@ def mergeDict(original, updates, key_name):
 
 # with open("/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/app/irsystem/controllers/data/streeteasy.json", "r") as f:
 #     data2 = json.load(f)
-
 
 
 # have=set(list(data2.keys())).union(set(list(data1.keys())))
@@ -197,7 +198,7 @@ def calculateAgeScore(age):
     # # 1.      0.15625 0.125   0.46875 0.15625 0.125   0.34375 0.21875 0.03125
     # # 0.125   0.09375 0.09375 0.25    0.125  ]
 
-    norm_age_scores = {neighborhood_list[i]: v for i, v in enumerate(normalized)}
+    norm_age_scores = {neighborhood_list[i]                       : v for i, v in enumerate(normalized)}
 
     # data.update(norm_age_scores)
     mergeDict(data, norm_age_scores, "age score")
@@ -396,6 +397,45 @@ def tokenize_compass(tokenize_method, input_compass, input_neighborhood):
             tokenized_expectation = tokenize_method(
                 expectation['short'] + ' ' + expectation['long'])
             token_list.extend(tokenized_expectation)
+    return token_list
+
+
+def tokenize_reddit(tokenize_method, input_reddit, input_neighborhood):
+    """Returns a list of words contained in a neighborhood's niche
+       description.
+    Params: {tokenize_method: Function (a -> b),
+                 input_reddit: JSON
+             input_neighborhood: String}
+    Returns: List
+    """
+    token_list = []
+    if input_neighborhood in input_reddit.keys():
+        posts_list = input_reddit[input_neighborhood]
+        if posts_list is not None:
+            for post in posts_list:
+                post_text = tokenize_method(post)
+                token_list.extend(post_text)
+    return token_list
+
+
+def tokenize_goodmigrations(tokenize_method, input_goodmigrations, input_neighborhood):
+    """Returns a list of words contained in a neighborhood's niche
+       description.
+    Params: {tokenize_method: Function (a -> b),
+                 input_goodmigrations: JSON
+             input_neighborhood: String}
+    Returns: List
+    """
+    token_list = []
+    if input_neighborhood in input_goodmigrations.keys():
+        desc = input_goodmigrations[input_neighborhood]['short description']
+        desc2 = input_goodmigrations[input_neighborhood]['long description']
+        if desc is not None:
+            tokenized_desc = tokenize_method(desc)
+            token_list.extend(tokenized_desc)
+        if desc2 is not None:
+            tokenized_desc = tokenize_method(desc2)
+            token_list.extend(tokenized_desc)
     return token_list
 
 
@@ -676,21 +716,32 @@ def get_related_words(likes):
 
 
 def calculateTextSimLikes(likes_list, merge_dict=False):
+    if len(likes_list)==0:
+        norm_likes_scores = {n: 0.0 for n in neighborhood_list}
+
+        if merge_dict:
+            mergeDict(data, norm_likes_scores, "likes score")
+        return norm_likes_scores
+
     prefix = 'app/irsystem/controllers/data/'
     query_str = ' '.join(likes_list)
-    related_words = ' '.join(get_related_words(likes_list))
+    # related_words = ' '.join(get_related_words(likes_list))
+    related_words = " ".join(likes_list)
     query_extended = query_str + ' ' + related_words
 
     likes_scores = []
 
     with open(prefix + 'niche.json') as niche_file, open(prefix + 'streeteasy.json') as streeteasy_file, \
-            open(prefix + 'compass.json') as compass_file, open(prefix + 'reddit_data.json') as reddit_file:
+            open(prefix + 'compass.json') as compass_file, open(prefix + 'relevant_data.json') as reddit_file, open(prefix + 'goodmigrations.json') as goodmigrations_file:
         niche_data = json.load(niche_file)
         streeteasy_data = json.load(streeteasy_file)
         compass_data = json.load(compass_file)
+        reddit_data = json.load(reddit_file)
+        goodmigrations_data = json.load(goodmigrations_file)
         tokenize_methods = [tokenize_niche,
-                            tokenize_streeteasy, tokenize_compass]
-        data_files = [niche_data, streeteasy_data, compass_data]
+                            tokenize_streeteasy, tokenize_compass, tokenize_reddit, tokenize_goodmigrations]
+        data_files = [niche_data, streeteasy_data,
+                      compass_data, reddit_data, goodmigrations_data]
         inv_idx = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods,
@@ -715,8 +766,11 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     likes_scores = sorted(likes_scores_list, key=lambda x: x[0])
     likes_scores = np.array([l[1] for l in likes_scores])
 
-    normalized = (likes_scores-min(likes_scores)) / \
-        (max(likes_scores)-min(likes_scores))*100
+    # print(f"SCORES {likes_scores}")
+    # print(f"MIN SCORE {min(likes_scores)}")
+    # print(f"MIN SCORE {max(likes_scores)}")
+
+    normalized = (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
 
     norm_likes_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
@@ -734,8 +788,11 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 #     # calculateBudget(1500, 1750)
 #     # calculateAgeScore(22)
 #     # calculateCommuteScore('walk')
-#     print(calculateTextSimLikes(['college']))
+#     print(calculateTextSimLikes(
+#         ['nightlife', 'bars', 'restaurants', 'affordable', 'social']))
 #     # print(data)
+#     # for ss in wn.synsets('coffee shop'): # Each synset represents a diff concept.
+#     #     print(ss.lemma_names())
 
 
 # main()
@@ -752,6 +809,9 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/goodmigrations.json") as f:
         goodmigrations_data = json.load(f)
 
+    with open("app/irsystem/controllers/data/renthop.json") as f:
+        renthop_data = json.load(f)
+
     loadCrimeScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
@@ -764,7 +824,6 @@ def getTopNeighborhoods(query):
 
     neighborhood_scores = []
     for k, v in data.items():
-
         score = otherWeights*v['budget score']+otherWeights*v['age score'] + otherWeights * \
             v['commute score']+safetyWeight * \
             v['safety score'] + (otherWeights*v['likes score']
@@ -778,6 +837,6 @@ def getTopNeighborhoods(query):
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
-            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")}
+            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'median rent': renthop_data[name]['1BR']['Median']}
         best_matches.append(n)
     return best_matches

@@ -1,160 +1,204 @@
 <html>
   <head>
     <title>The Perfect Neighborhood</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="/static/multirange.css" />
-    <!-- <link rel="stylesheet" href="/static/bootstrap.min.css"> -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Lexend+Giga|Lora:700|Manrope&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:200,300,300i,400,400i,500,500i,700,900,900i&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i,900,900i&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,800,900|Lora:400,400i,500,500i,600,600i,700,700i|Manrope:300,400,500,600,700,800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- <link rel="stylesheet" href="/static/autocomplete.css" /> -->
     <link rel="stylesheet" href="/static/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
-    <script src="/static/multirange.js"></script>
+    <script src="/static/autocomplete.js"></script>
     <script src="/static/script.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE&libraries=places&callback=initMap"
+      async
+      defer
+    ></script>
   </head>
   <body>
     <div id="app">
-      <div class="topcorner">
-        <p>Project Name: {{ name }}</p>
-        <p>Student Name: ({{ netid }})</p>
+      <!-- <div class="topcorner"><p>Project Name: {{ name }}</p><p>Student Name: ({{ netid }})</p></div> -->
+      <div id="search">
+        <form class="form-inline global-search" method="POST">
+          <h1>Manhattan Neighborhood Recommender</h1>
+
+          <div class="form-group">
+            I'm
+
+            <input
+              id="input"
+              type="number"
+              name="age"
+              class="form-control"
+              value="22"
+            />
+            years old and I like to commute by
+
+            <select id="commute" name="commute-type">
+              <option value="Walk">Walk</option>
+              <option value="Bike">Bike</option>
+              <option value="Car" selected>Car</option>
+              <option value="Public Transit">Public Transit</option>
+            </select>
+            <br />
+            Safety is
+            <span class="safety">somewhat important</span> to me
+
+            <input
+              type="range"
+              id="safety"
+              name="safety"
+              min="1"
+              max="5"
+              onchange="updateSafetyLabel()"
+            />
+            <!-- <p>Budget (0-5000)</p><input type="range" id="vol" name="budget" min="0" max="5000"> -->
+            <br />
+            My budget looks like $<input
+              id="input"
+              type="number"
+              name="budget-min"
+              class="form-control"
+              value="1200"
+            />
+            - $<input
+              id="input"
+              type="number"
+              name="budget-max"
+              class="form-control"
+              value="3400"
+            />
+
+            <!-- <span class="budget-min">$0</span> -->
+            <!-- <input
+              type="range"
+              multiple
+              value="0,5000"
+              name="budget"
+              id="budget"
+              onchange="updateBudgetLabels()"
+            /> -->
+            <!-- <span class="budget-max">$5,000</span> -->
+            <br />
+
+            I like ...
+
+            <select multiple class="chosen-select" name="likes">
+              <option value=""></option>
+              <option value="Working Out">Working Out</option>
+              <option value="Coffee Shops">Coffee Shops</option>
+              <option value="Watching Movies">Watching Movies</option>
+              <option value="Nightlife">Nightlife</option>
+              <option value="Music">Music</option>
+              <option value="Theater">Theater</option>
+              <option value="Restaurants">Restaurants</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Art">Art</option>
+              <option value="Outdoors">Outdoors</option>
+            </select>
+            <!-- <select multiple="multiple" id="likes" name="likes"><option value="coffee-shops">Coffee Shops</option><option value="watching-movies">Watching Movies</option><option value="nightlife">Nightlife</option><option value="music">Music</option><option value="theater">Theater</option><option value="restaurants">Restaurants</option><option value="shopping">Shopping</option><option value="architecture">Architecture</option><option value="outdoors">Outdoors</option></select> -->
+          </div>
+          <br />
+
+          <!-- Google Places Autocomplete -->
+          <div class="pac-card" id="pac-card">
+            <div>
+              <div id="title">
+                Autocomplete search
+              </div>
+              <div id="type-selector" class="pac-controls">
+                <input
+                  type="radio"
+                  name="type"
+                  id="changetype-all"
+                  checked="checked"
+                />
+                <label for="changetype-all">All</label>
+
+                <!-- <input type="radio" name="type" id="changetype-establishment" />
+                <label for="changetype-establishment">Establishments</label>
+
+                <input type="radio" name="type" id="changetype-address" />
+                <label for="changetype-address">Addresses</label>
+
+                <input type="radio" name="type" id="changetype-geocode" />
+                <label for="changetype-geocode">Geocodes</label> -->
+              </div>
+              <!-- <div id="strict-bounds-selector" class="pac-controls">
+                <input type="checkbox" id="use-strict-bounds" value="" />
+                <label for="use-strict-bounds">Strict Bounds</label>
+              </div> -->
+            </div>
+            <div id="pac-container">
+              <input
+                id="pac-input"
+                type="text"
+                placeholder="Enter a location"
+              />
+            </div>
+          </div>
+          <div id="map"></div>
+          <div id="infowindow-content">
+            <img src="" width="16" height="16" id="place-icon" />
+            <span id="place-name" class="title"></span><br />
+            <span id="place-address"></span>
+          </div>
+
+          <input type="submit" value="Go!" onclick="loadResults()" />
+
+          <!-- <button type="submit" value="Go!" class="btn btn-info" onclick="loadResults()">Go!</button> -->
+        </form>
       </div>
-      <form class="form-inline global-search" method="POST">
-        <h1>Manhattan Neighborhood Recommender</h1>
-
-        <div class="form-group">
-          I'm
-          <input
-            id="input"
-            type="number"
-            name="age"
-            class="form-control"
-            value="22"
-          />
-          years old and I like to commute by
-          <select id="commute" name="commute-type">
-            <option value="Walk">Walk</option>
-            <option value="Bike">Bike</option>
-            <option value="Car" selected>Car</option>
-            <option value="Public Transit">Public Transit</option>
-          </select>
-          <br />
-          Safety is <span class="safety">somewhat important</span> to me
-          <input
-            type="range"
-            id="safety"
-            name="safety"
-            min="1"
-            max="5"
-            onchange="updateSafetyLabel()"
-          />
-          <!-- <p>Budget (0-5000)</p>
-                <input type="range" id="vol" name="budget" min="0" max="5000"> -->
-          <br />
-          My monthly budget looks like
-          <span class="budget-min">$0</span>
-          <input
-            type="range"
-            multiple
-            value="0,4000"
-            name="budget"
-            id="budget"
-            onchange="updateBudgetLabels()"
-          />
-          <span class="budget-max">$4,000</span>
-          <br />
-
-          I like ...
-          <select multiple class="chosen-select" name="likes">
-            <option value=""></option>
-            <option value="Working Out">Working Out</option>
-            <option value="Coffee Shops">Coffee Shops</option>
-            <option value="Watching Movies">Watching Movies</option>
-            <option value="Nightlife">Nightlife</option>
-            <option value="Music">Music</option>
-            <option value="Theater">Theater</option>
-            <option value="Restaurants">Restaurants</option>
-            <option value="Shopping">Shopping</option>
-            <option value="Art">Art</option>
-            <option value="Outdoors">Outdoors</option>
-          </select>
-
-          <!-- <select multiple="multiple" id="likes" name="likes">
-                    <option value="coffee-shops">Coffee Shops</option>
-                    <option value="watching-movies">Watching Movies</option>
-                    <option value="nightlife">Nightlife</option>
-                    <option value="music">Music</option>
-                    <option value="theater">Theater</option>
-                    <option value="restaurants">Restaurants</option>
-                    <option value="shopping">Shopping</option>
-                    <option value="architecture">Architecture</option>
-                    <option value="outdoors">Outdoors</option>
-                  </select> -->
+      {% if data %}
+      <div id="results">
+        <h2>Top</h2>
+        <div id="filters">
+          <a href="top" class="active">Overall</a> <a href="budget">Budget</a>
+          <a href="age">Age</a> <a href="commute">Commute</a>
+          <a href="keywords">Keywords</a>
         </div>
-        <br />
-        <button type="submit" class="btn btn-info">Go!</button>
-      </form>
-      <form class="form-inline global-search">
-        {% if data %}
-        <!-- <div class="query_confirmation">
-          <b>your query</b><br />
-          {{output_message}}
-        </div> -->
-        <!-- <br /> -->
-        {% for d in data %}
-        <div class="result">
+        <form class="form-inline global-search">
+          <!-- <div class="query_confirmation">
+            <b>your query</b>
+            <br />
+            {{output_message}}
+          </div> -->
           <br />
-          <h3>{{d['name']}}</h3>
-          <br />
-          <!-- <img src="{{d['image-url']}}" width="300" /> -->
-          <div
-            style="background-image: url({{d['image-url']}}); height: 300px; width: 100%; border: 1px solid black; background-size: cover; background-repeat: no-repeat; background-position: center;"
-            class="neighborhood-image"
-          ></div>
-          <br />
-          <h5>{{d['score']}}</h5>
-          <center>
-            <table>
-              <tr>
-                <td>{{d['budget']}}</td>
-                <td>{{d['age']}}</td>
-                <td>{{d['commute']}}</td>
-                <td>{{d['safety']}}</td>
-                <td>{{d['likes']}}</td>
-              </tr>
-              <tr>
-                <td>budget</td>
-                <td>age</td>
-                <td>commute</td>
-                <td>safety</td>
-                <td>likes</td>
-              </tr>
-            </table>
-          </center>
-          <h6>{{d['short description']}}</h6>
-          {% for para in d['long description'] %}
-          <p>{{para}}</p>
+          {% for d in data %}
+
+          <div class="result">
+            <div
+              style="background-image: url({{d['image-url']}});"
+              class="neighborhood-image"
+            ></div>
+            <div class="snippet">
+              <div class="label">Neighborhood</div>
+              <h3>{{d['name']}}</h3>
+              <div class="label">Score</div>
+              <h6>{{d['score']}}</h6>
+              <div class="label">Median Rent</div>
+              <h6>{{d['median rent']}}</h6>
+              <a href="more">
+                <img src="static/more.jpg" class="more-link" />
+              </a>
+            </div>
+            <div class="description">
+              <h4>All to know...</h4>
+              <h5>{{d['short description']}}</h5>
+              <p>{{d['long description']}}</p>
+              <!-- {% for para in d['long description'] %} {% if loop.index <= 1 %}
+              <p>{{para}}</p>
+              {% endif %} {% endfor %} -->
+            </div>
+          </div>
           {% endfor %}
-        </div>
-        {% endfor %} {% endif %}
-      </form>
+        </form>
+      </div>
+      {% endif %}
     </div>
   </body>
 </html>

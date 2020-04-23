@@ -1,0 +1,322 @@
+{
+    "Battery Park": {
+        "id": "fa6153f8-5a27-4f7a-8f36-3e3417b3c129",
+        "niche-url": "https://www.niche.com/places-to-live/n/battery-park-city-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Battery_Park_City",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/battery-park-city/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/battery-park-city/",
+        "streetadvisor-url": "https://www.streetadvisor.com/battery-park-city-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/battery-park-city",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/47CuyDK9DWwCyage4wES86/e11b952c64f6dcf787c4043c2691080e/battery_park_city_around_the_block_youll_fall_in_love_with_3.jpg"
+    },
+    "Chelsea": {
+        "id": "b7b9f690-bb58-4b0f-ae8e-077338fa322d",
+        "niche-url": "https://www.niche.com/places-to-live/n/chelsea-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Chelsea",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/chelsea/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/chelsea/",
+        "streetadvisor-url": "https://www.streetadvisor.com/chelsea-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/chelsea",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/2ySb8AF8fmwQkY6IqwIK84/77cc48d1766899807a816dbd0cc4f170/chelsea_around_the_block_the_lifestyle_chelsea_market_nyc_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/2j8NEzHigUKgMECO8yqaiG/14dc2f6b1b95d76637211871f32584ea/chelsea_around_the_block_what_not_to_expect_chelsea_nyc_taxis.jpg"
+    },
+    "Chinatown": {
+        "id": "1633958e-356c-4972-89bb-ad3be45ee716",
+        "niche-url": "https://www.niche.com/places-to-live/n/chinatown-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Chinatown",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/chinatown/",
+        "streeteasy-url": "",
+        "streetadvisor-url": "https://www.streetadvisor.com/chinatown-manhattan-new-york-city-new-york",
+        "cityreality-url": "",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/5QTZbibEo8aG06qGO8S2yW/3e7aea69713adfb996b9e5b97e051fd4/chinatown_around_the_block_what_to_expect_5.jpg, https://images.ctfassets.net/ypfe9l9zihcg/1o2jAtvQIEOk2O6q4kMaUW/5a403f1fe9d6639ab77b3e9a6b3d0572/chinatown_around_the_block_rental_market_2b.jpg"
+    },
+    "Civic Center": {
+        "id": "n/a",
+        "niche-url": "https://www.niche.com/places-to-live/n/civic-center-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Civic_Center",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/tribeca/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/tribeca/",
+        "streetadvisor-url": "https://www.streetadvisor.com/civic-center-manhattan-new-york-city-new-york",
+        "cityreality-url": "",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/5f6kATE6nK8WookEgSmaEi/dab2e70a99f63aedbeb40c91d71647db/tribeca_around_the_block_what_to_expect_4b.jpg"
+    },
+    "East Harlem": {
+        "id": "1c651aca-6988-42d9-81f6-40ba0dc447e0",
+        "niche-url": "https://www.niche.com/places-to-live/n/east-harlem-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/East_Harlem",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/east-harlem/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/east-harlem/",
+        "streetadvisor-url": "https://www.streetadvisor.com/east-harlem-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/east-harlem",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/6a2gfhJ8AgGGcE4WowiQA6/29b57c37b2d19ab11c4753007668cebd/east_harlem_around_the_block_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/3DdQ5iXbfWy2Ec4KqosKmC/faf21e0874ad3562897639b9a7e9d623/east_harlem_around_the_block_youll_fall_in_love_with_1.jpg"
+    },
+    "East Village": {
+        "id": "6e05091e-96fc-4040-86b7-4c31bf5536f0",
+        "niche-url": "https://www.niche.com/places-to-live/n/east-village-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/East_Village",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/east-village/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/east-village/",
+        "streetadvisor-url": "https://www.streetadvisor.com/east-village-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/east-village",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/1oYpxqMiKYeAYSYwumWOUu/402fa9dfbf77e8cba13489d1cbfb3f97/east_village_east_village_hero.jpg, https://images.ctfassets.net/ypfe9l9zihcg/498ucAF1GMQyyKksggyuOq/10af949fceb4e58d0265006d3647f111/east_village_around_the_block_the_lifestyle_3.jpg"
+    },
+    "Financial District": {
+        "id": "f2450ce8-5a21-4964-ab5f-87e840236716",
+        "niche-url": "https://www.niche.com/places-to-live/n/financial-district-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Financial_District",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/financial-district/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/financial-district/",
+        "streetadvisor-url": "https://www.streetadvisor.com/financial-district-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/financial-district",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/7gUa5Gy8fukEIsmAayKKuO/62aeb91be2cba55fe34fa839bbcbc57c/financial_district_around_the_block_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/3wluRWlyEUcU8202qSm4Ea/6e0fa4d5a617cfee6663f923f3a0ec28/financial_district_around_the_block_the_lifestyle_1.jpg"
+    },
+    "Flatiron": {
+        "id": "29e75387-77ab-45f0-a6dc-3a25a26e6a31",
+        "niche-url": "https://www.niche.com/places-to-live/n/flatiron-district-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Flatiron_District",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/flatiron/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/flatiron/",
+        "streetadvisor-url": "https://www.streetadvisor.com/flatiron-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/flatiron-union-square",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/hBUJML61lCkYe0skIGEEK/94c2e1be17de51b84dc91f4e2fe1dc80/flatiron_around_the_block_youll_fall_in_love_with_3.jpg, https://images.ctfassets.net/ypfe9l9zihcg/6J8IMfQvdK2EESe26iO6UM/f20ceda8f31827b6804b739a38f7ae4c/flatiron_around_the_block_the_lifestyle_7.jpg"
+    },
+    "Gramercy": {
+        "id": "7822716c-d18b-4895-b6a7-d308f26da0ed",
+        "niche-url": "https://www.niche.com/places-to-live/n/gramercy-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Gramercy_Park",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/gramercy/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/gramercy-park/",
+        "streetadvisor-url": "https://www.streetadvisor.com/gramercy-park-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/gramercy-park",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/5xK17RsUdG0E2O6cMgwMui/d3217dfa92033af2d31f83269da1b40b/gramercy_around_the_block_what_to_expect_3.jpg"
+    },
+    "Greenwich Village": {
+        "id": "2130e688-ed58-4d80-a76b-f0e9cfbd61eb",
+        "niche-url": "https://www.niche.com/places-to-live/n/greenwich-village-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Greenwich_Village",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/greenwich-village/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/greenwich-village/",
+        "streetadvisor-url": "https://www.streetadvisor.com/greenwich-village-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/greenwich-village",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/aPw5T3RuIowEugI0ag8Sg/a555b25a670f5f75c7811cfbf18d9cd6/greenwich_village_greenwich_village_hero.jpg, https://images.ctfassets.net/ypfe9l9zihcg/3peM4GujhSsAkaKA22CE2S/b32bb38786fad136913c1676035eadf4/greenwich_village_around_the_block_what_to_expect_2a.jpg"
+    },
+    "Harlem": {
+        "id": "6b16a71a-ae81-40c3-938e-95ed05c3b468",
+        "niche-url": "https://www.niche.com/places-to-live/n/harlem-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Central_Harlem",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/harlem/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/harlem/",
+        "streetadvisor-url": "https://www.streetadvisor.com/harlem-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/harlem",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/1CamXmfYrewK4cIAQugyC4/f8220b03eef4a29fd23f8c3d6b7f4d92/harlem_around_the_block_youll_fall_in_love_with_2.jpg"
+    },
+    "Hell's Kitchen": {
+        "id": "2bf43857-7ce6-4788-91f1-e497d4d47f7e",
+        "niche-url": "https://www.niche.com/places-to-live/n/hells-kitchen-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Hell%27s_Kitchen",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/hells-kitchen/",
+        "streeteasy-url": "",
+        "streetadvisor-url": "https://www.streetadvisor.com/clinton-hells-kitchen-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/midtown-west",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/2IpD8eDn8IYSwiK2u0oMUe/c22f6276c104d4de47ff8b1a8561e464/hells_kitchen_hells_kitchen_hero.jpg, https://images.ctfassets.net/ypfe9l9zihcg/2lFkvmIYzW4sicE4aKYeMU/d047a895c27d4a2efe58845e5c39f284/hells_kitchen_around_the_block_the_lifestyle_1.jpg"
+    },
+    "Inwood": {
+        "id": "8488016d-737e-4d48-aaa2-9fe9202ac645",
+        "niche-url": "https://www.niche.com/places-to-live/n/inwood-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Inwood",
+        "compass-url": "",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/inwood/",
+        "streetadvisor-url": "https://www.streetadvisor.com/inwood-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/inwood",
+        "images": "https://cdn-img-feed.streeteasy.com/nyc/image/_19/1581019219-0_4200_84_2716_two_inwood-nyc-street-scene-tam51.jpg"
+    },
+    "Kips Bay": {
+        "id": "d0c071aa-695c-444c-bcde-02c5b4d5d8e5",
+        "niche-url": "https://www.niche.com/places-to-live/n/kips-bay-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Kips_Bay",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/murray-hill/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/murray-hill/",
+        "streetadvisor-url": "https://www.streetadvisor.com/kips-bay-manhattan-new-york-city-new-york",
+        "cityreality-url": "",
+        "images": "https://static01.nyt.com/images/2017/10/15/realestate/15LIVING-KIPSBAY-slide-FSJO/15LIVING-KIPSBAY-slide-FSJO-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+    },
+    "Little Italy": {
+        "id": "1e6b6ab4-1ce7-4881-adf6-73ad4bc0e3b4",
+        "niche-url": "https://www.niche.com/places-to-live/n/little-italy-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Little_Italy",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/little-italy/",
+        "streeteasy-url": "",
+        "streetadvisor-url": "https://www.streetadvisor.com/little-italy-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/nolita-little-italy",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/cfPt8lqAyOKKs0g4k8oIo/9e629e4c355d1d8b6e4202425a1be270/little_italy_little_italy_hero.jpg, https://images.ctfassets.net/ypfe9l9zihcg/6x74IRsFNKMOMc2UAiu86u/a098f08465185624822359822f6cf828/little_italy_around_the_block_the_lifestyle_2.jpg"
+    },
+    "Lower East Side": {
+        "id": "cca4d4d0-2715-421a-a9a4-f8139c323b19",
+        "niche-url": "https://www.niche.com/places-to-live/n/lower-east-side-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Lower_East_Side",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/lower-east-side/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/lower-east-side/",
+        "streetadvisor-url": "https://www.streetadvisor.com/lower-east-side-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/lower-east-side",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/2gZZGU3boY2sE860U4ICYy/56d6ace7a242d3189c7c414cb7f7269c/lower_east_side_around_the_block_what_not_to_expect_2b.jpg, https://images.ctfassets.net/ypfe9l9zihcg/2cyIamhrI0qoiKYKyKSgKc/3a3fef47493d3a745c4ab87a04c8467e/lower_east_side_around_the_block_youll_fall_in_love_with_1.jpg"
+    },
+    "Marble Hill": {
+        "id": "e3503a17-96d5-44aa-a2f1-b61c56b83dd7",
+        "niche-url": "https://www.niche.com/places-to-live/n/marble-hill-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Marble_Hill",
+        "compass-url": "",
+        "streeteasy-url": "",
+        "streetadvisor-url": "",
+        "cityreality-url": "",
+        "images": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Marble_Hill%2C_Manhattan.jpg/1200px-Marble_Hill%2C_Manhattan.jpg"
+    },
+    "Midtown": {
+        "id": "1cec43e3-dcb9-433c-8fc7-39ef2bf51f8c",
+        "niche-url": "https://www.niche.com/places-to-live/n/midtown-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Midtown_East",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/midtown-east/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/midtown/",
+        "streetadvisor-url": "https://www.streetadvisor.com/midtown-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/midtown-east",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/pt5YfCSMa4Sk8A8ekgOEs/82aa79b79ea9907fca2bfadeeaf63051/midtown-east_the-market_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/R7gOVctNCeumms40UOqsE/92a85a2d4e65c83f78f165331e4bd6fb/midtown-east_what-to-expect_1.jpg"
+    },
+    "Morningside Heights": {
+        "id": "970d8343-408b-422c-9258-1061df31dda3",
+        "niche-url": "https://www.niche.com/places-to-live/n/morningside-heights-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/West_Harlem",
+        "compass-url": "",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/morningside-heights/",
+        "streetadvisor-url": "https://www.streetadvisor.com/morningside-heights-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/morningside-heights",
+        "images": "https://wp-tid.zillowstatic.com/streeteasy/4/Morningside_Heights_Riverside_Park_Dogs-2814e0.jpg, https://wp-tid.zillowstatic.com/streeteasy/4/Morningside_Heights_broadway-cfe307.jpg"
+    },
+    "Murray Hill": {
+        "id": "ef314d7c-81c2-41af-810f-7eba208ce86f",
+        "niche-url": "https://www.niche.com/places-to-live/n/murray-hill-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Murray_Hill",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/murray-hill/",
+        "streeteasy-url": "",
+        "streetadvisor-url": "https://www.streetadvisor.com/murray-hill-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/murray-hill",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/52IkgISd2MuM62C0gQsCu4/57ed3e2e44ffca93c39691bcf8fc8bd5/8675917028_605afd6c54_o-1403X561.jpg, https://images.ctfassets.net/ypfe9l9zihcg/4QhtFvNza00qIUkqe442IY/27e42ed821fd67babad9bcb4022f97f2/murray_hill_around_the_block_the_lifestyle_4.jpg"
+    },
+    "NoHo": {
+        "id": "n/a",
+        "niche-url": "https://www.niche.com/places-to-live/n/noho-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/NoHo",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/noho/",
+        "streeteasy-url": "",
+        "streetadvisor-url": "https://www.streetadvisor.com/noho-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/noho",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/36JIlD6C48GoSoySWY2s68/44127a4785cb689c62bd445d1ba5c37c/noho_around_the_block_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/5OHVB3hQ7SS6iKei8YE4Ce/48dbcfdc5a22c3b5e8ce294b7737f344/noho_around_the_block_the_rental_market_1.jpg"
+    },
+    "Nolita": {
+        "id": "475393b1-212e-444b-8aee-e6f8d1d42bef",
+        "niche-url": "https://www.niche.com/places-to-live/n/nolita-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/NoLita",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/nolita/",
+        "streeteasy-url": "",
+        "streetadvisor-url": "",
+        "cityreality-url": "https://www.cityrealty.com/nyc/nolita-little-italy",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/5WYwhUh7Co4kCcWomWomk6/2a4c35421706c0023687deec2eede13c/nolita_around_the_block_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/4WYcQwfzoIoK6EW4sYCgSy/c1648298992e240e0b179d74e8bf13cf/nolita_around_the_block_the_lifestyle_7.jpg"
+    },
+    "Roosevelt Island": {
+        "id": "819f8a32-779a-4aac-b2c5-2d632d5764d4",
+        "niche-url": "https://www.niche.com/places-to-live/n/roosevelt-island-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Roosevelt_Island",
+        "compass-url": "",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/roosevelt-island/",
+        "streetadvisor-url": "https://www.streetadvisor.com/roosevelt-island-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/roosevelt-island",
+        "images": "https://wp-tid.zillowstatic.com/streeteasy/4/Roosevelt_Island_1a-d23723.jpg, https://wp-tid.zillowstatic.com/streeteasy/4/Roosevelt_Island_Promenade-91266a.jpg"
+    },
+    "SoHo": {
+        "id": "40ee36c5-cf65-4679-964c-4f1ea2fc2241",
+        "niche-url": "https://www.niche.com/places-to-live/n/soho-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/SoHo",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/soho/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/soho/",
+        "streetadvisor-url": "https://www.streetadvisor.com/soho-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/soho",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/4afpnjPF9CCUiCuGiQqKiG/4a257c935ee6f3fb14edcf1731b2fa6d/soho-hero.jpg,  https://images.ctfassets.net/ypfe9l9zihcg/2RMogIZhqw8QyECW4EcoO4/b34f6d6a0bd98da116d878ea23b642b1/soho_around_the_block_youll_fall_in_love_with_3a.jpg"
+    },
+    "Stuyvesant Town": {
+        "id": "237f0ffb-4e97-4f09-a67e-0e2f8291a414",
+        "niche-url": "https://www.niche.com/places-to-live/n/stuyvesant-town-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Stuyvesant_Town_-_Peter_Cooper_Village",
+        "compass-url": "",
+        "streeteasy-url": "",
+        "streetadvisor-url": "https://www.streetadvisor.com/stuyvesant-town-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/stuyvesant-town-pcv",
+        "images": "https://imgs.6sqft.com/wp-content/uploads/2017/11/08110210/StuyTown.jpg"
+    },
+    "Theater District": {
+        "id": "11769434-9011-487b-8174-a80d72455c63",
+        "niche-url": "https://www.niche.com/places-to-live/n/theater-district-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Theater_District",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/theater-district/",
+        "streeteasy-url": "",
+        "streetadvisor-url": "",
+        "cityreality-url": "https://www.cityrealty.com/nyc/midtown-west",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/2IBr3D0rcsWsMs4M4eWsuq/f25195781b1bb5503c517c6e0b9ab5d5/theater_district_around_the_block_what_not_to_expect_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/OZP0TrnkKOsuI22QQ8MgS/97123292b20034188635ad3c32a9e338/theater_district_around_the_block_what_to_expect_1.jpg?fm=jpg"
+    },
+    "TriBeCa": {
+        "id": "19e7b604-2b52-4659-9252-d50f96674b7b",
+        "niche-url": "https://www.niche.com/places-to-live/n/tribeca-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Tribeca",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/tribeca/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/tribeca/",
+        "streetadvisor-url": "https://www.streetadvisor.com/tribeca-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/tribeca",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/41lpKBWJywoSGA22iCaIGw/91149bf877f0bdf76f6554f6cf83d3bf/tribeca_around_the_block_the_lifestyle_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/7xMFOB01YQgMYEg8UWKC4m/7bf222f2a55f4c2d700b6b6e85a2db29/tribeca_around_the_block_what_not_to_expect_2a.jpg"
+    },
+    "Two Bridges": {
+        "id": "edfda194-b045-491e-ad06-2e2a6b3b5328",
+        "niche-url": "https://www.niche.com/places-to-live/n/two-bridges-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Two_Bridges",
+        "compass-url": "",
+        "streeteasy-url": "",
+        "streetadvisor-url": "",
+        "cityreality-url": "https://www.cityrealty.com/nyc/lower-east-side",
+        "images": "https://static01.nyt.com/images/2017/12/10/realestate/10LIVING-TWOBRIDGES-slide-ELF7/10LIVING-TWOBRIDGES-slide-ELF7-jumbo.jpg"
+    },
+    "Upper East Side": {
+        "id": "74af42f6-ca93-4c60-93ad-1f3d4c07b3fe",
+        "niche-url": "https://www.niche.com/places-to-live/n/upper-east-side-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Upper_East_Side",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/upper-east-side/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/upper-east-side/",
+        "streetadvisor-url": "https://www.streetadvisor.com/upper-east-side-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/carnegie-hill, https://www.cityrealty.com/nyc/lenox-hill, https://www.cityrealty.com/nyc/park-fifth-ave-79th-st, https://www.cityrealty.com/nyc/yorkville",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/3kIC6aMCZy6G2QK6gS2OuI/ff7a715623c37777244389fcec77f07c/upper_east_side_around_the_block_the_lifestyle_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/GwxFuh4IQ844cYOUCqmyM/4a46ef72ff0769729cee37dee6368a5a/Upper-East-Side_around-the-block_what-to-expect_2a.jpg"
+    },
+    "Upper West Side": {
+        "id": "acc2fb87-1171-4f00-aad4-bbd1489b3c6a",
+        "niche-url": "https://www.niche.com/places-to-live/n/upper-west-side-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Upper_West_Side",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/upper-west-side/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/upper-west-side/",
+        "streetadvisor-url": "https://www.streetadvisor.com/upper-west-side-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/broadway-corridor, https://www.cityrealty.com/nyc/central-park-west, https://www.cityrealty.com/nyc/lincoln-center, https://www.cityrealty.com/nyc/riverside-dr-west-end-ave",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/21iIZsf8E80kyOYO0eiuMU/0c86a2691df15e99df395b5e5734d0d6/upper_west_side_around_the_block_what_to_expect_1.jpg,  https://images.ctfassets.net/ypfe9l9zihcg/3vqg9vDRLaIiWikq2mC0aY/6a44099b8530cbc643e852a7b145cdf2/upper_west_side_around_the_block_the_rental_market_2.jpg"
+    },
+    "Washington Heights": {
+        "id": "9bf44164-215d-4ae1-ac53-e1515afc13f5",
+        "niche-url": "https://www.niche.com/places-to-live/n/washington-heights-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/Washington_Heights",
+        "compass-url": "",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/washington-heights/",
+        "streetadvisor-url": "https://www.streetadvisor.com/washington-heights-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/washington-heights",
+        "images": "https://perfectstrangersofnyc.com/wp-content/uploads/2018/03/DSC_0180.jpg, https://wp-tid.zillowstatic.com/streeteasy/4/Washington_Heights_Street_Vendor-f8427e.jpg"
+    },
+    "West Village": {
+        "id": "784a3d90-c8ae-451f-8d5a-e1b54d1cbcb9",
+        "niche-url": "https://www.niche.com/places-to-live/n/west-village-new-york-city-ny/",
+        "walkscore-url": "https://www.walkscore.com/NY/New_York/West_Village",
+        "compass-url": "https://www.compass.com/neighborhood-guides/nyc/west-village/",
+        "streeteasy-url": "https://streeteasy.com/neighborhoods/west-village/",
+        "streetadvisor-url": "https://www.streetadvisor.com/west-village-manhattan-new-york-city-new-york",
+        "cityreality-url": "https://www.cityrealty.com/nyc/west-village",
+        "images": "https://images.ctfassets.net/ypfe9l9zihcg/5dH4SzdMzSKAQUoSWw2AkS/7e38d98bf4782ecd6511b45e4aece560/west_village_around_the_block_the_lifestyle_2b.jpg,  https://images.ctfassets.net/ypfe9l9zihcg/QYM47geieAak2KO0AcGYw/2d1f665182faf406386bee6d6a9ce150/west_village_around_the_block_what_to_expect_1.jpg"
+    }
+}
