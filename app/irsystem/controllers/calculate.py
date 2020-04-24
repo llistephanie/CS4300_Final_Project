@@ -92,7 +92,7 @@ for x in neighborhood_list:
     data[x] = {}
 
 
-def zscoreCalculate(data_list):
+def scoreCalculation(data_list):
     arr = np.array(data_list)
     mean = np.mean(data_list)
     std = np.std(data_list)
@@ -108,9 +108,18 @@ def zscoreCalculate(data_list):
         score = max(score, 0)
         new_scores.append(score)
 
+    """
+    arr = np.array(data_list)
+    minimum = min(arr)
+    maximum = max(arr)
+    arr = (arr - minimum)*100/(maximum-minimum) 
+
+    return list(arr)
+    """
     return new_scores
 
-
+a = scoreCalculation([1,2,3])
+print(a)
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
@@ -143,7 +152,7 @@ def loadCrimeScores():
         safety_data = json.load(f)
 
     percentages = np.array([float(v) for k, v in safety_data.items()])
-    normalized = zscoreCalculate(
+    normalized = scoreCalculation(
         percentages)  # (percentages-min(percentages)) / \
     # (max(percentages)-min(percentages))*100
     norm_safety_scores = {
@@ -165,7 +174,7 @@ def calculateAgeScore(age):
     else:
         age = int(age)
 
-    with open("app/irsystem/controllers/data/niche.json") as f:
+    with open("app/irsystem/controllers/data/niche.json", encoding="utf-8") as f:
         niche_data = json.load(f)
 
     age_dist = ["<10 years", "10-17 years", "18-24 years", "25-34 years",
@@ -211,8 +220,8 @@ def calculateAgeScore(age):
     # 11.3814625  7.3814625  1.3814625  4.3814625  3.3814625  3.3814625
     # 8.3814625  4.3814625 ]
 
-    normalized = (percentages-min(percentages)) / \
-        (max(percentages)-min(percentages))*100
+    normalized = scoreCalculation(percentages)#(percentages-min(percentages)) / \
+        #(max(percentages)-min(percentages))*100
     # # [0.      0.25    0.3125  0.75    0.28125 0.53125 0.375   0.25    0.65625
     # # 0.5     0.25    0.21875 0.25    0.5625  0.1875  0.1875  0.25    0.125
     # # 1.      0.15625 0.125   0.46875 0.15625 0.125   0.34375 0.21875 0.03125
@@ -270,7 +279,7 @@ def calculateBudget(minBudget, maxBudget):
             list(calculateTextSimLikes(['Affordable']).values()))
         fit_budget = fit_budget+affordable_scores
 
-    normalized = zscoreCalculate(
+    normalized = scoreCalculation(
         fit_budget)  # (fit_budget-min(fit_budget)) / \
     # (max(fit_budget)-min(fit_budget))*100
 
@@ -301,7 +310,8 @@ def calculateCommuteScore(commuteType):
         walk_scores = np.array(
             [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
         commute_scores = np.add(.2 * car_scores, .8*walk_scores)
-    normalized = zscoreCalculate(
+    #print(commute_scores)
+    normalized = scoreCalculation(
         commute_scores)  # (commute_scores-min(commute_scores)) / \
     # (max(commute_scores)-min(commute_scores))*100
     norm_commute_scores = {
@@ -753,8 +763,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     likes_scores = []
 
-    with open(prefix + 'niche.json') as niche_file, open(prefix + 'streeteasy.json') as streeteasy_file, \
-            open(prefix + 'compass.json') as compass_file, open(prefix + 'relevant_data.json') as reddit_file, open(prefix + 'goodmigrations.json') as goodmigrations_file:
+    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, open(prefix + 'streeteasy.json',encoding="utf-8") as streeteasy_file, \
+            open(prefix + 'compass.json', encoding="utf-8") as compass_file, open(prefix + 'relevant_data.json',encoding="utf-8") as reddit_file, open(prefix + 'goodmigrations.json',encoding="utf-8") as goodmigrations_file:
         niche_data = json.load(niche_file)
         streeteasy_data = json.load(streeteasy_file)
         compass_data = json.load(compass_file)
@@ -793,7 +803,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     # print(f"MIN SCORE {max(likes_scores)}")
 
     # (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
-    normalized = zscoreCalculate(likes_scores)
+    normalized = scoreCalculation(likes_scores)
 
     norm_likes_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
@@ -803,33 +813,15 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     return norm_likes_scores
 
 
-# def main():
-#     """
-#         Function will be loading all the data to update the global data variable
-#         """
-#     # load_crime_and_descriptions()
-#     # calculateBudget(1500, 1750)
-#     # calculateAgeScore(22)
-#     # calculateCommuteScore('walk')
-#     print(calculateTextSimLikes(
-#         ['nightlife', 'bars', 'restaurants', 'affordable', 'social']))
-#     # print(data)
-#     # for ss in wn.synsets('coffee shop'): # Each synset represents a diff concept.
-#     #     print(ss.lemma_names())
-
-
-# main()
-
-
 def getTopNeighborhoods(query):
 
     with open("app/irsystem/controllers/data/neighborhoods.json", "r") as f:
         all_data = json.load(f)
 
-    with open("app/irsystem/controllers/data/niche.json") as f:
+    with open("app/irsystem/controllers/data/niche.json", encoding="utf-8") as f:
         niche_data = json.load(f)
 
-    with open("app/irsystem/controllers/data/goodmigrations.json") as f:
+    with open("app/irsystem/controllers/data/goodmigrations.json", encoding="utf-8") as f:
         goodmigrations_data = json.load(f)
 
     with open("app/irsystem/controllers/data/renthop.json") as f:
@@ -847,7 +839,7 @@ def getTopNeighborhoods(query):
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + (otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
+        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + (otherWeights*v['likes score'] if len(query['likes'])>0 else 0.0)
 
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
@@ -859,3 +851,42 @@ def getTopNeighborhoods(query):
             safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'median rent': renthop_data[name]['1BR']['Median']}
         best_matches.append(n)
     return best_matches
+
+
+
+def main():
+    """
+        Function will be loading all the data to update the global data variable
+        """
+    query = {}
+    query["budget-min"] = "1500"
+    query["budget-max"] = "3000"
+    query["age"] = 22
+    query["commute-type"] = "walk"
+    query["likes"] = ["theatre"]
+    a = getTopNeighborhoods(query)
+    print(a)
+    """
+    loadCrimeScores()
+    calculateBudget(1500, 1750)
+    calculateAgeScore(22)
+    calculateCommuteScore('walk')
+    print(calculateTextSimLikes(['nightlife', 'bars', 'restaurants', 'affordable', 'social']))
+
+    otherWeights = 1/5.0
+    neighborhood_scores = []
+    for k, v in data.items():
+        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + 0#(otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
+
+        neighborhood_scores.append(
+            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
+    top_neighborhoods = sorted(
+        neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
+
+    print(neighborhood_scores)
+    """
+    #for ss in wn.synsets('coffee shop'): # Each synset represents a diff concept.
+    #     print(ss.lemma_names())
+
+
+main()

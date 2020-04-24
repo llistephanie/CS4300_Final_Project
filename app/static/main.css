@@ -51,6 +51,7 @@ body {
   top: 233px;
 
   font-family: IBM Plex Sans;
+  /* font-family: 'Merriweather', serif; */
   font-style: normal;
   font-weight: bold;
   font-size: 54px;
@@ -673,11 +674,9 @@ input[type="submit"] {
   right: 6.86%;
   /* top: 79.88%; */
   /* bottom: 3.75%; */
-
   width: 84%;
-  height: 85px;
+  height: 90px;
   overflow-y: scroll;
-
   /* font-family: Chivo; */
   font-style: normal;
   font-weight: 300;
