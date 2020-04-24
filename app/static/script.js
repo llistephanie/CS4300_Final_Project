@@ -91,6 +91,8 @@ function updateSafetyLabel() {
 }
 
 $(function () {
+  randomBackground();
+
   $("select#keywords").selectize({
     plugins: ["remove_button"],
     delimiter: ",",
@@ -102,8 +104,6 @@ $(function () {
       };
     },
   });
-
-  
 
   // $(".chosen-select").chosen({
   //   no_results_text: "Oops, nothing found!",
@@ -197,4 +197,11 @@ function sortCommute(e) {
   $("a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByCommute();
+}
+
+function randomBackground() {
+  var imgArr=["people-walking-near-concrete-buildings-1557547-5.jpg", "concrete-bridge-near-buildings-during-golden-hour-1755683-2.jpg", "people-standing-near-highway-near-vehicles-1634279-2.jpg"]; 
+  var n=Math.floor((Math.random() * 3));
+  var newBackground='url("static/' + imgArr[n] + '")';
+  $("#search").css("background", newBackground);
 }
