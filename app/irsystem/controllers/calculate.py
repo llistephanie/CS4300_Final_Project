@@ -102,7 +102,7 @@ def scoreCalculation(data_list):
     new_scores = []
     for x in (data_list):
         score = (x - mean)/std
-        score = (score+3)*100/3
+        score = (score+1.5)*100/3
 
         score = min(score, 100)
         score = max(score, 0)
