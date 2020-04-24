@@ -2,16 +2,16 @@
   <head>
     <title>The Perfect Neighborhood</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="/static/multirange.css" />
     <!-- <link rel="stylesheet" href="/static/autocomplete.css" /> -->
+    <link rel="stylesheet" type="text/css" href="/static/selectize.css" />
     <link rel="stylesheet" href="/static/main.css" />
     <link
       href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
       rel="stylesheet"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <script src="/static/autocomplete.js"></script>
+    <script type="text/javascript" src="/static/selectize.js"></script>
     <script src="/static/script.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE&libraries=places&callback=initMap"
@@ -22,7 +22,9 @@
   <body>
     <div id="app">
       <div id="versions">
-        <a href="https://theperfectneighborhood-v1.herokuapp.com/">version one</a>
+        <a href="https://theperfectneighborhood-v1.herokuapp.com/"
+          >version one</a
+        >
       </div>
       <!-- <div class="topcorner"><p>Project Name: {{ name }}</p><p>Student Name: ({{ netid }})</p></div> -->
       <div id="search">
@@ -95,37 +97,15 @@
 
             <div id="keywords-type-input">
               <label>Keywords</label>
-              <!-- <select multiple class="chosen-select" name="likes">
-                <option value=""></option>
-                <option value="Working Out">Working Out</option>
-                <option value="Coffee Shops">Coffee Shops</option>
-                <option value="Watching Movies">Watching Movies</option>
-                <option value="Nightlife">Nightlife</option>
-                <option value="Music">Music</option>
-                <option value="Theater">Theater</option>
-                <option value="Restaurants">Restaurants</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Art">Art</option>
-                <option value="Outdoors">Outdoors</option>
-              </select> -->
-              <select name="likes" id="keywords">
-                <option value=""></option>
-                <option value="Working Out">Working Out</option>
-                <option value="Coffee Shops">Coffee Shops</option>
-                <option value="Watching Movies">Watching Movies</option>
-                <option value="Nightlife">Nightlife</option>
-                <option value="Music">Music</option>
-                <option value="Theater">Theater</option>
-                <option value="Restaurants">Restaurants</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Art">Art</option>
-                <option value="Outdoors">Outdoors</option>
-              </select>
+              <select name="likes" multiple id="keywords"></select>
             </div>
 
-
-
-            <input id="submit" type="submit" value="Go!" onclick="loadResults()" />
+            <input
+              id="submit"
+              type="submit"
+              value="Go!"
+              onclick="loadResults()"
+            />
           </form>
         </div>
       </div>
@@ -182,10 +162,6 @@
           </div>
           {% endfor %}
         </form>
-        <br>
-        <br>
-        <br>
-        <br>
       </div>
       {% endif %}
     </div>

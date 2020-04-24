@@ -301,7 +301,6 @@ def calculateCommuteScore(commuteType):
         walk_scores = np.array(
             [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
         commute_scores = np.add(.2 * car_scores, .8*walk_scores)
-    print(commute_scores)
     normalized = zscoreCalculate(
         commute_scores)  # (commute_scores-min(commute_scores)) / \
     # (max(commute_scores)-min(commute_scores))*100
@@ -777,7 +776,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         likes_scores = cosine_sim(
             query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
 
-    # print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
+    print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
     included_ids = set(likes_scores.keys())
     zero_scored_neighborhoods = list(

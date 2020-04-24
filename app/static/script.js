@@ -91,9 +91,21 @@ function updateSafetyLabel() {
 }
 
 $(function () {
-  $(".chosen-select").chosen({
-    no_results_text: "Oops, nothing found!",
+  $("select#keywords").selectize({
+    plugins: ["remove_button"],
+    delimiter: ",",
+    persist: false,
+    create: function (input) {
+      return {
+        value: input,
+        text: input,
+      };
+    },
   });
+
+  // $(".chosen-select").chosen({
+  //   no_results_text: "Oops, nothing found!",
+  // });
 
   if ($("#results").is(":visible")) {
     $("html, body").animate(
