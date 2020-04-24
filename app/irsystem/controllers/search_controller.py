@@ -4,6 +4,7 @@ from app.irsystem.models.helpers import NumpyEncoder as NumpyEncoder
 from app.irsystem.controllers.calculate import getTopNeighborhoods
 
 project_name = "The Perfect Neighborhood"
+v1_link = "http://theperfectneighborhood-v1.herokuapp.com/"
 net_id = "Stephanie Chang (sc2524), Kati Hsu (kyh24), Robert Zhang (rdz26), Sneha Kumar (sk2279), Shirley Kabir (szk4)"
 
 @irsystem.route('/', methods=['POST'])
@@ -37,7 +38,7 @@ def search():
 	print(data)
 
 
-	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
+	return render_template('search.html', name=project_name, first_prototype = v1_link, netid=net_id, output_message=output_message, data=data)
 
 @irsystem.route('/', methods=['GET'])
 def initial_search():
