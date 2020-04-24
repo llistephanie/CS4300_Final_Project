@@ -97,15 +97,15 @@ def zscoreCalculate(data_list):
     mean = np.mean(data_list)
     std = np.std(data_list)
 
-    # max_score = 3
-    # min_score = -3
+    # max_score = 1.5
+    # min_score = -1.5
     new_scores = []
     for x in (data_list):
         score = (x - mean)/std
-        score = (score+3)*100/6
+        score = (score+1.5)*100/3
 
-        if (score > 100):
-            score = 100
+        score = min(score, 100)
+        score = max(score, 0)
         new_scores.append(score)
 
     return new_scores
