@@ -12,6 +12,9 @@ def search():
 	if request.method == 'POST':
 		age = request.form["age"]
 		commute_type = request.form["commute-type"]
+		commute_duration = request.form["commute-duration"]
+		commute_destination = request.form["commute-destination"]
+
 		budget_min=int(request.form["budget-min"])
 		budget_max=int(request.form["budget-max"])
 		likes = request.form.getlist('likes')
@@ -22,7 +25,7 @@ def search():
 
 	output_message = "Age: " + age + " Commute Type: " + commute_type + " Budget: $" + str(budget_min) + "-" + str(budget_max) + " Activities: " + likes_string
 
-	query={'age': age, 'commute-type': commute_type, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes}
+	query={'age': age, 'commute-type': commute_type, 'commute-duration': commute_duration, 'commute-destination': commute_destination, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes}
 
 	print(query)
 

@@ -786,7 +786,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         likes_scores = cosine_sim(
             query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
 
-    print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
+    # print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
     included_ids = set(likes_scores.keys())
     zero_scored_neighborhoods = list(
@@ -865,7 +865,7 @@ def main():
     query["commute-type"] = "walk"
     query["likes"] = ["theatre"]
     a = getTopNeighborhoods(query)
-    print(a)
+    # print(a)
     """
     loadCrimeScores()
     calculateBudget(1500, 1750)
