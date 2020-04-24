@@ -94,12 +94,32 @@ for x in neighborhood_list:
 
 def scoreCalculation(data_list):
     arr = np.array(data_list)
+    mean = np.mean(data_list)
+    std = np.std(data_list)
+
+    # max_score = 1.5
+    # min_score = -1.5
+    new_scores = []
+    for x in (data_list):
+        score = (x - mean)/std
+        score = (score+1)*100/6
+
+        score = min(score, 100)
+        score = max(score, 0)
+        new_scores.append(score)
+
+    """
+    arr = np.array(data_list)
     minimum = min(arr)
     maximum = max(arr)
-    arr = (arr - minimum)/(maximum-minimum) 
+    arr = (arr - minimum)*100/(maximum-minimum) 
 
     return list(arr)
+    """
+    return new_scores
 
+a = scoreCalculation([1,2,3])
+print(a)
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
@@ -869,4 +889,4 @@ def main():
     #     print(ss.lemma_names())
 
 
-#main()
+main()
