@@ -21,14 +21,16 @@ def search():
 		likes_string=likes_string + " " + l
 
 	output_message = "Age: " + age + " Commute Type: " + commute_type + " Budget: $" + str(budget_min) + "-" + str(budget_max) + " Activities: " + likes_string
-	
+
 	query={'age': age, 'commute-type': commute_type, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes}
 
-	data=getTopNeighborhoods(query)
-	
-	print(data)
+	print(query)
 
-	return render_template('search.html', name=project_name, first_prototype = v1_link, netid=net_id, output_message=output_message, data=data)
+	data=getTopNeighborhoods(query)
+
+	# print(data)
+
+	return render_template('search.html', name=project_name, first_prototype = v1_link, netid=net_id, query=query, data=data)
 
 @irsystem.route('/', methods=['GET'])
 def initial_search():
