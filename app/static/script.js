@@ -90,21 +90,101 @@ function updateSafetyLabel() {
   $(".safety").text(label);
 }
 
-$(function () {
-  // updateBudget();
+// $(function () {
+//   // updateBudget();
 
-  // $(".chosen-select").chosen({
-  //   no_results_text: "Oops, nothing found!",
-  // });
+//   // $(".chosen-select").chosen({
+//   //   no_results_text: "Oops, nothing found!",
+//   // });
 
-  // $(".result h5").each(function (index) {
-  //   score = parseFloat($(this).text());
-  //   $(this).css("color", numberToColorHsl(score));
-  //   console.log(index + ": " + $(this).text());
-  // });
-});
+//   // $(".result h5").each(function (index) {
+//   //   score = parseFloat($(this).text());
+//   //   $(this).css("color", numberToColorHsl(score));
+//   //   console.log(index + ": " + $(this).text());
+//   // });
+// });
 
 // function loadResults() {
 //   console.log("hello world");
 //   $("#results").show()
 // }
+
+jQuery.fn.sortNeighborhoodsByAge = function sortNeighborhoodsByAge() {
+  $(".result", this[0]).sort(dec_sort).appendTo(this[0]);
+  function dec_sort(a, b) {
+    return parseFloat(b.getAttribute("age-order")) <
+      parseFloat(a.getAttribute("age-order"))
+      ? -1
+      : 1;
+  }
+};
+
+jQuery.fn.sortNeighborhoodsByCommute = function sortNeighborhoodsByCommute() {
+  $(".result", this[0]).sort(dec_sort).appendTo(this[0]);
+  function dec_sort(a, b) {
+    return parseFloat(b.getAttribute("commute-order")) <
+      parseFloat(a.getAttribute("commute-order"))
+      ? -1
+      : 1;
+  }
+};
+
+jQuery.fn.sortNeighborhoodsByBudget = function sortNeighborhoodsByBudget() {
+  $(".result", this[0]).sort(dec_sort).appendTo(this[0]);
+  function dec_sort(a, b) {
+    return parseFloat(b.getAttribute("budget-order")) <
+      parseFloat(a.getAttribute("budget-order"))
+      ? -1
+      : 1;
+  }
+};
+
+jQuery.fn.sortNeighborhoodsByLikes = function sortNeighborhoodsByLikes() {
+  $(".result", this[0]).sort(dec_sort).appendTo(this[0]);
+  function dec_sort(a, b) {
+    return parseFloat(b.getAttribute("likes-order")) <
+      parseFloat(a.getAttribute("likes-order"))
+      ? -1
+      : 1;
+  }
+};
+
+jQuery.fn.sortNeighborhoods = function sortNeighborhoods() {
+  $(".result", this[0]).sort(dec_sort).appendTo(this[0]);
+  function dec_sort(a, b) {
+    return parseFloat(b.getAttribute("overall-order")) <
+      parseFloat(a.getAttribute("overall-order"))
+      ? -1
+      : 1;
+  }
+};
+
+function sortAge(e) {
+  $("a").removeClass("active");
+  $(e).addClass("active");
+  $("#results").sortNeighborhoodsByAge();
+}
+
+function sortBudget(e) {
+  $("a").removeClass("active");
+  $(e).addClass("active");
+  $("#results").sortNeighborhoodsByBudget();
+}
+
+function sort(e) {
+  $("a").removeClass("active");
+  $(e).addClass("active");
+  $("#results").sortNeighborhoods();
+}
+
+function sortLikes(e) {
+  $("a").removeClass("active");
+  $(e).addClass("active");
+  $("#results").sortNeighborhoodsByLikes();
+}
+
+function sortCommute(e) {
+  $("a").removeClass("active");
+  $(e).addClass("active");
+  $("#results").sortNeighborhoodsByCommute();
+}

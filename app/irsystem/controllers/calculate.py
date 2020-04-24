@@ -851,7 +851,6 @@ def getTopNeighborhoods(query):
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
     top_neighborhoods = sorted(
         neighborhood_scores, key=lambda x: x[1], reverse=True)[:10]
-
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
