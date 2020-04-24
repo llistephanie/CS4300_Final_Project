@@ -102,12 +102,14 @@ def zscoreCalculate(data_list):
     new_scores = []
     for x in (data_list):
         score = (x - mean)/std
-        score = (score+3)*100/6 
+        score = (score+3)*100/6
 
-        if (score > 100): score = 100
+        if (score > 100):
+            score = 100
         new_scores.append(score)
 
     return new_scores
+
 
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
@@ -141,8 +143,9 @@ def loadCrimeScores():
         safety_data = json.load(f)
 
     percentages = np.array([float(v) for k, v in safety_data.items()])
-    normalized = zscoreCalculate(percentages)#(percentages-min(percentages)) / \
-    #(max(percentages)-min(percentages))*100
+    normalized = zscoreCalculate(
+        percentages)  # (percentages-min(percentages)) / \
+    # (max(percentages)-min(percentages))*100
     norm_safety_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
     mergeDict(data, norm_safety_scores, "safety score")
@@ -215,7 +218,8 @@ def calculateAgeScore(age):
     # # 1.      0.15625 0.125   0.46875 0.15625 0.125   0.34375 0.21875 0.03125
     # # 0.125   0.09375 0.09375 0.25    0.125  ]
 
-    norm_age_scores = {neighborhood_list[i]                       : v for i, v in enumerate(normalized)}
+    norm_age_scores = {neighborhood_list[i]
+        : v for i, v in enumerate(normalized)}
 
     # data.update(norm_age_scores)
     mergeDict(data, norm_age_scores, "age score")
@@ -266,8 +270,9 @@ def calculateBudget(minBudget, maxBudget):
             list(calculateTextSimLikes(['Affordable']).values()))
         fit_budget = fit_budget+affordable_scores
 
-    normalized = zscoreCalculate(fit_budget)#(fit_budget-min(fit_budget)) / \
-    #(max(fit_budget)-min(fit_budget))*100
+    normalized = zscoreCalculate(
+        fit_budget)  # (fit_budget-min(fit_budget)) / \
+    # (max(fit_budget)-min(fit_budget))*100
 
     # for text analysis
     norm_budget_scores = {
@@ -295,10 +300,11 @@ def calculateCommuteScore(commuteType):
             [int(v['Car-Score']) for k, v in carscore_data.items()])
         walk_scores = np.array(
             [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
-        commute_scores = np.add(.2* car_scores, .8*walk_scores)
+        commute_scores = np.add(.2 * car_scores, .8*walk_scores)
     print(commute_scores)
-    normalized = zscoreCalculate(commute_scores)#(commute_scores-min(commute_scores)) / \
-    #(max(commute_scores)-min(commute_scores))*100
+    normalized = zscoreCalculate(
+        commute_scores)  # (commute_scores-min(commute_scores)) / \
+    # (max(commute_scores)-min(commute_scores))*100
     norm_commute_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
     mergeDict(data, norm_commute_scores, "commute score")
@@ -733,7 +739,7 @@ def get_related_words(likes):
 
 
 def calculateTextSimLikes(likes_list, merge_dict=False):
-    if len(likes_list)==0:
+    if len(likes_list) == 0:
         norm_likes_scores = {n: 0.0 for n in neighborhood_list}
 
         if merge_dict:
@@ -787,7 +793,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     # print(f"MIN SCORE {min(likes_scores)}")
     # print(f"MIN SCORE {max(likes_scores)}")
 
-    normalized = zscoreCalculate(likes_scores)# (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
+    # (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
+    normalized = zscoreCalculate(likes_scores)
 
     norm_likes_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
@@ -834,22 +841,19 @@ def getTopNeighborhoods(query):
     calculateAgeScore(query['age'])
     calculateCommuteScore(query['commute-type'])
     calculateTextSimLikes(query['likes'], True)
-    totalOtherScores = 4 if len(query['likes']) > 0 else 3
-    safetyPercentage = 0.2 if len(query['likes']) > 0 else 0.25
-    safetyWeight = safetyPercentage * (int(query['safety'])/5.0)
-    otherWeights = (1.0-safetyWeight)/totalOtherScores
+    totalOtherScores = 5 if len(query['likes']) > 0 else 4
+    # safetyPercentage = 0.2 if len(query['likes']) > 0 else 0.25
+    # safetyWeight = safetyPercentage * (int(query['safety'])/5.0)
+    otherWeights = 1.0/totalOtherScores
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = otherWeights*v['budget score']+otherWeights*v['age score'] + otherWeights * \
-            v['commute score']+safetyWeight * \
-            v['safety score'] + (otherWeights*v['likes score']
-                                 if len(query['likes']) > 0 else 0.0)
+        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + (otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
 
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
     top_neighborhoods = sorted(
-        neighborhood_scores, key=lambda x: x[1], reverse=True)[:10]
+        neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(

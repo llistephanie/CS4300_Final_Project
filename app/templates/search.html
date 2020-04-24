@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
     <script src="/static/autocomplete.js"></script>
     <script src="/static/script.js"></script>
     <script
@@ -21,144 +21,122 @@
   </head>
   <body>
     <div id="app">
+      <div id="versions">
+        <a href="https://theperfectneighborhood-v1.herokuapp.com/">version one</a>
+      </div>
       <!-- <div class="topcorner"><p>Project Name: {{ name }}</p><p>Student Name: ({{ netid }})</p></div> -->
       <div id="search">
-        <form class="form-inline global-search" method="POST">
-          <h1>Manhattan Neighborhood Recommender</h1>
-
-          <div class="form-group">
-            I'm
-
-            <input
-              id="input"
-              type="number"
-              name="age"
-              class="form-control"
-              value="22"
-            />
-            years old and I like to commute by
-
-            <select id="commute" name="commute-type">
-              <option value="Walk">Walk</option>
-              <option value="Bike">Bike</option>
-              <option value="Car" selected>Car</option>
-              <option value="Public Transit">Public Transit</option>
-            </select>
-            <br />
-            Safety is
-            <span class="safety">somewhat important</span> to me
-
-            <input
-              type="range"
-              id="safety"
-              name="safety"
-              min="1"
-              max="5"
-              onchange="updateSafetyLabel()"
-            />
-            <!-- <p>Budget (0-5000)</p><input type="range" id="vol" name="budget" min="0" max="5000"> -->
-            <br />
-            My budget looks like $<input
-              id="input"
-              type="number"
-              name="budget-min"
-              class="form-control"
-              value="1200"
-            />
-            - $<input
-              id="input"
-              type="number"
-              name="budget-max"
-              class="form-control"
-              value="3400"
-            />
-
-            <!-- <span class="budget-min">$0</span> -->
-            <!-- <input
-              type="range"
-              multiple
-              value="0,5000"
-              name="budget"
-              id="budget"
-              onchange="updateBudgetLabels()"
-            /> -->
-            <!-- <span class="budget-max">$5,000</span> -->
-            <br />
-
-            I like ...
-
-            <select multiple class="chosen-select" name="likes">
-              <option value=""></option>
-              <option value="Working Out">Working Out</option>
-              <option value="Coffee Shops">Coffee Shops</option>
-              <option value="Watching Movies">Watching Movies</option>
-              <option value="Nightlife">Nightlife</option>
-              <option value="Music">Music</option>
-              <option value="Theater">Theater</option>
-              <option value="Restaurants">Restaurants</option>
-              <option value="Shopping">Shopping</option>
-              <option value="Art">Art</option>
-              <option value="Outdoors">Outdoors</option>
-            </select>
-            <!-- <select multiple="multiple" id="likes" name="likes"><option value="coffee-shops">Coffee Shops</option><option value="watching-movies">Watching Movies</option><option value="nightlife">Nightlife</option><option value="music">Music</option><option value="theater">Theater</option><option value="restaurants">Restaurants</option><option value="shopping">Shopping</option><option value="architecture">Architecture</option><option value="outdoors">Outdoors</option></select> -->
-          </div>
-          <br />
-
-          <!-- Google Places Autocomplete -->
-          <div class="pac-card" id="pac-card">
-            <div>
-              <div id="title">
-                Autocomplete search
-              </div>
-              <div id="type-selector" class="pac-controls">
-                <input
-                  type="radio"
-                  name="type"
-                  id="changetype-all"
-                  checked="checked"
-                />
-                <label for="changetype-all">All</label>
-
-                <!-- <input type="radio" name="type" id="changetype-establishment" />
-                <label for="changetype-establishment">Establishments</label>
-
-                <input type="radio" name="type" id="changetype-address" />
-                <label for="changetype-address">Addresses</label>
-
-                <input type="radio" name="type" id="changetype-geocode" />
-                <label for="changetype-geocode">Geocodes</label> -->
-              </div>
-              <!-- <div id="strict-bounds-selector" class="pac-controls">
-                <input type="checkbox" id="use-strict-bounds" value="" />
-                <label for="use-strict-bounds">Strict Bounds</label>
-              </div> -->
+        <div id="intro">
+          <h1>The Perfect Neighborhood</h1>
+          <p>
+            Stephanie Chang (sc2524), Kati Hsu (kyh24), Robert Zhang (rdz26),
+            Sneha Kumar (sk2279), Shirley Kabir (szk4)
+          </p>
+        </div>
+        <div id="search-form">
+          <form class="form-inline global-search" method="POST">
+            <div id="commute-type-input">
+              <label>Commute Type</label>
+              <select id="commute" name="commute-type">
+                <option value="Walk">Walk</option>
+                <option value="Bike">Bike</option>
+                <option value="Car" selected>Car</option>
+                <option value="Public Transit">Public Transit</option>
+              </select>
+            </div>
+            <div id="commute-duration-input">
+              <label>Commute Duration</label>
+              <input
+                id="commute-duration"
+                type="number"
+                name="commute-duration"
+                class="form-control"
+                value="15"
+              />
             </div>
             <div id="pac-container">
+              <label>Destination</label>
               <input
                 id="pac-input"
                 type="text"
                 placeholder="Enter a location"
               />
             </div>
-          </div>
-          <div id="map"></div>
-          <div id="infowindow-content">
-            <img src="" width="16" height="16" id="place-icon" />
-            <span id="place-name" class="title"></span><br />
-            <span id="place-address"></span>
-          </div>
 
-          <input type="submit" value="Go!" onclick="loadResults()" />
+            <div id="budget-input">
+              <label>Budget</label>
+              <input
+                id="budget-min"
+                type="number"
+                name="budget-min"
+                class="form-control"
+                value="1200"
+              />
+              to
+              <input
+                id="budget-max"
+                type="number"
+                name="budget-max"
+                class="form-control"
+                value="3700"
+              />
+            </div>
 
-          <!-- <button type="submit" value="Go!" class="btn btn-info" onclick="loadResults()">Go!</button> -->
-        </form>
+            <div id="age-input">
+              <label>Age</label>
+              <input
+                id="age"
+                type="number"
+                name="age"
+                class="form-control"
+                value="22"
+              />
+            </div>
+
+            <div id="keywords-type-input">
+              <label>Keywords</label>
+              <!-- <select multiple class="chosen-select" name="likes">
+                <option value=""></option>
+                <option value="Working Out">Working Out</option>
+                <option value="Coffee Shops">Coffee Shops</option>
+                <option value="Watching Movies">Watching Movies</option>
+                <option value="Nightlife">Nightlife</option>
+                <option value="Music">Music</option>
+                <option value="Theater">Theater</option>
+                <option value="Restaurants">Restaurants</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Art">Art</option>
+                <option value="Outdoors">Outdoors</option>
+              </select> -->
+              <select name="likes" id="keywords">
+                <option value=""></option>
+                <option value="Working Out">Working Out</option>
+                <option value="Coffee Shops">Coffee Shops</option>
+                <option value="Watching Movies">Watching Movies</option>
+                <option value="Nightlife">Nightlife</option>
+                <option value="Music">Music</option>
+                <option value="Theater">Theater</option>
+                <option value="Restaurants">Restaurants</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Art">Art</option>
+                <option value="Outdoors">Outdoors</option>
+              </select>
+            </div>
+
+
+
+            <input id="submit" type="submit" value="Go!" onclick="loadResults()" />
+          </form>
+        </div>
       </div>
       {% if data %}
       <div id="results">
         <h2>Top Picks</h2>
         <section id="filters">
-          <a class="active" onclick="sort(this)">Overall</a> <a onclick="sortBudget(this)">Budget</a>
-          <a onclick="sortAge(this)">Age</a> <a onclick="sortCommute(this)">Commute</a>
+          <a class="active" onclick="sort(this)">Overall</a>
+          <a onclick="sortBudget(this)">Budget</a>
+          <a onclick="sortAge(this)">Age</a>
+          <a onclick="sortCommute(this)">Commute</a>
           <a onclick="sortLikes(this)">Keywords</a>
         </section>
         <form class="form-inline global-search">
@@ -170,7 +148,14 @@
           <br />
           {% for d in data %}
 
-          <div class="result" overall-order="{{d['score']}}" age-order="{{d['age']}}" commute-order="{{d['commute']}}" budget-order="{{d['budget']}}" likes-order="{{d['likes']}}">
+          <div
+            class="result"
+            overall-order="{{d['score']}}"
+            age-order="{{d['age']}}"
+            commute-order="{{d['commute']}}"
+            budget-order="{{d['budget']}}"
+            likes-order="{{d['likes']}}"
+          >
             <div
               style="background-image: url({{d['image-url']}});"
               class="neighborhood-image"
@@ -197,6 +182,10 @@
           </div>
           {% endfor %}
         </form>
+        <br>
+        <br>
+        <br>
+        <br>
       </div>
       {% endif %}
     </div>

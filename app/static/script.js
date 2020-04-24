@@ -90,24 +90,20 @@ function updateSafetyLabel() {
   $(".safety").text(label);
 }
 
-// $(function () {
-//   // updateBudget();
+$(function () {
+  $(".chosen-select").chosen({
+    no_results_text: "Oops, nothing found!",
+  });
 
-//   // $(".chosen-select").chosen({
-//   //   no_results_text: "Oops, nothing found!",
-//   // });
-
-//   // $(".result h5").each(function (index) {
-//   //   score = parseFloat($(this).text());
-//   //   $(this).css("color", numberToColorHsl(score));
-//   //   console.log(index + ": " + $(this).text());
-//   // });
-// });
-
-// function loadResults() {
-//   console.log("hello world");
-//   $("#results").show()
-// }
+  if ($("#results").is(":visible")) {
+    $("html, body").animate(
+      {
+        scrollTop: $("#results").offset().top,
+      },
+      1000
+    );
+  }
+});
 
 jQuery.fn.sortNeighborhoodsByAge = function sortNeighborhoodsByAge() {
   $(".result", this[0]).sort(dec_sort).appendTo(this[0]);

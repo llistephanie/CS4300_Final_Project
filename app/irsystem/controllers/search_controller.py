@@ -16,7 +16,7 @@ def search():
 	if request.method == 'POST':
 		age = request.form["age"]
 		commute_type = request.form["commute-type"]
-		safety = request.form["safety"]
+		# safety = request.form["safety"]
 		budget_min=int(request.form["budget-min"])
 		budget_max=int(request.form["budget-max"])
 		# budget=[int(b) for b in request.form.getlist('budget')]
@@ -28,14 +28,13 @@ def search():
 	for l in likes:
 		likes_string=likes_string + " " + l
 
-	output_message = "Age: " + age + " Commute Type: " + commute_type + " Safety Priority: " + safety + " Budget: $" + str(budget_min) + "-" + str(budget_max) + " Activities: " + likes_string
+	output_message = "Age: " + age + " Commute Type: " + commute_type + " Budget: $" + str(budget_min) + "-" + str(budget_max) + " Activities: " + likes_string
 	
-	query={'age': age, 'commute-type': commute_type, 'safety': safety, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes}
+	query={'age': age, 'commute-type': commute_type, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes}
 
 	data=getTopNeighborhoods(query)
 	
-	print(data)
-
+	# print(data)
 
 	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
 
