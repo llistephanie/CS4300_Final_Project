@@ -869,7 +869,7 @@ def getTopNeighborhoods(query):
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + (otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
+        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + (otherWeights*v['likes score'] if len(query['likes'])>0 else 0.0)
 
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
@@ -895,7 +895,6 @@ def main():
     query["commute-type"] = "walk"
     query["likes"] = ["theatre"]
     a = getTopNeighborhoods(query)
-    #print(a)
     """
     loadCrimeScores()
     calculateBudget(1500, 1750)
