@@ -6,12 +6,15 @@ from nltk.tokenize import TreebankWordTokenizer
 from sklearn import preprocessing
 import os
 import nltk
+import spacy
+from nltk.stem.porter import PorterStemmer
 # nltk.download('wordnet')
 # from nltk.corpus import wordnet as wn
 
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
+stemmer = PorterStemmer()
 neighborhood_list = ['Battery Park',
                      'Chelsea',
                      'Chinatown',
@@ -54,7 +57,7 @@ neighborhood_id_to_name = {v: k for k, v in neighborhood_name_to_id.items()}
 
 
 relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
-                     "Working Out": ["gym", "gyms", "yoga", "run", "skating", "basketball", "volleyball", "running"],
+                     "Working Out": ["gym", "gyms", "yoga", "run", "skating", "basketball", "volleyball", "running", "exercise"],
                      "Watching Movies": ["film", "theatre", "movies", "movie"],
                      "Nightlife": ["nightlife", "bars", "clubs", "rooftops", "party", "cocktail", "drinking", "partiers"],
                      "Music": ["music", "entertainment", "jazz", "performance", "performances", "concert", "talent"],
@@ -62,20 +65,47 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                      "Restaurants": ["restaurants", "restaurant", "foodie", "foodies", "food", "eat", "eateries", "culinary", "cuisine", "bistros", "dining", "meal", "farmer's", "market", "eats", "snack"],
                      "Shopping": ["shopping", "shopper", "boutiques", "shopper's", "commercial", "fashion-forward", "fashion", "retailers", "commerce", "stores", "markets"],
                      "Art": ["art", "artsy", "architecture", "buildings", "artists", "gallery", "galleries", "artistic", "photographers", "sculptors", "painters", "trendy", "bohemian", "creative", "museum", "museums", "picturesque", "creative"],
-                     "Outdoors": ["outdoors", "parks", "park", "recreation", "waterfront", "spaces", "outdoor", "trees", "flowers", "garden", "gardens", "picnics", "green", "nature", "greenspace", "open", "bike", "water", "biking", "kayaking", "boating", "piers", "pier"],
+                     "Outdoors": ["outdoors", "parks", "park", "recreation", "waterfront", "spaces", "outdoor", "tree", "flowers", "garden", "gardens", "picnics", "green", "nature", "greenspace", "open", "bike", "water", "biking", "kayaking", "boating", "piers", "pier"],
                      "Expensive": ["expensive", "pricey", "luxury", "affluent", "posh", "expensive"],
                      "Affordable": ["affordable", "inexpensive", "below-market", "diverse budgets", "cheap"],
-                     "Quiet": ["quiet", "escape", "peaceful", "serene", "calm", "laid-back", "tranquil", "mellow", "low key", "low-key", "early", "secluded", "simplicity", "empty", "uncluttered", "simple", "slower", "relaxed", "grace", "crowded"],
+                     "Quiet": ["quiet", "escape", "peaceful", "serene", "calm", "laid-back", "tranquil", "mellow", "low key", "low-key", "early", "secluded", "simplicity", "empty", "uncluttered", "simple", "slower", "relaxed", "grace"],
                      "Loud": ["loud", "lively", "fast-paced", "congested", "energetic", "traffic", "hustle", "noise", "vibrant", "packed", "tight"],
-                     "Old": ["old"],
                      "Young": ["young", "students", "younger"],
                      "Modern": ["modern", "high-rises", "skyscrapers", "lofts", "skyline", "industrial", "posh",
                                 "elevator", "doorman"],
-                     "Rustic": ["rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world",
+                     "Rustic": ["old","rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world",
                                 "character"],
-                     "Trendy": ["trendy"],
-                     "Posh": ["posh"],
-                     "college": ["college"]}
+                     "Trendy": ["trendy","popular","upcoming"],
+                     "College": ["college","university","student"]}
+
+nlp = spacy.load("en_vectors_web_lg")
+stemmer = PorterStemmer()
+def match_keywords(input_l):
+    """ assumes individual words inputed
+    i.e. input_l = ["affluent","drinks","fun"]
+    output = ["expensive","coffee","theatre"]
+    """
+    category_list = []
+    for word in input_l:
+        w = nlp(stemmer.stem(word))
+        if (np.sum(w.vector) == 0):
+            w = nlp(word)
+        max_score = 0
+        max_category = ""
+        for category, related in relevant_keywords.items():
+            for r_word in related:
+                r = nlp(stemmer.stem(r_word))
+                if (np.sum(r.vector) == 0):
+                    r = nlp(r_word)
+
+                score = w.similarity(r)
+                if (score > max_score):
+                    max_score = score
+                    max_category = category
+
+        category_list.append(max_category)
+    return category_list
+
 
 """
 Shared data containing all the scores and information for each neighborhood.
@@ -119,7 +149,7 @@ def scoreCalculation(data_list):
     return new_scores
 
 a = scoreCalculation([1,2,3])
-print(a)
+#print(a)
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
@@ -865,7 +895,7 @@ def main():
     query["commute-type"] = "walk"
     query["likes"] = ["theatre"]
     a = getTopNeighborhoods(query)
-    print(a)
+    #print(a)
     """
     loadCrimeScores()
     calculateBudget(1500, 1750)
@@ -889,4 +919,4 @@ def main():
     #     print(ss.lemma_names())
 
 
-main()
+#main()
