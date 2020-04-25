@@ -38,10 +38,10 @@
             <div id="commute-type-input">
               <label>Commute Type</label>
               <select id="commute" name="commute-type">
-                <option value="Walk">Walk</option>
-                <option value="Bike">Bike</option>
-                <option value="Car" selected>Car</option>
-                <option value="Public Transit">Public Transit</option>
+                <option value="Walk" {% if query and query['commute-type']=='Walk' %} selected="selected"{% endif %}>Walk</option>
+                <option value="Bike" {% if query and query['commute-type']=='Bike' %} selected="selected"{% endif %}>Bike</option>
+                <option value="Car" {% if query and query['commute-type']=='Car' %} selected="selected"{% endif %}>Car</option>
+                <option value="Public Transit" {% if query and query['commute-type']=='Public Transit' %} selected="selected"{% endif %}>Public Transit</option>
               </select>
             </div>
             <div id="commute-duration-input">
@@ -70,7 +70,11 @@
                 type="number"
                 name="budget-min"
                 class="form-control"
+                {% if query %}
+                value="{{ query['budget-min'] }}"
+                {% else %}
                 value="1200"
+                {% endif %}
               />
               to
               <input
@@ -78,7 +82,11 @@
                 type="number"
                 name="budget-max"
                 class="form-control"
+                {% if query %}
+                value="{{ query['budget-max'] }}"
+                {% else %}
                 value="3700"
+                {% endif %}
               />
             </div>
 
@@ -89,7 +97,11 @@
                 type="number"
                 name="age"
                 class="form-control"
+                {% if query %}
+                value="{{ query['age'] }}"
+                {% else %}
                 value="22"
+                {% endif %}
               />
             </div>
 
@@ -110,16 +122,16 @@
               </select> -->
               <select name="likes" id="keywords">
                 <option value=""></option>
-                <option value="Working Out">Working Out</option>
-                <option value="Coffee Shops">Coffee Shops</option>
-                <option value="Watching Movies">Watching Movies</option>
-                <option value="Nightlife">Nightlife</option>
-                <option value="Music">Music</option>
-                <option value="Theater">Theater</option>
-                <option value="Restaurants">Restaurants</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Art">Art</option>
-                <option value="Outdoors">Outdoors</option>
+                <option value="Working Out" {% if query and "Working Out" in query['likes'] %} selected="selected"{% endif %}>Working Out</option>
+                <option value="Coffee Shops" {% if query and "Coffee Shops" in query['likes'] %} selected="selected"{% endif %}>Coffee Shops</option>
+                <option value="Watching Movies" {% if query and "Watching Movies" in query['likes'] %} selected="selected"{% endif %}>Watching Movies</option>
+                <option value="Nightlife" {% if query and "Nightlife" in query['likes'] %} selected="selected"{% endif %}>Nightlife</option>
+                <option value="Music" {% if query and "Music" in query['likes'] %} selected="selected"{% endif %}>Music</option>
+                <option value="Theater" {% if query and "Theater" in query['likes'] %} selected="selected"{% endif %}>Theater</option>
+                <option value="Restaurants" {% if query and "Restaurants" in query['likes'] %} selected="selected"{% endif %}>Restaurants</option>
+                <option value="Shopping" {% if query and "Shopping" in query['likes'] %} selected="selected"{% endif %}>Shopping</option>
+                <option value="Art" {% if query and "Art" in query['likes'] %} selected="selected"{% endif %}>Art</option>
+                <option value="Outdoors" {% if query and "Outdoors" in query['likes'] %} selected="selected"{% endif %}>Outdoors</option>
               </select>
             </div>
 
@@ -140,11 +152,6 @@
           <a onclick="sortLikes(this)">Keywords</a>
         </section>
         <form class="form-inline global-search">
-          <!-- <div class="query_confirmation">
-            <b>your query</b>
-            <br />
-            {{output_message}}
-          </div> -->
           <br />
           {% for d in data %}
 
