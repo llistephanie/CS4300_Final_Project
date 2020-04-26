@@ -878,10 +878,10 @@ def getTopNeighborhoods(query):
 
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    top_neighborhoods = sorted(
-        neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
+    print(neighborhood_scores)
+    top_neighborhoods = sorted(neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
-    for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
+    for (name, score, budget, age, commute, safety, likes) in top_neighborhoods[:9]:
         subway_data = [
             {"name": "1", "img-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"}]
         rent = {'median': renthop_data[name]['1BR']['Median'],'top': renthop_data[name]['1BR']['Top 25%'],'bottom': renthop_data[name]['1BR']['Bottom 25%']}

@@ -276,7 +276,7 @@ function randomBackground() {
 
 function closeMap(e) {
   var n = "#" + $(e)[0].getAttribute("data-x");
-  $(n + ".links a").removeClass("active");
+  $(n + " .links a").removeClass("active");
   $(e).addClass("active");
   $(n + "-map").hide(500);
   $(n + " .radar").show(500);
@@ -284,9 +284,8 @@ function closeMap(e) {
 }
 
 function openMap(e) {
-  
   var n = "#" + $(e)[0].getAttribute("data-x");
-  $(n + ".links a").removeClass("active");
+  $(n + " .links a").removeClass("active");
   $(e).addClass("active");
   $(n + "-map").show(500);
   $(n + " .radar").hide(500);

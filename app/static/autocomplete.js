@@ -12881,7 +12881,7 @@ function initMap() {
     var n_name = $(this)[0].getAttribute("id").replace("-map", "");
 
     map = new google.maps.Map($(this)[0], {
-      zoom: 14.5,
+      zoom: 14,
       center: {
         // New York City
         lat: coordinate_data[n_name]['geometry']['coordinates'][0][6][1],
