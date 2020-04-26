@@ -29,6 +29,8 @@ def search():
 
 	print(query)
 
+	print(query)
+
 	data=getTopNeighborhoods(query)
 
 	# print(data)
