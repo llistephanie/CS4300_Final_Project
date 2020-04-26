@@ -117,15 +117,6 @@ $(function () {
       1000
     );
 
-    // Radar Chart
-    // var margin = { top: 100, right: 100, bottom: 100, left: 100 },
-    //   width =
-    //     Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
-    //   height = Math.min(
-    //     width,
-    //     window.innerHeight - margin.top - margin.bottom - 20
-    //   );
-
     var margin = { top: 5, right: 5, bottom: 5, left: 5 },
       width = 150,
       height = 150;
@@ -142,7 +133,7 @@ $(function () {
       roundStrokes: true,
       color: color,
       opacityCircles: 0,
-      opacityArea: 0.8
+      opacityArea: 0.8,
     };
 
     //Call function to draw the Radar chart
@@ -150,22 +141,38 @@ $(function () {
       // console.log($( this )[0]);
       var data = [
         [
-          { axis: "Commute", value: parseFloat($( this )[0].getAttribute("commute-order"))/100.0 },
-          { axis: "Age", value: parseFloat($( this )[0].getAttribute("age-order"))/100.0 },
-          { axis: "Keywords", value: parseFloat($( this )[0].getAttribute("likes-order"))/100.0 },
-          { axis: "Budget", value: parseFloat($( this )[0].getAttribute("budget-order"))/100.0 },
-          { axis: "Happiness", value: parseFloat($( this )[0].getAttribute("happiness-order"))/100.0 },
-        ]
+          {
+            axis: "Commute",
+            value: parseFloat($(this)[0].getAttribute("commute-order")) / 100.0,
+          },
+          {
+            axis: "Age",
+            value: parseFloat($(this)[0].getAttribute("age-order")) / 100.0,
+          },
+          {
+            axis: "Keywords",
+            value: parseFloat($(this)[0].getAttribute("likes-order")) / 100.0,
+          },
+          {
+            axis: "Budget",
+            value: parseFloat($(this)[0].getAttribute("budget-order")) / 100.0,
+          },
+          {
+            axis: "Happiness",
+            value:
+              parseFloat($(this)[0].getAttribute("happiness-order")) / 100.0,
+          },
+        ],
       ];
 
-      console.log(data);
-
-      RadarChart('.' + $( this )[0].getAttribute('class').split(" ")[1], data, radarChartOptions);
+      RadarChart(
+        "." + $(this)[0].getAttribute("class").split(" ")[1],
+        data,
+        radarChartOptions
+      );
 
       // $( this ).addClass( "foo" );
     });
-
-    
   }
 
   $("a[data-modal]").click(function (event) {
@@ -227,31 +234,31 @@ jQuery.fn.sortNeighborhoods = function sortNeighborhoods() {
 };
 
 function sortAge(e) {
-  $("a").removeClass("active");
+  $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByAge();
 }
 
 function sortBudget(e) {
-  $("a").removeClass("active");
+  $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByBudget();
 }
 
 function sort(e) {
-  $("a").removeClass("active");
+  $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoods();
 }
 
 function sortLikes(e) {
-  $("a").removeClass("active");
+  $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByLikes();
 }
 
 function sortCommute(e) {
-  $("a").removeClass("active");
+  $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByCommute();
 }
@@ -265,4 +272,23 @@ function randomBackground() {
   var n = Math.floor(Math.random() * 3);
   var newBackground = 'url("static/' + imgArr[n] + '")';
   $("#search").css("background", newBackground);
+}
+
+function closeMap(e) {
+  var n = "#" + $(e)[0].getAttribute("data-x");
+  $(n + ".links a").removeClass("active");
+  $(e).addClass("active");
+  $(n + "-map").hide(500);
+  $(n + " .radar").show(500);
+  $(n + " .tags").show(500);
+}
+
+function openMap(e) {
+  
+  var n = "#" + $(e)[0].getAttribute("data-x");
+  $(n + ".links a").removeClass("active");
+  $(e).addClass("active");
+  $(n + "-map").show(500);
+  $(n + " .radar").hide(500);
+  $(n + " .tags").hide(500);
 }

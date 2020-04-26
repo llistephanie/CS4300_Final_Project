@@ -703,7 +703,7 @@ input[type="submit"] {
   /*     top: 58px; */
   border-radius: 25px;
   box-shadow: none;
-  left: -10%;
+  /* left: -10%; */
   background-color: #1d1d22;
 }
 
@@ -725,7 +725,7 @@ input[type="submit"] {
   bottom: 0;
   right: 0;
   position: absolute;
-  z-index: -1;   
+  z-index: -1;
 }
 
 #battery-park::after {
@@ -746,14 +746,86 @@ input[type="submit"] {
   background-position: center;
 }
 
+#east-village::after {
+  background: url("east-village-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#financial-district::after {
+  background: url("financial-district-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#flatiron::after {
+  background: url("flatiron4-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#greenwich-village::after {
+  background: url("greenwich-village2-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#gramercy::after {
+  background: url("gramercy4-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#harlem::after {
+  background: url("harlem3-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#hells-kitchen::after {
+  background: url("hells_kitchen-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 #kips-bay::after {
   background: url("kips-bay-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
+#midtown::after {
+  background: url("midtown3-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#morningside-heights::after {
+  background: url("morningside-heights-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 #nolita:after {
   background: url("nolita2-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#upper-east-side::after {
+  background: url("upper-east-side3-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#upper-west-side::after {
+  background: url("upper-west-side4-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#west-village::after {
+  background: url("west-village2-2.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -1079,4 +1151,74 @@ tspan {
 
 .tooltip {
   fill: #fff;
+}
+
+.tags {
+  position: absolute;
+  width: 153px;
+  height: 53px;
+  left: calc(761px - 224px);
+  top: calc(521px - 58px);
+}
+
+.tags span {
+  display: inline-block;
+  margin: 5px;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 100%;
+  /* identical to box height, or 12px */
+
+  color: #ffffff;
+}
+
+.tags span:nth-child(1) {
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  line-height: 100%;
+  text-transform: uppercase;
+  display: block;
+  /* identical to box height, or 8px */
+
+  color: #bdb8b8;
+}
+
+.map {
+  width: 595px !important;
+  height: 583px !important;
+  border-radius: 25px;
+  box-shadow: none;
+  left: -10%;
+  background-color: #1d1d22;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  display: none;
+}
+
+.links {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: -30px;
+}
+
+.links a {
+  color: transparent;
+  width: 10px;
+  height: 10px;
+  margin: 0px 2.5px;
+  display: inline-block;
+  border: 1px solid #35965b;
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+.links a.active {
+  background-color: #35965b;
+  /* background-color: #aaa; */
 }
