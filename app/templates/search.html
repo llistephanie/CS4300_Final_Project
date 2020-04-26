@@ -4,6 +4,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <!-- <link rel="stylesheet" href="/static/autocomplete.css" /> -->
     <link rel="stylesheet" type="text/css" href="/static/selectize.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <link rel="stylesheet" href="/static/main.css" />
     <link
       href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
@@ -15,6 +16,7 @@
     <script src="/static/autocomplete.js"></script>
     <script type="text/javascript" src="/static/selectize.js"></script>
     <script type="text/javascript" src="/static/radarChart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="/static/script.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE&libraries=places&callback=initMap"
@@ -144,7 +146,6 @@
           <a onclick="sortCommute(this)">Commute</a>
           <a onclick="sortLikes(this)">Keywords</a>
         </section>
-        <form class="form-inline global-search">
           <br />
           {% for d in data %}
 
@@ -153,7 +154,7 @@
             overall-order="{{d['score']}}"
             age-order="{{d['age']}}"
             commute-order="{{d['commute']}}"
-            budget-order="{{d['budget']}}"
+            budget-order="{{d['budget order']}}"
             likes-order="{{d['likes']}}"
           >
             <div
@@ -166,8 +167,9 @@
               <div class="label">Score</div>
               <h6>{{d['score']}}</h6>
               <div class="label">Median Rent</div>
-              <h6>{{d['median rent']}}</h6>
-              <a href="more">
+              <h6>{{d['rent']['median']}}</h6>
+
+              <a href="#{{d['div-id']}}" data-modal>
                 <img src="static/more.jpg" class="more-link" />
               </a>
             </div>
@@ -181,7 +183,71 @@
             </div>
           </div>
           {% endfor %}
-        </form>
+      </div>
+      <div id="all-modals">
+        {% for d in data %}
+        <div id="{{d['div-id']}}" class="modal">
+          <div class="summary">
+            <h1>{{d['name']}}</h1><span>Manhattan</span>
+            <p>{{d['long description']}}</p>
+          </div>
+          <div class="score">
+            {{d['score']}} <span>GOOD</span>
+          </div>
+          <div class="love">
+            <img src="static/icons/star_outline-white-18dp.svg" width="18">{{d['love']}}
+          </div>
+          <div class="transit">
+            <img src="static/icons/commute-black-18dp.svg" width="19" class="transit-img">
+            <h1>{% if d['commute destination'] %} {{d['commute destination']}} {% else %} Transit {% endif %} </h1>
+            <span>COMMUTE</span>
+            <div class="all-commutes">
+              <div class="commute">
+                <span>Walking</span>
+                <span>30</span>
+              </div>
+              <div class="commute">
+                <span>Driving</span>
+                <span>15</span>
+              </div>
+              <div class="commute">
+                <span>Public Transit</span>
+                <span>25</span>
+              </div>
+            </div>
+            <div class="services">
+              {% for s in d['subway'] %}
+              <img src="{{s['img-url']}}" width="15">
+              {% endfor %}
+              <span>SUBWAY LINES</span>
+            </div>
+          </div>
+          <div class="rents">
+            <span>1 Bedroom Rental Prices</span>
+            <div class="rent">
+              <span>Bottom 25%</span>
+              <span>{{d['rent']['bottom']}}</span>
+            </div>
+            <div class="rent">
+              <span>Median</span>
+              <span>{{d['rent']['median']}}</span>
+            </div>
+            <div class="rent">
+              <span>Top 25%</span>
+              <span>{{d['rent']['top']}}</span>
+            </div>
+          </div>
+          <div class="radar">
+            <div class="radarChart radarChart-{{d['div-id']}}" overall-order="{{d['score']}}"
+            age-order="{{d['age']}}"
+            commute-order="{{d['commute']}}"
+            budget-order="{{d['budget']}}"
+            likes-order="{{d['likes']}}"
+            happiness-order="{{d['safety']}}"></div>
+          </div>
+        </div>
+        {% endfor %}
+
       </div>
       {% endif %}
     </div>

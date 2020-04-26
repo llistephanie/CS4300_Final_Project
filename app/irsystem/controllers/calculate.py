@@ -118,8 +118,11 @@ def scoreCalculation(data_list):
     """
     return new_scores
 
-a = scoreCalculation([1,2,3])
+
+a = scoreCalculation([1, 2, 3])
 print(a)
+
+
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
@@ -220,15 +223,15 @@ def calculateAgeScore(age):
     # 11.3814625  7.3814625  1.3814625  4.3814625  3.3814625  3.3814625
     # 8.3814625  4.3814625 ]
 
-    normalized = scoreCalculation(percentages)#(percentages-min(percentages)) / \
-        #(max(percentages)-min(percentages))*100
+    normalized = scoreCalculation(
+        percentages)  # (percentages-min(percentages)) / \
+    # (max(percentages)-min(percentages))*100
     # # [0.      0.25    0.3125  0.75    0.28125 0.53125 0.375   0.25    0.65625
     # # 0.5     0.25    0.21875 0.25    0.5625  0.1875  0.1875  0.25    0.125
     # # 1.      0.15625 0.125   0.46875 0.15625 0.125   0.34375 0.21875 0.03125
     # # 0.125   0.09375 0.09375 0.25    0.125  ]
 
-    norm_age_scores = {neighborhood_list[i]
-        : v for i, v in enumerate(normalized)}
+    norm_age_scores = {neighborhood_list[i]                       : v for i, v in enumerate(normalized)}
 
     # data.update(norm_age_scores)
     mergeDict(data, norm_age_scores, "age score")
@@ -310,7 +313,7 @@ def calculateCommuteScore(commuteType):
         walk_scores = np.array(
             [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
         commute_scores = np.add(.2 * car_scores, .8*walk_scores)
-    #print(commute_scores)
+    # print(commute_scores)
     normalized = scoreCalculation(
         commute_scores)  # (commute_scores-min(commute_scores)) / \
     # (max(commute_scores)-min(commute_scores))*100
@@ -763,8 +766,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     likes_scores = []
 
-    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, open(prefix + 'streeteasy.json',encoding="utf-8") as streeteasy_file, \
-            open(prefix + 'compass.json', encoding="utf-8") as compass_file, open(prefix + 'relevant_data.json',encoding="utf-8") as reddit_file, open(prefix + 'goodmigrations.json',encoding="utf-8") as goodmigrations_file:
+    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, \
+            open(prefix + 'compass.json', encoding="utf-8") as compass_file, open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file:
         niche_data = json.load(niche_file)
         streeteasy_data = json.load(streeteasy_file)
         compass_data = json.load(compass_file)
@@ -827,6 +830,9 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/renthop.json") as f:
         renthop_data = json.load(f)
 
+    with open("app/irsystem/controllers/data/compass.json") as f:
+        compass_data = json.load(f)
+
     loadCrimeScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
@@ -839,7 +845,9 @@ def getTopNeighborhoods(query):
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + (otherWeights*v['likes score'] if len(query['likes'])>0 else 0.0)
+        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + \
+            otherWeights*v['safety score'] + \
+            (otherWeights*v['likes score'] if len(query['likes']) > 0 else 0.0)
 
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
@@ -847,11 +855,15 @@ def getTopNeighborhoods(query):
         neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
+        subway_data = [
+            {"name": "1", "img-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"}]
+        rent = {'median': renthop_data[name]['1BR']['Median'],'top': renthop_data[name]['1BR']['Top 25%'],'bottom': renthop_data[name]['1BR']['Bottom 25%']}
+
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
-            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'median rent': renthop_data[name]['1BR']['Median']}
+            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-'), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0]}
+        
         best_matches.append(n)
     return best_matches
-
 
 
 def main():
@@ -885,8 +897,8 @@ def main():
 
     print(neighborhood_scores)
     """
-    #for ss in wn.synsets('coffee shop'): # Each synset represents a diff concept.
+    # for ss in wn.synsets('coffee shop'): # Each synset represents a diff concept.
     #     print(ss.lemma_names())
 
 
-main()
+# main()

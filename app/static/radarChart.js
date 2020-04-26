@@ -85,9 +85,8 @@ function RadarChart(id, data, options) {
 		.attr("class", "gridCircle")
 		.attr("r", function(d, i){return radius/cfg.levels*d;})
 		.style("fill", "#CDCDCD")
-		.style("stroke", "#CDCDCD")
-		.style("fill-opacity", cfg.opacityCircles)
-		.style("filter" , "url(#glow)");
+		.style("stroke", "rgba(255, 255, 255, 0.1)")
+		.style("fill-opacity", cfg.opacityCircles);
 
 	//Text indicating at what % each level is
 	axisGrid.selectAll(".axisLabel")
@@ -118,8 +117,8 @@ function RadarChart(id, data, options) {
 		.attr("x2", function(d, i){ return rScale(maxValue*1.1) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("y2", function(d, i){ return rScale(maxValue*1.1) * Math.sin(angleSlice*i - Math.PI/2); })
 		.attr("class", "line")
-		.style("stroke", "white")
-		.style("stroke-width", "2px");
+		.style("stroke", "rgba(255, 255, 255, 0.1)")
+		.style("stroke-width", "1px");
 
 	//Append the labels at each axis
 	axis.append("text")
@@ -127,6 +126,7 @@ function RadarChart(id, data, options) {
 		.style("font-size", "11px")
 		.attr("text-anchor", "middle")
 		.attr("dy", "0.35em")
+		.attr("fill", "white")
 		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i - Math.PI/2); })
 		.attr("y", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.sin(angleSlice*i - Math.PI/2); })
 		.text(function(d){return d})

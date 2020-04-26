@@ -116,7 +116,64 @@ $(function () {
       },
       1000
     );
+
+    // Radar Chart
+    // var margin = { top: 100, right: 100, bottom: 100, left: 100 },
+    //   width =
+    //     Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
+    //   height = Math.min(
+    //     width,
+    //     window.innerHeight - margin.top - margin.bottom - 20
+    //   );
+
+    var margin = { top: 5, right: 5, bottom: 5, left: 5 },
+      width = 150,
+      height = 150;
+
+    // var color = d3.scale.ordinal().range(["#EDC951", "#CC333F", "#00A0B0"]);
+    var color = d3.scale.ordinal().range(["#31a05f"]);
+
+    var radarChartOptions = {
+      w: width,
+      h: height,
+      margin: margin,
+      maxValue: 1.0,
+      levels: 3,
+      roundStrokes: true,
+      color: color,
+      opacityCircles: 0,
+      opacityArea: 0.8
+    };
+
+    //Call function to draw the Radar chart
+    $(".radarChart").each(function () {
+      // console.log($( this )[0]);
+      var data = [
+        [
+          { axis: "Commute", value: parseFloat($( this )[0].getAttribute("commute-order"))/100.0 },
+          { axis: "Age", value: parseFloat($( this )[0].getAttribute("age-order"))/100.0 },
+          { axis: "Keywords", value: parseFloat($( this )[0].getAttribute("likes-order"))/100.0 },
+          { axis: "Budget", value: parseFloat($( this )[0].getAttribute("budget-order"))/100.0 },
+          { axis: "Happiness", value: parseFloat($( this )[0].getAttribute("happiness-order"))/100.0 },
+        ]
+      ];
+
+      console.log(data);
+
+      RadarChart('.' + $( this )[0].getAttribute('class').split(" ")[1], data, radarChartOptions);
+
+      // $( this ).addClass( "foo" );
+    });
+
+    
   }
+
+  $("a[data-modal]").click(function (event) {
+    $(this).modal({
+      fadeDuration: 350,
+    });
+    return false;
+  });
 });
 
 jQuery.fn.sortNeighborhoodsByAge = function sortNeighborhoodsByAge() {
@@ -144,8 +201,8 @@ jQuery.fn.sortNeighborhoodsByBudget = function sortNeighborhoodsByBudget() {
   function dec_sort(a, b) {
     return parseFloat(b.getAttribute("budget-order")) <
       parseFloat(a.getAttribute("budget-order"))
-      ? -1
-      : 1;
+      ? 1
+      : -1;
   }
 };
 
@@ -200,8 +257,12 @@ function sortCommute(e) {
 }
 
 function randomBackground() {
-  var imgArr=["people-walking-near-concrete-buildings-1557547-5.jpg", "concrete-bridge-near-buildings-during-golden-hour-1755683-2.jpg", "people-standing-near-highway-near-vehicles-1634279-2.jpg"]; 
-  var n=Math.floor((Math.random() * 3));
-  var newBackground='url("static/' + imgArr[n] + '")';
+  var imgArr = [
+    "people-walking-near-concrete-buildings-1557547-5.jpg",
+    "concrete-bridge-near-buildings-during-golden-hour-1755683-2.jpg",
+    "people-standing-near-highway-near-vehicles-1634279-2.jpg",
+  ];
+  var n = Math.floor(Math.random() * 3);
+  var newBackground = 'url("static/' + imgArr[n] + '")';
   $("#search").css("background", newBackground);
 }

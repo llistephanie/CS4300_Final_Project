@@ -31,7 +31,7 @@ def search():
 
 	data=getTopNeighborhoods(query)
 
-	# print(data)
+	print(data)
 
 	return render_template('search.html', name=project_name, first_prototype = v1_link, netid=net_id, query=query, data=data)
 
