@@ -830,6 +830,7 @@ def bigram_model(token_list):
 def print_bigrams(bigrams):
     for bigram in bigrams:
         print(bigram, file=sys.stdout)
+    print('nice view' in bigrams)
 
 
 # def build_text(niche_data, streeteasy_data, compass_data):
