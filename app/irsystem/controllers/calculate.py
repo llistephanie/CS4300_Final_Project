@@ -6,7 +6,7 @@ from nltk.tokenize import TreebankWordTokenizer
 from sklearn import preprocessing
 import os
 import nltk
-#import spacy
+import spacy
 #from imports import * # created to make testing quicker
 
 # from nltk.stem.porter import PorterStemmer
@@ -24,7 +24,7 @@ gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
 from nltk.stem.porter import PorterStemmer
 def blank(i):
     return i
-nlp = blank#en_core_web_md.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
+nlp = spacy.load("en_core_web_md") #.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
 stemmer = PorterStemmer()
 
 neighborhood_list = ['Battery Park',
