@@ -55,3 +55,4 @@ urllib3==1.25.8
 Werkzeug==0.16.1
 WTForms==2.2.1
 https://github.com/explosion/spacy-models/releases/download/en_vectors_web_lg-2.1.0/en_vectors_web_lg-2.1.0.tar.gz#egg=en_core_web_sm
+googlemaps==4.2.2
