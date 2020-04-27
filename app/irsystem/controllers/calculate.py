@@ -8,6 +8,10 @@ import os
 import nltk
 import spacy
 from nltk.stem.porter import PorterStemmer
+from collections import Counter
+from nltk.util import ngrams
+from nltk.collocations import *
+from nltk.corpus import stopwords
 # nltk.download('wordnet')
 # from nltk.corpus import wordnet as wn
 
@@ -570,7 +574,7 @@ def output_good_types(input_word_counts):
     return good_types
 
 
-def tf(word_w, neighborhood_n, input_word_matrix, types_to_i):
+def tf_weight(word_w, neighborhood_n, input_word_matrix, types_to_i):
     """Returns the term frequency weight which is the
     ratio between the number of times an input neighborhood N says word W and
     the total number of words in a neighborhood N's descriptions.
@@ -586,6 +590,10 @@ def tf(word_w, neighborhood_n, input_word_matrix, types_to_i):
     total_num_words = np.sum(all_words)
     return w_freq/(total_num_words + 1)
 
+def tf(word_w, input_word_matrix, types_to_i):
+    word_idx = types_to_i[word_w]
+    w_freq = np.sum(input_word_matrix.T[word_idx, :])
+    return w_freq
 
 def build_inverted_index(tokenize_method,
                          neighborhoods_to_id,
@@ -745,13 +753,9 @@ def cosine_sim(query,
                 prod = q_i * posting_tup[1] * idf[term]
                 if neighborhood_id not in score_dict.keys():
                     score_dict[neighborhood_id] = 0
-                    score_dict[neighborhood_id] += prod
-                else:
-                    score_dict[neighborhood_id] += prod
-
+                score_dict[neighborhood_id] += prod
     divide_dict = {k: v/(doc_norms[k] * query_norm)
                    for k, v in score_dict.items()}
-
     return {k: v for k, v in sorted(divide_dict.items(), key=lambda tup: tup[1], reverse=True)}
 
     # to_list = [(k, v) for k, v in divide_dict.items()]
@@ -775,6 +779,126 @@ def get_related_words(likes):
         if like in relevant_keywords.keys():
             related_tokens_list.extend(relevant_keywords[like])
     return related_tokens_list
+
+
+def build_ngram(tokenizer,
+                 data_files,
+                 tokenize_methods,
+                 n_gram,
+                 neighborhood_list):
+    """ Builds an ngram dictionary.
+    :param words:
+    tokenizer: method to tokenize
+
+    data_files: list
+        list of json data files
+
+    tokenize_methods: list
+        list of methods to tokenize each file
+
+    n_gram: Integer
+        describes number of words desired in ngram search
+
+    neighboorhood_list: list
+        list of neighborhoods
+
+    :return:
+        dictionary of ngrams and their counts
+    """
+    token_list = []
+    tokenize_niche = tokenize_methods[0]
+    tokenize_streeteasy = tokenize_methods[1]
+    tokenize_compass = tokenize_methods[2]
+    for neighborhood in neighborhood_list:
+        niche = tokenize_niche(tokenizer, data_files[0], neighborhood)
+        token_list.extend(niche)
+        streeteasy = tokenize_streeteasy(tokenizer, data_files[1], neighborhood)
+        token_list.extend(streeteasy)
+        compass = tokenize_compass(tokenizer, data_files[0], neighborhood)
+        token_list.extend(compass)
+    return Counter(ngrams(token_list, n_gram))
+
+#function to filter for ADJ/NN bigrams
+def rightTypes(ngram):
+    #get english stopwords
+    en_stopwords = set(stopwords.words('english'))
+    if '-pron-' in ngram or 't' in ngram:
+        return False
+    for word in ngram:
+        if word in en_stopwords or word.isspace():
+            return False
+    acceptable_types = ('JJ', 'JJR', 'JJS', 'NN', 'NNS', 'NNP', 'NNPS')
+    second_type = ('NN', 'NNS', 'NNP', 'NNPS')
+    tags = nltk.pos_tag(ngram)
+    if tags[0][1] in acceptable_types and tags[1][1] in second_type:
+        return True
+    else:
+        return False
+
+def token_list(tokenizer, tokenize_methods, data_files, neighborhood_list):
+    token_list = []
+    tokenize_niche = tokenize_methods[0]
+    tokenize_streeteasy = tokenize_methods[1]
+    tokenize_compass = tokenize_methods[2]
+    for neighborhood in neighborhood_list:
+        niche = tokenize_niche(tokenizer, data_files[0], neighborhood)
+        token_list.extend(niche)
+        streeteasy = tokenize_streeteasy(tokenizer, data_files[1], neighborhood)
+        token_list.extend(streeteasy)
+        compass = tokenize_compass(tokenizer, data_files[0], neighborhood)
+        token_list.extend(compass)
+
+
+def bigram_model(token_list):
+    bigram_measures = nltk.collocations.BigramAssocMeasures()
+    bigram_finder = BigramCollocationFinder.from_words(token_list)
+    # finder.nbest(bigram_measures.pmi, 10)
+    bigram_freq = bigram_finder.ngram_fd.items()
+    # https://www.nltk.org/_modules/nltk/metrics/association.html
+    filtered_bi = { bigram:freq for (bigram,freq) in bigram_freq if rightTypes(bigram) }
+    bigram_finder.apply_freq_filter(3)
+    bigram_pmi = bigram_finder.score_ngrams(bigram_measures.pmi)
+    phrases = [x[0] + ' ' + x[1] for x, y in bigram_pmi]
+    return phrases
+
+
+def build_text(niche_data, streeteasy_data, compass_data):
+    text_list = []
+    niche_vals = niche_data.values()
+    streeteasy_vals = streeteasy_data.values()
+    compass_vals = compass_data.values()
+    # parse niche
+    niche_descs = [d['description'] for d in niche_vals]
+    text_list.extend(niche_descs)
+    reviews_list = [d['reviews'] for d in niche_vals]
+    reviews = [d['text'] for d in reviews_list]
+    text_list.extend(reviews)
+    # parse streeteasy
+    streeteasy_desc = [d['description'] for d in streeteasy_vals]
+    text_list.extend(streeteasy_desc)
+    mood = [d['the mood'] for d in streeteasy_vals]
+    text_list.extend(mood)
+    more = [d['more'] for d in streeteasy_vals]
+    text_list.extend(more)
+    downside = [d['biggest downside'] for d in streeteasy_vals]
+    text_list.extend(downside)
+    housing = [d['housing'] for d in streeteasy_vals]
+    text_list.extend(housing)
+    best_perk = [d['best perk'] for d in streeteasy_vals]
+    text_list.extend(best_perk)
+    # parse compass
+    tags = [d['tags'] for d in compass_vals]
+    text_list.extend(tags)
+    compass_desc = [d['description'] for d in compass_vals]
+    text_list.extend(compass_desc)
+    lifestyle = [d['THE LIFESTYLE'] for d in compass_vals]
+    text_list.extend(lifestyle)
+    market = [d['THE MARKET'] for d in compass_vals]
+    text_list.extend(market)
+    highlight = [d['FALL IN LOVE'] for d in compass_vals]
+    text_list.extend(highlight)
+    expectation = [d['WHAT TO EXPECT'] for d in compass_vals]
+    text_list.extend(expectation)
 
 
 def calculateTextSimLikes(likes_list, merge_dict=False):
@@ -804,11 +928,13 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
                             tokenize_streeteasy, tokenize_compass, tokenize_reddit, tokenize_goodmigrations]
         data_files = [niche_data, streeteasy_data,
                       compass_data, reddit_data, goodmigrations_data]
+        # preprocessing
+        tokens = token_list(tokenize, tokenize_methods, data_files, neighborhood_list)
+        common_phrases = bigram_model(tokens)
         inv_idx = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods,
                           min_df=0, max_df_ratio=0.95)
-
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
         query_info = compute_query_info(
             query_extended, idf, treebank_tokenizer)
