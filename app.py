@@ -1,8 +1,8 @@
 from app import app, socketio
-import sys
+import os
 
-cli = sys.modules['flask.cli']
-cli.show_server_banner = lambda *x: None
+app.config['SPACY_WARNING_IGNORE'] = "W007"
+os.environ["SPACY_WARNING_IGNORE"] = "W007"
 
 if __name__ == "__main__":
   print("Flask app running at http://0.0.0.0:5000")
