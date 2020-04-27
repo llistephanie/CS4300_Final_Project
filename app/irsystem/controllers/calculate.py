@@ -626,13 +626,14 @@ def compute_query_info(query, idf, tokenizer, syn=True):
         if (np.sum(w_vec.vector)==0) or word in idf.keys():
             continue
         elif stem_word in idf.keys():
+            print(f"[STEMMING] {stem_word} ")
             toks[i] = stem_word
         else:
             if syn:
                 for syn in wordnet.synsets(word): 
                     for l in syn.lemmas(): 
                         if l.name() in idf:
-                            print(l.name())
+                            print(f"[SYNONYM] {l.name()} ")
                             toks[i] = l.name()
                     # synonyms.append(l.name())
 

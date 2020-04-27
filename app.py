@@ -1,5 +1,4 @@
 from app import app, socketio
-import sys
 import os
 
 app.config['SPACY_WARNING_IGNORE'] = "W007"
