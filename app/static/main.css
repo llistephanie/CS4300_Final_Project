@@ -6,6 +6,27 @@ body {
   background-color: #e2e2e2;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 #versions {
   position: absolute;
   top: 30px;
@@ -187,6 +208,10 @@ select#commute {
   /* identical to box height, or 14px */
   color: #ffffff;
   background-color: transparent;
+}
+
+#commute option {
+  color: #000;
 }
 
 input#commute-duration {
