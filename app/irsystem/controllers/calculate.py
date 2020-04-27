@@ -658,74 +658,60 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
                 norm_array[neighborhood_id] += prod
     return np.sqrt(norm_array)
 
+
 def compute_query_info(query, idf, tokenizer):
     toks = treebank_tokenizer.tokenize(query.lower())
+    # get norm of query
+    query_norm_inner_sum = 0
+    
+
+    # Replaces tokens when it cannot be found with similar words from the corpus
+    # if the word is misspelled it will not be replaced
+    # For example: if toks = ["asdf","dolphins"] after the loop toks = ["asdf","turtle"]
+    # since turtle was the closest word it could fine. "asdf" is simply misspelled
+    # uses a combination of the stem words to find the best output tokens
     query_tf = {}
     # term frequencies in query
     for tok in set(toks):
         query_tf[tok] = toks.count(tok)
-    # get norm of query
-    query_norm_inner_sum = 0
+    for i in range(len(toks)):
+        word = toks[i]
+        stem_word = stemmer.stem(word)
+
+        w_vec =  nlp(word)
+        stem_vec = nlp(stem_word)
+        if (np.sum(w_vec.vector)==0) or word in idf.keys():
+            continue
+        elif stem_word in idf.keys():
+            toks[i] = stem_word
+        else:
+
+            max_similarity_score = 0
+            track_word = ""
+            for k in idf.keys():
+                k_vec = nlp(k)
+                stem_k = nlp(stemmer.stem(k))
+                if np.sum(k_vec.vector) == 0 and np.sum(stem_k.vector) ==0:
+                    continue # key not found in the library
+                elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
+                    k_vec = stem_k
+                score = w_vec.similarity(k_vec)
+                if (score > max_similarity_score) and score > 0.6: 
+                    max_similarity_score = score
+                    track_word = k
+            if (max_similarity_score > 0): toks[i] = track_word
+
+
+    query_tf = {}
+    # term frequencies in query
+    for tok in set(toks):
+        query_tf[tok] = toks.count(tok)
+
     for word in toks:
         if word in idf.keys():
             query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
     query_norm = math.sqrt(query_norm_inner_sum)
     return toks, query_tf, query_norm
-
-
-# def compute_query_info(query, idf, tokenizer):
-#     toks = treebank_tokenizer.tokenize(query.lower())
-#     # get norm of query
-#     query_norm_inner_sum = 0
-    
-
-#     # Replaces tokens when it cannot be found with similar words from the corpus
-#     # if the word is misspelled it will not be replaced
-#     # For example: if toks = ["asdf","dolphins"] after the loop toks = ["asdf","turtle"]
-#     # since turtle was the closest word it could fine. "asdf" is simply misspelled
-#     # uses a combination of the stem words to find the best output tokens
-#     query_tf = {}
-#     # term frequencies in query
-#     for tok in set(toks):
-#         query_tf[tok] = toks.count(tok)
-#     for i in range(len(toks)):
-#         word = toks[i]
-#         stem_word = stemmer.stem(word)
-
-#         w_vec =  nlp(word)
-#         stem_vec = nlp(stem_word)
-#         if (np.sum(w_vec.vector)==0) or word in idf.keys():
-#             continue
-#         elif stem_word in idf.keys():
-#             toks[i] = stem_word
-#         else:
-
-#             max_similarity_score = 0
-#             track_word = ""
-#             for k in idf.keys():
-#                 k_vec = nlp(k)
-#                 stem_k = nlp(stemmer.stem(k))
-#                 if np.sum(k_vec.vector) == 0 and np.sum(stem_k.vector) ==0:
-#                     continue # key not found in the library
-#                 elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
-#                     k_vec = stem_k
-#                 score = w_vec.similarity(k_vec)
-#                 if (score > max_similarity_score) and score > 0.6: 
-#                     max_similarity_score = score
-#                     track_word = k
-#             if (max_similarity_score > 0): toks[i] = track_word
-
-
-#     query_tf = {}
-#     # term frequencies in query
-#     for tok in set(toks):
-#         query_tf[tok] = toks.count(tok)
-
-#     for word in toks:
-#         if word in idf.keys():
-#             query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
-#     query_norm = math.sqrt(query_norm_inner_sum)
-#     return toks, query_tf, query_norm
 
 
 def cosine_sim(query, index, idf, doc_norms, tokenizer):
@@ -845,42 +831,29 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
                       compass_data, reddit_data, goodmigrations_data]
 
         # Information retrieval
-        print("build_inverted_index [GOOD]")
         inv_idx = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
-        
-        print("compute_idf [GOOD]")
         idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
 
-        print("doc_norms [GOOD]")
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
-        print("query_info")
         query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
 
-        print("likes_scores")
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
             query_info, inv_idx, idf, doc_norms, treebank_tokenizer)
-        
-    print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
-    print("included_ids")
+
     included_ids = set(likes_scores.keys())
-    print("zero_scored_neighborhoods")
     zero_scored_neighborhoods = list(
         set(neighborhood_id_to_name.keys()).difference(included_ids))
-    
-    print("loop")
     for z in zero_scored_neighborhoods:
         likes_scores[z] = 0.0
-    
-    print("likes_scores_list")
     likes_scores_list = [(k, v) for k, v in likes_scores.items()]
 
-    print("sorted")
     likes_scores = sorted(likes_scores_list, key=lambda x: x[0])
-    print("np.array")
     likes_scores = np.array([l[1] for l in likes_scores])
+
+
 
     normalized = scoreCalculation(likes_scores)
 
@@ -958,7 +931,6 @@ def getTopNeighborhoods(query):
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
     _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'])
-    print("IM STUCK AT calculateTextSimLikes")
     calculateTextSimLikes(query['likes'], True)
 
     totalOtherScores = 5 if len(query['likes']) > 0 else 4
@@ -1004,37 +976,32 @@ def main():
     query["age"] = 22
     query["commute-type"] = "walk"
     query["likes"] = ["theatre"]
-    query["commute-duration"]=15
-    query["commute-destination"]=''
-    
-
     #a = getTopNeighborhoods(query)
-    # output =  calculateTextSimLikes(query['likes'], True)
+    output =  calculateTextSimLikes(query['likes'], True)
 
-    # output =  calculateTextSimLikes(["asdf","dolphin"], True)
+    output =  calculateTextSimLikes(["asdf","dolphin"], True)
 
-    # loadCrimeScores()
-    # calculateBudget(1500, 1750)
-    # calculateAgeScore(22)
-    # calculateCommuteScore('walk')
-    # print(calculateTextSimLikes(['nightlife', 'bars', 'restaurants', 'affordable', 'social']))
+    """
+    loadCrimeScores()
+    calculateBudget(1500, 1750)
+    calculateAgeScore(22)
+    calculateCommuteScore('walk')
+    print(calculateTextSimLikes(['nightlife', 'bars', 'restaurants', 'affordable', 'social']))
 
-    # calculateTextSimLikes(["theatre"],True)
-    calculateTextSimLikes(["theatre"], False)
+    otherWeights = 1/5.0
+    neighborhood_scores = []
+    for k, v in data.items():
+        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + 0#(otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
 
-    # otherWeights = 1/5.0
-    # neighborhood_scores = []
-    # for k, v in data.items():
-    #     score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + 0#(otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
+        neighborhood_scores.append(
+            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
+    top_neighborhoods = sorted(
+        neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
 
-    #     neighborhood_scores.append(
-    #         (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    # top_neighborhoods = sorted(
-    #     neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
-
-    # print(neighborhood_scores)
+    print(neighborhood_scores)
+    """
     # for ss in wn.synsets('coffee shop'): # Each synset represents a diff concept.
     #     print(ss.lemma_names())
 
 
-main()
+# main()
