@@ -5,7 +5,7 @@ import numpy as np
 import googlemaps
 
 googlekey = os.environ['PLACES_KEY']
-coordinate_json_file = open('data/coordinates.json')
+coordinate_json_file = open('app/irsystem/controllers/data/coordinates.json')
 neighborhood_json = json.load(coordinate_json_file)
 coordinate_json_file.close()
 neighborhood_data = {}
