@@ -7,14 +7,17 @@ from sklearn import preprocessing
 import os
 import nltk
 import spacy
-from nltk.stem.porter import PorterStemmer
+#from imports import * # created to make testing quicker
 # nltk.download('wordnet')
 # from nltk.corpus import wordnet as wn
 
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
+from nltk.stem.porter import PorterStemmer
+nlp = spacy.load("en_vectors_web_lg")
 stemmer = PorterStemmer()
+
 neighborhood_list = ['Battery Park',
                      'Chelsea',
                      'Chinatown',
@@ -47,6 +50,7 @@ neighborhood_list = ['Battery Park',
                      'Upper West Side',
                      'Washington Heights',
                      'West Village']
+
 n_neighborhoods = len(neighborhood_list)
 treebank_tokenizer = TreebankWordTokenizer()
 neighborhood_name_to_id = {}
@@ -78,13 +82,17 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                      "Trendy": ["trendy","popular","upcoming"],
                      "College": ["college","university","student"]}
 
-nlp = spacy.load("en_vectors_web_lg")
-stemmer = PorterStemmer()
+
+
+
 def match_keywords(input_l):
     """ assumes individual words inputed
     i.e. input_l = ["affluent","drinks","fun"]
     output = ["expensive","coffee","theatre"]
     """
+    nlp = spacy.load("en_vectors_web_lg")
+    stemmer = PorterStemmer()
+
     category_list = []
     for word in input_l:
         w = nlp(stemmer.stem(word))
@@ -126,7 +134,7 @@ def scoreCalculation(data_list):
     arr = np.array(data_list)
     mean = np.mean(data_list)
     std = np.std(data_list)
-
+    if (std == 0): std = 1
     # max_score = 1.5
     # min_score = -1.5
     new_scores = []
@@ -136,20 +144,14 @@ def scoreCalculation(data_list):
 
         score = min(score, 100)
         score = max(score, 0)
-        new_scores.append(score)
+        if (x == 0):
+            new_scores.append(0)
+        else:
+            new_scores.append(score)
 
-    """
-    arr = np.array(data_list)
-    minimum = min(arr)
-    maximum = max(arr)
-    arr = (arr - minimum)*100/(maximum-minimum) 
 
-    return list(arr)
-    """
     return new_scores
 
-a = scoreCalculation([1,2,3])
-#print(a)
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
@@ -587,10 +589,8 @@ def tf(word_w, neighborhood_n, input_word_matrix, types_to_i):
     return w_freq/(total_num_words + 1)
 
 
-def build_inverted_index(tokenize_method,
-                         neighborhoods_to_id,
-                         data,
-                         tokenize_data_methods):
+def build_inverted_index(tokenize_method, neighborhoods_to_id,
+                         data, tokenize_data_methods):
     """ Builds an inverted index from the messages."""
     inv_idx = {}
     for neighborhood_name, neighborhood_id in neighborhoods_to_id.items():
@@ -645,7 +645,6 @@ def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
             idf_dict[term] = idf
     return idf_dict
 
-
 def compute_neighborhood_norms(index, idf, n_neighborhoods):
     """ Precompute the euclidean norm of each document.
 
@@ -680,12 +679,52 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
 
 def compute_query_info(query, idf, tokenizer):
     toks = treebank_tokenizer.tokenize(query.lower())
+    # get norm of query
+    query_norm_inner_sum = 0
+    
+
+    # Replaces tokens when it cannot be found with similar words from the corpus
+    # if the word is misspelled it will not be replaced
+    # For example: if toks = ["asdf","dolphins"] after the loop toks = ["asdf","turtle"]
+    # since turtle was the closest word it could fine. "asdf" is simply misspelled
+    # uses a combination of the stem words to find the best output tokens
     query_tf = {}
     # term frequencies in query
     for tok in set(toks):
         query_tf[tok] = toks.count(tok)
-    # get norm of query
-    query_norm_inner_sum = 0
+    for i in range(len(toks)):
+        word = toks[i]
+        stem_word = stemmer.stem(word)
+
+        w_vec =  nlp(word)
+        stem_vec = nlp(stem_word)
+        if (np.sum(w_vec.vector)==0) or word in idf.keys():
+            continue
+        elif stem_word in idf.keys():
+            toks[i] = stem_word
+        else:
+
+            max_similarity_score = 0
+            track_word = ""
+            for k in idf.keys():
+                k_vec = nlp(k)
+                stem_k = nlp(stemmer.stem(k))
+                if np.sum(k_vec.vector) == 0 and np.sum(stem_k.vector) ==0:
+                    continue # key not found in the library
+                elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
+                    k_vec = stem_k
+                score = w_vec.similarity(k_vec)
+                if (score > max_similarity_score) and score > 0.6: 
+                    max_similarity_score = score
+                    track_word = k
+            if (max_similarity_score > 0): toks[i] = track_word
+
+
+    query_tf = {}
+    # term frequencies in query
+    for tok in set(toks):
+        query_tf[tok] = toks.count(tok)
+
     for word in toks:
         if word in idf.keys():
             query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
@@ -693,12 +732,7 @@ def compute_query_info(query, idf, tokenizer):
     return toks, query_tf, query_norm
 
 
-def cosine_sim(query,
-               related_words,
-               index,
-               idf,
-               doc_norms,
-               tokenizer):
+def cosine_sim(query, index, idf, doc_norms, tokenizer):
     """ Search the collection of documents for the given query based on cosine similarity
 
     Arguments
@@ -787,36 +821,45 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     prefix = 'app/irsystem/controllers/data/'
     query_str = ' '.join(likes_list)
-    # related_words = ' '.join(get_related_words(likes_list))
-    related_words = " ".join(likes_list)
-    query_extended = query_str + ' ' + related_words
-
+    #related_words = ' '.join(get_related_words(likes_list))
+    #related_words = " ".join(likes_list)
+    query_extended = query_str #+ ' ' + related_words
     likes_scores = []
 
-    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, \
-            open(prefix + 'compass.json', encoding="utf-8") as compass_file, open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file:
+    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, \
+         open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, \
+         open(prefix + 'compass.json', encoding="utf-8") as compass_file, \
+         open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, \
+         open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file:
+
+        # Loading all the data
         niche_data = json.load(niche_file)
         streeteasy_data = json.load(streeteasy_file)
         compass_data = json.load(compass_file)
         reddit_data = json.load(reddit_file)
         goodmigrations_data = json.load(goodmigrations_file)
+
+        # Compiling data and tokenization methods
         tokenize_methods = [tokenize_niche,
-                            tokenize_streeteasy, tokenize_compass, tokenize_reddit, tokenize_goodmigrations]
+                            tokenize_streeteasy, 
+                            tokenize_compass, 
+                            tokenize_reddit, 
+                            tokenize_goodmigrations]
         data_files = [niche_data, streeteasy_data,
                       compass_data, reddit_data, goodmigrations_data]
+
+        # Information retrieval
         inv_idx = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
-        idf = compute_idf(inv_idx, n_neighborhoods,
-                          min_df=0, max_df_ratio=0.95)
+        idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
 
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
-        query_info = compute_query_info(
-            query_extended, idf, treebank_tokenizer)
+        query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
+
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
-            query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
+            query_info, inv_idx, idf, doc_norms, treebank_tokenizer)
 
-    # print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
     included_ids = set(likes_scores.keys())
     zero_scored_neighborhoods = list(
@@ -828,11 +871,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     likes_scores = sorted(likes_scores_list, key=lambda x: x[0])
     likes_scores = np.array([l[1] for l in likes_scores])
 
-    # print(f"SCORES {likes_scores}")
-    # print(f"MIN SCORE {min(likes_scores)}")
-    # print(f"MIN SCORE {max(likes_scores)}")
 
-    # (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
+
     normalized = scoreCalculation(likes_scores)
 
     norm_likes_scores = {
@@ -857,7 +897,7 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/renthop.json") as f:
         renthop_data = json.load(f)
 
-    with open("app/irsystem/controllers/data/compass.json") as f:
+    with open("app/irsystem/controllers/data/compass.json", encoding="utf-8") as f:
         compass_data = json.load(f)
 
     loadCrimeScores()
@@ -878,7 +918,8 @@ def getTopNeighborhoods(query):
 
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    print(neighborhood_scores)
+    for k, v in neighborhood_scores.items():
+        print(k + " " + str(v))
     top_neighborhoods = sorted(neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods[:9]:
@@ -903,7 +944,11 @@ def main():
     query["age"] = 22
     query["commute-type"] = "walk"
     query["likes"] = ["theatre"]
-    a = getTopNeighborhoods(query)
+    #a = getTopNeighborhoods(query)
+    output =  calculateTextSimLikes(query['likes'], True)
+
+    output =  calculateTextSimLikes(["asdf","dolphin"], True)
+
     """
     loadCrimeScores()
     calculateBudget(1500, 1750)
@@ -927,4 +972,4 @@ def main():
     #     print(ss.lemma_names())
 
 
-#main()
+main()
