@@ -862,19 +862,6 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         mergeDict(data, norm_likes_scores, "likes score")
     return norm_likes_scores
 
-
-def calculateCommuteDestinationScore(destination, mode, duration):
-    geocode_result = gmaps.geocode(destination)[0]
-
-    # origins = ["Vancouver BC", "Seattle"]
-    # destinations = ["San Francisco", "Victoria BC"]
-
-    # print(f"geocode_result {geocode_result}")
-
-    
-
-    # print(durations)
-
 def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     with open("app/irsystem/controllers/data/walkscore.json") as f:
         walkscore_data = json.load(f)
@@ -898,23 +885,26 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     durations=None
     
     if(commuteDestination):
+        geocode_result = gmaps.geocode(commuteDestination)[0]
 
         travel_modes={"Walk": "walking", "Bike": "bicycling", "Car": "driving", "Public Transit": "transit"} 
         
-        matrix = gmaps.distance_matrix(place_ids, (geocode_result['geometry']['location']['lat'], geocode_result['geometry']['location']['lng']), mode=travel_modes[mode])
+        matrix = gmaps.distance_matrix(place_ids, (geocode_result['geometry']['location']['lat'], geocode_result['geometry']['location']['lng']), mode=travel_modes[commuteType])
 
-        durations = {neighborhood_list[i]: v['elements'][0]['duration']['value']/60 for i, v in enumerate(matrix['rows'])}
+        durations = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) for i, v in enumerate(matrix['rows'])}
 
-        ratio=15.0/np.array([v['elements'][0]['duration']['value']/60 for v in matrix['rows']])
+        ratio=15.0/(np.array([v['elements'][0]['duration']['value']/60 for v in matrix['rows']])+1e-1)
 
         ratio[ratio <1.0]=ratio[ratio <1.0]/5.0
 
-        normalized=0.2*normalized+0.8*scoreCalculation(ratio)
+        normalized=0.2*np.array(normalized)+0.8*np.array(scoreCalculation(ratio))
 
     # (commute_scores-min(commute_scores)) / \
     # (max(commute_scores)-min(commute_scores))*100
     norm_commute_scores = {neighborhood_list[i]: v for i, v in enumerate(normalized)}
     mergeDict(data, norm_commute_scores, "commute score")
+
+    print(durations)
 
     return norm_commute_scores, durations
 
@@ -923,8 +913,8 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/neighborhoods.json", "r") as f:
         all_data = json.load(f)
 
-    with open("app/irsystem/controllers/data/niche.json", encoding="utf-8") as f:
-        niche_data = json.load(f)
+    # with open("app/irsystem/controllers/data/niche.json", encoding="utf-8") as f:
+    #     niche_data = json.load(f)
 
     with open("app/irsystem/controllers/data/goodmigrations.json", encoding="utf-8") as f:
         goodmigrations_data = json.load(f)
@@ -938,10 +928,8 @@ def getTopNeighborhoods(query):
     loadCrimeScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
-    calculateCommuteScore(query['commute-type'])
+    _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'])
     calculateTextSimLikes(query['likes'], True)
-    calculateCommuteDestinationScore(
-        query['commute-destination'], query['commute-type'], query['commute-duration'])
 
     totalOtherScores = 5 if len(query['likes']) > 0 else 4
     # safetyPercentage = 0.2 if len(query['likes']) > 0 else 0.25
@@ -954,10 +942,10 @@ def getTopNeighborhoods(query):
             otherWeights*v['safety score'] + \
             (otherWeights*v['likes score'] if len(query['likes']) > 0 else 0.0)
 
-        neighborhood_scores.append(
-            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    for k, v in neighborhood_scores.items():
-        print(k + " " + str(v))
+        neighborhood_scores.append((k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
+    
+    # for k, v in neighborhood_scores.items():
+    #     print(k + " " + str(v))
     top_neighborhoods = sorted(neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods[:9]:
@@ -967,7 +955,7 @@ def getTopNeighborhoods(query):
                 ['1BR']['Top 25%'], 'bottom': renthop_data[name]['1BR']['Bottom 25%']}
 
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
-            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0]}
+            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0], 'duration': durations[name]}
 
         best_matches.append(n)
     return best_matches
