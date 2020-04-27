@@ -819,6 +819,8 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
         walkscore_data = json.load(f)
     with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
         carscore_data = json.load(c)
+    with open("app/irsystem/controllers/data/gas_stations.json") as g:
+        gasscore_data = json.load(g)
 
     type_key = {'Walk': "walk score", 'Bike': "bike score", 'Public Transit': "transit score"}
 
@@ -835,7 +837,8 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
 
     car_scores = np.array([int(v['Car-Score']) for k, v in carscore_data.items()])
     walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
-    cscores = np.add(.2 * car_scores, .8*walk_scores)
+    gas_scores = np.array([int(v['score']) for k, v in gasscore_data.items()])
+    cscores = np.add(.25*car_scores, .25*gas_scores, .5*walk_scores)
     all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(cscores)}
     if commuteType=='Car': 
         commute_scores=cscores
