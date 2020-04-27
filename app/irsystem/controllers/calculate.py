@@ -8,11 +8,15 @@ import os
 import nltk
 import spacy
 from nltk.stem.porter import PorterStemmer
+import googlemaps
+from datetime import datetime
 # nltk.download('wordnet')
 # from nltk.corpus import wordnet as wn
 
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
+
+gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
 
 stemmer = PorterStemmer()
 neighborhood_list = ['Battery Park',
@@ -55,6 +59,11 @@ for neighborhood_id in range(len(neighborhood_list)):
     neighborhood_name_to_id[neighborhood] = neighborhood_id
 neighborhood_id_to_name = {v: k for k, v in neighborhood_name_to_id.items()}
 
+with open("app/irsystem/controllers/data/coordinates.json", "r") as f:
+    coordinates_data = json.load(f)
+
+place_ids=[(v['geometry']['location']['lat'], v['geometry']['location']['lng']) for k,v in coordinates_data.items()]
+
 
 relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
                      "Working Out": ["gym", "gyms", "yoga", "run", "skating", "basketball", "volleyball", "running", "exercise"],
@@ -73,13 +82,15 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                      "Young": ["young", "students", "younger"],
                      "Modern": ["modern", "high-rises", "skyscrapers", "lofts", "skyline", "industrial", "posh",
                                 "elevator", "doorman"],
-                     "Rustic": ["old","rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world",
+                     "Rustic": ["old", "rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world",
                                 "character"],
-                     "Trendy": ["trendy","popular","upcoming"],
-                     "College": ["college","university","student"]}
+                     "Trendy": ["trendy", "popular", "upcoming"],
+                     "College": ["college", "university", "student"]}
 
 nlp = spacy.load("en_vectors_web_lg")
 stemmer = PorterStemmer()
+
+
 def match_keywords(input_l):
     """ assumes individual words inputed
     i.e. input_l = ["affluent","drinks","fun"]
@@ -148,8 +159,11 @@ def scoreCalculation(data_list):
     """
     return new_scores
 
-a = scoreCalculation([1,2,3])
-#print(a)
+
+a = scoreCalculation([1, 2, 3])
+# print(a)
+
+
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
@@ -320,34 +334,6 @@ def calculateBudget(minBudget, maxBudget):
     # data.update(norm_budget_scores)
     mergeDict(data, norm_budget_scores, "budget score")
     return norm_budget_scores
-
-
-def calculateCommuteScore(commuteType):
-    with open("app/irsystem/controllers/data/walkscore.json") as f:
-        walkscore_data = json.load(f)
-    with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
-        carscore_data = json.load(c)
-
-    type_key = {'walk': "walk score", 'bike': "bike score",
-                'public transit': "transit score"}
-
-    if commuteType.lower() in ['walk', 'bike', 'public transit']:
-        commute_scores = np.array(
-            [int(v['rankings'][type_key[commuteType.lower()]]) for k, v in walkscore_data.items()])
-    else:
-        car_scores = np.array(
-            [int(v['Car-Score']) for k, v in carscore_data.items()])
-        walk_scores = np.array(
-            [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
-        commute_scores = np.add(.2 * car_scores, .8*walk_scores)
-    # print(commute_scores)
-    normalized = scoreCalculation(
-        commute_scores)  # (commute_scores-min(commute_scores)) / \
-    # (max(commute_scores)-min(commute_scores))*100
-    norm_commute_scores = {
-        neighborhood_list[i]: v for i, v in enumerate(normalized)}
-    mergeDict(data, norm_commute_scores, "commute score")
-    return norm_commute_scores
 
 # Activities/Likes Score Code
 
@@ -843,6 +829,61 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     return norm_likes_scores
 
 
+def calculateCommuteDestinationScore(destination, mode, duration):
+    geocode_result = gmaps.geocode(destination)[0]
+
+    # origins = ["Vancouver BC", "Seattle"]
+    # destinations = ["San Francisco", "Victoria BC"]
+
+    # print(f"geocode_result {geocode_result}")
+
+    
+
+    # print(durations)
+
+def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
+    with open("app/irsystem/controllers/data/walkscore.json") as f:
+        walkscore_data = json.load(f)
+    with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
+        carscore_data = json.load(c)
+
+    type_key = {'walk': "walk score", 'bike': "bike score", 'public transit': "transit score"}
+
+    if commuteType.lower() in ['walk', 'bike', 'public transit']:
+        commute_scores = np.array(
+            [int(v['rankings'][type_key[commuteType.lower()]]) for k, v in walkscore_data.items()])
+    else:
+        car_scores = np.array(
+            [int(v['Car-Score']) for k, v in carscore_data.items()])
+        walk_scores = np.array(
+            [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
+        commute_scores = np.add(.2 * car_scores, .8*walk_scores)
+    
+    normalized = scoreCalculation(commute_scores)  
+
+    durations=None
+    
+    if(commuteDestination):
+
+        travel_modes={"Walk": "walking", "Bike": "bicycling", "Car": "driving", "Public Transit": "transit"} 
+        
+        matrix = gmaps.distance_matrix(place_ids, (geocode_result['geometry']['location']['lat'], geocode_result['geometry']['location']['lng']), mode=travel_modes[mode])
+
+        durations = {neighborhood_list[i]: v['elements'][0]['duration']['value']/60 for i, v in enumerate(matrix['rows'])}
+
+        ratio=15.0/np.array([v['elements'][0]['duration']['value']/60 for v in matrix['rows']])
+
+        ratio[ratio <1.0]=ratio[ratio <1.0]/5.0
+
+        normalized=0.2*normalized+0.8*scoreCalculation(ratio)
+
+    # (commute_scores-min(commute_scores)) / \
+    # (max(commute_scores)-min(commute_scores))*100
+    norm_commute_scores = {neighborhood_list[i]: v for i, v in enumerate(normalized)}
+    mergeDict(data, norm_commute_scores, "commute score")
+
+    return norm_commute_scores, durations
+
 def getTopNeighborhoods(query):
 
     with open("app/irsystem/controllers/data/neighborhoods.json", "r") as f:
@@ -865,6 +906,9 @@ def getTopNeighborhoods(query):
     calculateAgeScore(query['age'])
     calculateCommuteScore(query['commute-type'])
     calculateTextSimLikes(query['likes'], True)
+    calculateCommuteDestinationScore(
+        query['commute-destination'], query['commute-type'], query['commute-duration'])
+
     totalOtherScores = 5 if len(query['likes']) > 0 else 4
     # safetyPercentage = 0.2 if len(query['likes']) > 0 else 0.25
     # safetyWeight = safetyPercentage * (int(query['safety'])/5.0)
@@ -878,17 +922,19 @@ def getTopNeighborhoods(query):
 
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    print(neighborhood_scores)
-    top_neighborhoods = sorted(neighborhood_scores, key=lambda x: x[1], reverse=True)
+    # print(neighborhood_scores)
+    top_neighborhoods = sorted(
+        neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods[:9]:
         subway_data = [
             {"name": "1", "img-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"}]
-        rent = {'median': renthop_data[name]['1BR']['Median'],'top': renthop_data[name]['1BR']['Top 25%'],'bottom': renthop_data[name]['1BR']['Bottom 25%']}
+        rent = {'median': renthop_data[name]['1BR']['Median'], 'top': renthop_data[name]
+                ['1BR']['Top 25%'], 'bottom': renthop_data[name]['1BR']['Bottom 25%']}
 
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
             safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0]}
-        
+
         best_matches.append(n)
     return best_matches
 
@@ -927,4 +973,4 @@ def main():
     #     print(ss.lemma_names())
 
 
-#main()
+# main()
