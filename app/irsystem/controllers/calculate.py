@@ -820,32 +820,44 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
         carscore_data = json.load(c)
 
-    type_key = {'walk': "walk score", 'bike': "bike score", 'public transit': "transit score"}
+    type_key = {'Walk': "walk score", 'Bike': "bike score", 'Public Transit': "transit score"}
 
-    if commuteType.lower() in ['walk', 'bike', 'public transit']:
-        commute_scores = np.array(
-            [int(v['rankings'][type_key[commuteType.lower()]]) for k, v in walkscore_data.items()])
-    else:
-        car_scores = np.array(
-            [int(v['Car-Score']) for k, v in carscore_data.items()])
-        walk_scores = np.array(
-            [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
-        commute_scores = np.add(.2 * car_scores, .8*walk_scores)
+    # if commuteType.lower() in ['walk', 'bike', 'public transit']:
+
+    all_walkscores={}
+    commute_scores=[]
+    print(walkscore_data.items())
+    for cType,v in type_key.items():
+        cscores = np.array([int(v['rankings'][type_key[cType]]) for k, v in walkscore_data.items()])
+        all_walkscores[cType] = {neighborhood_list[i]: v for i, v in enumerate(cscores) }
+        if cType==commuteType: 
+            commute_scores=cscores
+
+    car_scores = np.array([int(v['Car-Score']) for k, v in carscore_data.items()])
+    walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
+    cscores = np.add(.2 * car_scores, .8*walk_scores)
+    all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(cscores)}
+    if commuteType=='Car': 
+        commute_scores=cscores
     
     normalized = scoreCalculation(commute_scores)  
 
-    durations=None
+    all_durations=None
     
     if(commuteDestination):
         geocode_result = gmaps.geocode(commuteDestination)[0]
 
         travel_modes={"Walk": "walking", "Bike": "bicycling", "Car": "driving", "Public Transit": "transit"} 
+
+        all_matrices={}
+
+        all_durations={}
         
-        matrix = gmaps.distance_matrix(place_ids, (geocode_result['geometry']['location']['lat'], geocode_result['geometry']['location']['lng']), mode=travel_modes[commuteType])
+        for k,v in travel_modes.items():
+            all_matrices[k] = gmaps.distance_matrix(place_ids, (geocode_result['geometry']['location']['lat'], geocode_result['geometry']['location']['lng']), mode=v)
+            all_durations[k] = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) for i, v in enumerate(all_matrices[k]['rows']) }
 
-        durations = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) for i, v in enumerate(matrix['rows'])}
-
-        ratio=15.0/(np.array([v['elements'][0]['duration']['value']/60 for v in matrix['rows']])+1e-1)
+        ratio=15.0/(np.array([v['elements'][0]['duration']['value']/60 for v in all_matrices[commuteType]['rows']])+1e-1)
 
         ratio[ratio <1.0]=ratio[ratio <1.0]/5.0
 
@@ -856,9 +868,9 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     norm_commute_scores = {neighborhood_list[i]: v for i, v in enumerate(normalized)}
     mergeDict(data, norm_commute_scores, "commute score")
 
-    # print(durations)
-
-    return norm_commute_scores, durations
+    all_scores=all_durations if commuteDestination else all_walkscores
+    
+    return norm_commute_scores, all_scores
 
 def getTopNeighborhoods(query):
 
@@ -900,17 +912,18 @@ def getTopNeighborhoods(query):
     #     print(k + " " + str(v))
     top_neighborhoods = sorted(neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
-    for (name, score, budget, age, commute, safety, likes) in top_neighborhoods[:9]:
+    for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
         subway_data = [
             {"name": "1", "img-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"}]
         rent = {'median': renthop_data[name]['1BR']['Median'], 'top': renthop_data[name]
                 ['1BR']['Top 25%'], 'bottom': renthop_data[name]['1BR']['Bottom 25%']}
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
             safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0]}
-        if(query['commute-destination']!=''):
-            n['duration']= durations[name]
-        else:
-            n['duration']=''
+        # if(query['commute-destination']!=''):
+        n['walk-duration']=durations['Walk'][name]
+        n['bike-duration']=durations['Bike'][name]
+        n['car-duration']=int(durations['Car'][name])
+        n['transit-duration']=durations['Public Transit'][name]
 
         best_matches.append(n)
     return best_matches
