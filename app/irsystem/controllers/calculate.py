@@ -22,8 +22,6 @@ gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
 
 #import en_core_web_md
 from nltk.stem.porter import PorterStemmer
-def blank(i):
-    return i
 nlp = spacy.load("en_core_web_md") #.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
 stemmer = PorterStemmer()
 
