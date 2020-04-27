@@ -842,6 +842,12 @@ input[type="submit"] {
   background-position: center;
 }
 
+#theater-district:after {
+  background: url("theater_district_around_the_block_1-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 #upper-east-side::after {
   background: url("upper-east-side3-2.jpg");
   background-size: cover;
