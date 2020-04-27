@@ -72,3 +72,13 @@ for neighborhood_name in neighborhood_data.keys():
 
     print(neighborhood_name, len(valid_neighborhood_gas_stations[neighborhood_name]),
                                  neighborhood_gas_station_scores[neighborhood_name])
+
+neighborhood_gas_station_json = {}
+for neighborhood_name in neighborhood_data.keys():
+    neighborhood_gas_station_json[neighborhood_name] = {}
+    neighborhood_gas_station_json[neighborhood_name]['score'] = neighborhood_gas_station_scores[neighborhood_name]
+    neighborhood_gas_station_json[neighborhood_name]['gas_station_distances'] = list(valid_neighborhood_gas_station_distances[neighborhood_name])
+
+file_directory_template = 'data/mapsAPI/'
+with open(file_directory_template + 'gas_stations.json', 'w') as outfile:
+    json.dump(neighborhood_gas_station_json, outfile)
