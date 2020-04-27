@@ -12,13 +12,30 @@ from collections import Counter
 from nltk.util import ngrams
 from nltk.collocations import *
 from nltk.corpus import stopwords
+import en_core_web_sm
+
+# import nltk 
+from nltk.corpus import wordnet 
+
+#from imports import * # created to make testing quicker
+
+# from nltk.stem.porter import PorterStemmer
+import googlemaps
+from datetime import datetime
+from datetime import datetime
 # nltk.download('wordnet')
 # from nltk.corpus import wordnet as wn
 
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
+gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
+
+#import en_core_web_md
+from nltk.stem.porter import PorterStemmer
+nlp = en_core_web_sm.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
 stemmer = PorterStemmer()
+
 neighborhood_list = ['Battery Park',
                      'Chelsea',
                      'Chinatown',
@@ -51,6 +68,7 @@ neighborhood_list = ['Battery Park',
                      'Upper West Side',
                      'Washington Heights',
                      'West Village']
+
 n_neighborhoods = len(neighborhood_list)
 treebank_tokenizer = TreebankWordTokenizer()
 neighborhood_name_to_id = {}
@@ -58,6 +76,11 @@ for neighborhood_id in range(len(neighborhood_list)):
     neighborhood = neighborhood_list[neighborhood_id]
     neighborhood_name_to_id[neighborhood] = neighborhood_id
 neighborhood_id_to_name = {v: k for k, v in neighborhood_name_to_id.items()}
+
+with open("app/irsystem/controllers/data/coordinates.json", "r") as f:
+    coordinates_data = json.load(f)
+
+place_ids=[(v['geometry']['location']['lat'], v['geometry']['location']['lng']) for k,v in coordinates_data.items()]
 
 
 relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
@@ -77,39 +100,10 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                      "Young": ["young", "students", "younger"],
                      "Modern": ["modern", "high-rises", "skyscrapers", "lofts", "skyline", "industrial", "posh",
                                 "elevator", "doorman"],
-                     "Rustic": ["old","rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world",
+                     "Rustic": ["old", "rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world",
                                 "character"],
-                     "Trendy": ["trendy","popular","upcoming"],
-                     "College": ["college","university","student"]}
-
-nlp = spacy.load("en_vectors_web_lg")
-stemmer = PorterStemmer()
-def match_keywords(input_l):
-    """ assumes individual words inputed
-    i.e. input_l = ["affluent","drinks","fun"]
-    output = ["expensive","coffee","theatre"]
-    """
-    category_list = []
-    for word in input_l:
-        w = nlp(stemmer.stem(word))
-        if (np.sum(w.vector) == 0):
-            w = nlp(word)
-        max_score = 0
-        max_category = ""
-        for category, related in relevant_keywords.items():
-            for r_word in related:
-                r = nlp(stemmer.stem(r_word))
-                if (np.sum(r.vector) == 0):
-                    r = nlp(r_word)
-
-                score = w.similarity(r)
-                if (score > max_score):
-                    max_score = score
-                    max_category = category
-
-        category_list.append(max_category)
-    return category_list
-
+                     "Trendy": ["trendy", "popular", "upcoming"],
+                     "College": ["college", "university", "student"]}
 
 """
 Shared data containing all the scores and information for each neighborhood.
@@ -130,7 +124,7 @@ def scoreCalculation(data_list):
     arr = np.array(data_list)
     mean = np.mean(data_list)
     std = np.std(data_list)
-
+    if (std == 0): std = 1
     # max_score = 1.5
     # min_score = -1.5
     new_scores = []
@@ -140,39 +134,16 @@ def scoreCalculation(data_list):
 
         score = min(score, 100)
         score = max(score, 0)
-        new_scores.append(score)
-
-    """
-    arr = np.array(data_list)
-    minimum = min(arr)
-    maximum = max(arr)
-    arr = (arr - minimum)*100/(maximum-minimum) 
-
-    return list(arr)
-    """
+        if (x == 0):
+            new_scores.append(0)
+        else:
+            new_scores.append(score)
     return new_scores
 
-a = scoreCalculation([1,2,3])
-#print(a)
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
         original[k].update(new_val)
-
-# with open("/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/app/irsystem/controllers/data/compass.json", "r") as f:
-#     data1 = json.load(f)
-
-
-# with open("/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/app/irsystem/controllers/data/streeteasy.json", "r") as f:
-#     data2 = json.load(f)
-
-
-# have=set(list(data2.keys())).union(set(list(data1.keys())))
-# missing=set(neighborhood_list).difference(have)
-# print(list(missing))
-
-# ['Two Bridges', 'Stuyvesant Town', 'Marble Hill']
-
 
 def loadCrimeScores():
     """
@@ -238,31 +209,12 @@ def calculateAgeScore(age):
 
     percentages = np.array([int(v["age distribution"][age_dist].replace(
         '%', '')) for k, v in niche_data.items()])
-    # percentages=preprocessing.normalize(percentages.reshape(1, -1)).flatten()
-    # [0.02673567 0.13367837 0.16041405 0.34756377 0.14704621 0.25398891
-    # 0.18714972 0.13367837 0.30746026 0.24062107 0.13367837 0.12031053
-    # 0.13367837 0.26735674 0.1069427  0.1069427  0.13367837 0.08020702
-    # 0.45450646 0.09357486 0.08020702 0.22725323 0.09357486 0.08020702
-    # 0.17378188 0.12031053 0.04010351 0.08020702 0.06683919 0.06683919
-    # 0.13367837 0.08020702]
-
-    # percentages=percentages-np.mean(percentages)/np.std(percentages)
-    # [ 0.3814625  8.3814625 10.3814625 24.3814625  9.3814625 17.3814625
-    # 12.3814625  8.3814625 21.3814625 16.3814625  8.3814625  7.3814625
-    # 8.3814625 18.3814625  6.3814625  6.3814625  8.3814625  4.3814625
-    # 32.3814625  5.3814625  4.3814625 15.3814625  5.3814625  4.3814625
-    # 11.3814625  7.3814625  1.3814625  4.3814625  3.3814625  3.3814625
-    # 8.3814625  4.3814625 ]
 
     normalized = scoreCalculation(
         percentages)  # (percentages-min(percentages)) / \
     # (max(percentages)-min(percentages))*100
-    # # [0.      0.25    0.3125  0.75    0.28125 0.53125 0.375   0.25    0.65625
-    # # 0.5     0.25    0.21875 0.25    0.5625  0.1875  0.1875  0.25    0.125
-    # # 1.      0.15625 0.125   0.46875 0.15625 0.125   0.34375 0.21875 0.03125
-    # # 0.125   0.09375 0.09375 0.25    0.125  ]
 
-    norm_age_scores = {neighborhood_list[i]                       : v for i, v in enumerate(normalized)}
+    norm_age_scores = {neighborhood_list[i] : v for i, v in enumerate(normalized)}
 
     # data.update(norm_age_scores)
     mergeDict(data, norm_age_scores, "age score")
@@ -325,34 +277,6 @@ def calculateBudget(minBudget, maxBudget):
     mergeDict(data, norm_budget_scores, "budget score")
     return norm_budget_scores
 
-
-def calculateCommuteScore(commuteType):
-    with open("app/irsystem/controllers/data/walkscore.json") as f:
-        walkscore_data = json.load(f)
-    with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
-        carscore_data = json.load(c)
-
-    type_key = {'walk': "walk score", 'bike': "bike score",
-                'public transit': "transit score"}
-
-    if commuteType.lower() in ['walk', 'bike', 'public transit']:
-        commute_scores = np.array(
-            [int(v['rankings'][type_key[commuteType.lower()]]) for k, v in walkscore_data.items()])
-    else:
-        car_scores = np.array(
-            [int(v['Car-Score']) for k, v in carscore_data.items()])
-        walk_scores = np.array(
-            [int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
-        commute_scores = np.add(.2 * car_scores, .8*walk_scores)
-    # print(commute_scores)
-    normalized = scoreCalculation(
-        commute_scores)  # (commute_scores-min(commute_scores)) / \
-    # (max(commute_scores)-min(commute_scores))*100
-    norm_commute_scores = {
-        neighborhood_list[i]: v for i, v in enumerate(normalized)}
-    mergeDict(data, norm_commute_scores, "commute score")
-    return norm_commute_scores
-
 # Activities/Likes Score Code
 
 
@@ -377,11 +301,11 @@ def tokenize_niche(tokenize_method, input_niche, input_neighborhood):
     """
     token_list = []
     if input_neighborhood in input_niche.keys():
-        desc = input_niche[input_neighborhood]['description']
+        # desc = input_niche[input_neighborhood]['description']
         reviews_list = input_niche[input_neighborhood]['reviews']
-        if desc is not None:
-            tokenized_desc = tokenize_method(desc)
-            token_list.extend(tokenized_desc)
+        # if desc is not None:
+        #     tokenized_desc = tokenize_method(desc)
+        #     token_list.extend(tokenized_desc)
         if reviews_list is not None:
             for review in reviews_list:
                 review_text = tokenize_method(review['text'])
@@ -595,15 +519,14 @@ def tf(word_w, input_word_matrix, types_to_i):
     w_freq = np.sum(input_word_matrix.T[word_idx, :])
     return w_freq
 
-def build_inverted_index(tokenize_method,
-                         neighborhoods_to_id,
-                         data,
-                         tokenize_data_methods):
+def build_inverted_index(tokenize_method, neighborhoods_to_id,
+                         data, tokenize_data_methods):
     """ Builds an inverted index from the messages."""
     inv_idx = {}
     for neighborhood_name, neighborhood_id in neighborhoods_to_id.items():
         tokens = get_neighborhood_tokens(
             tokenize_method, data, tokenize_data_methods, neighborhood_name)
+        
         distinct_toks = set(tokens)
         for tok in distinct_toks:
             tok_count = tokens.count(tok)
@@ -613,6 +536,8 @@ def build_inverted_index(tokenize_method,
             else:
                 term_tups = inv_idx[tok]
                 term_tups.append((neighborhood_id, tok_count))
+    # print(inv_idx['coffee'])
+    # [(0, 1), (1, 2), (2, 1), (3, 1), (4, 1), (5, 2), (6, 2), (7, 1), (8, 1), (9, 1), (10, 1), (11, 2), (12, 3), (13, 1), (14, 1), (15, 2), (16, 1), (17, 3), (18, 2), (19, 1), (20, 2), (21, 1), (22, 1), (23, 2), (24, 1), (25, 1), (26, 2), (27, 1), (28, 4), (29, 4), (30, 1), (31, 1)]
     return inv_idx
 
 
@@ -651,8 +576,11 @@ def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
         if num_postings >= min_df and large_frac <= max_df_ratio:
             idf = math.log2(n_neighborhoods / (1 + num_postings))
             idf_dict[term] = idf
+        else:
+            if term=='coffee':
+                print(large_frac)
+                print('yeaahhh boiii')
     return idf_dict
-
 
 def compute_neighborhood_norms(index, idf, n_neighborhoods):
     """ Precompute the euclidean norm of each document.
@@ -686,14 +614,60 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
     return np.sqrt(norm_array)
 
 
-def compute_query_info(query, idf, tokenizer):
+def compute_query_info(query, idf, tokenizer, syn=True):
     toks = treebank_tokenizer.tokenize(query.lower())
+    # get norm of query
+    query_norm_inner_sum = 0
+
+    # Replaces tokens when it cannot be found with similar words from the corpus
+    # if the word is misspelled it will not be replaced
+    # For example: if toks = ["asdf","dolphins"] after the loop toks = ["asdf","turtle"]
+    # since turtle was the closest word it could fine. "asdf" is simply misspelled
+    # uses a combination of the stem words to find the best output tokens
     query_tf = {}
     # term frequencies in query
     for tok in set(toks):
         query_tf[tok] = toks.count(tok)
-    # get norm of query
-    query_norm_inner_sum = 0
+    for i in range(len(toks)):
+        word = toks[i]
+        stem_word = stemmer.stem(word)
+
+        w_vec =  nlp(word)
+        stem_vec = nlp(stem_word)
+        if (np.sum(w_vec.vector)==0) or word in idf.keys():
+            continue
+        elif stem_word in idf.keys():
+            print(f"[STEMMING] {stem_word} ")
+            toks[i] = stem_word
+        else:
+            if syn:
+                for syn in wordnet.synsets(word): 
+                    for l in syn.lemmas(): 
+                        if l.name() in idf:
+                            print(f"[SYNONYM] {l.name()} ")
+                            toks[i] = l.name()
+                    # synonyms.append(l.name())
+
+            # max_similarity_score = 0
+            # track_word = ""
+            # for k in idf.keys():
+            #     k_vec = nlp(k)
+            #     stem_k = nlp(stemmer.stem(k))
+            #     if np.sum(k_vec.vector) == 0 and np.sum(stem_k.vector) ==0:
+            #         continue # key not found in the library
+            #     elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
+            #         k_vec = stem_k
+            #     score = w_vec.similarity(k_vec)
+            #     if (score > max_similarity_score) and score > 0.6: 
+            #         max_similarity_score = score
+            #         track_word = k
+            # if (max_similarity_score > 0): toks[i] = track_word
+
+    query_tf = {}
+    # term frequencies in query
+    for tok in set(toks):
+        query_tf[tok] = toks.count(tok)
+
     for word in toks:
         if word in idf.keys():
             query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
@@ -701,12 +675,7 @@ def compute_query_info(query, idf, tokenizer):
     return toks, query_tf, query_norm
 
 
-def cosine_sim(query,
-               related_words,
-               index,
-               idf,
-               doc_norms,
-               tokenizer):
+def cosine_sim(query, index, idf, doc_norms, tokenizer):
     """ Search the collection of documents for the given query based on cosine similarity
 
     Arguments
@@ -911,38 +880,48 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     prefix = 'app/irsystem/controllers/data/'
     query_str = ' '.join(likes_list)
-    # related_words = ' '.join(get_related_words(likes_list))
-    related_words = " ".join(likes_list)
-    query_extended = query_str + ' ' + related_words
-
+    #related_words = ' '.join(get_related_words(likes_list))
+    #related_words = " ".join(likes_list)
+    query_extended = query_str #+ ' ' + related_words
     likes_scores = []
 
-    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, \
-            open(prefix + 'compass.json', encoding="utf-8") as compass_file, open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file:
+    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, \
+         open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, \
+         open(prefix + 'compass.json', encoding="utf-8") as compass_file, \
+         open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, \
+         open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file:
+
+        # Loading all the data
         niche_data = json.load(niche_file)
         streeteasy_data = json.load(streeteasy_file)
         compass_data = json.load(compass_file)
         reddit_data = json.load(reddit_file)
         goodmigrations_data = json.load(goodmigrations_file)
+
+        # Compiling data and tokenization methods
         tokenize_methods = [tokenize_niche,
-                            tokenize_streeteasy, tokenize_compass, tokenize_reddit, tokenize_goodmigrations]
+                            tokenize_streeteasy, 
+                            tokenize_compass, 
+                            tokenize_reddit, 
+                            tokenize_goodmigrations]
         data_files = [niche_data, streeteasy_data,
                       compass_data, reddit_data, goodmigrations_data]
-        # preprocessing
+        # Information retrieval
         tokens = token_list(tokenize, tokenize_methods, data_files, neighborhood_list)
         common_phrases = bigram_model(tokens)
         inv_idx = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
-        idf = compute_idf(inv_idx, n_neighborhoods,
-                          min_df=0, max_df_ratio=0.95)
+        idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
+        # print('coffee' in idf)
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
-        query_info = compute_query_info(
-            query_extended, idf, treebank_tokenizer)
+        query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
+        print(f"query_info {query_info}")
+
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
-            query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
+            query_info, inv_idx, idf, doc_norms, treebank_tokenizer)
 
-    # print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
+    print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
     included_ids = set(likes_scores.keys())
     zero_scored_neighborhoods = list(
@@ -953,12 +932,6 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     likes_scores = sorted(likes_scores_list, key=lambda x: x[0])
     likes_scores = np.array([l[1] for l in likes_scores])
-
-    # print(f"SCORES {likes_scores}")
-    # print(f"MIN SCORE {min(likes_scores)}")
-    # print(f"MIN SCORE {max(likes_scores)}")
-
-    # (likes_scores-min(likes_scores)) / (max(likes_scores)-min(likes_scores))*100
     normalized = scoreCalculation(likes_scores)
 
     norm_likes_scores = {
@@ -968,14 +941,71 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         mergeDict(data, norm_likes_scores, "likes score")
     return norm_likes_scores
 
+def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
+    with open("app/irsystem/controllers/data/walkscore.json") as f:
+        walkscore_data = json.load(f)
+    with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
+        carscore_data = json.load(c)
+
+    type_key = {'Walk': "walk score", 'Bike': "bike score", 'Public Transit': "transit score"}
+
+    # if commuteType.lower() in ['walk', 'bike', 'public transit']:
+
+    all_walkscores={}
+    commute_scores=[]
+    print(walkscore_data.items())
+    for cType,v in type_key.items():
+        cscores = np.array([int(v['rankings'][type_key[cType]]) for k, v in walkscore_data.items()])
+        all_walkscores[cType] = {neighborhood_list[i]: v for i, v in enumerate(cscores) }
+        if cType==commuteType: 
+            commute_scores=cscores
+
+    car_scores = np.array([int(v['Car-Score']) for k, v in carscore_data.items()])
+    walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
+    cscores = np.add(.2 * car_scores, .8*walk_scores)
+    all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(cscores)}
+    if commuteType=='Car': 
+        commute_scores=cscores
+    
+    normalized = scoreCalculation(commute_scores)  
+
+    all_durations=None
+    
+    if(commuteDestination):
+        geocode_result = gmaps.geocode(commuteDestination)[0]
+
+        travel_modes={"Walk": "walking", "Bike": "bicycling", "Car": "driving", "Public Transit": "transit"} 
+
+        all_matrices={}
+
+        all_durations={}
+        
+        for k,v in travel_modes.items():
+            all_matrices[k] = gmaps.distance_matrix(place_ids, (geocode_result['geometry']['location']['lat'], geocode_result['geometry']['location']['lng']), mode=v)
+            all_durations[k] = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) for i, v in enumerate(all_matrices[k]['rows']) }
+
+        ratio=15.0/(np.array([v['elements'][0]['duration']['value']/60 for v in all_matrices[commuteType]['rows']])+1e-1)
+
+        ratio[ratio <1.0]=ratio[ratio <1.0]/5.0
+
+        normalized=0.2*np.array(normalized)+0.8*np.array(scoreCalculation(ratio))
+
+    # (commute_scores-min(commute_scores)) / \
+    # (max(commute_scores)-min(commute_scores))*100
+    norm_commute_scores = {neighborhood_list[i]: v for i, v in enumerate(normalized)}
+    mergeDict(data, norm_commute_scores, "commute score")
+
+    all_scores=all_durations if commuteDestination else all_walkscores
+    
+    return norm_commute_scores, all_scores
 
 def getTopNeighborhoods(query):
 
     with open("app/irsystem/controllers/data/neighborhoods.json", "r") as f:
         all_data = json.load(f)
 
-    with open("app/irsystem/controllers/data/niche.json", encoding="utf-8") as f:
-        niche_data = json.load(f)
+    # with open("app/irsystem/controllers/data/niche.json", encoding="utf-8") as f:
+    #     niche_data = json.load(f)
 
     with open("app/irsystem/controllers/data/goodmigrations.json", encoding="utf-8") as f:
         goodmigrations_data = json.load(f)
@@ -983,14 +1013,15 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/renthop.json") as f:
         renthop_data = json.load(f)
 
-    with open("app/irsystem/controllers/data/compass.json") as f:
+    with open("app/irsystem/controllers/data/compass.json", encoding="utf-8") as f:
         compass_data = json.load(f)
 
     loadCrimeScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
-    calculateCommuteScore(query['commute-type'])
+    _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'])
     calculateTextSimLikes(query['likes'], True)
+
     totalOtherScores = 5 if len(query['likes']) > 0 else 4
     # safetyPercentage = 0.2 if len(query['likes']) > 0 else 0.25
     # safetyWeight = safetyPercentage * (int(query['safety'])/5.0)
@@ -1002,19 +1033,25 @@ def getTopNeighborhoods(query):
             otherWeights*v['safety score'] + \
             (otherWeights*v['likes score'] if len(query['likes']) > 0 else 0.0)
 
-        neighborhood_scores.append(
-            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    top_neighborhoods = sorted(
-        neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
+        neighborhood_scores.append((k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
+    
+    # for k, v in neighborhood_scores.items():
+    #     print(k + " " + str(v))
+    top_neighborhoods = sorted(neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
         subway_data = [
             {"name": "1", "img-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"}]
-        rent = {'median': renthop_data[name]['1BR']['Median'],'top': renthop_data[name]['1BR']['Top 25%'],'bottom': renthop_data[name]['1BR']['Bottom 25%']}
-
+        rent = {'median': renthop_data[name]['1BR']['Median'], 'top': renthop_data[name]
+                ['1BR']['Top 25%'], 'bottom': renthop_data[name]['1BR']['Bottom 25%']}
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
             safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0]}
-        
+        # if(query['commute-destination']!=''):
+        n['walk-duration']=durations['Walk'][name]
+        n['bike-duration']=durations['Bike'][name]
+        n['car-duration']=int(durations['Car'][name])
+        n['transit-duration']=durations['Public Transit'][name]
+
         best_matches.append(n)
     return best_matches
 
@@ -1023,34 +1060,36 @@ def main():
     """
         Function will be loading all the data to update the global data variable
         """
-    query = {}
-    query["budget-min"] = "1500"
-    query["budget-max"] = "3000"
-    query["age"] = 22
-    query["commute-type"] = "walk"
-    query["likes"] = ["theatre"]
-    a = getTopNeighborhoods(query)
-    """
-    loadCrimeScores()
-    calculateBudget(1500, 1750)
-    calculateAgeScore(22)
-    calculateCommuteScore('walk')
-    print(calculateTextSimLikes(['nightlife', 'bars', 'restaurants', 'affordable', 'social']))
+    # query = {}
+    # query["budget-min"] = "1500"
+    # query["budget-max"] = "3000"
+    # query["age"] = 22
+    # query["commute-type"] = "walk"
+    # query["likes"] = ["theatre"]
+    # #a = getTopNeighborhoods(query)
+    # output =  calculateTextSimLikes(query['likes'], True)
 
-    otherWeights = 1/5.0
-    neighborhood_scores = []
-    for k, v in data.items():
-        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + 0#(otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
+    # output =  calculateTextSimLikes(["asdf","dolphin"], True)
 
-        neighborhood_scores.append(
-            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    top_neighborhoods = sorted(
-        neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
+    # loadCrimeScores()
+    # calculateBudget(1500, 1750)
+    # calculateAgeScore(22)
+    # calculateCommuteScore('walk')
+    print(calculateTextSimLikes(['coffee']))
 
-    print(neighborhood_scores)
-    """
+    # otherWeights = 1/5.0
+    # neighborhood_scores = []
+    # for k, v in data.items():
+    #     score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + 0#(otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
+
+    #     neighborhood_scores.append(
+    #         (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
+    # top_neighborhoods = sorted(
+    #     neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
+
+    # print(neighborhood_scores)
     # for ss in wn.synsets('coffee shop'): # Each synset represents a diff concept.
     #     print(ss.lemma_names())
 
 
-#main()
+# main()

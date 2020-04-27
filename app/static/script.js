@@ -117,6 +117,8 @@ $(function () {
       1000
     );
 
+    $('div.result:gt(8)').hide();
+
     var margin = { top: 5, right: 5, bottom: 5, left: 5 },
       width = 150,
       height = 150;
@@ -234,33 +236,43 @@ jQuery.fn.sortNeighborhoods = function sortNeighborhoods() {
 };
 
 function sortAge(e) {
+  $('div.result').show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByAge();
+  $('div.result:gt(8)').hide();
 }
 
 function sortBudget(e) {
+  $('div.result').show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByBudget();
+  $('div.result:gt(8)').hide();
 }
 
 function sort(e) {
+  $('div.result').show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoods();
+  $('div.result:gt(8)').hide();
 }
 
 function sortLikes(e) {
+  $('div.result').show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByLikes();
+  $('div.result:gt(8)').hide();
 }
 
 function sortCommute(e) {
+  $('div.result').show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByCommute();
+  $('div.result:gt(8)').hide();
 }
 
 function randomBackground() {
@@ -276,7 +288,7 @@ function randomBackground() {
 
 function closeMap(e) {
   var n = "#" + $(e)[0].getAttribute("data-x");
-  $(n + ".links a").removeClass("active");
+  $(n + " .links a").removeClass("active");
   $(e).addClass("active");
   $(n + "-map").hide(500);
   $(n + " .radar").show(500);
@@ -284,9 +296,8 @@ function closeMap(e) {
 }
 
 function openMap(e) {
-  
   var n = "#" + $(e)[0].getAttribute("data-x");
-  $(n + ".links a").removeClass("active");
+  $(n + " .links a").removeClass("active");
   $(e).addClass("active");
   $(n + "-map").show(500);
   $(n + " .radar").hide(500);

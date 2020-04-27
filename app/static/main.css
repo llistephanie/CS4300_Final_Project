@@ -740,8 +740,20 @@ input[type="submit"] {
   background-position: center;
 }
 
+#chelsea::after {
+  background: url("chelsea-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 #civic-center::after {
   background: url("civic-center3-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#east-harlem:after {
+  background: url("east_harlem-2.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -806,8 +818,26 @@ input[type="submit"] {
   background-position: center;
 }
 
+#murray-hill:after {
+  background: url("murray-hill-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
 #nolita:after {
   background: url("nolita2-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#roosevelt-island:after {
+  background: url("roosevelt-island-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#stuyvesant-town:after {
+  background: url("stuyvesant-town-2.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -999,17 +1029,14 @@ input[type="submit"] {
   width: 69px;
   height: 6px;
   left: calc(550px - 567px);
-  top: calc(423px - 394px);
-
+  top: calc(420px - 394px);
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 8px;
   line-height: 100%;
   /* or 8px */
-
   text-align: center;
-
   color: #bdb8b8;
 }
 
@@ -1034,7 +1061,7 @@ input[type="submit"] {
   display: inline-block;
   text-align: justify;
   width: 400px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .commute span:nth-child(1) {
@@ -1071,9 +1098,8 @@ img.transit-img {
   /*   left: 621px;
   top: 555px; */
   text-align: center;
-
   left: calc(621px - 567px);
-  top: calc(555px - 394px);
+  top: calc(560px - 394px);
 }
 
 .rents {

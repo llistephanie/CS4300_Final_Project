@@ -130,9 +130,7 @@
             <input
               id="submit"
               type="submit"
-              value="Go!"
-              onclick="loadResults()"
-            />
+              value="Go!">
           </form>
         </div>
       </div>
@@ -204,15 +202,19 @@
             <div class="all-commutes">
               <div class="commute">
                 <span>Walking</span>
-                <span>30</span>
+                <span>{{d['walk-duration']}}</span>
+              </div>
+              <div class="commute">
+                <span>Bicyling</span>
+                <span>{{d['bike-duration']}}</span>
               </div>
               <div class="commute">
                 <span>Driving</span>
-                <span>15</span>
+                <span>{{d['car-duration']}}</span>
               </div>
               <div class="commute">
                 <span>Public Transit</span>
-                <span>25</span>
+                <span>{{d['transit-duration']}}</span>
               </div>
             </div>
             <div class="services">
