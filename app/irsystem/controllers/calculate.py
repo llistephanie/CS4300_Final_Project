@@ -229,12 +229,17 @@ def calculateBudget(minBudget, maxBudget):
     # essentially finding percentage of homes under [min,max] range
     for k, v in renthop_data.items():
 
-        bottom = int(v.get("Studio", v.get("1BR"))[
-                     "Bottom 25%"].replace('$', '').replace(',', ''))
-        median = int(v.get("Studio", v.get("1BR"))[
-                     "Median"].replace('$', '').replace(',', ''))
-        top = int(v.get("Studio", v.get("1BR"))[
-                  "Top 25%"].replace('$', '').replace(',', ''))
+        # bottom = int(v.get("Studio", v.get("1BR"))[
+        #              "Bottom 25%"].replace('$', '').replace(',', ''))
+        # median = int(v.get("Studio", v.get("1BR"))[
+        #              "Median"].replace('$', '').replace(',', ''))
+        # top = int(v.get("Studio", v.get("1BR"))[
+        #           "Top 25%"].replace('$', '').replace(',', ''))
+
+        bottom = int(v["1BR"]["Bottom 25%"].replace('$', '').replace(',', ''))
+        median = int(v["1BR"]["Median"].replace('$', '').replace(',', ''))
+        top = int(v["1BR"]["Top 25%"].replace('$', '').replace(',', ''))
+
         top_25s.append(top)
         bottom_25s.append(bottom)
 
@@ -251,20 +256,24 @@ def calculateBudget(minBudget, maxBudget):
                               * percentage_points)
 
     fit_budget = np.array(fit_budget)
+    print(f"fit_budget {fit_budget}")
 
     # keywords={}
-    if maxBudget >= np.mean(np.array(top_25s)):
-        expensive_scores = np.array(
-            list(calculateTextSimLikes(['Expensive']).values()))
-        fit_budget = fit_budget+expensive_scores
+    # if maxBudget >= np.mean(np.array(top_25s)):
+    #     expensive_scores = np.array(
+    #         list(calculateTextSimLikes(['Expensive']).values()))
+    #     fit_budget = fit_budget+expensive_scores
 
-    if minBudget <= np.mean(np.array(bottom_25s)):
-        affordable_scores = np.array(
-            list(calculateTextSimLikes(['Affordable']).values()))
-        fit_budget = fit_budget+affordable_scores
+    # print(f"fit_budget+expensive_scores {fit_budget}")
 
-    normalized = scoreCalculation(
-        fit_budget)  # (fit_budget-min(fit_budget)) / \
+    # if minBudget <= np.mean(np.array(bottom_25s)):
+    #     affordable_scores = np.array(
+    #         list(calculateTextSimLikes(['Affordable']).values()))
+    #     fit_budget = fit_budget+affordable_scores
+
+    # print(f"fit_budget+affordable_scores {fit_budget}")
+
+    normalized = scoreCalculation(fit_budget)  # (fit_budget-min(fit_budget)) / \
     # (max(fit_budget)-min(fit_budget))*100
 
     # for text analysis
@@ -819,7 +828,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         if sum(likes_scores) == 0:
             no_likes = True
 
-    #print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
+    print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
     included_ids = set(likes_scores.keys())
     zero_scored_neighborhoods = list(
@@ -844,6 +853,8 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
         walkscore_data = json.load(f)
     with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
         carscore_data = json.load(c)
+    with open("app/irsystem/controllers/data/gas_stations.json") as g:
+        gasscore_data = json.load(g)
 
     type_key = {'Walk': "walk score", 'Bike': "bike score", 'Public Transit': "transit score"}
 
@@ -860,7 +871,8 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
 
     car_scores = np.array([int(v['Car-Score']) for k, v in carscore_data.items()])
     walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
-    cscores = np.add(.2 * car_scores, .8*walk_scores)
+    gas_scores = np.array([int(v['score']) for k, v in gasscore_data.items()])
+    cscores = np.add(.25*car_scores, .25*gas_scores, .5*walk_scores)
     all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(cscores)}
     if commuteType=='Car':
         commute_scores=cscores
@@ -932,8 +944,10 @@ def getTopNeighborhoods(query):
     for k, v in data.items():
         score = budget_likes_commute_score*v['budget score'] + age_safety_score*v['age score'] + budget_likes_commute_score*v['commute score'] + age_safety_score*v['safety score'] + (budget_likes_commute_score*v['likes score'] if len(query['likes']) > 0 and not(no_likes) else 0.0)
 
-        neighborhood_scores.append((k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    top_neighborhoods = sorted(neighborhood_scores, key=lambda x: x[1], reverse=True)
+        neighborhood_scores.append(
+            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
+    top_neighborhoods = sorted(
+        neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
         subway_data = [
