@@ -569,10 +569,6 @@ def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
         if num_postings >= min_df and large_frac <= max_df_ratio:
             idf = math.log2(n_neighborhoods / (1 + num_postings))
             idf_dict[term] = idf
-        else:
-            if term=='coffee':
-                print(large_frac)
-                print('yeaahhh boiii')
     return idf_dict
 
 def compute_neighborhood_norms(index, idf, n_neighborhoods):
@@ -812,7 +808,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
         query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
-        print(f"query_info {query_info}")
+        # print(f"query_info {query_info}")
 
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
@@ -975,7 +971,7 @@ def main():
     # calculateBudget(1500, 1750)
     # calculateAgeScore(22)
     # calculateCommuteScore('walk')
-    print(calculateTextSimLikes(['coffee']))
+    # print(calculateTextSimLikes(['coffee']))
 
     # otherWeights = 1/5.0
     # neighborhood_scores = []
