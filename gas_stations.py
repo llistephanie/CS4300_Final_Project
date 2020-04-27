@@ -13,6 +13,7 @@ data_json_file.close()
 
 valid_neighborhood_gas_stations = {}
 valid_neighborhood_gas_station_distances = {}
+neighborhood_gas_station_raw_scores = {}
 neighborhood_gas_station_scores = {}
 
 for neighborhood_name in neighborhood_data.keys():
@@ -67,18 +68,31 @@ for neighborhood_name in neighborhood_data.keys():
     fully_valid_gas_station_distances = np.asarray(fully_valid_gas_station_distances)
     valid_neighborhood_gas_stations[neighborhood_name] = fully_valid_gas_stations
     valid_neighborhood_gas_station_distances[neighborhood_name] = fully_valid_gas_station_distances
-    neighborhood_gas_station_scores[neighborhood_name] = \
+    neighborhood_gas_station_raw_scores[neighborhood_name] = \
         np.nan_to_num(np.sum(max_distance - fully_valid_gas_station_distances))
+    # print(neighborhood_name, len(valid_neighborhood_gas_stations[neighborhood_name]),
+    #                              neighborhood_gas_station_raw_scores[neighborhood_name])
 
-    print(neighborhood_name, len(valid_neighborhood_gas_stations[neighborhood_name]),
-                                 neighborhood_gas_station_scores[neighborhood_name])
+raw_scores = np.array([v for k, v in neighborhood_gas_station_raw_scores.items()])
+max_raw_score = np.amax(raw_scores)
+print(raw_scores, max_raw_score)
+
+for neighborhood_name in neighborhood_data.keys():
+    neighborhood_gas_station_scores[neighborhood_name] = neighborhood_gas_station_raw_scores[neighborhood_name] / \
+                                                         max_raw_score * 100
+    print(neighborhood_name,
+          neighborhood_gas_station_raw_scores[neighborhood_name],
+          neighborhood_gas_station_scores[neighborhood_name])
 
 neighborhood_gas_station_json = {}
 for neighborhood_name in neighborhood_data.keys():
     neighborhood_gas_station_json[neighborhood_name] = {}
+    neighborhood_gas_station_json[neighborhood_name]['raw_score'] = neighborhood_gas_station_raw_scores[neighborhood_name]
     neighborhood_gas_station_json[neighborhood_name]['score'] = neighborhood_gas_station_scores[neighborhood_name]
     neighborhood_gas_station_json[neighborhood_name]['gas_station_distances'] = list(valid_neighborhood_gas_station_distances[neighborhood_name])
+    neighborhood_gas_station_json[neighborhood_name]['coordinates'] = list(valid_neighborhood_gas_stations[neighborhood_name])
 
-file_directory_template = 'data/mapsAPI/'
+# file_directory_template = 'data/mapsAPI/'
+file_directory_template = 'app/irsystem/controllers/data/'
 with open(file_directory_template + 'gas_stations.json', 'w') as outfile:
     json.dump(neighborhood_gas_station_json, outfile)
