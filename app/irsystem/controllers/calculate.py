@@ -51,6 +51,7 @@ for neighborhood_id in range(len(neighborhood_list)):
     neighborhood = neighborhood_list[neighborhood_id]
     neighborhood_name_to_id[neighborhood] = neighborhood_id
 neighborhood_id_to_name = {v: k for k, v in neighborhood_name_to_id.items()}
+no_likes = False
 
 
 relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
@@ -112,7 +113,7 @@ def scoreCalculation(data_list):
     arr = np.array(data_list)
     minimum = min(arr)
     maximum = max(arr)
-    arr = (arr - minimum)*100/(maximum-minimum) 
+    arr = (arr - minimum)*100/(maximum-minimum)
 
     return list(arr)
     """
@@ -748,6 +749,8 @@ def get_related_words(likes):
 
 
 def calculateTextSimLikes(likes_list, merge_dict=False):
+    global no_likes
+    no_likes = False
     if len(likes_list) == 0:
         norm_likes_scores = {n: 0.0 for n in neighborhood_list}
 
@@ -785,6 +788,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
             query_info, related_words, inv_idx, idf, doc_norms, treebank_tokenizer)
+        if sum(likes_scores) == 0:
+            no_likes = True
 
     # print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
@@ -832,14 +837,18 @@ def getTopNeighborhoods(query):
     calculateAgeScore(query['age'])
     calculateCommuteScore(query['commute-type'])
     calculateTextSimLikes(query['likes'], True)
-    totalOtherScores = 5 if len(query['likes']) > 0 else 4
-    # safetyPercentage = 0.2 if len(query['likes']) > 0 else 0.25
-    # safetyWeight = safetyPercentage * (int(query['safety'])/5.0)
-    otherWeights = 1.0/totalOtherScores
+    # totalOtherScores = 5 if len(query['likes']) > 0 else 4
+    # otherWeights = 1.0/totalOtherScores
+
+    budget_likes_commute_score = 0.24
+    age_safety_score = 0.11
+    if len(query['likes']) == 0 or no_likes:
+        budget_likes_commute_score = 0.3
+        age_safety_score = 0.2
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + (otherWeights*v['likes score'] if len(query['likes'])>0 else 0.0)
+        score = budget_likes_commute_score*v['budget score'] + age_safety_score*v['age score'] + budget_likes_commute_score*v['commute score'] + age_safety_score*v['safety score'] + (budget_likes_commute_score*v['likes score'] if len(query['likes']) > 0 and not(no_likes) else 0.0)
 
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
