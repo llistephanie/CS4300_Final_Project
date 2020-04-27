@@ -7,7 +7,6 @@ from sklearn import preprocessing
 import os
 import nltk
 #import spacy
-import en_core_web_md
 #from imports import * # created to make testing quicker
 
 # from nltk.stem.porter import PorterStemmer
@@ -21,8 +20,11 @@ from datetime import datetime
 
 gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
 
+#import en_core_web_md
 from nltk.stem.porter import PorterStemmer
-nlp = en_core_web_md.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
+def blank(i):
+    return i
+nlp = blank#en_core_web_md.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
 stemmer = PorterStemmer()
 
 neighborhood_list = ['Battery Park',
