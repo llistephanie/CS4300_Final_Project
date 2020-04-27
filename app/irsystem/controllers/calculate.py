@@ -8,6 +8,9 @@ import os
 import nltk
 import en_core_web_sm
 
+# import nltk 
+from nltk.corpus import wordnet 
+
 #from imports import * # created to make testing quicker
 
 # from nltk.stem.porter import PorterStemmer
@@ -95,36 +98,6 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                      "Trendy": ["trendy", "popular", "upcoming"],
                      "College": ["college", "university", "student"]}
 
-
-
-def match_keywords(input_l):
-    """ assumes individual words inputed
-    i.e. input_l = ["affluent","drinks","fun"]
-    output = ["expensive","coffee","theatre"]
-    """
-
-    category_list = []
-    for word in input_l:
-        w = nlp(stemmer.stem(word))
-        if (np.sum(w.vector) == 0):
-            w = nlp(word)
-        max_score = 0
-        max_category = ""
-        for category, related in relevant_keywords.items():
-            for r_word in related:
-                r = nlp(stemmer.stem(r_word))
-                if (np.sum(r.vector) == 0):
-                    r = nlp(r_word)
-
-                score = w.similarity(r)
-                if (score > max_score):
-                    max_score = score
-                    max_category = category
-
-        category_list.append(max_category)
-    return category_list
-
-
 """
 Shared data containing all the scores and information for each neighborhood.
 Scores will be a value from
@@ -158,29 +131,12 @@ def scoreCalculation(data_list):
             new_scores.append(0)
         else:
             new_scores.append(score)
-
-
     return new_scores
 
 def mergeDict(original, updates, key_name):
     for k, v in updates.items():
         new_val = {key_name: v}
         original[k].update(new_val)
-
-# with open("/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/app/irsystem/controllers/data/compass.json", "r") as f:
-#     data1 = json.load(f)
-
-
-# with open("/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/app/irsystem/controllers/data/streeteasy.json", "r") as f:
-#     data2 = json.load(f)
-
-
-# have=set(list(data2.keys())).union(set(list(data1.keys())))
-# missing=set(neighborhood_list).difference(have)
-# print(list(missing))
-
-# ['Two Bridges', 'Stuyvesant Town', 'Marble Hill']
-
 
 def loadCrimeScores():
     """
@@ -246,31 +202,12 @@ def calculateAgeScore(age):
 
     percentages = np.array([int(v["age distribution"][age_dist].replace(
         '%', '')) for k, v in niche_data.items()])
-    # percentages=preprocessing.normalize(percentages.reshape(1, -1)).flatten()
-    # [0.02673567 0.13367837 0.16041405 0.34756377 0.14704621 0.25398891
-    # 0.18714972 0.13367837 0.30746026 0.24062107 0.13367837 0.12031053
-    # 0.13367837 0.26735674 0.1069427  0.1069427  0.13367837 0.08020702
-    # 0.45450646 0.09357486 0.08020702 0.22725323 0.09357486 0.08020702
-    # 0.17378188 0.12031053 0.04010351 0.08020702 0.06683919 0.06683919
-    # 0.13367837 0.08020702]
-
-    # percentages=percentages-np.mean(percentages)/np.std(percentages)
-    # [ 0.3814625  8.3814625 10.3814625 24.3814625  9.3814625 17.3814625
-    # 12.3814625  8.3814625 21.3814625 16.3814625  8.3814625  7.3814625
-    # 8.3814625 18.3814625  6.3814625  6.3814625  8.3814625  4.3814625
-    # 32.3814625  5.3814625  4.3814625 15.3814625  5.3814625  4.3814625
-    # 11.3814625  7.3814625  1.3814625  4.3814625  3.3814625  3.3814625
-    # 8.3814625  4.3814625 ]
 
     normalized = scoreCalculation(
         percentages)  # (percentages-min(percentages)) / \
     # (max(percentages)-min(percentages))*100
-    # # [0.      0.25    0.3125  0.75    0.28125 0.53125 0.375   0.25    0.65625
-    # # 0.5     0.25    0.21875 0.25    0.5625  0.1875  0.1875  0.25    0.125
-    # # 1.      0.15625 0.125   0.46875 0.15625 0.125   0.34375 0.21875 0.03125
-    # # 0.125   0.09375 0.09375 0.25    0.125  ]
 
-    norm_age_scores = {neighborhood_list[i]                       : v for i, v in enumerate(normalized)}
+    norm_age_scores = {neighborhood_list[i] : v for i, v in enumerate(normalized)}
 
     # data.update(norm_age_scores)
     mergeDict(data, norm_age_scores, "age score")
@@ -357,11 +294,11 @@ def tokenize_niche(tokenize_method, input_niche, input_neighborhood):
     """
     token_list = []
     if input_neighborhood in input_niche.keys():
-        desc = input_niche[input_neighborhood]['description']
+        # desc = input_niche[input_neighborhood]['description']
         reviews_list = input_niche[input_neighborhood]['reviews']
-        if desc is not None:
-            tokenized_desc = tokenize_method(desc)
-            token_list.extend(tokenized_desc)
+        # if desc is not None:
+        #     tokenized_desc = tokenize_method(desc)
+        #     token_list.extend(tokenized_desc)
         if reviews_list is not None:
             for review in reviews_list:
                 review_text = tokenize_method(review['text'])
@@ -578,6 +515,7 @@ def build_inverted_index(tokenize_method, neighborhoods_to_id,
     for neighborhood_name, neighborhood_id in neighborhoods_to_id.items():
         tokens = get_neighborhood_tokens(
             tokenize_method, data, tokenize_data_methods, neighborhood_name)
+        
         distinct_toks = set(tokens)
         for tok in distinct_toks:
             tok_count = tokens.count(tok)
@@ -587,6 +525,8 @@ def build_inverted_index(tokenize_method, neighborhoods_to_id,
             else:
                 term_tups = inv_idx[tok]
                 term_tups.append((neighborhood_id, tok_count))
+    # print(inv_idx['coffee'])
+    # [(0, 1), (1, 2), (2, 1), (3, 1), (4, 1), (5, 2), (6, 2), (7, 1), (8, 1), (9, 1), (10, 1), (11, 2), (12, 3), (13, 1), (14, 1), (15, 2), (16, 1), (17, 3), (18, 2), (19, 1), (20, 2), (21, 1), (22, 1), (23, 2), (24, 1), (25, 1), (26, 2), (27, 1), (28, 4), (29, 4), (30, 1), (31, 1)]
     return inv_idx
 
 
@@ -625,6 +565,10 @@ def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
         if num_postings >= min_df and large_frac <= max_df_ratio:
             idf = math.log2(n_neighborhoods / (1 + num_postings))
             idf_dict[term] = idf
+        else:
+            if term=='coffee':
+                print(large_frac)
+                print('yeaahhh boiii')
     return idf_dict
 
 def compute_neighborhood_norms(index, idf, n_neighborhoods):
@@ -659,11 +603,10 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
     return np.sqrt(norm_array)
 
 
-def compute_query_info(query, idf, tokenizer):
+def compute_query_info(query, idf, tokenizer, syn=True):
     toks = treebank_tokenizer.tokenize(query.lower())
     # get norm of query
     query_norm_inner_sum = 0
-    
 
     # Replaces tokens when it cannot be found with similar words from the corpus
     # if the word is misspelled it will not be replaced
@@ -685,22 +628,28 @@ def compute_query_info(query, idf, tokenizer):
         elif stem_word in idf.keys():
             toks[i] = stem_word
         else:
+            if syn:
+                for syn in wordnet.synsets(word): 
+                    for l in syn.lemmas(): 
+                        if l.name() in idf:
+                            print(l.name())
+                            toks[i] = l.name()
+                    # synonyms.append(l.name())
 
-            max_similarity_score = 0
-            track_word = ""
-            for k in idf.keys():
-                k_vec = nlp(k)
-                stem_k = nlp(stemmer.stem(k))
-                if np.sum(k_vec.vector) == 0 and np.sum(stem_k.vector) ==0:
-                    continue # key not found in the library
-                elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
-                    k_vec = stem_k
-                score = w_vec.similarity(k_vec)
-                if (score > max_similarity_score) and score > 0.6: 
-                    max_similarity_score = score
-                    track_word = k
-            if (max_similarity_score > 0): toks[i] = track_word
-
+            # max_similarity_score = 0
+            # track_word = ""
+            # for k in idf.keys():
+            #     k_vec = nlp(k)
+            #     stem_k = nlp(stemmer.stem(k))
+            #     if np.sum(k_vec.vector) == 0 and np.sum(stem_k.vector) ==0:
+            #         continue # key not found in the library
+            #     elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
+            #         k_vec = stem_k
+            #     score = w_vec.similarity(k_vec)
+            #     if (score > max_similarity_score) and score > 0.6: 
+            #         max_similarity_score = score
+            #         track_word = k
+            # if (max_similarity_score > 0): toks[i] = track_word
 
     query_tf = {}
     # term frequencies in query
@@ -834,14 +783,17 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         inv_idx = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
+        # print('coffee' in idf)
 
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
         query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
+        print(f"query_info {query_info}")
 
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
             query_info, inv_idx, idf, doc_norms, treebank_tokenizer)
 
+    print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
     included_ids = set(likes_scores.keys())
     zero_scored_neighborhoods = list(
@@ -852,9 +804,6 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     likes_scores = sorted(likes_scores_list, key=lambda x: x[0])
     likes_scores = np.array([l[1] for l in likes_scores])
-
-
-
     normalized = scoreCalculation(likes_scores)
 
     norm_likes_scores = {
@@ -906,7 +855,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     norm_commute_scores = {neighborhood_list[i]: v for i, v in enumerate(normalized)}
     mergeDict(data, norm_commute_scores, "commute score")
 
-    print(durations)
+    # print(durations)
 
     return norm_commute_scores, durations
 
@@ -970,36 +919,34 @@ def main():
     """
         Function will be loading all the data to update the global data variable
         """
-    query = {}
-    query["budget-min"] = "1500"
-    query["budget-max"] = "3000"
-    query["age"] = 22
-    query["commute-type"] = "walk"
-    query["likes"] = ["theatre"]
-    #a = getTopNeighborhoods(query)
-    output =  calculateTextSimLikes(query['likes'], True)
+    # query = {}
+    # query["budget-min"] = "1500"
+    # query["budget-max"] = "3000"
+    # query["age"] = 22
+    # query["commute-type"] = "walk"
+    # query["likes"] = ["theatre"]
+    # #a = getTopNeighborhoods(query)
+    # output =  calculateTextSimLikes(query['likes'], True)
 
-    output =  calculateTextSimLikes(["asdf","dolphin"], True)
+    # output =  calculateTextSimLikes(["asdf","dolphin"], True)
 
-    """
-    loadCrimeScores()
-    calculateBudget(1500, 1750)
-    calculateAgeScore(22)
-    calculateCommuteScore('walk')
-    print(calculateTextSimLikes(['nightlife', 'bars', 'restaurants', 'affordable', 'social']))
+    # loadCrimeScores()
+    # calculateBudget(1500, 1750)
+    # calculateAgeScore(22)
+    # calculateCommuteScore('walk')
+    print(calculateTextSimLikes(['coffee']))
 
-    otherWeights = 1/5.0
-    neighborhood_scores = []
-    for k, v in data.items():
-        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + 0#(otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
+    # otherWeights = 1/5.0
+    # neighborhood_scores = []
+    # for k, v in data.items():
+    #     score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + otherWeights*v['safety score'] + 0#(otherWeights*v['likes score'] if query['likes'][0]!='' else 0.0)
 
-        neighborhood_scores.append(
-            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    top_neighborhoods = sorted(
-        neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
+    #     neighborhood_scores.append(
+    #         (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
+    # top_neighborhoods = sorted(
+    #     neighborhood_scores, key=lambda x: x[1], reverse=True)[:9]
 
-    print(neighborhood_scores)
-    """
+    # print(neighborhood_scores)
     # for ss in wn.synsets('coffee shop'): # Each synset represents a diff concept.
     #     print(ss.lemma_names())
 
