@@ -8,8 +8,8 @@ import os
 import nltk
 import en_core_web_sm
 
-# import nltk 
-from nltk.corpus import wordnet 
+# import nltk
+from nltk.corpus import wordnet
 
 #from imports import * # created to make testing quicker
 
@@ -69,6 +69,7 @@ for neighborhood_id in range(len(neighborhood_list)):
     neighborhood = neighborhood_list[neighborhood_id]
     neighborhood_name_to_id[neighborhood] = neighborhood_id
 neighborhood_id_to_name = {v: k for k, v in neighborhood_name_to_id.items()}
+no_likes = False
 
 with open("app/irsystem/controllers/data/coordinates.json", "r") as f:
     coordinates_data = json.load(f)
@@ -519,7 +520,7 @@ def build_inverted_index(tokenize_method, neighborhoods_to_id,
     for neighborhood_name, neighborhood_id in neighborhoods_to_id.items():
         tokens = get_neighborhood_tokens(
             tokenize_method, data, tokenize_data_methods, neighborhood_name)
-        
+
         distinct_toks = set(tokens)
         for tok in distinct_toks:
             tok_count = tokens.count(tok)
@@ -646,8 +647,8 @@ def compute_query_info(query, idf, tokenizer, syn=True):
             if (match is not None): toks[i] = match
     """
         if syn:
-            for syn in wordnet.synsets(word): 
-                for l in syn.lemmas(): 
+            for syn in wordnet.synsets(word):
+                for l in syn.lemmas():
                     if l.name() in idf:
                         print(f"[SYNONYM] {l.name()} ")
                         toks[i] = l.name()
@@ -663,7 +664,7 @@ def compute_query_info(query, idf, tokenizer, syn=True):
     #     elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
     #         k_vec = stem_k
     #     score = w_vec.similarity(k_vec)
-    #     if (score > max_similarity_score) and score > 0.6: 
+    #     if (score > max_similarity_score) and score > 0.6:
     #         max_similarity_score = score
     #         track_word = k
     # if (max_similarity_score > 0): toks[i] = track_word
@@ -762,6 +763,8 @@ def get_related_words(likes):
 
 
 def calculateTextSimLikes(likes_list, merge_dict=False):
+    global no_likes
+    no_likes = False
     if len(likes_list) == 0:
         norm_likes_scores = {n: 0.0 for n in neighborhood_list}
 
@@ -791,9 +794,9 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
         # Compiling data and tokenization methods
         tokenize_methods = [tokenize_niche,
-                            tokenize_streeteasy, 
-                            tokenize_compass, 
-                            tokenize_reddit, 
+                            tokenize_streeteasy,
+                            tokenize_compass,
+                            tokenize_reddit,
                             tokenize_goodmigrations]
         data_files = [niche_data, streeteasy_data,
                       compass_data, reddit_data, goodmigrations_data]
@@ -813,6 +816,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
             query_info, inv_idx, idf, doc_norms, treebank_tokenizer)
+        if sum(likes_scores) == 0:
+            no_likes = True
 
     #print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
@@ -850,29 +855,29 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     for cType,v in type_key.items():
         cscores = np.array([int(v['rankings'][type_key[cType]]) for k, v in walkscore_data.items()])
         all_walkscores[cType] = {neighborhood_list[i]: v for i, v in enumerate(cscores) }
-        if cType==commuteType: 
+        if cType==commuteType:
             commute_scores=cscores
 
     car_scores = np.array([int(v['Car-Score']) for k, v in carscore_data.items()])
     walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
     cscores = np.add(.2 * car_scores, .8*walk_scores)
     all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(cscores)}
-    if commuteType=='Car': 
+    if commuteType=='Car':
         commute_scores=cscores
-    
-    normalized = scoreCalculation(commute_scores)  
+
+    normalized = scoreCalculation(commute_scores)
 
     all_durations=None
-    
+
     if(commuteDestination):
         geocode_result = gmaps.geocode(commuteDestination)[0]
 
-        travel_modes={"Walk": "walking", "Bike": "bicycling", "Car": "driving", "Public Transit": "transit"} 
+        travel_modes={"Walk": "walking", "Bike": "bicycling", "Car": "driving", "Public Transit": "transit"}
 
         all_matrices={}
 
         all_durations={}
-        
+
         for k,v in travel_modes.items():
             all_matrices[k] = gmaps.distance_matrix(place_ids, (geocode_result['geometry']['location']['lat'], geocode_result['geometry']['location']['lng']), mode=v)
             all_durations[k] = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) for i, v in enumerate(all_matrices[k]['rows']) }
@@ -889,7 +894,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     mergeDict(data, norm_commute_scores, "commute score")
 
     all_scores=all_durations if commuteDestination else all_walkscores
-    
+
     return norm_commute_scores, all_scores
 
 def getTopNeighborhoods(query):
@@ -914,22 +919,20 @@ def getTopNeighborhoods(query):
     calculateAgeScore(query['age'])
     _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'])
     calculateTextSimLikes(query['likes'], True)
+    # totalOtherScores = 5 if len(query['likes']) > 0 else 4
+    # otherWeights = 1.0/totalOtherScores
 
-    totalOtherScores = 5 if len(query['likes']) > 0 else 4
-    # safetyPercentage = 0.2 if len(query['likes']) > 0 else 0.25
-    # safetyWeight = safetyPercentage * (int(query['safety'])/5.0)
-    otherWeights = 1.0/totalOtherScores
+    budget_likes_commute_score = 0.24
+    age_safety_score = 0.14
+    if len(query['likes']) == 0 or no_likes:
+        budget_likes_commute_score = 0.3
+        age_safety_score = 0.2
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = otherWeights*v['budget score'] + otherWeights*v['age score'] + otherWeights*v['commute score'] + \
-            otherWeights*v['safety score'] + \
-            (otherWeights*v['likes score'] if len(query['likes']) > 0 else 0.0)
+        score = budget_likes_commute_score*v['budget score'] + age_safety_score*v['age score'] + budget_likes_commute_score*v['commute score'] + age_safety_score*v['safety score'] + (budget_likes_commute_score*v['likes score'] if len(query['likes']) > 0 and not(no_likes) else 0.0)
 
         neighborhood_scores.append((k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
-    
-    # for k, v in neighborhood_scores.items():
-    #     print(k + " " + str(v))
     top_neighborhoods = sorted(neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
