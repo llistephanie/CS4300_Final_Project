@@ -235,7 +235,7 @@ def calculateBudget(minBudget, maxBudget):
         #              "Median"].replace('$', '').replace(',', ''))
         # top = int(v.get("Studio", v.get("1BR"))[
         #           "Top 25%"].replace('$', '').replace(',', ''))
-        
+
         bottom = int(v["1BR"]["Bottom 25%"].replace('$', '').replace(',', ''))
         median = int(v["1BR"]["Median"].replace('$', '').replace(',', ''))
         top = int(v["1BR"]["Top 25%"].replace('$', '').replace(',', ''))
@@ -263,14 +263,14 @@ def calculateBudget(minBudget, maxBudget):
     #     expensive_scores = np.array(
     #         list(calculateTextSimLikes(['Expensive']).values()))
     #     fit_budget = fit_budget+expensive_scores
-    
+
     # print(f"fit_budget+expensive_scores {fit_budget}")
 
     # if minBudget <= np.mean(np.array(bottom_25s)):
     #     affordable_scores = np.array(
     #         list(calculateTextSimLikes(['Affordable']).values()))
     #     fit_budget = fit_budget+affordable_scores
-    
+
     # print(f"fit_budget+affordable_scores {fit_budget}")
 
     normalized = scoreCalculation(fit_budget)  # (fit_budget-min(fit_budget)) / \

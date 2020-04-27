@@ -62,7 +62,7 @@
               />
             </div>
             <div id="pac-container">
-              <label>Destination</label>
+              <label>Work Location</label>
               <input
                 id="pac-input"
                 name="commute-destination"
@@ -118,7 +118,7 @@
 
             <div id="keywords-type-input">
               <label>Keywords</label>
-              <select name="likes" multiple id="keywords">
+              <select placeholder="Gym, Coffee, Restaurants" name="likes" multiple id="keywords">
                 {% if query %}
                 {% for l in query['likes'] %}
                   <option value="{{l}}" selected="selected">{{l}}</option>
