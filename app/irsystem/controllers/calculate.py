@@ -6,7 +6,8 @@ from nltk.tokenize import TreebankWordTokenizer
 from sklearn import preprocessing
 import os
 import nltk
-import spacy
+#import spacy
+import en_core_web_sm
 #from imports import * # created to make testing quicker
 
 # from nltk.stem.porter import PorterStemmer
@@ -22,9 +23,7 @@ gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
 
 #import en_core_web_md
 from nltk.stem.porter import PorterStemmer
-def blank(i):
-    return i
-nlp = blank#spacy.load("en_core_web_md") #.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
+nlp = en_core_web_sm.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
 stemmer = PorterStemmer()
 
 neighborhood_list = ['Battery Park',
@@ -956,7 +955,6 @@ def getTopNeighborhoods(query):
             {"name": "1", "img-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"}]
         rent = {'median': renthop_data[name]['1BR']['Median'], 'top': renthop_data[name]
                 ['1BR']['Top 25%'], 'bottom': renthop_data[name]['1BR']['Bottom 25%']}
-
         n = {'name': name, 'score': round(score, 2), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
             safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>")[0], 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0]}
         if(query['commute-destination']!=''):
