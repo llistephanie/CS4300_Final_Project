@@ -1,0 +1,952 @@
+{
+  "Battery Park": {
+    "geometry": {
+      "location": {
+        "lat": 40.7032775,
+        "lng": -74.0170279
+      },
+      "location_type": "GEOMETRIC_CENTER",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7046264802915,
+          "lng": -74.0156789197085
+        },
+        "southwest": {
+          "lat": 40.7019285197085,
+          "lng": -74.01837688029151
+        }
+      }
+    },
+    "place_id": "ChIJraKL-BJawokREpxDmF5GcL4"
+  },
+  "Chelsea": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7570384,
+          "lng": -73.9877916
+        },
+        "southwest": {
+          "lat": 40.7373582,
+          "lng": -74.0088629
+        }
+      },
+      "location": {
+        "lat": 40.7465004,
+        "lng": -74.00137370000002
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7570384,
+          "lng": -73.9877916
+        },
+        "southwest": {
+          "lat": 40.7373582,
+          "lng": -74.0088629
+        }
+      }
+    },
+    "place_id": "ChIJp8i4grBZwokR8DYmsJrrVC4"
+  },
+  "Chinatown": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.71936549999999,
+          "lng": -73.9897026
+        },
+        "southwest": {
+          "lat": 40.7127979,
+          "lng": -74.0040592
+        }
+      },
+      "location": {
+        "lat": 40.7157509,
+        "lng": -73.9970307
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.71936549999999,
+          "lng": -73.9897026
+        },
+        "southwest": {
+          "lat": 40.7127979,
+          "lng": -74.0040592
+        }
+      }
+    },
+    "place_id": "ChIJDcEvbPVZwokRETEfzXATns8"
+  },
+  "Civic Center": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.71776149999999,
+          "lng": -73.9982199
+        },
+        "southwest": {
+          "lat": 40.7097756,
+          "lng": -74.00873419999999
+        }
+      },
+      "location": {
+        "lat": 40.7140519,
+        "lng": -74.00283639999999
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.71776149999999,
+          "lng": -73.9982199
+        },
+        "southwest": {
+          "lat": 40.7097756,
+          "lng": -74.00873419999999
+        }
+      }
+    },
+    "place_id": "ChIJEZaa1SNawokRXvMbRrc0HC8"
+  },
+  "East Harlem": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.8180871,
+          "lng": -73.9286431
+        },
+        "southwest": {
+          "lat": 40.7827839,
+          "lng": -73.9558541
+        }
+      },
+      "location": {
+        "lat": 40.7957399,
+        "lng": -73.93892129999999
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.8180871,
+          "lng": -73.9286431
+        },
+        "southwest": {
+          "lat": 40.7827839,
+          "lng": -73.9558541
+        }
+      }
+    },
+    "place_id": "ChIJTVaJMQ_2wokRXhEQixzvgR8"
+  },
+  "East Village": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7344458,
+          "lng": -73.9716661
+        },
+        "southwest": {
+          "lat": 40.7187211,
+          "lng": -73.99264099999999
+        }
+      },
+      "location": {
+        "lat": 40.7264773,
+        "lng": -73.98153370000001
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7344458,
+          "lng": -73.9716661
+        },
+        "southwest": {
+          "lat": 40.7187211,
+          "lng": -73.99264099999999
+        }
+      }
+    },
+    "place_id": "ChIJRU7M53dZwokR7GgPQPM1qW8"
+  },
+  "Financial District": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7170449,
+          "lng": -73.9993878
+        },
+        "southwest": {
+          "lat": 40.7005852,
+          "lng": -74.0164805
+        }
+      },
+      "location": {
+        "lat": 40.7077143,
+        "lng": -74.00827869999999
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7170449,
+          "lng": -73.9993878
+        },
+        "southwest": {
+          "lat": 40.7005852,
+          "lng": -74.0164805
+        }
+      }
+    },
+    "place_id": "ChIJB8iKMxhawokRs5oRixSsKwA"
+  },
+  "Flatiron": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7448022,
+          "lng": -73.9833605
+        },
+        "southwest": {
+          "lat": 40.7383561,
+          "lng": -73.9941752
+        }
+      },
+      "location": {
+        "lat": 40.740083,
+        "lng": -73.9903489
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7448022,
+          "lng": -73.9833605
+        },
+        "southwest": {
+          "lat": 40.7383561,
+          "lng": -73.9941752
+        }
+      }
+    },
+    "place_id": "ChIJW2pKVaJZwokR1NyxT_kGsOY"
+  },
+  "Gramercy": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.74018510000001,
+          "lng": -73.9785298
+        },
+        "southwest": {
+          "lat": 40.7313276,
+          "lng": -73.98879459999999
+        }
+      },
+      "location": {
+        "lat": 40.7367783,
+        "lng": -73.9844722
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.74018510000001,
+          "lng": -73.9785298
+        },
+        "southwest": {
+          "lat": 40.7313276,
+          "lng": -73.98879459999999
+        }
+      }
+    },
+    "place_id": "ChIJMaZfGgpZwokR0gtRaGghT_w"
+  },
+  "Greenwich Village": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.742136,
+          "lng": -73.9907956
+        },
+        "southwest": {
+          "lat": 40.7253563,
+          "lng": -74.0106976
+        }
+      },
+      "location": {
+        "lat": 40.7335719,
+        "lng": -74.0027418
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.742136,
+          "lng": -73.9907956
+        },
+        "southwest": {
+          "lat": 40.7253563,
+          "lng": -74.0106976
+        }
+      }
+    },
+    "place_id": "ChIJpxMyDJRZwokRX0XfgiHEgog"
+  },
+  "Harlem": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.834443,
+          "lng": -73.9338182
+        },
+        "southwest": {
+          "lat": 40.7968871,
+          "lng": -73.9623589
+        }
+      },
+      "location": {
+        "lat": 40.8115504,
+        "lng": -73.9464769
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.834443,
+          "lng": -73.9338182
+        },
+        "southwest": {
+          "lat": 40.7968871,
+          "lng": -73.9623589
+        }
+      }
+    },
+    "place_id": "ChIJn6KIIW72wokRLnDiCe-vCLQ"
+  },
+  "Hell's Kitchen": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.773677,
+          "lng": -73.9824487
+        },
+        "southwest": {
+          "lat": 40.752223,
+          "lng": -74.00473989999999
+        }
+      },
+      "location": {
+        "lat": 40.7637581,
+        "lng": -73.9918181
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.773677,
+          "lng": -73.9824487
+        },
+        "southwest": {
+          "lat": 40.752223,
+          "lng": -74.00473989999999
+        }
+      }
+    },
+    "place_id": "ChIJUWBgpFBYwokRAprvYGCydhk"
+  },
+  "Inwood": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.877591,
+          "lng": -73.9104948
+        },
+        "southwest": {
+          "lat": 40.8557032,
+          "lng": -73.932667
+        }
+      },
+      "location": {
+        "lat": 40.8677145,
+        "lng": -73.9212019
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.877591,
+          "lng": -73.9104948
+        },
+        "southwest": {
+          "lat": 40.8557032,
+          "lng": -73.932667
+        }
+      }
+    },
+    "place_id": "ChIJd6eiHvfzwokRHALd9SLBP0c"
+  },
+  "Kips Bay": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7463913,
+          "lng": -73.9717143
+        },
+        "southwest": {
+          "lat": 40.734901,
+          "lng": -73.98473369999999
+        }
+      },
+      "location": {
+        "lat": 40.74232920000001,
+        "lng": -73.9800645
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7463913,
+          "lng": -73.9717143
+        },
+        "southwest": {
+          "lat": 40.734901,
+          "lng": -73.98473369999999
+        }
+      }
+    },
+    "place_id": "ChIJ1cHJEglZwokRXqM6j2BLvnQ"
+  },
+  "Little Italy": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.721577,
+          "lng": -73.9944313
+        },
+        "southwest": {
+          "lat": 40.7168155,
+          "lng": -74.000548
+        }
+      },
+      "location": {
+        "lat": 40.7191413,
+        "lng": -73.9973273
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.721577,
+          "lng": -73.9944313
+        },
+        "southwest": {
+          "lat": 40.7168155,
+          "lng": -74.000548
+        }
+      }
+    },
+    "place_id": "ChIJ730FRYhZwokRhLS7n5Ybz54"
+  },
+  "Lower East Side": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7241366,
+          "lng": -73.9735436
+        },
+        "southwest": {
+          "lat": 40.7091004,
+          "lng": -73.9960382
+        }
+      },
+      "location": {
+        "lat": 40.715033,
+        "lng": -73.9842724
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7241366,
+          "lng": -73.9735436
+        },
+        "southwest": {
+          "lat": 40.7091004,
+          "lng": -73.9960382
+        }
+      }
+    },
+    "place_id": "ChIJ64usFYBZwokRcGprpf5JuFk"
+  },
+  "Marble Hill": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.8792779,
+          "lng": -73.907005
+        },
+        "southwest": {
+          "lat": 40.871678,
+          "lng": -73.915205
+        }
+      },
+      "location": {
+        "lat": 40.8761173,
+        "lng": -73.9102628
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.8792779,
+          "lng": -73.907005
+        },
+        "southwest": {
+          "lat": 40.871678,
+          "lng": -73.915205
+        }
+      }
+    },
+    "place_id": "ChIJQVm035LzwokRgmgJ1ZOe2oU"
+  },
+  "Midtown": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.77410690000001,
+          "lng": -73.95889869999999
+        },
+        "southwest": {
+          "lat": 40.72686849999999,
+          "lng": -74.0089488
+        }
+      },
+      "location": {
+        "lat": 40.7549309,
+        "lng": -73.9840195
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.77410690000001,
+          "lng": -73.95889869999999
+        },
+        "southwest": {
+          "lat": 40.72686849999999,
+          "lng": -74.0089488
+        }
+      }
+    },
+    "place_id": "ChIJqXwSpAFZwokR28_WgZDMzb4"
+  },
+  "Morningside Heights": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.818091,
+          "lng": -73.9563131
+        },
+        "southwest": {
+          "lat": 40.80185549999999,
+          "lng": -73.9711901
+        }
+      },
+      "location": {
+        "lat": 40.8105443,
+        "lng": -73.9620581
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.818091,
+          "lng": -73.9563131
+        },
+        "southwest": {
+          "lat": 40.80185549999999,
+          "lng": -73.9711901
+        }
+      }
+    },
+    "place_id": "ChIJYwfNCD_2wokRxUX-1dQJeAc"
+  },
+  "Murray Hill": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7528,
+          "lng": -73.9698745
+        },
+        "southwest": {
+          "lat": 40.7437943,
+          "lng": -73.98296359999999
+        }
+      },
+      "location": {
+        "lat": 40.7478792,
+        "lng": -73.9756567
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7528,
+          "lng": -73.9698745
+        },
+        "southwest": {
+          "lat": 40.7437943,
+          "lng": -73.98296359999999
+        }
+      }
+    },
+    "place_id": "ChIJKyZmEwRZwokRSDaVZ4QprP0"
+  },
+  "NoHo": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7300598,
+          "lng": -73.9907527
+        },
+        "southwest": {
+          "lat": 40.7241366,
+          "lng": -73.9967609
+        }
+      },
+      "location": {
+        "lat": 40.7286587,
+        "lng": -73.9925526
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7300598,
+          "lng": -73.9907527
+        },
+        "southwest": {
+          "lat": 40.7241366,
+          "lng": -73.9967609
+        }
+      }
+    },
+    "place_id": "ChIJedN1uJpZwokR0CiqQnqxPXo"
+  },
+  "Nolita": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7250838,
+          "lng": -73.9926194
+        },
+        "southwest": {
+          "lat": 40.719431,
+          "lng": -73.9982402
+        }
+      },
+      "location": {
+        "lat": 40.7230413,
+        "lng": -73.99486069999999
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7250838,
+          "lng": -73.9926194
+        },
+        "southwest": {
+          "lat": 40.719431,
+          "lng": -73.9982402
+        }
+      }
+    },
+    "place_id": "ChIJd9PLRY9ZwokRk9g2ewaGdEI"
+  },
+  "Roosevelt Island": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.772991,
+          "lng": -73.94000720000001
+        },
+        "southwest": {
+          "lat": 40.749613,
+          "lng": -73.96154709999999
+        }
+      },
+      "location": {
+        "lat": 40.76050310000001,
+        "lng": -73.9509934
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.772991,
+          "lng": -73.94000720000001
+        },
+        "southwest": {
+          "lat": 40.749613,
+          "lng": -73.96154709999999
+        }
+      }
+    },
+    "place_id": "ChIJjQ1a2MRYwokRJ_6PC_93-BE"
+  },
+  "SoHo": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7283442,
+          "lng": -73.9958967
+        },
+        "southwest": {
+          "lat": 40.7189454,
+          "lng": -74.0054619
+        }
+      },
+      "location": {
+        "lat": 40.723301,
+        "lng": -74.0029883
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7283442,
+          "lng": -73.9958967
+        },
+        "southwest": {
+          "lat": 40.7189454,
+          "lng": -74.0054619
+        }
+      }
+    },
+    "place_id": "ChIJ8-JRXoxZwokRGPiQ9Ek0L84"
+  },
+  "Stuyvesant Town": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7350027,
+          "lng": -73.9734363
+        },
+        "southwest": {
+          "lat": 40.7284215,
+          "lng": -73.9825694
+        }
+      },
+      "location": {
+        "lat": 40.7316903,
+        "lng": -73.9778494
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7350027,
+          "lng": -73.9734363
+        },
+        "southwest": {
+          "lat": 40.7284215,
+          "lng": -73.9825694
+        }
+      }
+    },
+    "place_id": "ChIJoVoifnNZwokRBOHAiYH3L2U"
+  },
+  "Theater District": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7641791,
+          "lng": -73.9790779
+        },
+        "southwest": {
+          "lat": 40.75373,
+          "lng": -73.9908822
+        }
+      },
+      "location": {
+        "lat": 40.759011,
+        "lng": -73.9844722
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7641791,
+          "lng": -73.9790779
+        },
+        "southwest": {
+          "lat": 40.75373,
+          "lng": -73.9908822
+        }
+      }
+    },
+    "place_id": "ChIJgzD7uFVYwokRXCoEdvGu-aA"
+  },
+  "TriBeCa": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7259498,
+          "lng": -74.0018893
+        },
+        "southwest": {
+          "lat": 40.7113379,
+          "lng": -74.0137633
+        }
+      },
+      "location": {
+        "lat": 40.7162692,
+        "lng": -74.0086323
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7259498,
+          "lng": -74.0018893
+        },
+        "southwest": {
+          "lat": 40.7113379,
+          "lng": -74.0137633
+        }
+      }
+    },
+    "place_id": "ChIJFaeLkx9awokRmCS-Bi9hU0U"
+  },
+  "Two Bridges": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7144925,
+          "lng": -73.9841008
+        },
+        "southwest": {
+          "lat": 40.70808419999999,
+          "lng": -74.001267
+        }
+      },
+      "location": {
+        "lat": 40.7107469,
+        "lng": -73.99696
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7144925,
+          "lng": -73.9841008
+        },
+        "southwest": {
+          "lat": 40.70808419999999,
+          "lng": -74.001267
+        }
+      }
+    },
+    "place_id": "ChIJMclyuSVawokRggahRiEtKkM"
+  },
+  "Upper East Side": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7879499,
+          "lng": -73.94221689999999
+        },
+        "southwest": {
+          "lat": 40.7583091,
+          "lng": -73.9732511
+        }
+      },
+      "location": {
+        "lat": 40.7735649,
+        "lng": -73.9565551
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7879499,
+          "lng": -73.94221689999999
+        },
+        "southwest": {
+          "lat": 40.7583091,
+          "lng": -73.9732511
+        }
+      }
+    },
+    "place_id": "ChIJa49ICL9YwokRDaotFKkGh2E"
+  },
+  "Upper West Side": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.806098,
+          "lng": -73.9582099
+        },
+        "southwest": {
+          "lat": 40.768483,
+          "lng": -73.9963789
+        }
+      },
+      "location": {
+        "lat": 40.7870106,
+        "lng": -73.9753676
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.806098,
+          "lng": -73.9582099
+        },
+        "southwest": {
+          "lat": 40.768483,
+          "lng": -73.9963789
+        }
+      }
+    },
+    "place_id": "ChIJ1bsw-4JYwokRbMTfRoskJl4"
+  },
+  "Washington Heights": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.8595902,
+          "lng": -73.9224529
+        },
+        "southwest": {
+          "lat": 40.8281291,
+          "lng": -73.9505678
+        }
+      },
+      "location": {
+        "lat": 40.8417082,
+        "lng": -73.9393554
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.8595902,
+          "lng": -73.9224529
+        },
+        "southwest": {
+          "lat": 40.8281291,
+          "lng": -73.9505678
+        }
+      }
+    },
+    "place_id": "ChIJyzs3Vpz2wokRBAVKClFzdR4"
+  },
+  "West Village": {
+    "geometry": {
+      "bounds": {
+        "northeast": {
+          "lat": 40.7409452,
+          "lng": -73.99685199999999
+        },
+        "southwest": {
+          "lat": 40.7283442,
+          "lng": -74.0106976
+        }
+      },
+      "location": {
+        "lat": 40.73468,
+        "lng": -74.0047554
+      },
+      "location_type": "APPROXIMATE",
+      "viewport": {
+        "northeast": {
+          "lat": 40.7409452,
+          "lng": -73.99685199999999
+        },
+        "southwest": {
+          "lat": 40.7283442,
+          "lng": -74.0106976
+        }
+      }
+    },
+    "place_id": "ChIJY1SflpRZwokRhLCM-FupOe8"
+  }
+}

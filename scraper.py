@@ -637,30 +637,30 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 # def nameToUrl(n):
 #     switch = {
 #     }
-#     return switch.get(n, n.replace(' ', '-').lower()) 
+# #     return switch.get(n, n.replace(' ', '-').lower()) 
 
-data = {}
-with open('data/neighborhoods.csv') as csv_file:
-    csv_reader = csv.reader(csv_file, delimiter=',')
-    line_count = 0
-    for row in csv_reader:
-        if line_count == 0:
-            line_count+=1
-            continue
-        neighborhood_data={}
-        goodmigrations_url=row[9]
-        response = requests.get(goodmigrations_url, headers=headers)
-        soup = BeautifulSoup(response.text, "html.parser")
-        neighborhood_data['id']=row[0]
-        neighborhood_data['goodmigrations url']=goodmigrations_url
-        neighborhood_data['short description']=soup.find('div', class_='progress_title').text
-        ld=soup.find('div', class_='col-md-8').find_all('p')
-        neighborhood_data['long description']=""
-        # print(row[1])
-        for l in ld:
-            # print(l)
-            neighborhood_data['long description']=neighborhood_data['long description']+ "<br> "+l.text
-        data[row[1]]=neighborhood_data
+# data = {}
+# with open('data/neighborhoods.csv') as csv_file:
+#     csv_reader = csv.reader(csv_file, delimiter=',')
+#     line_count = 0
+#     for row in csv_reader:
+#         if line_count == 0:
+#             line_count+=1
+#             continue
+#         neighborhood_data={}
+#         goodmigrations_url=row[9]
+#         response = requests.get(goodmigrations_url, headers=headers)
+#         soup = BeautifulSoup(response.text, "html.parser")
+#         neighborhood_data['id']=row[0]
+#         neighborhood_data['goodmigrations url']=goodmigrations_url
+#         neighborhood_data['short description']=soup.find('div', class_='progress_title').text
+#         ld=soup.find('div', class_='col-md-8').find_all('p')
+#         neighborhood_data['long description']=""
+#         # print(row[1])
+#         for l in ld:
+#             # print(l)
+#             neighborhood_data['long description']=neighborhood_data['long description']+ "<br> "+l.text
+#         data[row[1]]=neighborhood_data
         
         # prices={}
         # prices_data=soup.find('div', class_='min_height255')[0].find('div', class_='row')[1].find_all('div', class_='progress_status')
@@ -675,8 +675,8 @@ with open('data/neighborhoods.csv') as csv_file:
 # print(soup.find_all('div', class_='progress_title'))
 
 
-with open("data/goodmigrations.txt", 'w', encoding='utf-8') as f:
-    json.dump(data, f, ensure_ascii=False, indent=4)
+# with open("data/goodmigrations.txt", 'w', encoding='utf-8') as f:
+#     json.dump(data, f, ensure_ascii=False, indent=4)
 
 
 # import pandas as pd
@@ -735,3 +735,65 @@ with open("data/goodmigrations.txt", 'w', encoding='utf-8') as f:
 
 # with open(new_file_name, 'w', encoding='utf-8') as f:
 #     json.dump(new_data, f, ensure_ascii=False, indent=4)
+
+
+neighborhood_list = ['Battery Park',
+                     'Chelsea',
+                     'Chinatown',
+                     'Civic Center',
+                     'East Harlem',
+                     'East Village',
+                     'Financial District',
+                     'Flatiron',
+                     'Gramercy',
+                     'Greenwich Village',
+                     'Harlem',
+                     "Hell's Kitchen",
+                     'Inwood',
+                     'Kips Bay',
+                     'Little Italy',
+                     'Lower East Side',
+                     'Marble Hill',
+                     'Midtown',
+                     'Morningside Heights',
+                     'Murray Hill',
+                     'NoHo',
+                     'Nolita',
+                     'Roosevelt Island',
+                     'SoHo',
+                     'Stuyvesant Town',
+                     'Theater District',
+                     'TriBeCa',
+                     'Two Bridges',
+                     'Upper East Side',
+                     'Upper West Side',
+                     'Washington Heights',
+                     'West Village']
+
+from geojson_rewind import rewind
+with open('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/data/custom-pedia-cities-nyc-Mar2018.geojson') as j:
+    data = rewind(json.load(j))
+    all_indices=[]
+    nei=[]
+    n_data={}
+    already=set()
+    for d in data['features']:
+        for n in neighborhood_list:
+            if n.lower() in d['properties']['neighborhood'].lower() and n.lower() not in already:
+                n_data[n.lower().replace(' ', '-').replace("'", '')]=d
+                # all_indices.append(all_indices)
+                # nei.append(n)
+                # print(d['properties']['neighborhood'])
+                # already.add(n)
+        # print(d['properties']['neighborhood'])
+
+        # name.append(d["name"])
+        # safety.append(gradeToValue(d["scores"]["Crime & Safety"]))
+        # overall.append(gradeToValue(d["scores"]["Overall Grade"]))
+        # r=int(d["real estate"]["median rent"].replace('$','').replace(',',''))
+        # rent.append(r)
+    print(len(all_indices))
+    print(list(set(neighborhood_list).difference(set(nei))))
+
+with open("neighborhoods-maps.txt", 'w', encoding='utf-8') as f:
+    json.dump(n_data, f, ensure_ascii=False, indent=4)
