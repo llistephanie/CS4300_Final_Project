@@ -7,6 +7,7 @@ from sklearn import preprocessing
 import os
 import nltk
 #import spacy
+import en_core_web_md
 #from imports import * # created to make testing quicker
 
 # from nltk.stem.porter import PorterStemmer
