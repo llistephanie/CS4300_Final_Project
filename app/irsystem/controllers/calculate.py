@@ -97,6 +97,10 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                                 "character"],
                      "Trendy": ["trendy", "popular", "upcoming"],
                      "College": ["college", "university", "student"]}
+relevant_keys = []
+with open ("app/irsystem/controllers/data/relevant_keys.json") as f:
+    data = json.load(f)
+relevant_keys = list(set(data["k"]))
 
 """
 Shared data containing all the scores and information for each neighborhood.
@@ -602,6 +606,20 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
                 norm_array[neighborhood_id] += prod
     return np.sqrt(norm_array)
 
+def match_unknown_words(word):
+    word_vec = word.vector
+    max_score = 0
+    track_key = ""
+    for x in relevant_keys:
+        key_word = nlp(x)
+        score = word.similarity(key_word)
+        if (score > max_score):
+            max_score = score
+            track_key = x
+    if track_key =="":
+        return None
+    return track_key
+
 
 def compute_query_info(query, idf, tokenizer, syn=True):
     toks = treebank_tokenizer.tokenize(query.lower())
@@ -614,48 +632,52 @@ def compute_query_info(query, idf, tokenizer, syn=True):
     # since turtle was the closest word it could fine. "asdf" is simply misspelled
     # uses a combination of the stem words to find the best output tokens
     query_tf = {}
-    # term frequencies in query
-    for tok in set(toks):
-        query_tf[tok] = toks.count(tok)
     for i in range(len(toks)):
         word = toks[i]
         stem_word = stemmer.stem(word)
 
         w_vec =  nlp(word)
         stem_vec = nlp(stem_word)
+
         if (np.sum(w_vec.vector)==0) or word in idf.keys():
             continue
         elif stem_word in idf.keys():
-            print(f"[STEMMING] {stem_word} ")
             toks[i] = stem_word
         else:
-            if syn:
-                for syn in wordnet.synsets(word): 
-                    for l in syn.lemmas(): 
-                        if l.name() in idf:
-                            print(f"[SYNONYM] {l.name()} ")
-                            toks[i] = l.name()
-                    # synonyms.append(l.name())
+            match = match_unknown_words(w_vec)
+            #print("### BEST MATCH ###")
+            #print(word + " " + match)
+            if (match is not None): toks[i] = match
+    """
+        if syn:
+            for syn in wordnet.synsets(word): 
+                for l in syn.lemmas(): 
+                    if l.name() in idf:
+                        print(f"[SYNONYM] {l.name()} ")
+                        toks[i] = l.name()
+                # synonyms.append(l.name())
+    """
+    # max_similarity_score = 0
+    # track_word = ""
+    # for k in idf.keys():
+    #     k_vec = nlp(k)
+    #     stem_k = nlp(stemmer.stem(k))
+    #     if np.sum(k_vec.vector) == 0 and np.sum(stem_k.vector) ==0:
+    #         continue # key not found in the library
+    #     elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
+    #         k_vec = stem_k
+    #     score = w_vec.similarity(k_vec)
+    #     if (score > max_similarity_score) and score > 0.6: 
+    #         max_similarity_score = score
+    #         track_word = k
+    # if (max_similarity_score > 0): toks[i] = track_word
 
-            # max_similarity_score = 0
-            # track_word = ""
-            # for k in idf.keys():
-            #     k_vec = nlp(k)
-            #     stem_k = nlp(stemmer.stem(k))
-            #     if np.sum(k_vec.vector) == 0 and np.sum(stem_k.vector) ==0:
-            #         continue # key not found in the library
-            #     elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
-            #         k_vec = stem_k
-            #     score = w_vec.similarity(k_vec)
-            #     if (score > max_similarity_score) and score > 0.6: 
-            #         max_similarity_score = score
-            #         track_word = k
-            # if (max_similarity_score > 0): toks[i] = track_word
-
-    query_tf = {}
     # term frequencies in query
     for tok in set(toks):
         query_tf[tok] = toks.count(tok)
+    print("###TESTING###")
+    print(toks)
+    print(query_tf)
 
     for word in toks:
         if word in idf.keys():
@@ -784,6 +806,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         inv_idx = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
+        with open("dump.json","w") as j:
+            json.dump(idf, j)
         # print('coffee' in idf)
 
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
@@ -794,7 +818,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         likes_scores = cosine_sim(
             query_info, inv_idx, idf, doc_norms, treebank_tokenizer)
 
-    print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
+    #print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
     included_ids = set(likes_scores.keys())
     zero_scored_neighborhoods = list(
@@ -828,7 +852,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
 
     all_walkscores={}
     commute_scores=[]
-    print(walkscore_data.items())
+    #print(walkscore_data.items())
     for cType,v in type_key.items():
         cscores = np.array([int(v['rankings'][type_key[cType]]) for k, v in walkscore_data.items()])
         all_walkscores[cType] = {neighborhood_list[i]: v for i, v in enumerate(cscores) }
