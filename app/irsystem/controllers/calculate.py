@@ -21,7 +21,7 @@ from datetime import datetime
 gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
 
 from nltk.stem.porter import PorterStemmer
-nlp = en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
+nlp = en_core_web_md.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
 stemmer = PorterStemmer()
 
 neighborhood_list = ['Battery Park',
