@@ -6,7 +6,8 @@ from nltk.tokenize import TreebankWordTokenizer
 from sklearn import preprocessing
 import os
 import nltk
-import spacy
+import
+#import spacy
 #from imports import * # created to make testing quicker
 # nltk.download('wordnet')
 # from nltk.corpus import wordnet as wn
@@ -15,7 +16,7 @@ import spacy
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
 from nltk.stem.porter import PorterStemmer
-nlp = spacy.load("en_vectors_web_lg")
+nlp = en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
 stemmer = PorterStemmer()
 
 neighborhood_list = ['Battery Park',
@@ -90,8 +91,6 @@ def match_keywords(input_l):
     i.e. input_l = ["affluent","drinks","fun"]
     output = ["expensive","coffee","theatre"]
     """
-    nlp = spacy.load("en_vectors_web_lg")
-    stemmer = PorterStemmer()
 
     category_list = []
     for word in input_l:

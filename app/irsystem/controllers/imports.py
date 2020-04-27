@@ -1,5 +1,4 @@
-import spacy
-from nltk.stem.porter import PorterStemmer
+import sputnik
+import spacy.about
 
-nlp = spacy.load("en_vectors_web_lg")
-stemmer = PorterStemmer()
+package = sputnik.install('spacy', spacy.about.__version__, spacy.about.__default_model__)
