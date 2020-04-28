@@ -74,8 +74,42 @@ no_likes = False
 with open("app/irsystem/controllers/data/coordinates.json", "r") as f:
     coordinates_data = json.load(f)
 
-place_ids=[(v['geometry']['location']['lat'], v['geometry']['location']['lng']) for k,v in coordinates_data.items()]
+# place_ids=[(v['geometry']['location']['lat'], v['geometry']['location']['lng']) for k,v in coordinates_data.items()]
 
+place_ids=[
+        "New Amsterdam Pavilion Battery Park, Peter Minuit Plaza, New York, NY 10004, USA",
+        "9 Av/W 23 St, New York, NY 10011, USA",
+        "44 Bowery, New York, NY 10013, USA",
+        "39 Centre St, New York, NY 10007, USA",
+        "2237 2nd Ave, New York, NY 10029, USA",
+        "144 Avenue A, New York, NY 10009, USA",
+        "26 Liberty St, New York, NY 10005, USA",
+        "2 E 21st St, New York, NY 10010, USA",
+        "38 Gramercy Park N, New York, NY 10010, USA",
+        "Christopher St Station, New York, NY 10014, USA",
+        "2175 Adam Clayton Powell Jr Blvd, New York, NY 10027, USA",
+        "458 W 49th St, New York, NY 10019, USA",
+        "207 St Station, New York, NY 10034, USA",
+        "411 3rd Ave, New York, NY 10016, USA",
+        "193 Grand St, New York, NY 10013, USA",
+        "465 Grand St, New York, NY 10002, USA",
+        "39 Jacobus Pl, The Bronx, NY 10463, USA",
+        "42 St-Bryant Park Station, New York, NY 10018, USA",
+        "Broadway/W 120 St, New York, NY 10027, USA",
+        "206 E 38th St, New York, NY 10016, USA",
+        "411 Lafayette St # 605, New York, NY 10003, USA",
+        "Mott St &, Prince St, New York, NY 10012, USA",
+        "500 Main St, New York, NY 10044, USA",
+        "501 Broome St, New York, NY 10013, USA",
+        "252 1st Avenue, New York, NY 10009, USA",
+        "1568A Broadway, New York, NY 10036, USA",
+        "W Broadway/Duane St, New York, NY 10013, USA",
+        "80 Catherine St, New York, NY 10038, USA",
+        "235 E 78th St, New York, NY 10075, USA",
+        "523 Amsterdam Ave, New York, NY 10024, USA",
+        "3456 St Nicholas Ave, New York, NY 10032, USA",
+        "367 Bleecker St, New York, NY 10014, USA"
+    ]
 
 relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
                      "Working Out": ["gym", "gyms", "yoga", "run", "skating", "basketball", "volleyball", "running", "exercise"],
@@ -882,7 +916,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     all_durations=None
 
     if(commuteDestination):
-        geocode_result = gmaps.geocode(commuteDestination)[0]
+        # geocode_result = gmaps.geocode(commuteDestination)[0]
 
         travel_modes={"Walk": "walking", "Bike": "bicycling", "Car": "driving", "Public Transit": "transit"}
 
@@ -890,9 +924,15 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
 
         all_durations={}
 
+        print(place_ids)
+
         for k,v in travel_modes.items():
-            all_matrices[k] = gmaps.distance_matrix(place_ids, (geocode_result['geometry']['location']['lat'], geocode_result['geometry']['location']['lng']), mode=v)
-            all_durations[k] = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) for i, v in enumerate(all_matrices[k]['rows']) }
+            all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v)
+            # print(json.dumps(all_matrices[k], indent=4))
+            # print(k)
+            all_durations[k] = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) if 'duration' in v['elements'][0].keys() else None for i, v in enumerate(all_matrices[k]['rows']) }
+
+        # print(json.dumps(all_matrices['Public Transit'], indent=4))
 
         ratio=15.0/(np.array([v['elements'][0]['duration']['value']/60 for v in all_matrices[commuteType]['rows']])+1e-1)
 
@@ -984,7 +1024,9 @@ def main():
     # loadCrimeScores()
     # calculateBudget(1500, 1750)
     # calculateAgeScore(22)
-    # calculateCommuteScore('walk')
+    # calculateCommuteScore('Bike', '345 Hudson St, New York, NY 10014, USA', 15)
+    # print(gmaps.distance_matrix("345 Hudson St, New York, NY 10014, USA", "144 Avenue A, New York, NY 10009", mode="transit"))
+
     # print(calculateTextSimLikes(['coffee']))
 
     # otherWeights = 1/5.0

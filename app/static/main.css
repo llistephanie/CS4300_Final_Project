@@ -6,26 +6,25 @@ body {
   background-color: #e2e2e2;
 }
 
-/* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 4px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* .element::-webkit-scrollbar { width: 0 !important } */
+
 
 #versions {
   position: absolute;
