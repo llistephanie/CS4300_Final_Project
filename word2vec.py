@@ -27,7 +27,6 @@ class MySentences(object):
                 # print(re.findall(reg, json.loads(line)['text'].lower()))
                 yield re.findall(reg, remove_stopwords(json.loads(line)['text'].lower()))
  
-
 # sentences = MySentences('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/external_data')
 sentences = MySentences('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/review_sample_cleveland.json')
 
@@ -45,7 +44,7 @@ model.save(pth)
 # words = list(model.wv.vocab)
 # print(words)
 
-print(model.wv.most_similar_cosmul(positive=['coffee', 'drinks']))
+print(model.wv.most_similar_cosmul(positive=['tea', 'drinks']))
 
 # print(model.wv.most_similar_cosmul(positive=['affordable'], negative=['expensive']))
 # print(model.wv.most_similar_cosmul(positive=['favorite', 'sweet']))

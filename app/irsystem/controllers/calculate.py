@@ -163,9 +163,9 @@ def scoreCalculation(data_list):
     for x in (data_list):
         score = (x - mean)/std
         score = (score+1.5)*100/3
-
         score = min(score, 100)
         score = max(score, 0)
+        
         if (x == 0):
             new_scores.append(0)
         else:
@@ -907,7 +907,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
     gas_scores = np.array([int(v['score']) for k, v in gasscore_data.items()])
     cscores = np.add(.25*car_scores, .25*gas_scores, .5*walk_scores)
-    all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(cscores)}
+    all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(scoreCalculation(cscores))}
     if commuteType=='Car':
         commute_scores=cscores
 
