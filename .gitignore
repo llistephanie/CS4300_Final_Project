@@ -8,3 +8,4 @@ vagrant/a4keypair.pem
 *.iml
 testing
 API
+review_sample_cleveland.json
