@@ -7,27 +7,15 @@ from sklearn import preprocessing
 import os
 import nltk
 import en_core_web_sm
-
-# import nltk
+from gensim.models import Word2Vec
 from nltk.corpus import wordnet
-
-#from imports import * # created to make testing quicker
-
-# from nltk.stem.porter import PorterStemmer
 import googlemaps
 from datetime import datetime
-# nltk.download('wordnet')
-# from nltk.corpus import wordnet as wn
-
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
+nlp = Word2Vec.load("./word2vec.pth")
 gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
-
-#import en_core_web_md
-from nltk.stem.porter import PorterStemmer
-nlp = en_core_web_sm.load()#en_vectors_web_lg.load()#spacy.load("en_vectors_web_lg")
-stemmer = PorterStemmer()
 
 neighborhood_list = ['Battery Park',
                      'Chelsea',
@@ -132,11 +120,12 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                                 "character"],
                      "Trendy": ["trendy", "popular", "upcoming"],
                      "College": ["college", "university", "student"]}
+"""
 relevant_keys = []
 with open ("app/irsystem/controllers/data/relevant_keys.json") as f:
     data = json.load(f)
 relevant_keys = list(set(data["k"]))
-
+"""
 """
 Shared data containing all the scores and information for each neighborhood.
 Scores will be a value from
@@ -252,7 +241,6 @@ def calculateAgeScore(age):
     mergeDict(data, norm_age_scores, "age score")
     return norm_age_scores
 
-
 def calculateBudget(minBudget, maxBudget):
     with open("app/irsystem/controllers/data/renthop.json") as f:
         renthop_data = json.load(f)
@@ -319,7 +307,6 @@ def calculateBudget(minBudget, maxBudget):
     return norm_budget_scores
 
 # Activities/Likes Score Code
-
 
 def tokenize(text):
     """Returns a list of words that make up the text.
@@ -672,58 +659,33 @@ def compute_query_info(query, idf, tokenizer, syn=True):
     # since turtle was the closest word it could fine. "asdf" is simply misspelled
     # uses a combination of the stem words to find the best output tokens
     query_tf = {}
-    for i in range(len(toks)):
-        word = toks[i]
-        stem_word = stemmer.stem(word)
+    new_toks = []
+    for i in toks:
+        related_list = []
+        if (i in nlp):
+            related_list = nlp.wv.most_similar_cosmul(positive=['boba'])
+            #print("###HERE")
+            #print(related_list)
 
-        w_vec =  nlp(word)
-        stem_vec = nlp(stem_word)
+        if i in idf.keys():
+            new_toks.append(i)
 
-        if (np.sum(w_vec.vector)==0) or word in idf.keys():
-            continue
-        elif stem_word in idf.keys():
-            toks[i] = stem_word
-        else:
-            match = match_unknown_words(w_vec)
-            #print("### BEST MATCH ###")
-            #print(word + " " + match)
-            if (match is not None): toks[i] = match
-    """
-        if syn:
-            for syn in wordnet.synsets(word):
-                for l in syn.lemmas():
-                    if l.name() in idf:
-                        print(f"[SYNONYM] {l.name()} ")
-                        toks[i] = l.name()
-                # synonyms.append(l.name())
-    """
-    # max_similarity_score = 0
-    # track_word = ""
-    # for k in idf.keys():
-    #     k_vec = nlp(k)
-    #     stem_k = nlp(stemmer.stem(k))
-    #     if np.sum(k_vec.vector) == 0 and np.sum(stem_k.vector) ==0:
-    #         continue # key not found in the library
-    #     elif(np.sum(k_vec.vector) == 0): # if original word isn't found use stem
-    #         k_vec = stem_k
-    #     score = w_vec.similarity(k_vec)
-    #     if (score > max_similarity_score) and score > 0.6:
-    #         max_similarity_score = score
-    #         track_word = k
-    # if (max_similarity_score > 0): toks[i] = track_word
+        for r_word, r_score in related_list:
+            if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
 
     # term frequencies in query
-    for tok in set(toks):
-        query_tf[tok] = toks.count(tok)
-    print("###TESTING###")
-    print(toks)
-    print(query_tf)
+    for tok in set(new_toks):
+        query_tf[tok] = new_toks.count(tok)
+    #print("###TESTING###")
+    #print(new_toks)
+    #print(query_tf)
 
-    for word in toks:
+
+    for word in new_toks:
         if word in idf.keys():
             query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
     query_norm = math.sqrt(query_norm_inner_sum)
-    return toks, query_tf, query_norm
+    return new_toks, query_tf, query_norm
 
 
 def cosine_sim(query, index, idf, doc_norms, tokenizer):
