@@ -12,7 +12,7 @@ from gensim.parsing.preprocessing import remove_stopwords
 logging.basicConfig(
     format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
-pth = "/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model-yelp2"
+pth = "./word2vec.model-yelp2"
 # pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model" # just our data
 
 class MySentences(object):
@@ -31,7 +31,7 @@ class MySentences(object):
                 # print(re.findall(reg, json.loads(line)['text'].lower()))
                 # yield re.findall(reg, remove_stopwords(json.loads(line)['text'].lower()))
 
-sentences = MySentences('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/external_data')
+sentences = MySentences('./external_data')
 # sentences = MySentences('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/review_sample_cleveland.json')
 
 # iter_listA = iter(sentences)
