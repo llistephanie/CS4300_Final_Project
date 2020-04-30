@@ -278,7 +278,7 @@ def calculateBudget(minBudget, maxBudget):
                               * percentage_points)
 
     fit_budget = np.array(fit_budget)
-    print(f"fit_budget {fit_budget}")
+    # print(f"fit_budget {fit_budget}")
 
     # keywords={}
     # if maxBudget >= np.mean(np.array(top_25s)):
@@ -560,8 +560,6 @@ def build_inverted_index(tokenize_method, neighborhoods_to_id,
             else:
                 term_tups = inv_idx[tok]
                 term_tups.append((neighborhood_id, tok_count))
-    # print(inv_idx['coffee'])
-    # [(0, 1), (1, 2), (2, 1), (3, 1), (4, 1), (5, 2), (6, 2), (7, 1), (8, 1), (9, 1), (10, 1), (11, 2), (12, 3), (13, 1), (14, 1), (15, 2), (16, 1), (17, 3), (18, 2), (19, 1), (20, 2), (21, 1), (22, 1), (23, 2), (24, 1), (25, 1), (26, 2), (27, 1), (28, 4), (29, 4), (30, 1), (31, 1)]
     return inv_idx
 
 
@@ -812,8 +810,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
         with open("dump.json","w") as j:
             json.dump(idf, j)
-        # print('coffee' in idf)
-
+        
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
         query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
         # print(f"query_info {query_info}")
