@@ -1000,6 +1000,7 @@ input[type="submit"] {
   font-weight: normal;
   font-size: 12px;
   line-height: 100%;
+  text-transform: uppercase;
   /* identical to box height, or 12px */
 
   color: #bdb8b8;

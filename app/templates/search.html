@@ -177,10 +177,9 @@
             <div class="description">
               <h4>All to know...</h4>
               <h5>{{d['short description']}}</h5>
-              <p>{{d['long description']}}</p>
-              <!-- {% for para in d['long description'] %} {% if loop.index <= 1 %}
+              {% for para in d['long description'] %} {% if loop.index <= 1 %}
               <p>{{para}}</p>
-              {% endif %} {% endfor %} -->
+              {% endif %} {% endfor %}
             </div>
           </div>
           {% endfor %}
@@ -190,10 +189,13 @@
         <div id="{{d['div-id']}}" class="modal">
           <div class="summary">
             <h1>{{d['name']}}</h1><span>Manhattan</span>
-            <p>{{d['long description']}}</p>
+            {% for para in d['long description'] %}
+              <p>{{para}}</p>
+            {% endfor %}
+            <!-- <p>{{d['long description']}}</p> -->
           </div>
           <div class="score">
-            {{d['score']}} <span>GOOD</span>
+            {{d['score']}} <span>{{d['score-text']}}</span>
           </div>
           <div class="love">
             <img src="static/icons/star_outline-white-18dp.svg" width="18">{{d['love']}}
