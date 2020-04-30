@@ -659,10 +659,11 @@ def compute_query_info(query, idf, tokenizer, syn=True):
     # uses a combination of the stem words to find the best output tokens
     query_tf = {}
     new_toks = []
+    print(toks)
     for i in toks:
         related_list = []
         if (i in nlp):
-            related_list = nlp.wv.most_similar_cosmul(positive=['boba'])
+            related_list = nlp.wv.most_similar_cosmul(positive=[i])
             #print("###HERE")
             #print(related_list)
 
@@ -671,7 +672,7 @@ def compute_query_info(query, idf, tokenizer, syn=True):
 
         for r_word, r_score in related_list:
             if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
-
+    print(new_toks)
     # term frequencies in query
     for tok in set(new_toks):
         query_tf[tok] = new_toks.count(tok)
