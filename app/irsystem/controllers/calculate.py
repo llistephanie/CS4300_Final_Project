@@ -6,7 +6,6 @@ from nltk.tokenize import TreebankWordTokenizer
 from sklearn import preprocessing
 import os
 import nltk
-import en_core_web_sm
 from gensim.models import Word2Vec
 from nltk.corpus import wordnet
 import googlemaps
