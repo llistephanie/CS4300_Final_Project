@@ -754,139 +754,194 @@ input[type="submit"] {
 }
 
 #battery-park::after {
-  background: url("battery-park-2.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-#chinatown::after {
-  background: url("chinatown3-2.jpg");
+  background: url("background-images/battery-park-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #chelsea::after {
-  background: url("chelsea-2.jpg");
+  background: url("background-images/chelsea-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#chinatown::after {
+  background: url("background-images/chinatown3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #civic-center::after {
-  background: url("civic-center3-2.jpg");
+  background: url("background-images/civic-center3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #east-harlem:after {
-  background: url("east_harlem-2.jpg");
+  background: url("background-images/east_harlem-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #east-village::after {
-  background: url("east-village-2.jpg");
+  background: url("background-images/east-village-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #financial-district::after {
-  background: url("financial-district-2.jpg");
+  background: url("background-images/financial-district-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #flatiron::after {
-  background: url("flatiron4-2.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-#greenwich-village::after {
-  background: url("greenwich-village2-2.jpg");
+  background: url("background-images/flatiron4-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #gramercy::after {
-  background: url("gramercy4-2.jpg");
+  background: url("background-images/gramercy4-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+
+#greenwich-village::after {
+  background: url("background-images/greenwich-village-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #harlem::after {
-  background: url("harlem3-2.jpg");
+  background: url("background-images/harlem3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #hells-kitchen::after {
-  background: url("hells_kitchen-2.jpg");
+  background: url("background-images/midtown-west-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#inwood::after {
+  background: url("background-images/inwood-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #kips-bay::after {
-  background: url("kips-bay-2.jpg");
+  background: url("background-images/kips-bay-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#little-italy::after {
+  background: url("background-images/little-italy3-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#lower-east-side::after {
+  background: url("background-images/lower-east-side2-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#marble-hill::after {
+  background: url("background-images/marble-hill-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #midtown::after {
-  background: url("midtown3-2.jpg");
+  background: url("background-images/midtown3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #morningside-heights::after {
-  background: url("morningside-heights-2.jpg");
+  background: url("background-images/morningside-heights-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #murray-hill:after {
-  background: url("murray-hill-2.jpg");
+  background: url("background-images/murray-hill-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#noho:after {
+  background: url("background-images/noho-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #nolita:after {
-  background: url("nolita2-2.jpg");
+  background: url("background-images/nolita2-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #roosevelt-island:after {
-  background: url("roosevelt-island-2.jpg");
+  background: url("background-images/roosevelt-island-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#soho:after {
+  background: url("background-images/soho-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #stuyvesant-town:after {
-  background: url("stuyvesant-town-2.jpg");
+  background: url("background-images/stuyvesant-town-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #theater-district:after {
-  background: url("theater_district_around_the_block_1-2.jpg");
+  background: url("background-images/theater-district-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#tribeca:after {
+  background: url("background-images/tribeca-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#two-bridges:after {
+  background: url("background-images/two-bridges-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #upper-east-side::after {
-  background: url("upper-east-side3-2.jpg");
+  background: url("background-images/upper-east-side3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #upper-west-side::after {
-  background: url("upper-west-side4-2.jpg");
+  background: url("background-images/upper-west-side4-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #west-village::after {
-  background: url("west-village2-2.jpg");
+  background: url("background-images/west-village2-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#washington-heights::after {
+  background: url("background-images/washington-heights-2.jpg");
   background-size: cover;
   background-position: center;
 }

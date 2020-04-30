@@ -1,5 +1,5 @@
 {
-    "Battery Park": ["https://www.brickunderground.com/live/tribeca-or-battery-park-city", "https://www.nybits.com/manhattan/battery_park_city/", "https://www.brickunderground.com/live/best-manhattan-neighborhoods-for-familes?utm_source=NYBits&utm_medium=weblink&utm_campaign=default&", "https://www.triplemint.com/blog/battery-park-city-nyc-2019-neighborhood-guide/"],
+    "Battery Park": ["https://www.brickunderground.com/live/tribeca-or-battery-park-city", "https://www.nybits.com/manhattan/battery_park_city/", "https://www.brickunderground.com/live/best-manhattan-neighborhoods-for-familes?utm_source=NYBits&utm_medium=weblink&utm_campaign=default&", "https://www.triplemint.com/blog/battery-park-city-nyc-2019-neighborhood-guide/", "https://metropolismoving.com/blog/neighborhoods-in-manhattan-explained/"],
     "Chelsea": ["https://www.brickunderground.com/live/best-manhattan-neighborhoods-for-familes?utm_source=NYBits&utm_medium=weblink&utm_campaign=default&", "https://ny.curbed.com/2017/6/27/15881706/nyc-richest-neighborhoods-manhattan-brooklyn", "https://www.triplemint.com/blog/chelsea-nyc-2019-neighborhood-guide/", "https://www.timeout.com/newyork/manhattan/chelsea-manhattan-neighborhood-guide", "https://www.nycgo.com/boroughs-neighborhoods/manhattan/chelsea/"],
     "Chinatown": ["https://www.brickunderground.com/live/neighborhood-secrets-what-to-know-about-living-in-manhattan-chinatown-nyc?utm_source=NYBits&utm_medium=weblink&utm_campaign=default&", "https://www.nybits.com/manhattan/chinatown/", "http://www.turfsavvy.com/little-italy-chinatown-neighborhood-guide"],
     "Civic Center": ["https://ny.curbed.com/2017/6/27/15881706/nyc-richest-neighborhoods-manhattan-brooklyn"],
@@ -15,7 +15,7 @@
     "Kips Bay": ["http://www.turfsavvy.com/murray-hill-kips-bay"],
     "Little Italy": ["https://ny.curbed.com/2017/6/27/15881706/nyc-richest-neighborhoods-manhattan-brooklyn", "http://astoldbyashandshelbs.com/nyc-neighborhood-guide-little-italy/", "http://www.turfsavvy.com/little-italy-chinatown-neighborhood-guide"],
     "Lower East Side": ["https://www.triplemint.com/blog/lower-east-side-nyc-2019-neighborhood-guide/", "http://www.turfsavvy.com/lower-east-side-neighborhood-guidehttp://www.turfsavvy.com/murray-hill-kips-bay"],
-    "Marble Hill": [],
+    "Marble Hill": ["https://streeteasy.com/blog/marble-hill-becomes-part-of-manhattan/"],
     "Midtown": ["https://ny.curbed.com/2017/6/27/15881706/nyc-richest-neighborhoods-manhattan-brooklyn", "https://www.triplemint.com/blog/midtown-west-nyc-2019-neighborhood-guide/"],
     "Morningside Heights": ["https://www.elegran.com/nyc/neighborhoods/morningside-heights", "https://www.citihabitats.com/new-york-neighborhoods/manhattan/morningside-heights/66"],
     "Murray Hill": ["https://www.nycgo.com/boroughs-neighborhoods/manhattan/murray-hill/", "http://www.turfsavvy.com/murray-hill-kips-bay"],
@@ -24,11 +24,11 @@
     "Roosevelt Island": ["https://www.tripsavvy.com/roosevelt-island-the-complete-guide-4178986", "https://www.brickunderground.com/live/whats-it-like-to-live-on-roosevelt-island", "https://www.nycgo.com/boroughs-neighborhoods/manhattan/roosevelt-island/"],
     "SoHo": ["https://ny.curbed.com/2017/6/27/15881706/nyc-richest-neighborhoods-manhattan-brooklyn", "https://www.triplemint.com/blog/soho-nyc-2019-neighborhood-guide/", "http://www.turfsavvy.com/soho"],
     "Stuyvesant Town": ["https://www.elegran.com/nyc/neighborhoods/stuyvesant-town"],
-    "Theater District": [],
+    "Theater District": ["https://wikitravel.org/en/Manhattan/Theater_District"],
     "TriBeCa": ["https://www.brickunderground.com/live/tribeca-or-battery-park-city", "https://www.brickunderground.com/live/best-manhattan-neighborhoods-for-familes?utm_source=NYBits&utm_medium=weblink&utm_campaign=default&", "https://ny.curbed.com/2017/6/27/15881706/nyc-richest-neighborhoods-manhattan-brooklyn", "https://www.triplemint.com/blog/tribeca-nyc-2019-neighborhood-guide/", "http://www.turfsavvy.com/tribeca-neighborhood-guide"],
-    "Two Bridges": [],
+    "Two Bridges": ["https://www.nytimes.com/2017/12/06/realestate/living-in-two-bridges-lower-east-side.html"],
     "Upper East Side": ["https://ny.curbed.com/2017/6/27/15881706/nyc-richest-neighborhoods-manhattan-brooklyn", "https://www.zumper.com/blog/upper-east-side-neighborhood-guide/", "https://www.triplemint.com/blog/upper-east-side-nyc-2019-neighborhood-guide/", "http://astoldbyashandshelbs.com/nyc-neighborhood-guide-upper-east-side/"],
-    "Upper West Side": ["https://www.brickunderground.com/live/best-manhattan-neighborhoods-for-familes?utm_source=NYBits&utm_medium=weblink&utm_campaign=default&"],
+    "Upper West Side": ["https://www.brickunderground.com/live/best-manhattan-neighborhoods-for-familes?utm_source=NYBits&utm_medium=weblink&utm_campaign=default&", "https://www.cubesmart.com/blog/city-guides/nyc/5-of-the-best-neighborhoods-to-live-in-manhattan/"],
     "Washington Heights": ["https://www.brickunderground.com/live/best-manhattan-neighborhoods-for-familes?utm_source=NYBits&utm_medium=weblink&utm_campaign=default&"], 
     "West Village": ["https://ny.curbed.com/2017/6/27/15881706/nyc-richest-neighborhoods-manhattan-brooklyn", "https://www.triplemint.com/blog/west-village-nyc-2019-neighborhood-guide/", "https://www.tripsavvy.com/west-village-neighborhood-guide-1613185", "http://www.turfsavvy.com/west-village-neighborhood-guide"] 
   }
