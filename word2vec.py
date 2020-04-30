@@ -48,7 +48,9 @@ model = Word2Vec.load(pth)
 # words = list(model.wv.vocab)
 # print(words)
 
-print(model.wv.most_similar_cosmul(positive=['boba']))
+# print(model.wv.most_similar_cosmul(positive=['drink']))
+
+print(model.wv.most_similar('bubble'))
 
 # print(model.wv.most_similar_cosmul(positive=['affordable'], negative=['expensive']))
 # print(model.wv.most_similar_cosmul(positive=['favorite', 'sweet']))

@@ -56,6 +56,9 @@
               <input
                 id="commute-duration"
                 type="number"
+                {% if query %}
+                value="{{ query['commute-duration'] }}"
+                {% endif %}
                 name="commute-duration"
                 class="form-control"
                 value="15"
