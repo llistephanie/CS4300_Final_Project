@@ -218,7 +218,7 @@ const coordinate_data = {
       ],
     },
   },
-  chelsea: {
+  "chelsea": {
     type: "Feature",
     properties: {
       neighborhood: "Chelsea, Staten Island",
@@ -332,7 +332,7 @@ const coordinate_data = {
       ],
     },
   },
-  chinatown: {
+  "chinatown": {
     type: "Feature",
     properties: {
       neighborhood: "Chinatown",
@@ -502,7 +502,7 @@ const coordinate_data = {
       ],
     },
   },
-  harlem: {
+  "harlem": {
     type: "Feature",
     properties: {
       neighborhood: "Harlem",
@@ -913,7 +913,7 @@ const coordinate_data = {
       ],
     },
   },
-  flatiron: {
+  "flatiron": {
     type: "Feature",
     properties: {
       neighborhood: "Flatiron District",
@@ -940,7 +940,7 @@ const coordinate_data = {
       ],
     },
   },
-  gramercy: {
+  "gramercy": {
     type: "Feature",
     properties: {
       neighborhood: "Gramercy",
@@ -1210,7 +1210,7 @@ const coordinate_data = {
       ],
     },
   },
-  inwood: {
+  "inwood": {
     type: "Feature",
     properties: {
       neighborhood: "Inwood",
@@ -2460,7 +2460,7 @@ const coordinate_data = {
       ],
     },
   },
-  midtown: {
+  "midtown": {
     type: "Feature",
     properties: {
       neighborhood: "Midtown",
@@ -2623,7 +2623,7 @@ const coordinate_data = {
       ],
     },
   },
-  noho: {
+  "noho": {
     type: "Feature",
     properties: {
       neighborhood: "NoHo",
@@ -2646,7 +2646,7 @@ const coordinate_data = {
       ],
     },
   },
-  nolita: {
+  "nolita": {
     type: "Feature",
     properties: {
       neighborhood: "Nolita",
@@ -2788,7 +2788,7 @@ const coordinate_data = {
       ],
     },
   },
-  soho: {
+  "soho": {
     type: "Feature",
     properties: {
       neighborhood: "SoHo",
@@ -2925,7 +2925,7 @@ const coordinate_data = {
       ],
     },
   },
-  tribeca: {
+  "tribeca": {
     type: "Feature",
     properties: {
       neighborhood: "Tribeca",

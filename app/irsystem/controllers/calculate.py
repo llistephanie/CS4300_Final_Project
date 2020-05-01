@@ -833,7 +833,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
         if merge_dict:
             mergeDict(data, norm_likes_scores, "likes score")
-        return norm_likes_scores
+        return norm_likes_scores, {}
 
     prefix = 'app/irsystem/controllers/data/'
     query_str = ' '.join(likes_list)
