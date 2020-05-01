@@ -257,9 +257,17 @@
             <span>Trendy</span> <span>Chic</span> <span>Expensive</span> <span>For Families</span>
           </div>
           <div class="map" id="{{d['div-id']}}-map"></div>
+          <div class="docs" id="{{d['div-id']}}-docs">
+            {% for doc in d['docs'] %}
+              <p>{{doc[0]|safe}}
+                <span>{% if doc[1] %} — {{doc[1]}} {% endif %}</span>
+              </p>
+            {% endfor %}
+          </div>
           <div class="links">
             <a class="active" onclick="closeMap(this)" data-x="{{d['div-id']}}">info</a>
             <a onclick="openMap(this)" data-x="{{d['div-id']}}">map</a>
+            {% if d['docs'] %}<a onclick="openDocs(this)" data-x="{{d['div-id']}}">docs</a>{% endif %}
           </div>
         </div>
         {% endfor %}

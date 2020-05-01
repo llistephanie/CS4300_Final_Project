@@ -205,6 +205,7 @@ function closeMap(e) {
   $(n + " .links a").removeClass("active");
   $(e).addClass("active");
   $(n + "-map").hide(500);
+  $(n + "-docs").hide(500);
   $(n + " .radar").show(500);
   $(n + " .tags").show(500);
 }
@@ -214,9 +215,21 @@ function openMap(e) {
   $(n + " .links a").removeClass("active");
   $(e).addClass("active");
   $(n + "-map").show(500);
+  $(n + "-docs").hide(500);
   $(n + " .radar").hide(500);
   $(n + " .tags").hide(500);
 }
+
+function openDocs(e) {
+  var n = "#" + $(e)[0].getAttribute("data-x");
+  $(n + " .links a").removeClass("active");
+  $(e).addClass("active");
+  $(n + "-docs").show(500);
+  $(n + "-map").hide(500);
+  $(n + " .radar").hide(500);
+  $(n + " .tags").hide(500);
+}
+
 $(document).ready(function () {
   $(document).on("keyup", function (e) {
     console.log("HELLO");

@@ -317,6 +317,10 @@ def tokenize(text):
     result = re.findall(reg, lower_case)
     return result
 
+def mergeMapping(original, new):
+    for k,v in new.items():
+        original.setdefault(k,[]).append(v)
+    return original
 
 def tokenize_niche(tokenize_method, input_niche, input_neighborhood):
     """Returns a list of words contained in a neighborhood's niche
@@ -327,17 +331,16 @@ def tokenize_niche(tokenize_method, input_niche, input_neighborhood):
     Returns: List
     """
     token_list = []
+    n={}
     if input_neighborhood in input_niche.keys():
-        # desc = input_niche[input_neighborhood]['description']
         reviews_list = input_niche[input_neighborhood]['reviews']
-        # if desc is not None:
-        #     tokenized_desc = tokenize_method(desc)
-        #     token_list.extend(tokenized_desc)
         if reviews_list is not None:
             for review in reviews_list:
                 review_text = tokenize_method(review['text'])
                 token_list.extend(review_text)
-    return token_list
+                tokens_post = dict.fromkeys(review_text, review['text'])
+                n = mergeMapping(n, tokens_post)
+    return token_list, n
 
 
 def tokenize_streeteasy(tokenize_method, input_streeteasy, input_neighborhood):
@@ -348,6 +351,7 @@ def tokenize_streeteasy(tokenize_method, input_streeteasy, input_neighborhood):
     Returns: List
     """
     token_list = []
+    n={}
     if input_neighborhood in input_streeteasy.keys():
         desc = input_streeteasy[input_neighborhood]['description']
         mood = input_streeteasy[input_neighborhood]['the mood']
@@ -358,22 +362,34 @@ def tokenize_streeteasy(tokenize_method, input_streeteasy, input_neighborhood):
         if desc is not None:
             tokenized_desc = tokenize_method(desc)
             token_list.extend(tokenized_desc)
+            tokens_post = dict.fromkeys(tokenized_desc, desc)
+            n = mergeMapping(n, tokens_post)
         if mood is not None:
             tokenized_mood = tokenize_method(mood)
             token_list.extend(tokenized_mood)
+            tokens_post = dict.fromkeys(tokenized_mood, mood)
+            n = mergeMapping(n, tokens_post)
         if more is not None:
             tokenized_more = tokenize_method(more)
             token_list.extend(tokenized_more)
+            tokens_post = dict.fromkeys(tokenized_more, more)
+            n = mergeMapping(n, tokens_post)
         if downside is not None:
             tokenized_downside = tokenize_method(downside)
             token_list.extend(tokenized_downside)
+            tokens_post = dict.fromkeys(tokenized_downside, downside)
+            n = mergeMapping(n, tokens_post)
         if housing is not None:
             tokenized_housing = tokenize_method(housing)
             token_list.extend(tokenized_housing)
+            tokens_post = dict.fromkeys(tokenized_housing, housing)
+            n = mergeMapping(n, tokens_post)
         if best_perk is not None:
             tokenized_perk = tokenize_method(best_perk)
             token_list.extend(tokenized_perk)
-    return token_list
+            tokens_post = dict.fromkeys(tokenized_perk, best_perk)
+            n = mergeMapping(n, tokens_post)
+    return token_list, n
 
 
 def tokenize_compass(tokenize_method, input_compass, input_neighborhood):
@@ -384,6 +400,7 @@ def tokenize_compass(tokenize_method, input_compass, input_neighborhood):
     Returns: List
     """
     token_list = []
+    n={}
     if input_neighborhood in input_compass.keys():
         tags = input_compass[input_neighborhood]['tags']
         tags_list = ' '.join(tags)
@@ -395,47 +412,62 @@ def tokenize_compass(tokenize_method, input_compass, input_neighborhood):
         if tags_list is not None:
             tokenized_tags = tokenize_method(tags_list)
             token_list.extend(tokenized_tags)
+            tokens_post = dict.fromkeys(tokenized_tags, tags_list)
+            n = mergeMapping(n, tokens_post)
         if desc is not None:
             tokenized_desc = tokenize_method(desc)
             token_list.extend(tokenized_desc)
+            tokens_post = dict.fromkeys(tokenized_desc, desc)
+            n = mergeMapping(n, tokens_post)
         if lifestyle is not None:
             tokenized_lifestyle = tokenize_method(
                 lifestyle['short'] + ' ' + lifestyle['long'])
             token_list.extend(tokenized_lifestyle)
+            tokens_post = dict.fromkeys(tokenized_lifestyle, lifestyle['short'] + ' ' + lifestyle['long'])
+            n = mergeMapping(n, tokens_post)
         if market is not None:
             tokenized_market = tokenize_method(
                 market['short'] + ' ' + market['long'])
             token_list.extend(tokenized_market)
+            tokens_post = dict.fromkeys(tokenized_market, market['short'] + ' ' + market['long'])
+            n = mergeMapping(n, tokens_post)
         if highlight is not None:
             tokenized_highlight = tokenize_method(
                 highlight['short'] + ' ' + highlight['long'])
             token_list.extend(tokenized_highlight)
+            tokens_post = dict.fromkeys(tokenized_highlight, highlight['short'] + ' ' + highlight['long'])
+            n = mergeMapping(n, tokens_post)
         if expectation is not None:
             tokenized_expectation = tokenize_method(
                 expectation['short'] + ' ' + expectation['long'])
             token_list.extend(tokenized_expectation)
-    return token_list
+            tokens_post = dict.fromkeys(tokenized_expectation, expectation['short'] + ' ' + expectation['long'])
+            n = mergeMapping(n, tokens_post)
+    return token_list, n
 
 
 def tokenize_reddit(tokenize_method, input_reddit, input_neighborhood):
-    """Returns a list of words contained in a neighborhood's niche
-       description.
+    """Returns a list of words contained in a neighborhood's reddit
+       posts.
     Params: {tokenize_method: Function (a -> b),
                  input_reddit: JSON
              input_neighborhood: String}
     Returns: List
     """
     token_list = []
+    n={}
     if input_neighborhood in input_reddit.keys():
         posts_list = input_reddit[input_neighborhood]
         if posts_list is not None:
             for post in posts_list:
                 post_text = tokenize_method(post)
                 token_list.extend(post_text)
-    return token_list
+                tokens_post = dict.fromkeys(post_text, post)
+                n = mergeMapping(n, tokens_post)
+    return token_list, n
 
 def tokenize_goodmigrations(tokenize_method, input_goodmigrations, input_neighborhood):
-    """Returns a list of words contained in a neighborhood's niche
+    """Returns a list of words contained in a neighborhood's goodmigrations
        description.
     Params: {tokenize_method: Function (a -> b),
                  input_goodmigrations: JSON
@@ -443,33 +475,40 @@ def tokenize_goodmigrations(tokenize_method, input_goodmigrations, input_neighbo
     Returns: List
     """
     token_list = []
+    n={}
     if input_neighborhood in input_goodmigrations.keys():
         desc = input_goodmigrations[input_neighborhood]['short description']
         desc2 = input_goodmigrations[input_neighborhood]['long description']
         if desc is not None:
             tokenized_desc = tokenize_method(desc)
             token_list.extend(tokenized_desc)
+            tokens_post = dict.fromkeys(tokenized_desc, desc)
+            n = mergeMapping(n, tokens_post)
         if desc2 is not None:
             tokenized_desc = tokenize_method(desc2)
             token_list.extend(tokenized_desc)
-    return token_list
+            tokens_post = dict.fromkeys(tokenized_desc, desc2)
+            n = mergeMapping(n, tokens_post)
+    return token_list, n
 
 def tokenize_externaldata(tokenize_method, input_externaldata, input_neighborhood):
-    """Returns a list of words contained in a neighborhood's niche
-       description.
+    """Returns a list of words contained in a neighborhood's external data.
     Params: {tokenize_method: Function (a -> b),
                  input_reddit: JSON
              input_neighborhood: String}
     Returns: List
     """
     token_list = []
+    n={}
     if input_neighborhood in input_externaldata.keys():
         posts_list = input_externaldata[input_neighborhood]
         if posts_list is not None:
             for post in posts_list:
                 post_text = tokenize_method(post)
                 token_list.extend(post_text)
-    return token_list
+                tokens_post = dict.fromkeys(post_text, post)
+                n = mergeMapping(n, tokens_post)
+    return token_list, n
 
 def get_neighborhood_tokens(tokenizer, data_files, tokenize_methods, input_neighborhood):
     """Returns a list of words contained in all the data describing input_neighborhood.
@@ -482,21 +521,22 @@ def get_neighborhood_tokens(tokenizer, data_files, tokenize_methods, input_neigh
     tokenize_niche = tokenize_methods[0]
     tokenize_streeteasy = tokenize_methods[1]
     tokenize_compass = tokenize_methods[2]
-    tokenize_reddit = tokenize_methods[3]
+    # tokenize_reddit = tokenize_methods[3]
     tokenize_goodmigrations = tokenize_methods[4]
     tokenize_externaldata = tokenize_methods[5]
-    tokens = tokenize_niche(tokenizer, data_files[0], input_neighborhood)
-    tokens.extend(tokenize_streeteasy(
-        tokenizer, data_files[1], input_neighborhood))
-    tokens.extend(tokenize_compass(
-        tokenizer, data_files[2], input_neighborhood))
-    tokens.extend(tokenize_reddit(
-        tokenizer, data_files[3], input_neighborhood))
-    tokens.extend(tokenize_goodmigrations(
-        tokenizer, data_files[4], input_neighborhood))
-    tokens.extend(tokenize_externaldata(
-        tokenizer, data_files[5], input_neighborhood))
-    return tokens
+    tokens_n, mapping_n=tokenize_niche(tokenizer, data_files[0], input_neighborhood)
+    tokens=tokens_n
+    tokens_se, mapping_se=tokenize_streeteasy(tokenizer, data_files[1], input_neighborhood)
+    tokens.extend(tokens_se)
+    tokens_c, mapping_c=tokenize_compass(tokenizer, data_files[2], input_neighborhood)
+    tokens.extend(tokens_c)
+    # tokens_r, mapping_r=tokenize_reddit(tokenizer, data_files[3], input_neighborhood)
+    # tokens.extend(tokens_r)
+    tokens_gm, mapping_gm=tokenize_goodmigrations(tokenizer, data_files[4], input_neighborhood)
+    tokens.extend(tokens_gm)
+    tokens_ed, mapping_ed=tokenize_externaldata(tokenizer, data_files[5], input_neighborhood)
+    tokens.extend(tokens_ed)
+    return tokens, (mapping_n, mapping_se, mapping_c, {}, mapping_gm, mapping_ed)
 
 
 def build_word_neighborhood_count(tokenizer, data, tokenize_methods, input_neighborhoods):
@@ -579,10 +619,11 @@ def build_inverted_index(tokenize_method, neighborhoods_to_id,
                          data, tokenize_data_methods):
     """ Builds an inverted index from the messages."""
     inv_idx = {}
+    mappings={}
     for neighborhood_name, neighborhood_id in neighborhoods_to_id.items():
-        tokens = get_neighborhood_tokens(
+        tokens, mapping = get_neighborhood_tokens(
             tokenize_method, data, tokenize_data_methods, neighborhood_name)
-
+        mappings[neighborhood_name]=mapping
         distinct_toks = set(tokens)
         for tok in distinct_toks:
             tok_count = tokens.count(tok)
@@ -592,7 +633,7 @@ def build_inverted_index(tokenize_method, neighborhoods_to_id,
             else:
                 term_tups = inv_idx[tok]
                 term_tups.append((neighborhood_id, tok_count))
-    return inv_idx
+    return inv_idx, mappings
 
 
 def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
@@ -800,6 +841,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     #related_words = " ".join(likes_list)
     query_extended = query_str #+ ' ' + related_words
     likes_scores = []
+    docs_with_query={}
 
     with open(prefix + 'niche.json', encoding="utf-8") as niche_file, open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, open(prefix + 'compass.json', encoding="utf-8") as compass_file, open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file, open(prefix + 'external_data.json', encoding="utf-8") as externaldata_file:
 
@@ -821,15 +863,27 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
                       compass_data, reddit_data, goodmigrations_data, externaldata_data]
 
         # Information retrieval
-        inv_idx = build_inverted_index(
+        inv_idx, mappings = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods)
         idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
         with open("dump.json","w") as j:
             json.dump(idf, j)
-        
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
         query_info = compute_query_info(query_extended, idf, treebank_tokenizer)
-        # print(f"query_info {query_info}")
+        for k,v in mappings.items():
+            map_n, map_se, map_c, map_r, map_gm, map_ed=v
+            rel_docs=[]
+            for q in query_info[0]:
+                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "niche") for x in map_n.get(q, [])])
+                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "streeteasy")for x in map_se.get(q, [])])
+                # print(map_c)
+                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "compass") for x in map_c.get(q, [])])
+                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "reddit") for x in map_r.get(q, [])])
+                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "goodmigrations") for x in map_gm.get(q, [])])
+                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "") for x in map_ed.get(q, [])])
+            docs_with_query[k]=rel_docs
+
+        print(f"query_info {query_info}")
 
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
@@ -855,7 +909,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     if merge_dict:
         mergeDict(data, norm_likes_scores, "likes score")
-    return norm_likes_scores
+    return norm_likes_scores, docs_with_query
 
 def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     with open("app/irsystem/controllers/data/walkscore.json") as f:
@@ -953,7 +1007,7 @@ def getTopNeighborhoods(query):
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
     _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'])
-    calculateTextSimLikes(query['likes'], True)
+    _, docs_with_query=calculateTextSimLikes(query['likes'], True)
     # totalOtherScores = 5 if len(query['likes']) > 0 else 4
     # otherWeights = 1.0/totalOtherScores
 
@@ -978,7 +1032,7 @@ def getTopNeighborhoods(query):
         rent = {'median': renthop_data[name]['1BR']['Median'], 'top': renthop_data[name]
                 ['1BR']['Top 25%'], 'bottom': renthop_data[name]['1BR']['Bottom 25%']}
         n = {'name': name, 'score': round(score, 2), 'score-text': getScoreText(score), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
-            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>"), 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0]}
+            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>"), 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0], "docs": docs_with_query[name]}
         # if(query['commute-destination']!=''):
         n['walk-duration']=durations['Walk'][name]
         n['bike-duration']=durations['Bike'][name]
@@ -1010,7 +1064,8 @@ def main():
     # calculateCommuteScore('Bike', '345 Hudson St, New York, NY 10014, USA', 15)
     # print(gmaps.distance_matrix("345 Hudson St, New York, NY 10014, USA", "144 Avenue A, New York, NY 10009", mode="transit"))
 
-    print(calculateTextSimLikes(['expensive']))
+    # _, docs_with_query=calculateTextSimLikes(['expensive', 'love', 'boba'])
+    # print(docs_with_query)
 
 
-main()
+# main()

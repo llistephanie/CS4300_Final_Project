@@ -1335,3 +1335,48 @@ tspan {
   background-color: #35965b;
   /* background-color: #aaa; */
 }
+
+.docs {
+  width: calc(595px - 80px) !important;
+  height: calc(583px - 80px) !important;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: none;
+  left: -10%;
+  background-color: #111115;
+  color: #fff;
+  top: 0px;
+  left: 0px;
+  display: none;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 125%;
+  text-transform: none;
+  /* identical to box height, or 14px */
+  color: #ffffff;
+  overflow-y: scroll;
+}
+
+.docs p::before {
+    content: "“";
+}
+
+.docs p b {
+  color: #31a05f;
+/*   font-style: italic; */
+}
+
+.docs span {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 10px;
+  line-height: 100%;
+  /* identical to box height, or 9px */
+  color: #ffffffab;
+  margin: 5px;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
