@@ -1,51 +1,4 @@
-/**
- * http://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion
- *
- * Converts an HSL color value to RGB. Conversion formula
- * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
- * Assumes h, s, and l are contained in the set [0, 1] and
- * returns r, g, and b in the set [0, 255].
- *
- * @param   Number  h       The hue
- * @param   Number  s       The saturation
- * @param   Number  l       The lightness
- * @return  Array           The RGB representation
- */
-function hslToRgb(h, s, l) {
-  var r, g, b;
-
-  if (s == 0) {
-    r = g = b = l; // achromatic
-  } else {
-    function hue2rgb(p, q, t) {
-      if (t < 0) t += 1;
-      if (t > 1) t -= 1;
-      if (t < 1 / 6) return p + (q - p) * 6 * t;
-      if (t < 1 / 2) return q;
-      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-      return p;
-    }
-
-    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-    var p = 2 * l - q;
-    r = hue2rgb(p, q, h + 1 / 3);
-    g = hue2rgb(p, q, h);
-    b = hue2rgb(p, q, h - 1 / 3);
-  }
-
-  return [Math.floor(r * 255), Math.floor(g * 255), Math.floor(b * 255)];
-}
-
-// convert a number to a color using hsl
-function numberToColorHsl(i) {
-  // as the function expects a value between 0 and 1, and red = 0° and green = 120°
-  // we convert the input to the appropriate hue value
-  var hue = (i * 1.2) / 360;
-  // we convert hsl to rgb (saturation 100%, lightness 50%)
-  var rgb = hslToRgb(hue, 1, 0.5);
-  // we format to css value and return
-  return "rgb(" + rgb[0] + "," + rgb[1] + "," + rgb[2] + ")";
-}
+var currentDiv = null;
 
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -53,44 +6,47 @@ const formatter = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 2,
 });
 
-function updateBudgetLabels() {
-  low = parseInt($("#budget").attr("value").split(",")[0]);
-  high = parseInt($("#budget").attr("value").split(",")[1]);
-
-  min = parseInt($("#budget").val().split(",")[0]);
-  max = parseInt($("#budget").val().split(",")[1]);
-
-  actualMin = ((high - low) / 100) * min;
-  actualMax = ((high - low) / 100) * max;
-
-  $(".budget-min").text(formatter.format(actualMin).slice(0, -3));
-  $(".budget-max").text(formatter.format(actualMax).slice(0, -3));
-}
-
-function updateSafetyLabel() {
-  score = parseInt(parseInt($("#safety").val()));
-  label = "";
-
-  switch (score) {
-    case 1:
-      label = "not at all important";
-      break;
-    case 2:
-      label = "not very important";
-      break;
-    case 3:
-      label = "somewhat important";
-      break;
-    case 4:
-      label = "very important";
-      break;
-    default:
-      label = "extremely important";
-  }
-  $(".safety").text(label);
-}
-
 $(function () {
+  var langArray = [];
+  $("#subway option").each(function () {
+    var img = $(this).attr("data-thumbnail");
+    var text = this.innerText;
+    var value = $(this).val();
+    var item =
+      '<li><img src="' +
+      img +
+      '" alt="" value="' +
+      value +
+      '"/><span>' +
+      text +
+      "</span></li>";
+    langArray.push(item);
+  });
+
+  $("#a").html(langArray);
+
+  //Set the button value to the first el of the array
+  $(".btn-select").html(langArray[0]);
+  $(".btn-select").attr("value", "en");
+
+  //change button stuff on click
+  $("#a li").click(function () {
+    var img = $(this).find("img").attr("src");
+    var value = $(this).find("img").attr("value");
+    var text = this.innerText;
+    var item =
+      '<li><img src="' + img + '" alt="" /><span>' + text + "</span></li>";
+    $(".btn-select").html(item);
+    $(".btn-select").attr("value", value);
+    $('#subway').val(value).prop('selected', true);
+    $(".b").toggle();
+    //console.log(value);
+  });
+
+  $(".btn-select").click(function () {
+    $(".b").toggle();
+  });
+
   randomBackground();
 
   $("select#keywords").selectize({
@@ -105,10 +61,6 @@ $(function () {
     },
   });
 
-  // $(".chosen-select").chosen({
-  //   no_results_text: "Oops, nothing found!",
-  // });
-
   if ($("#results").is(":visible")) {
     $("html, body").animate(
       {
@@ -117,7 +69,7 @@ $(function () {
       1000
     );
 
-    $('div.result:gt(8)').hide();
+    $("div.result:gt(8)").hide();
 
     var margin = { top: 5, right: 5, bottom: 5, left: 5 },
       width = 150,
@@ -178,6 +130,8 @@ $(function () {
   }
 
   $("a[data-modal]").click(function (event) {
+    currentDiv = $(this)[0].getAttribute("href").replace("#", "");
+    console.log(currentDiv);
     $(this).modal({
       fadeDuration: 350,
     });
@@ -236,43 +190,43 @@ jQuery.fn.sortNeighborhoods = function sortNeighborhoods() {
 };
 
 function sortAge(e) {
-  $('div.result').show();
+  $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByAge();
-  $('div.result:gt(8)').hide();
+  $("div.result:gt(8)").hide();
 }
 
 function sortBudget(e) {
-  $('div.result').show();
+  $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByBudget();
-  $('div.result:gt(8)').hide();
+  $("div.result:gt(8)").hide();
 }
 
 function sort(e) {
-  $('div.result').show();
+  $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoods();
-  $('div.result:gt(8)').hide();
+  $("div.result:gt(8)").hide();
 }
 
 function sortLikes(e) {
-  $('div.result').show();
+  $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByLikes();
-  $('div.result:gt(8)').hide();
+  $("div.result:gt(8)").hide();
 }
 
 function sortCommute(e) {
-  $('div.result').show();
+  $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
   $("#results").sortNeighborhoodsByCommute();
-  $('div.result:gt(8)').hide();
+  $("div.result:gt(8)").hide();
 }
 
 function randomBackground() {
@@ -291,6 +245,7 @@ function closeMap(e) {
   $(n + " .links a").removeClass("active");
   $(e).addClass("active");
   $(n + "-map").hide(500);
+  $(n + "-docs").hide(500);
   $(n + " .radar").show(500);
   $(n + " .tags").show(500);
 }
@@ -300,6 +255,60 @@ function openMap(e) {
   $(n + " .links a").removeClass("active");
   $(e).addClass("active");
   $(n + "-map").show(500);
+  $(n + "-docs").hide(500);
   $(n + " .radar").hide(500);
   $(n + " .tags").hide(500);
+}
+
+function openDocs(e) {
+  var n = "#" + $(e)[0].getAttribute("data-x");
+  $(n + " .links a").removeClass("active");
+  $(e).addClass("active");
+  $(n + "-docs").show(500);
+  $(n + "-map").hide(500);
+  $(n + " .radar").hide(500);
+  $(n + " .tags").hide(500);
+}
+
+$(document).ready(function () {
+  $("#subway").change(function () {
+    var color = $("option:selected", this).attr("alt");
+    $("#subway").css("background-color", color);
+  });
+
+  $(document).on("keyup", function (e) {
+    var modal_ids = [];
+    $(".snippet a").each(function () {
+      modal_ids.push(this.getAttribute("href").replace("#", ""));
+    });
+
+    // left arrow
+    currentId = modal_ids.indexOf(currentDiv);
+
+    console.log(currentId);
+    if (e.which === 37 && currentId > 1) {
+      currentDiv = modal_ids[--currentId];
+      $("#" + currentDiv).modal();
+    }
+    // right arrow
+    else if (e.which === 39 && currentId < modal_ids.length) {
+      currentDiv = modal_ids[++currentId];
+      $("#" + currentDiv).modal();
+    }
+  });
+});
+
+function commuteOne() {
+  $("#commute-two").hide();
+  $("#commute-one").show();
+  $("#subway option:selected").prop("selected", false)
+}
+
+function commuteTwo() {
+  $("#commute-one").hide();
+  $("#commute-two").show();
+  $("#commute option:selected").prop("selected", false);
+  $('#commute-duration').val('');
+  $('#pac-input').val('');
+  $('#pac-input').val('');
 }

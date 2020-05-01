@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/venv/bin/python3.7"
+    "python.pythonPath": "/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/venv/bin/python3.7", 
+    "editor.wordWrap": "on"
 }

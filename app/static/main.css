@@ -8,7 +8,7 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 0px;
 }
 
 /* Track */
@@ -63,21 +63,17 @@ body {
   height: 108px;
   left: 102px;
   top: 233px;
-
   font-family: IBM Plex Sans;
   /* font-family: 'Merriweather', serif; */
   font-style: normal;
   font-weight: bold;
-  font-size: 54px;
+  font-size: 48px;
   line-height: 100%;
   text-transform: uppercase;
   /* or 54px */
-
   display: flex;
   align-items: center;
-
   color: #ffffff;
-
   text-shadow: 0px 0px 10px #0000007d;
 }
 
@@ -86,28 +82,25 @@ body {
   width: 474px;
   height: 74px;
   left: 102px;
-  top: 355px;
-
+  top: 368px;
   font-family: IBM Plex Sans;
   font-style: normal;
   /* font-weight: bold; */
   font-size: 14px;
   line-height: 150%;
   /* or 21px */
-
   display: flex;
   align-items: center;
-
   color: #ffffff;
 }
 
 #search-form {
   position: absolute;
   width: 425px;
-  height: 442px;
+  height: 462px;
   right: 15%;
   /*   left: 661px; */
-  top: 129px;
+  top: 119px;
   /*   margin-left: 10%; */
   background: #111111;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
@@ -129,7 +122,6 @@ body {
   right: 32.12%;
   top: 34.43%;
   bottom: 63.29%; */
-
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 600;
@@ -137,34 +129,50 @@ body {
   line-height: 16px;
   text-transform: uppercase;
   /* identical to box height */
-
   letter-spacing: 0.04em;
-
   color: rgba(255, 255, 255, 0.8);
+}
+
+#commute-one {
+  position: absolute;
+  left: calc(697px - 661px);
+  top: calc(153px - 129px);
+}
+
+#commute-one a,
+#commute-two a {
+  font-style: italic;
+  width: 350px !important;
+  font-size: 10px;
+  font-weight: 500;
+  color: #aaa;
+  display: inline-block;
+  margin-top: 5px;
+  text-align: center;
 }
 
 #commute-type-input {
   position: absolute;
   width: 145px;
   height: 68px;
-  left: calc(697px - 661px);
-  top: calc(163px - 129px);
+  /*   left: calc(697px - 661px);
+  top: calc(163px - 129px); */
 }
 
 #commute-duration-input {
-  position: absolute;
+  position: relative;
   width: 145px;
   height: 68px;
-  left: calc(871px - 661px);
-  top: calc(163px - 129px);
+  left: calc(850px - 661px);
+  /*   top: calc(163px - 129px); */
 }
 
 #pac-container {
-  position: absolute;
+  position: relative;
   width: 352px;
   height: 68px;
-  left: calc(697px - 661px);
-  top: calc(241px - 129px);
+  margin-top: 10px;
+  /*   top: calc(241px - 129px); */
 }
 
 #budget-input {
@@ -172,7 +180,7 @@ body {
   width: 240px;
   height: 68px;
   left: calc(697px - 661px);
-  top: calc(318px - 129px);
+  top: calc(328px - 129px);
 }
 
 #age-input {
@@ -180,7 +188,7 @@ body {
   width: 120px;
   height: 68px;
   left: calc(962px - 661px);
-  top: calc(318px - 129px);
+  top: calc(328px - 129px);
 }
 
 #keywords-type-input {
@@ -188,7 +196,7 @@ body {
   width: 352px;
   height: 68px;
   left: calc(697px - 661px);
-  top: calc(405px - 129px);
+  top: calc(415px - 129px);
 }
 
 select#commute {
@@ -210,6 +218,156 @@ select#commute {
   background-color: transparent;
 }
 
+select#subway {
+  /* position: absolute; */
+  width: 145px;
+  height: 45px;
+  /* left: 697px;
+  top: 186px; */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 9px;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 100%;
+  /* identical to box height, or 14px */
+  color: #ffffff;
+  background-color: transparent;
+}
+
+select#subway option {
+  background-color: transparent;
+}
+
+/* subway select */
+#subway {
+  display: none;
+}
+
+#a {
+  padding-left: 0px;
+}
+
+#a img,
+.btn-select img {
+  width: 20px;
+  display: inline-block;
+  line-height: 100%;
+}
+
+#a li {
+  list-style: none;
+  width: 20px !important;
+  height: 20px !important;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 2px;
+}
+
+#a li:hover {
+  /*   border: 1px solid #ffffffab; */
+}
+
+#a li img {
+  /*   padding: 5px; */
+}
+
+#a li span,
+.btn-select li span {
+  margin-left: 10px;
+  /* margin-top: -10px; */
+  display: inline-block;
+  /* position: relative; */
+  height: 15px;
+  padding-top: 3px;
+  vertical-align: top;
+  /* line-height: 10px; */
+}
+
+/* item list */
+
+.b {
+  display: none;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  max-height: 100px;
+  overflow-y: scroll;
+  color: #fff;
+  z-index: 1;
+  font-size: 10px;
+}
+
+.open {
+  display: show !important;
+}
+
+.btn-select {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 350px;
+  height: 34px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+.btn-select li {
+  list-style: none;
+  text-align: left;
+  height: 100%;
+  width: 100%;
+  /* line-height: 10px; */
+  padding-bottom: 0px;
+}
+
+.btn-select:hover li {
+  margin-left: 0px;
+}
+
+.btn-select:hover {
+  /*   background-color: #f4f3f3; */
+  /*   border: 1px solid transparent; */
+  box-shadow: inset 0 0px 0px 1px #ccc;
+}
+
+.btn-select:focus {
+  outline: none;
+}
+#commute-two {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  left: calc(697px - 661px);
+  display: none;
+}
+
+#search-form label.btn-select {
+  background-color: transparent;
+  text-transform: capitalize;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 9px;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1qpx;
+  line-height: 100%;
+  text-align: right;
+  padding: 10px;
+  width: 100% !important;
+  display: block;
+  height: 45px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 9px;
+}
+
 #commute option {
   color: #000;
 }
@@ -218,8 +376,6 @@ input#commute-duration {
   position: absolute;
   width: 145px;
   height: 45px;
-  /* left: 871px;
-  top: 186px; */
 
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
@@ -462,7 +618,7 @@ input[type="submit"] {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 9px;
   padding: 5px 10px;
-  top: 390px;
+  top: 400px;
 }
 /* Results */
 
@@ -754,139 +910,193 @@ input[type="submit"] {
 }
 
 #battery-park::after {
-  background: url("battery-park-2.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-#chinatown::after {
-  background: url("chinatown3-2.jpg");
+  background: url("background-images/battery-park-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #chelsea::after {
-  background: url("chelsea-2.jpg");
+  background: url("background-images/chelsea-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#chinatown::after {
+  background: url("background-images/chinatown3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #civic-center::after {
-  background: url("civic-center3-2.jpg");
+  background: url("background-images/civic-center3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #east-harlem:after {
-  background: url("east_harlem-2.jpg");
+  background: url("background-images/east_harlem-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #east-village::after {
-  background: url("east-village-2.jpg");
+  background: url("background-images/east-village-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #financial-district::after {
-  background: url("financial-district-2.jpg");
+  background: url("background-images/financial-district-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #flatiron::after {
-  background: url("flatiron4-2.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-#greenwich-village::after {
-  background: url("greenwich-village2-2.jpg");
+  background: url("background-images/flatiron4-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #gramercy::after {
-  background: url("gramercy4-2.jpg");
+  background: url("background-images/gramercy4-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#greenwich-village::after {
+  background: url("background-images/greenwich-village-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #harlem::after {
-  background: url("harlem3-2.jpg");
+  background: url("background-images/harlem3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #hells-kitchen::after {
-  background: url("hells_kitchen-2.jpg");
+  background: url("background-images/midtown-west-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#inwood::after {
+  background: url("background-images/inwood-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #kips-bay::after {
-  background: url("kips-bay-2.jpg");
+  background: url("background-images/kips-bay-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#little-italy::after {
+  background: url("background-images/little-italy3-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#lower-east-side::after {
+  background: url("background-images/lower-east-side2-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#marble-hill::after {
+  background: url("background-images/marble-hill-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #midtown::after {
-  background: url("midtown3-2.jpg");
+  background: url("background-images/midtown3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #morningside-heights::after {
-  background: url("morningside-heights-2.jpg");
+  background: url("background-images/morningside-heights-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#murray-hill:after {
-  background: url("murray-hill-2.jpg");
+#murray-hill::after {
+  background: url("background-images/murray-hill-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#nolita:after {
-  background: url("nolita2-2.jpg");
+#noho::after {
+  background: url("background-images/noho-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#roosevelt-island:after {
-  background: url("roosevelt-island-2.jpg");
+#nolita::after {
+  background: url("background-images/nolita2-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#stuyvesant-town:after {
-  background: url("stuyvesant-town-2.jpg");
+#roosevelt-island::after {
+  background: url("background-images/roosevelt-island-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#theater-district:after {
-  background: url("theater_district_around_the_block_1-2.jpg");
+#soho::after {
+  background: url("background-images/soho-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#stuyvesant-town::after {
+  background: url("background-images/stuyvesant-town-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#theater-district::after {
+  background: url("background-images/theater-district-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#tribeca::after {
+  background: url("background-images/tribeca-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#two-bridges::after {
+  background: url("background-images/two-bridges-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #upper-east-side::after {
-  background: url("upper-east-side3-2.jpg");
+  background: url("background-images/upper-east-side3-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #upper-west-side::after {
-  background: url("upper-west-side4-2.jpg");
+  background: url("background-images/upper-west-side4-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
 #west-village::after {
-  background: url("west-village2-2.jpg");
+  background: url("background-images/west-village2-2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#washington-heights::after {
+  background: url("background-images/washington-heights-2.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -945,6 +1155,7 @@ input[type="submit"] {
   font-weight: normal;
   font-size: 12px;
   line-height: 100%;
+  text-transform: uppercase;
   /* identical to box height, or 12px */
 
   color: #bdb8b8;
@@ -1278,4 +1489,49 @@ tspan {
 .links a.active {
   background-color: #35965b;
   /* background-color: #aaa; */
+}
+
+.docs {
+  width: calc(595px - 80px) !important;
+  height: calc(583px - 80px) !important;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: none;
+  left: -10%;
+  background-color: #111115;
+  color: #fff;
+  top: 0px;
+  left: 0px;
+  display: none;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 125%;
+  text-transform: none;
+  /* identical to box height, or 14px */
+  color: #ffffff;
+  overflow-y: scroll;
+}
+
+.docs p::before {
+  content: "“";
+}
+
+.docs p b {
+  color: #31a05f;
+  /*   font-style: italic; */
+}
+
+.docs span {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 10px;
+  line-height: 100%;
+  /* identical to box height, or 9px */
+  color: #ffffffab;
+  margin: 5px;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
 }

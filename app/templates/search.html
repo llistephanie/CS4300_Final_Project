@@ -13,7 +13,8 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
-    <script src="/static/autocomplete.js"></script>
+    <script src="/static/autocomplete.min.js"></script>
+    <!-- <script src="/static/autocomplete.js"></script> -->
     <script type="text/javascript" src="/static/selectize.js"></script>
     <script type="text/javascript" src="/static/radarChart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -30,11 +31,14 @@
         <a href="https://theperfectneighborhood-v1.herokuapp.com/"
           >version one</a
         >
+        <a href="https://theperfectneighborhood-v2.herokuapp.com/"
+          >version two</a
+        >
       </div>
       <!-- <div class="topcorner"><p>Project Name: {{ name }}</p><p>Student Name: ({{ netid }})</p></div> -->
       <div id="search">
         <div id="intro">
-          <h1>The Perfect Neighborhood</h1>
+          <h1>Manhattan Neighborhood Recommender</h1>
           <p>
             Stephanie Chang (sc2524), Kati Hsu (kyh24), Robert Zhang (rdz26),
             Sneha Kumar (sk2279), Shirley Kabir (szk4)
@@ -42,9 +46,11 @@
         </div>
         <div id="search-form">
           <form class="form-inline global-search" method="POST">
+            <div id="commute-one">
             <div id="commute-type-input">
               <label>Commute Type</label>
               <select id="commute" name="commute-type">
+                <option value="" {% if query and query['commute-type']=='' %} selected="selected"{% endif %}></option>
                 <option value="Walk" {% if query and query['commute-type']=='Walk' %} selected="selected"{% endif %}>Walk</option>
                 <option value="Bike" {% if query and query['commute-type']=='Bike' %} selected="selected"{% endif %}>Bike</option>
                 <option value="Car" {% if query and query['commute-type']=='Car' %} selected="selected"{% endif %}>Car</option>
@@ -56,6 +62,9 @@
               <input
                 id="commute-duration"
                 type="number"
+                {% if query %}
+                value="{{ query['commute-duration'] }}"
+                {% endif %}
                 name="commute-duration"
                 class="form-control"
                 value="15"
@@ -73,7 +82,23 @@
                 placeholder="Enter a location"
               />
             </div>
-
+            <a onclick="commuteTwo()">I want to live near a subway service.</a>
+          </div>
+          <div id="commute-two">
+            <select placeholder="Line N" name="subway-service" id="subway">
+              <option value="" data-thumbnail="static/subways/none.svg">None</option>
+              {% for k,v in subways.items() %}
+                <option value="{{k}}" data-thumbnail="{{v['img']}}">{{v['name']}}</option>
+              {% endfor %}
+            </select>
+            <div class="subway-select">
+              <label class="btn-select" value=""></label>
+              <div class="b">
+              <ul id="a"></ul>
+              </div>
+              </div>
+              <a onclick="commuteOne()">I want to commute from/by.</a>
+          </div>
             <div id="budget-input">
               <label>Budget</label>
               <input
@@ -100,7 +125,6 @@
                 {% endif %}
               />
             </div>
-
             <div id="age-input">
               <label>Age</label>
               <input
@@ -174,10 +198,9 @@
             <div class="description">
               <h4>All to know...</h4>
               <h5>{{d['short description']}}</h5>
-              <p>{{d['long description']}}</p>
-              <!-- {% for para in d['long description'] %} {% if loop.index <= 1 %}
+              {% for para in d['long description'] %} {% if loop.index <= 1 %}
               <p>{{para}}</p>
-              {% endif %} {% endfor %} -->
+              {% endif %} {% endfor %}
             </div>
           </div>
           {% endfor %}
@@ -187,13 +210,16 @@
         <div id="{{d['div-id']}}" class="modal">
           <div class="summary">
             <h1>{{d['name']}}</h1><span>Manhattan</span>
-            <p>{{d['long description']}}</p>
+            {% for para in d['long description'] %}
+              <p>{{para}}</p>
+            {% endfor %}
+            <!-- <p>{{d['long description']}}</p> -->
           </div>
           <div class="score">
-            {{d['score']}} <span>GOOD</span>
+            {{d['score']}} <span>{{d['score-text']}}</span>
           </div>
           <div class="love">
-            <img src="static/icons/star_outline-white-18dp.svg" width="18">{{d['love']}}
+            <img src="static/icons/favorite_border-white-18dp.svg" width="18">{{d['love']}}
           </div>
           <div class="transit">
             <img src="static/icons/commute-black-18dp.svg" width="19" class="transit-img">
@@ -221,7 +247,7 @@
               {% for s in d['subway'] %}
               <img src="{{s['img-url']}}" width="15">
               {% endfor %}
-              <span>SUBWAY LINES</span>
+              <span>Subway Lines</span>
             </div>
           </div>
           <div class="rents">
@@ -252,9 +278,17 @@
             <span>Trendy</span> <span>Chic</span> <span>Expensive</span> <span>For Families</span>
           </div>
           <div class="map" id="{{d['div-id']}}-map"></div>
+          <div class="docs" id="{{d['div-id']}}-docs">
+            {% for doc in d['docs'] %}
+              <p>{{doc[0]|safe}}
+                <span>{% if doc[1] %} — {{doc[1]}} {% endif %}</span>
+              </p>
+            {% endfor %}
+          </div>
           <div class="links">
             <a class="active" onclick="closeMap(this)" data-x="{{d['div-id']}}">info</a>
             <a onclick="openMap(this)" data-x="{{d['div-id']}}">map</a>
+            {% if d['docs'] %}<a onclick="openDocs(this)" data-x="{{d['div-id']}}">docs</a>{% endif %}
           </div>
         </div>
         {% endfor %}

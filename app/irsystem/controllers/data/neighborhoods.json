@@ -7,7 +7,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/battery-park-city/",
     "streetadvisor-url": "https://www.streetadvisor.com/battery-park-city-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/battery-park-city",
-    "images": "static/battery-park.jpg"
+    "images": "static/card-images/battery-park.jpg"
   },
   "Chelsea": {
     "id": "b7b9f690-bb58-4b0f-ae8e-077338fa322d",
@@ -17,7 +17,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/chelsea/",
     "streetadvisor-url": "https://www.streetadvisor.com/chelsea-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/chelsea",
-    "images": "https://images.ctfassets.net/ypfe9l9zihcg/2ySb8AF8fmwQkY6IqwIK84/77cc48d1766899807a816dbd0cc4f170/chelsea_around_the_block_the_lifestyle_chelsea_market_nyc_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/2j8NEzHigUKgMECO8yqaiG/14dc2f6b1b95d76637211871f32584ea/chelsea_around_the_block_what_not_to_expect_chelsea_nyc_taxis.jpg"
+    "images": "static/card-images/chelsea.jpg"
   },
   "Chinatown": {
     "id": "1633958e-356c-4972-89bb-ad3be45ee716",
@@ -27,7 +27,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "https://www.streetadvisor.com/chinatown-manhattan-new-york-city-new-york",
     "cityreality-url": "",
-    "images": "static/chinatown.jpg"
+    "images": "static/card-images/chinatown.jpg"
   },
   "Civic Center": {
     "id": "n/a",
@@ -37,7 +37,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/tribeca/",
     "streetadvisor-url": "https://www.streetadvisor.com/civic-center-manhattan-new-york-city-new-york",
     "cityreality-url": "",
-    "images": "static/civic-center3.jpg"
+    "images": "static/card-images/civic-center.jpg"
   },
   "East Harlem": {
     "id": "1c651aca-6988-42d9-81f6-40ba0dc447e0",
@@ -47,7 +47,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/east-harlem/",
     "streetadvisor-url": "https://www.streetadvisor.com/east-harlem-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/east-harlem",
-    "images": "https://images.ctfassets.net/ypfe9l9zihcg/6a2gfhJ8AgGGcE4WowiQA6/29b57c37b2d19ab11c4753007668cebd/east_harlem_around_the_block_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/3DdQ5iXbfWy2Ec4KqosKmC/faf21e0874ad3562897639b9a7e9d623/east_harlem_around_the_block_youll_fall_in_love_with_1.jpg"
+    "images": "static/card-images/east-harlem.jpg"
   },
   "East Village": {
     "id": "6e05091e-96fc-4040-86b7-4c31bf5536f0",
@@ -57,7 +57,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/east-village/",
     "streetadvisor-url": "https://www.streetadvisor.com/east-village-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/east-village",
-    "images": "static/east-village.jpg"
+    "images": "static/card-images/east-village.jpg"
   },
   "Financial District": {
     "id": "f2450ce8-5a21-4964-ab5f-87e840236716",
@@ -67,7 +67,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/financial-district/",
     "streetadvisor-url": "https://www.streetadvisor.com/financial-district-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/financial-district",
-    "images": "static/financial-district.jpg"
+    "images": "static/card-images/financial-district.jpg"
   },
   "Flatiron": {
     "id": "29e75387-77ab-45f0-a6dc-3a25a26e6a31",
@@ -77,7 +77,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/flatiron/",
     "streetadvisor-url": "https://www.streetadvisor.com/flatiron-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/flatiron-union-square",
-    "images": "static/flatiron.jpg"
+    "images": "static/card-images/flatiron.jpg"
   },
   "Gramercy": {
     "id": "7822716c-d18b-4895-b6a7-d308f26da0ed",
@@ -87,7 +87,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/gramercy-park/",
     "streetadvisor-url": "https://www.streetadvisor.com/gramercy-park-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/gramercy-park",
-    "images": "static/gramercy-park.jpg"
+    "images": "static/card-images/gramercy-park.jpg"
   },
   "Greenwich Village": {
     "id": "2130e688-ed58-4d80-a76b-f0e9cfbd61eb",
@@ -97,7 +97,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/greenwich-village/",
     "streetadvisor-url": "https://www.streetadvisor.com/greenwich-village-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/greenwich-village",
-    "images": "https://images.ctfassets.net/ypfe9l9zihcg/aPw5T3RuIowEugI0ag8Sg/a555b25a670f5f75c7811cfbf18d9cd6/greenwich_village_greenwich_village_hero.jpg, https://images.ctfassets.net/ypfe9l9zihcg/3peM4GujhSsAkaKA22CE2S/b32bb38786fad136913c1676035eadf4/greenwich_village_around_the_block_what_to_expect_2a.jpg"
+    "images": "static/card-images/greenwich-village.jpg"
   },
   "Harlem": {
     "id": "6b16a71a-ae81-40c3-938e-95ed05c3b468",
@@ -107,7 +107,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/harlem/",
     "streetadvisor-url": "https://www.streetadvisor.com/harlem-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/harlem",
-    "images": "static/harlem.jpg"
+    "images": "static/card-images/harlem.jpg"
   },
   "Hell's Kitchen": {
     "id": "2bf43857-7ce6-4788-91f1-e497d4d47f7e",
@@ -117,7 +117,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "https://www.streetadvisor.com/clinton-hells-kitchen-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/midtown-west",
-    "images": "static/hells-kitchen.jpg"
+    "images": "static/card-images/hells-kitchen.jpg"
   },
   "Inwood": {
     "id": "8488016d-737e-4d48-aaa2-9fe9202ac645",
@@ -127,7 +127,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/inwood/",
     "streetadvisor-url": "https://www.streetadvisor.com/inwood-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/inwood",
-    "images": "https://cdn-img-feed.streeteasy.com/nyc/image/_19/1581019219-0_4200_84_2716_two_inwood-nyc-street-scene-tam51.jpg"
+    "images": "static/card-images/inwood.jpg"
   },
   "Kips Bay": {
     "id": "d0c071aa-695c-444c-bcde-02c5b4d5d8e5",
@@ -137,7 +137,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/murray-hill/",
     "streetadvisor-url": "https://www.streetadvisor.com/kips-bay-manhattan-new-york-city-new-york",
     "cityreality-url": "",
-    "images": "https://static01.nyt.com/images/2017/10/15/realestate/15LIVING-KIPSBAY-slide-FSJO/15LIVING-KIPSBAY-slide-FSJO-articleLarge.jpg?quality=75&auto=webp&disable=upscale"
+    "images": "static/card-images/kips-bay.jpg"
   },
   "Little Italy": {
     "id": "1e6b6ab4-1ce7-4881-adf6-73ad4bc0e3b4",
@@ -147,7 +147,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "https://www.streetadvisor.com/little-italy-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/nolita-little-italy",
-    "images": "https://images.ctfassets.net/ypfe9l9zihcg/cfPt8lqAyOKKs0g4k8oIo/9e629e4c355d1d8b6e4202425a1be270/little_italy_little_italy_hero.jpg, https://images.ctfassets.net/ypfe9l9zihcg/6x74IRsFNKMOMc2UAiu86u/a098f08465185624822359822f6cf828/little_italy_around_the_block_the_lifestyle_2.jpg"
+    "images": "static/card-images/little-italy.jpg"
   },
   "Lower East Side": {
     "id": "cca4d4d0-2715-421a-a9a4-f8139c323b19",
@@ -157,7 +157,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/lower-east-side/",
     "streetadvisor-url": "https://www.streetadvisor.com/lower-east-side-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/lower-east-side",
-    "images": "static/lower-east-side.jpg"
+    "images": "static/card-images/lower-east-side.jpg"
   },
   "Marble Hill": {
     "id": "e3503a17-96d5-44aa-a2f1-b61c56b83dd7",
@@ -167,7 +167,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "",
     "cityreality-url": "",
-    "images": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Marble_Hill%2C_Manhattan.jpg/1200px-Marble_Hill%2C_Manhattan.jpg"
+    "images": "static/card-images/marble-hill.jpg"
   },
   "Midtown": {
     "id": "1cec43e3-dcb9-433c-8fc7-39ef2bf51f8c",
@@ -177,7 +177,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/midtown/",
     "streetadvisor-url": "https://www.streetadvisor.com/midtown-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/midtown-east",
-    "images": "static/midtown.jpg"
+    "images": "static/card-images/midtown.jpg"
   },
   "Morningside Heights": {
     "id": "970d8343-408b-422c-9258-1061df31dda3",
@@ -187,7 +187,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/morningside-heights/",
     "streetadvisor-url": "https://www.streetadvisor.com/morningside-heights-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/morningside-heights",
-    "images": "https://wp-tid.zillowstatic.com/streeteasy/4/Morningside_Heights_Riverside_Park_Dogs-2814e0.jpg, https://wp-tid.zillowstatic.com/streeteasy/4/Morningside_Heights_broadway-cfe307.jpg"
+    "images": "static/card-images/morningside-heights.jpg"
   },
   "Murray Hill": {
     "id": "ef314d7c-81c2-41af-810f-7eba208ce86f",
@@ -197,7 +197,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "https://www.streetadvisor.com/murray-hill-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/murray-hill",
-    "images": "https://images.ctfassets.net/ypfe9l9zihcg/52IkgISd2MuM62C0gQsCu4/57ed3e2e44ffca93c39691bcf8fc8bd5/8675917028_605afd6c54_o-1403X561.jpg, https://images.ctfassets.net/ypfe9l9zihcg/4QhtFvNza00qIUkqe442IY/27e42ed821fd67babad9bcb4022f97f2/murray_hill_around_the_block_the_lifestyle_4.jpg"
+    "images": "static/card-images/murray-hill.jpg"
   },
   "NoHo": {
     "id": "n/a",
@@ -207,7 +207,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "https://www.streetadvisor.com/noho-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/noho",
-    "images": "https://images.ctfassets.net/ypfe9l9zihcg/36JIlD6C48GoSoySWY2s68/44127a4785cb689c62bd445d1ba5c37c/noho_around_the_block_1.jpg, https://images.ctfassets.net/ypfe9l9zihcg/5OHVB3hQ7SS6iKei8YE4Ce/48dbcfdc5a22c3b5e8ce294b7737f344/noho_around_the_block_the_rental_market_1.jpg"
+    "images": "static/card-images/noho.jpg"
   },
   "Nolita": {
     "id": "475393b1-212e-444b-8aee-e6f8d1d42bef",
@@ -217,7 +217,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "",
     "cityreality-url": "https://www.cityrealty.com/nyc/nolita-little-italy",
-    "images": "static/nolita.jpg"
+    "images": "static/card-images/nolita.jpg"
   },
   "Roosevelt Island": {
     "id": "819f8a32-779a-4aac-b2c5-2d632d5764d4",
@@ -227,7 +227,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/roosevelt-island/",
     "streetadvisor-url": "https://www.streetadvisor.com/roosevelt-island-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/roosevelt-island",
-    "images": "https://wp-tid.zillowstatic.com/streeteasy/4/Roosevelt_Island_1a-d23723.jpg, https://wp-tid.zillowstatic.com/streeteasy/4/Roosevelt_Island_Promenade-91266a.jpg"
+    "images": "static/card-images/roosevelt-island.jpg"
   },
   "SoHo": {
     "id": "40ee36c5-cf65-4679-964c-4f1ea2fc2241",
@@ -237,7 +237,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/soho/",
     "streetadvisor-url": "https://www.streetadvisor.com/soho-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/soho",
-    "images": "static/soho.jpg"
+    "images": "static/card-images/soho.jpg"
   },
   "Stuyvesant Town": {
     "id": "237f0ffb-4e97-4f09-a67e-0e2f8291a414",
@@ -247,7 +247,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "https://www.streetadvisor.com/stuyvesant-town-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/stuyvesant-town-pcv",
-    "images": "https://imgs.6sqft.com/wp-content/uploads/2017/11/08110210/StuyTown.jpg"
+    "images": "static/card-images/stuyvesant-town.jpg"
   },
   "Theater District": {
     "id": "11769434-9011-487b-8174-a80d72455c63",
@@ -257,7 +257,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "",
     "cityreality-url": "https://www.cityrealty.com/nyc/midtown-west",
-    "images": "static/theatre-district.jpg"
+    "images": "static/card-images/theatre-district.jpg"
   },
   "TriBeCa": {
     "id": "19e7b604-2b52-4659-9252-d50f96674b7b",
@@ -267,7 +267,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/tribeca/",
     "streetadvisor-url": "https://www.streetadvisor.com/tribeca-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/tribeca",
-    "images": "static/tribeca.jpg"
+    "images": "static/card-images/tribeca.jpg"
   },
   "Two Bridges": {
     "id": "edfda194-b045-491e-ad06-2e2a6b3b5328",
@@ -277,7 +277,7 @@
     "streeteasy-url": "",
     "streetadvisor-url": "",
     "cityreality-url": "https://www.cityrealty.com/nyc/lower-east-side",
-    "images": "https://static01.nyt.com/images/2017/12/10/realestate/10LIVING-TWOBRIDGES-slide-ELF7/10LIVING-TWOBRIDGES-slide-ELF7-jumbo.jpg"
+    "images": "static/card-images/two-bridges.jpg"
   },
   "Upper East Side": {
     "id": "74af42f6-ca93-4c60-93ad-1f3d4c07b3fe",
@@ -287,7 +287,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/upper-east-side/",
     "streetadvisor-url": "https://www.streetadvisor.com/upper-east-side-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/carnegie-hill, https://www.cityrealty.com/nyc/lenox-hill, https://www.cityrealty.com/nyc/park-fifth-ave-79th-st, https://www.cityrealty.com/nyc/yorkville",
-    "images": "static/upper-east-side.jpg"
+    "images": "static/card-images/upper-east-side.jpg"
   },
   "Upper West Side": {
     "id": "acc2fb87-1171-4f00-aad4-bbd1489b3c6a",
@@ -297,7 +297,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/upper-west-side/",
     "streetadvisor-url": "https://www.streetadvisor.com/upper-west-side-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/broadway-corridor, https://www.cityrealty.com/nyc/central-park-west, https://www.cityrealty.com/nyc/lincoln-center, https://www.cityrealty.com/nyc/riverside-dr-west-end-ave",
-    "images": "static/upper-west-side.jpg"
+    "images": "static/card-images/upper-west-side.jpg"
   },
   "Washington Heights": {
     "id": "9bf44164-215d-4ae1-ac53-e1515afc13f5",
@@ -307,7 +307,7 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/washington-heights/",
     "streetadvisor-url": "https://www.streetadvisor.com/washington-heights-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/washington-heights",
-    "images": "https://perfectstrangersofnyc.com/wp-content/uploads/2018/03/DSC_0180.jpg, https://wp-tid.zillowstatic.com/streeteasy/4/Washington_Heights_Street_Vendor-f8427e.jpg"
+    "images": "static/card-images/washington-heights.jpg"
   },
   "West Village": {
     "id": "784a3d90-c8ae-451f-8d5a-e1b54d1cbcb9",
@@ -317,6 +317,6 @@
     "streeteasy-url": "https://streeteasy.com/neighborhoods/west-village/",
     "streetadvisor-url": "https://www.streetadvisor.com/west-village-manhattan-new-york-city-new-york",
     "cityreality-url": "https://www.cityrealty.com/nyc/west-village",
-    "images": "static/west-village.jpg"
+    "images": "static/card-images/west-village.jpg"
   }
 }

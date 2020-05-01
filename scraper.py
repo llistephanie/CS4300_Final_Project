@@ -10,16 +10,16 @@ import webbrowser
 
 # headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9", "Accept-Language": "en-US,en;q=0.9", "Accept-Encoding": "gzip, deflate, br", "DNT": "1", "Connection": "close", "Upgrade-Insecure-Requests": "1"}
 headers = {
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0", 
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:66.0) Gecko/20100101 Firefox/66.0",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.5", 
+    "Accept-Language": "en-US,en;q=0.5",
     "Accept-Encoding": "gzip, deflate",
-    "DNT": "1", 
-    "Connection": "close", 
+    "DNT": "1",
+    "Connection": "close",
     "Upgrade-Insecure-Requests": "1",
     "Origin": "http://niche.com/",
     "Access-Control-Request-Method": "GET",
-    "Access-Control-Request-Headers": "X-Requested-With" }
+    "Access-Control-Request-Headers": "X-Requested-With"}
 
 review_categories = {"Community": "&category=Community&limit=20", "Crime & Safety": "&category=Crime%20%26%20Safety&limit=20",
                      "Overall Experience": "&category=Overall%20Experience&limit=20", "Real Estate": "&category=Real%20Estate&limit=20", "Things To Do": "&category=Things%20To%20Do&limit=20"}
@@ -46,11 +46,11 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #         response = requests.get(row[3], headers=headers)
 #         soup = BeautifulSoup(response.text, "html.parser")
 #         results = soup.find(id='app')
-        
+
 #         neighborhood_data["description"]=results.find('span', class_='bare-value').text
 
 #         real_estate_data={}
-        
+
 #         real_estate_results = results.find(id='real-estate')
 #         real_estate=real_estate_results.find_all('div', class_='scalar')
 #         real_estate_data['median home value']=real_estate[0].find_all('div')[1].text.split('National')[0]
@@ -67,7 +67,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #         residents_data={}
 #         residents_data['median household income']=residents_results.find_all('div', class_='scalar__value')[0].text.split('National')[0]
 #         residents_data['families with children']=residents_results.find_all('div', class_='scalar__value')[1].text
-        
+
 #         neighborhood_data['residents']=residents_data
 
 #         scores={}
@@ -95,7 +95,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #                     neighborhood_reviews.append(review)
 #             except KeyError:
 #                 pass
-                
+
 
 #         neighborhood_data["reviews"]=neighborhood_reviews
 #         with open(row[0]+".txt", 'w', encoding='utf-8') as f:
@@ -114,7 +114,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #         if line_count == 0:
 #             line_count+=1
 #             continue
-        
+
 #         neighborhood_data={}
 #         neighborhood_data["id"]=row[0]
 #         neighborhood_data["name"]=row[1]
@@ -122,7 +122,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 
 #         response = requests.get(row[4], headers=headers)
 #         soup = BeautifulSoup(response.text, "html.parser")
-        
+
 #         ranking={}
 #         rankings_data=soup.find('tr', class_='active').find_all('td')
 #         ranking['rank']=int(rankings_data[0].text)
@@ -147,17 +147,17 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #         eating_drinking={}
 #         # restaurants, bars and coffee shops
 #         eating_drinking_string=soup.find('div', class_='block-eat-drink').find('div', class_='span12').text
-#         eating_drinking_data=[int(i) for i in eating_drinking_string.replace(',', '').split() if i.isdigit()] 
+#         eating_drinking_data=[int(i) for i in eating_drinking_string.replace(',', '').split() if i.isdigit()]
 #         eating_drinking['restaurants']=eating_drinking_data[0]
 #         eating_drinking['shops']=eating_drinking_data[1]
 #         eating_drinking['time']=eating_drinking_data[2]
 
 #         neighborhood_data['eating drinking']=eating_drinking
-        
+
 #         walkscore_data.append(neighborhood_data)
 
 #         line_count+=1
-        
+
 #     print(f'Processed {line_count} lines.')
 
 # with open("walkscore.txt", 'w', encoding='utf-8') as f:
@@ -196,7 +196,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #         'D': 65.00,
 #         'F': 0.00
 #     }
-#     return switch.get(g, 0.0) 
+#     return switch.get(g, 0.0)
 
 # # rent=[]
 # safety=[]
@@ -277,7 +277,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 # quickhits={}
 # for (idx,l) in enumerate(quickhits_labels):
 #     quickhits[l]=quickhits_data[idx*2+1].text.strip()
-    
+
 # neighborhood_data['quick hits']=quickhits
 
 # nearestsubways=[]
@@ -312,7 +312,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #     section_name=c.find('div', class_='textIntent-title1').text.strip().replace(':', '')
 #     neighborhood_data[section_name]={'short': c.find('div', class_='textIntent-title2').text.strip(), 'long': c.find('div', class_='textIntent-body').text.strip()}
 
-# # REAL COMPASS CODE 
+# # REAL COMPASS CODE
 # compass_data = []
 # with open('data/neighborhoods.csv') as csv_file:
 #     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -350,7 +350,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #         # quickhits={}
 #         # for (idx,l) in enumerate(quickhits_labels):
 #         #     quickhits[l]=quickhits_data[idx*2+1].text.strip()
-            
+
 #         # neighborhood_data['quick hits']=quickhits
 
 #         nearestsubways=[]
@@ -431,10 +431,10 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #             # print(keys)
 #             line_count+=1
 #             continue
-        
-        
+
+
 #         neighborhood_data={}
-        
+
 #         for (idx,r) in enumerate(row):
 #             neighborhood_data[keys[idx]]=r.strip().replace('\"', '').replace('.', '. ')
 
@@ -445,7 +445,6 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 
 
 #         # webbrowser.open_new_tab(row[6])
-
 
 
 #         streeteasy_data[row[1]]=neighborhood_data
@@ -520,7 +519,6 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #     json.dump(neighborhood_data, f, ensure_ascii=False, indent=4)
 
 
-
 # STREET ADVISOR CODE
 # WALK SCORE CODE
 # streetadvisor_data = {}
@@ -531,7 +529,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #         if line_count == 0:
 #             line_count+=1
 #             continue
-        
+
 #         neighborhood_data={}
 #         neighborhood_data["id"]=row[0]
 #         neighborhood_data["street advisor url"]=row[7]
@@ -566,15 +564,13 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #             json.dump(neighborhood_data, f, ensure_ascii=False, indent=4)
 
 #         line_count+=1
-        
+
 #     print(f'Processed {line_count} lines.')
 
 # with open("data/streetadvisor.txt", 'w', encoding='utf-8') as f:
 #     json.dump(streetadvisor_data, f, ensure_ascii=False, indent=4)
 
-
-
-# NICHE AGE 
+# NICHE AGE
 
 
 # data = {}
@@ -600,7 +596,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #             age=a.find('div', class_='fact__table__row__label').text
 #             value=a.find('div', class_='fact__table__row__value').text
 #             ages[age]=value
-        
+
 #         name=row[1]
 #         print(name)
 #         data[name]={"age distribution": ages}
@@ -614,7 +610,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 
 # with open("data/niche.json") as f:
 #     data = json.load(f)
-    # json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
+# json.dump(streeteasy_data, f, ensure_ascii=False, indent=4)
 
 # with open("data/ages.json") as f:
 #     age_data = json.load(f)
@@ -637,7 +633,7 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 # def nameToUrl(n):
 #     switch = {
 #     }
-# #     return switch.get(n, n.replace(' ', '-').lower()) 
+# #     return switch.get(n, n.replace(' ', '-').lower())
 
 # data = {}
 # with open('data/neighborhoods.csv') as csv_file:
@@ -661,15 +657,13 @@ review_categories = {"Community": "&category=Community&limit=20", "Crime & Safet
 #             # print(l)
 #             neighborhood_data['long description']=neighborhood_data['long description']+ "<br> "+l.text
 #         data[row[1]]=neighborhood_data
-        
-        # prices={}
-        # prices_data=soup.find('div', class_='min_height255')[0].find('div', class_='row')[1].find_all('div', class_='progress_status')
-        # for p in prices_data:
-        #     prices[p.find('div', class_='col-md-3').text]=p.find('div', class_='show_price_in_mob').text
-        
+
+# prices={}
+# prices_data=soup.find('div', class_='min_height255')[0].find('div', class_='row')[1].find_all('div', class_='progress_status')
+# for p in prices_data:
+#     prices[p.find('div', class_='col-md-3').text]=p.find('div', class_='show_price_in_mob').text
 
 
-        
 # response = requests.get("https://goodmigrations.com/city-guides/new-york-city/west-village", headers=headers)
 # soup = BeautifulSoup(response.text, "html.parser")
 # print(soup.find_all('div', class_='progress_title'))
@@ -770,30 +764,64 @@ neighborhood_list = ['Battery Park',
                      'Washington Heights',
                      'West Village']
 
-from geojson_rewind import rewind
-with open('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/data/custom-pedia-cities-nyc-Mar2018.geojson') as j:
-    data = rewind(json.load(j))
-    all_indices=[]
-    nei=[]
-    n_data={}
-    already=set()
-    for d in data['features']:
-        for n in neighborhood_list:
-            if n.lower() in d['properties']['neighborhood'].lower() and n.lower() not in already:
-                n_data[n.lower().replace(' ', '-').replace("'", '')]=d
-                # all_indices.append(all_indices)
-                # nei.append(n)
-                # print(d['properties']['neighborhood'])
-                # already.add(n)
-        # print(d['properties']['neighborhood'])
+# from geojson_rewind import rewind
+# with open('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/data/custom-pedia-cities-nyc-Mar2018.geojson') as j:
+#     data = rewind(json.load(j))
+#     all_indices=[]
+#     nei=[]
+#     n_data={}
+#     already=set()
+#     for d in data['features']:
+#         for n in neighborhood_list:
+#             if n.lower() in d['properties']['neighborhood'].lower() and n.lower() not in already:
+#                 n_data[n.lower().replace(' ', '-').replace("'", '')]=d
+# all_indices.append(all_indices)
+# nei.append(n)
+# print(d['properties']['neighborhood'])
+# already.add(n)
+# print(d['properties']['neighborhood'])
 
-        # name.append(d["name"])
-        # safety.append(gradeToValue(d["scores"]["Crime & Safety"]))
-        # overall.append(gradeToValue(d["scores"]["Overall Grade"]))
-        # r=int(d["real estate"]["median rent"].replace('$','').replace(',',''))
-        # rent.append(r)
-    print(len(all_indices))
-    print(list(set(neighborhood_list).difference(set(nei))))
+# name.append(d["name"])
+# safety.append(gradeToValue(d["scores"]["Crime & Safety"]))
+# overall.append(gradeToValue(d["scores"]["Overall Grade"]))
+# r=int(d["real estate"]["median rent"].replace('$','').replace(',',''))
+# rent.append(r)
+#     print(len(all_indices))
+#     print(list(set(neighborhood_list).difference(set(nei))))
 
-with open("neighborhoods-maps.txt", 'w', encoding='utf-8') as f:
-    json.dump(n_data, f, ensure_ascii=False, indent=4)
+# with open("neighborhoods-maps.txt", 'w', encoding='utf-8') as f:
+#     json.dump(n_data, f, ensure_ascii=False, indent=4)
+
+
+# data={}
+# for n in neighborhood_list:
+#     fname=n.lower().replace(' ', '-')+'.txt'
+#     neighborhood_data=[]
+#     for line in open(os.path.join("external_data", fname)):
+#         if (line.rstrip()!=""):
+#             neighborhood_data.append(line.rstrip())
+#     data[n]=neighborhood_data
+
+
+# with open("external_data.txt", 'w', encoding='utf-8') as f:
+#     json.dump(data, f, ensure_ascii=False, indent=4)
+
+response = requests.get("https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_services", headers=headers)
+soup = BeautifulSoup(response.text, "html.parser")
+results = soup.find('table', class_='wikitable')
+rows = results.find_all('tr')[2:]
+# print(rows)
+services={}
+for service in rows:
+    cols=service.find_all('td')
+    if(len(cols)>2):
+        # print(cols)
+        id=cols[0].find('img')['alt'].replace('"', '').replace('train', '').replace('Franklin Avenue Shuttle', 'SF').replace('Rockaway Park Shuttle', 'SR').replace('42nd Street Shuttle', 'S').replace(' express', 'D').strip().lower()
+        name=cols[1].text
+        color=cols[2].find('span')['style'].split(';')[0].replace('background-color:', '') if cols[2].find('span') else '#808184'
+        s={'name': name.rstrip()[:name.rstrip().index('[')], 'img': 'static/subways/'+id+'.svg', 'color': color}
+
+        services[id]=s
+
+print(services)
+
