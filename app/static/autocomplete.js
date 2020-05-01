@@ -3646,8 +3646,8 @@ function initMap() {
       (map = new google.maps.Map($(this)[0], {
         zoom: 14,
         center: {
-          lat: coordinate_data[e].geometry.coordinates[0][6][1],
-          lng: coordinate_data[e].geometry.coordinates[0][6][0],
+          lat: coordinate_data[e].geometry.coordinates[0][1][1],
+          lng: coordinate_data[e].geometry.coordinates[0][1][0],
         },
         styles: [
           {

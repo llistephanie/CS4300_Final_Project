@@ -868,55 +868,55 @@ input[type="submit"] {
   background-position: center;
 }
 
-#murray-hill:after {
+#murray-hill::after {
   background: url("background-images/murray-hill-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#noho:after {
+#noho::after {
   background: url("background-images/noho-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#nolita:after {
+#nolita::after {
   background: url("background-images/nolita2-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#roosevelt-island:after {
+#roosevelt-island::after {
   background: url("background-images/roosevelt-island-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#soho:after {
+#soho::after {
   background: url("background-images/soho-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#stuyvesant-town:after {
+#stuyvesant-town::after {
   background: url("background-images/stuyvesant-town-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#theater-district:after {
+#theater-district::after {
   background: url("background-images/theater-district-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#tribeca:after {
+#tribeca::after {
   background: url("background-images/tribeca-2.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#two-bridges:after {
+#two-bridges::after {
   background: url("background-images/two-bridges-2.jpg");
   background-size: cover;
   background-position: center;
