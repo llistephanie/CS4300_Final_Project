@@ -793,15 +793,35 @@ neighborhood_list = ['Battery Park',
 #     json.dump(n_data, f, ensure_ascii=False, indent=4)
 
 
-data={}
-for n in neighborhood_list:
-    fname=n.lower().replace(' ', '-')+'.txt'
-    neighborhood_data=[]
-    for line in open(os.path.join("external_data", fname)):
-        if (line.rstrip()!=""):
-            neighborhood_data.append(line.rstrip())
-    data[n]=neighborhood_data
+# data={}
+# for n in neighborhood_list:
+#     fname=n.lower().replace(' ', '-')+'.txt'
+#     neighborhood_data=[]
+#     for line in open(os.path.join("external_data", fname)):
+#         if (line.rstrip()!=""):
+#             neighborhood_data.append(line.rstrip())
+#     data[n]=neighborhood_data
 
 
-with open("external_data.txt", 'w', encoding='utf-8') as f:
-    json.dump(data, f, ensure_ascii=False, indent=4)
+# with open("external_data.txt", 'w', encoding='utf-8') as f:
+#     json.dump(data, f, ensure_ascii=False, indent=4)
+
+response = requests.get("https://en.wikipedia.org/wiki/List_of_New_York_City_Subway_services", headers=headers)
+soup = BeautifulSoup(response.text, "html.parser")
+results = soup.find('table', class_='wikitable')
+rows = results.find_all('tr')[2:]
+# print(rows)
+services={}
+for service in rows:
+    cols=service.find_all('td')
+    if(len(cols)>2):
+        # print(cols)
+        id=cols[0].find('img')['alt'].replace('"', '').replace('train', '').replace('Franklin Avenue Shuttle', 'SF').replace('Rockaway Park Shuttle', 'SR').replace('42nd Street Shuttle', 'S').replace(' express', 'D').strip().lower()
+        name=cols[1].text
+        color=cols[2].find('span')['style'].split(';')[0].replace('background-color:', '') if cols[2].find('span') else '#808184'
+        s={'name': name.rstrip()[:name.rstrip().index('[')], 'img': 'static/subways/'+id+'.svg', 'color': color}
+
+        services[id]=s
+
+print(services)
+

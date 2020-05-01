@@ -38,7 +38,7 @@
       <!-- <div class="topcorner"><p>Project Name: {{ name }}</p><p>Student Name: ({{ netid }})</p></div> -->
       <div id="search">
         <div id="intro">
-          <h1>The Perfect Neighborhood</h1>
+          <h1>Manhattan Neighborhood Recommender</h1>
           <p>
             Stephanie Chang (sc2524), Kati Hsu (kyh24), Robert Zhang (rdz26),
             Sneha Kumar (sk2279), Shirley Kabir (szk4)
@@ -46,9 +46,11 @@
         </div>
         <div id="search-form">
           <form class="form-inline global-search" method="POST">
+            <div id="commute-one">
             <div id="commute-type-input">
               <label>Commute Type</label>
               <select id="commute" name="commute-type">
+                <option value="" {% if query and query['commute-type']=='' %} selected="selected"{% endif %}></option>
                 <option value="Walk" {% if query and query['commute-type']=='Walk' %} selected="selected"{% endif %}>Walk</option>
                 <option value="Bike" {% if query and query['commute-type']=='Bike' %} selected="selected"{% endif %}>Bike</option>
                 <option value="Car" {% if query and query['commute-type']=='Car' %} selected="selected"{% endif %}>Car</option>
@@ -80,7 +82,23 @@
                 placeholder="Enter a location"
               />
             </div>
-
+            <a onclick="commuteTwo()">I want to live near a subway service.</a>
+          </div>
+          <div id="commute-two">
+            <select placeholder="Line N" name="subway-service" id="subway">
+              <option value="" data-thumbnail="static/subways/none.svg">None</option>
+              {% for k,v in subways.items() %}
+                <option value="{{k}}" data-thumbnail="{{v['img']}}">{{v['name']}}</option>
+              {% endfor %}
+            </select>
+            <div class="subway-select">
+              <label class="btn-select" value=""></label>
+              <div class="b">
+              <ul id="a"></ul>
+              </div>
+              </div>
+              <a onclick="commuteOne()">I want to commute from/by.</a>
+          </div>
             <div id="budget-input">
               <label>Budget</label>
               <input
@@ -107,7 +125,6 @@
                 {% endif %}
               />
             </div>
-
             <div id="age-input">
               <label>Age</label>
               <input
@@ -202,7 +219,7 @@
             {{d['score']}} <span>{{d['score-text']}}</span>
           </div>
           <div class="love">
-            <img src="static/icons/star_outline-white-18dp.svg" width="18">{{d['love']}}
+            <img src="static/icons/favorite_border-white-18dp.svg" width="18">{{d['love']}}
           </div>
           <div class="transit">
             <img src="static/icons/commute-black-18dp.svg" width="19" class="transit-img">
@@ -230,7 +247,7 @@
               {% for s in d['subway'] %}
               <img src="{{s['img-url']}}" width="15">
               {% endfor %}
-              <span>SUBWAY LINES</span>
+              <span>Subway Lines</span>
             </div>
           </div>
           <div class="rents">

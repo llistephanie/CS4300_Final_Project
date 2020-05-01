@@ -9,7 +9,7 @@ import nltk
 from gensim.models import Word2Vec
 from nltk.corpus import wordnet
 import googlemaps
-from datetime import datetime
+import datetime
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
@@ -954,6 +954,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
         all_durations={}
         
         for k,v in travel_modes.items():
+            # nineam = datetime.datetime.combine(datetime.date.today(), datetime.time(9, 0))
             all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v)
             # print(json.dumps(all_matrices[k], indent=4))
             # print(k)

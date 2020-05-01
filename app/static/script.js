@@ -7,6 +7,46 @@ const formatter = new Intl.NumberFormat("en-US", {
 });
 
 $(function () {
+  var langArray = [];
+  $("#subway option").each(function () {
+    var img = $(this).attr("data-thumbnail");
+    var text = this.innerText;
+    var value = $(this).val();
+    var item =
+      '<li><img src="' +
+      img +
+      '" alt="" value="' +
+      value +
+      '"/><span>' +
+      text +
+      "</span></li>";
+    langArray.push(item);
+  });
+
+  $("#a").html(langArray);
+
+  //Set the button value to the first el of the array
+  $(".btn-select").html(langArray[0]);
+  $(".btn-select").attr("value", "en");
+
+  //change button stuff on click
+  $("#a li").click(function () {
+    var img = $(this).find("img").attr("src");
+    var value = $(this).find("img").attr("value");
+    var text = this.innerText;
+    var item =
+      '<li><img src="' + img + '" alt="" /><span>' + text + "</span></li>";
+    $(".btn-select").html(item);
+    $(".btn-select").attr("value", value);
+    $('#subway').val(value).prop('selected', true);
+    $(".b").toggle();
+    //console.log(value);
+  });
+
+  $(".btn-select").click(function () {
+    $(".b").toggle();
+  });
+
   randomBackground();
 
   $("select#keywords").selectize({
@@ -231,11 +271,15 @@ function openDocs(e) {
 }
 
 $(document).ready(function () {
+  $("#subway").change(function () {
+    var color = $("option:selected", this).attr("alt");
+    $("#subway").css("background-color", color);
+  });
+
   $(document).on("keyup", function (e) {
-    console.log("HELLO");
     var modal_ids = [];
     $(".snippet a").each(function () {
-      modal_ids.push(this.getAttribute("href").replace('#', ''));
+      modal_ids.push(this.getAttribute("href").replace("#", ""));
     });
 
     // left arrow
@@ -253,3 +297,18 @@ $(document).ready(function () {
     }
   });
 });
+
+function commuteOne() {
+  $("#commute-two").hide();
+  $("#commute-one").show();
+  $("#subway option:selected").prop("selected", false)
+}
+
+function commuteTwo() {
+  $("#commute-one").hide();
+  $("#commute-two").show();
+  $("#commute option:selected").prop("selected", false);
+  $('#commute-duration').val('');
+  $('#pac-input').val('');
+  $('#pac-input').val('');
+}
