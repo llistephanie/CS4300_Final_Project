@@ -6,7 +6,6 @@ from nltk.tokenize import TreebankWordTokenizer
 from sklearn import preprocessing
 import os
 import nltk
-import en_core_web_sm
 from gensim.models import Word2Vec
 from nltk.corpus import wordnet
 import googlemaps
@@ -718,6 +717,7 @@ def compute_query_info(query, idf, tokenizer, syn=True):
     # uses a combination of the stem words to find the best output tokens
     query_tf = {}
     new_toks = []
+    print(toks)
     for i in toks:
         related_list = []
         if (i in nlp):
@@ -730,7 +730,7 @@ def compute_query_info(query, idf, tokenizer, syn=True):
 
         for r_word, r_score in related_list:
             if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
-
+    print(new_toks)
     # term frequencies in query
     for tok in set(new_toks):
         query_tf[tok] = new_toks.count(tok)
