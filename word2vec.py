@@ -25,6 +25,13 @@ class MySentences(object):
             for line in open(os.path.join(self.dirname, fname)):
                 reg = re.compile(r'[a-z]+')
                 yield re.findall(reg, remove_stopwords(line.lower()))
+                # clean sentence
+                # cleaned_sentence = clean_sentence(sentence)
+                # tokenized_sentence = tokenize(cleaned_sentence)
+                # parsed_sentence = sentence_to_bi_grams(n_grams, tokenized_sentence)
+
+                yield phrases_model[sentence]
+                # returns ['hello', 'world']
 
 sentences = MySentences('./external_data')
 # sentences = MySentences('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/review_sample_cleveland.json')
