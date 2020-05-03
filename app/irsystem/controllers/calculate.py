@@ -958,13 +958,13 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
             map_n, map_se, map_c, map_r, map_gm, map_ed=v
             rel_docs=[]
             for q in query_info[0]:
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "niche") for x in map_n.get(q, [])])
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "streeteasy")for x in map_se.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "niche") for x in map_n.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "streeteasy")for x in map_se.get(q, [])])
                 # print(map_c)
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "compass") for x in map_c.get(q, [])])
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "reddit") for x in map_r.get(q, [])])
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "goodmigrations") for x in map_gm.get(q, [])])
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "") for x in map_ed.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "compass") for x in map_c.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "reddit") for x in map_r.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "goodmigrations") for x in map_gm.get(q, [])])
+                rel_docs.extend([((re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I) + "</b>"), "") for x in map_ed.get(q, [])])
             docs_with_query[k]=rel_docs
 
         print(f"query_info {query_info}")
@@ -1038,6 +1038,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
         all_durations={}
         
         for k,v in travel_modes.items():
+            # nineam = datetime.datetime.combine(datetime.date.today(), datetime.time(9, 0))
             all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v)
             # print(json.dumps(all_matrices[k], indent=4))
             # print(k)

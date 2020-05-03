@@ -10,6 +10,8 @@
       href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css?family=Antic+Didone&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre:400,500,700|DM+Serif+Display|DM+Serif+Text&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
@@ -18,6 +20,7 @@
     <script type="text/javascript" src="/static/selectize.js"></script>
     <script type="text/javascript" src="/static/radarChart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <script src="/static/script.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE&libraries=places&callback=initMap"
@@ -38,14 +41,15 @@
       <!-- <div class="topcorner"><p>Project Name: {{ name }}</p><p>Student Name: ({{ netid }})</p></div> -->
       <div id="search">
         <div id="intro">
-          <h1>The Perfect Neighborhood</h1>
+          <h1>Manhattan Neighborhood Recommender</h1>
           <p>
             Stephanie Chang (sc2524), Kati Hsu (kyh24), Robert Zhang (rdz26),
             Sneha Kumar (sk2279), Shirley Kabir (szk4)
           </p>
         </div>
         <div id="search-form">
-          <form class="form-inline global-search" method="POST">
+          <form class="form-inline global-search" id="neighborhood-search" method="POST">
+            <div id="commute-one">
             <div id="commute-type-input">
               <label>Commute Type</label>
               <select id="commute" name="commute-type">
@@ -65,7 +69,6 @@
                 {% endif %}
                 name="commute-duration"
                 class="form-control"
-                value="15"
               />
             </div>
             <div id="pac-container">
@@ -80,7 +83,23 @@
                 placeholder="Enter a location"
               />
             </div>
-
+            <a onclick="commuteTwo()">I want to live near a subway service.</a>
+          </div>
+          <div id="commute-two">
+            <select placeholder="Line N" name="subway-service" id="subway">
+              <option value="" data-thumbnail="static/subways/none.svg">None</option>
+              {% for k,v in subways.items() %}
+                <option value="{{k}}" data-thumbnail="{{v['img']}}">{{v['name']}}</option>
+              {% endfor %}
+            </select>
+            <div class="subway-select">
+              <label class="btn-select" value=""></label>
+              <div class="b">
+              <ul id="a"></ul>
+              </div>
+              </div>
+              <a onclick="commuteOne()">I want to commute from/by.</a>
+          </div>
             <div id="budget-input">
               <label>Budget</label>
               <input
@@ -93,6 +112,7 @@
                 {% else %}
                 value="1200"
                 {% endif %}
+                required
               />
               to
               <input
@@ -105,9 +125,9 @@
                 {% else %}
                 value="3700"
                 {% endif %}
+                required
               />
             </div>
-
             <div id="age-input">
               <label>Age</label>
               <input
@@ -124,7 +144,9 @@
             </div>
 
             <div id="keywords-type-input">
-              <label>Keywords</label>
+              <label>Keywords <div class="tooltip"><img width="10" src="static/icons/help-white-18dp.svg">
+                <span class="tooltiptext">Keywords can be neighborhood characteristics (trendy, artsy), building characteristics (modern, rustic), features (Cornell), activities (soccer, shopping, gym), and more.</span>
+              </div> </label>
               <select placeholder="Gym, Coffee, Restaurants" name="likes" multiple id="keywords">
                 {% if query %}
                 {% for l in query['likes'] %}
@@ -202,7 +224,7 @@
             {{d['score']}} <span>{{d['score-text']}}</span>
           </div>
           <div class="love">
-            <img src="static/icons/star_outline-white-18dp.svg" width="18">{{d['love']}}
+            <img src="static/icons/favorite_border-white-18dp.svg" width="18">{{d['love']}}
           </div>
           <div class="transit">
             <img src="static/icons/commute-black-18dp.svg" width="19" class="transit-img">
@@ -230,7 +252,7 @@
               {% for s in d['subway'] %}
               <img src="{{s['img-url']}}" width="15">
               {% endfor %}
-              <span>SUBWAY LINES</span>
+              <span>Subway Lines</span>
             </div>
           </div>
           <div class="rents">
