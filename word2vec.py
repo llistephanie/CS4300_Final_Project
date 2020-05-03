@@ -32,8 +32,11 @@ class MySentences(object):
                 sentence = re.sub(r'[^a-z0-9\s]', '', sentence)
                 cleaned_sentence = re.sub(r'\s{2,}', ' ', sentence)
                 # tokenized sentence
-                tokenized_sentence = tokenize(cleaned_sentence)
-                yield tokenized_sentence
+                # tokenized_sentence = gensim.utils.tokenize(cleaned_sentence)
+                # yield tokenized_sentence
+
+                yield re.findall(reg, remove_stopwords(cleaned_sentence))
+
                 # parse sentence = ' '.join(phrases_model[sentence])
                 # yield re.findall(reg, remove_stopwords(line.lower()))
                 # clean sentence
