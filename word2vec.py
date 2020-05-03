@@ -41,6 +41,7 @@ sentences = MySentences('./external_data')
 # model = gensim.models.Word2Vec(sentences)
 
 model = Word2Vec.load(pth)
+bigram_model = Word2Vec.load(pth)
 
 # model.save(pth)
 # print(len(model.wv.vocab))
