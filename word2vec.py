@@ -16,10 +16,10 @@ logging.basicConfig(
     format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 # pth = "./word2vec.model-yelp2"
-bigram_pth = "./word2vec.model-bigrams"
-pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model-yelp2" # just our data
+# bigram_pth = "./word2vec.model-bigrams"
+# pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model-yelp2" # just our data
 
-# pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model-bigram" # just our data
+pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model-bigram-low" # just our data
 
 
 class MySentences(object):
@@ -58,12 +58,13 @@ class MySentences(object):
 
 
 # Gets the sentences using iterator from MySentences class
-sentences = MySentences('./new_corpus.txt')
+# sentences = MySentences('./new_corpus_low.txt')
 # print(list(sentences))
 # def build_phrases(sentences):
 #     phrases = Phrases(sentences,
-#                       min_count=5,
-#                       threshold=7)
+#                       min_count=10,
+#                       threshold=0.85,
+#                       scoring='npmi')
 #     return Phraser(phrases)
 
 
@@ -92,7 +93,7 @@ sentences = MySentences('./new_corpus.txt')
 # loads bigram model
 # phrases_model= Phraser.load('phrases_model.txt')
 # create new corpus
-# sentences_to_bigrams(phrases_model, sentences, 'new_corpus.txt')
+# sentences_to_bigrams(phrases_model, sentences, 'new_corpus_high.txt')
 
 # load the model
 # bigram_model = Word2Vec.load(bigram_pth)
@@ -107,10 +108,10 @@ sentences = MySentences('./new_corpus.txt')
 # model = gensim.models.Word2Vec(sentences)
 
 # Loads pre-computed model
-# model = Word2Vec.load(pth)
+model = Word2Vec.load(pth)
 
 # model = Word2Vec.load(pth)
-model = Word2Vec.load(pth)
+# model = Word2Vec.load(pth)
 # Saves model to path
 # model.save(pth)
 
@@ -125,7 +126,7 @@ print(len(model.wv.vocab))
 
 # print(model.wv.most_similar_cos())
 
-print(model.wv.most_similar('coffee'))
+print(model.wv.most_similar('dim_sum'))
 
 # print(model.wv.most_similar_cosmul(positive=['affordable'], negative=['expensive']))
 # print(model.wv.most_similar_cosmul(positive=['favorite', 'sweet']))
