@@ -8,12 +8,15 @@ from gensim.models import Word2Vec
 from gensim.models import KeyedVectors
 from itertools import islice
 from gensim.parsing.preprocessing import remove_stopwords
+from gensim.models.phrases import Phrases, Phraser
+from spacy.lang.en.stop_words import STOP_WORDS
+from nltk import tokenize
 
 logging.basicConfig(
     format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
-# pth = "./word2vec.model-yelp2"
-pth = "./word2vec.model-bigrams"
+pth = "./word2vec.model-yelp2"
+# pth = "./word2vec.model-bigrams"
 # pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model" # just our data
 
 class MySentences(object):
@@ -22,18 +25,34 @@ class MySentences(object):
 
     def __iter__(self):
         for fname in os.listdir(self.dirname):
-            for line in open(os.path.join(self.dirname, fname)):
+            for line in open(os.path.join(self.dirname, fname), encoding="utf-8"):
                 reg = re.compile(r'[a-z]+')
+                # clean sentence
+                # sentence = line.lower().strip()
+                # sentence = re.sub(r'[^a-z0-9\s]', '', sentence)
+                # sentence = re.sub(r'\s{2,}', ' ', sentence)
+                # tokenize sentence
                 yield re.findall(reg, remove_stopwords(line.lower()))
                 # clean sentence
                 # cleaned_sentence = clean_sentence(sentence)
                 # tokenized_sentence = tokenize(cleaned_sentence)
                 # parsed_sentence = sentence_to_bi_grams(n_grams, tokenized_sentence)
-
-                yield phrases_model[sentence]
+                #
+                # parsed_sentence = sentence_to_bi_grams(n_grams, tokenized_sentence)
+                # yield phrases_model[sentence]
                 # returns ['hello', 'world']
 
 sentences = MySentences('./external_data')
+print(sentences)
+
+def build_phrases(sentences):
+    phrases = Phrases(sentences,
+                      min_count=5,
+                      threshold=7,
+                      progress_per=1000)
+    return Phraser(phrases)
+
+
 # sentences = MySentences('/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/review_sample_cleveland.json')
 
 # iter_listA = iter(sentences)
@@ -46,7 +65,7 @@ model = gensim.models.Word2Vec(sentences)
 # model = Word2Vec.load(pth)
 
 model = Word2Vec.load(pth)
-bigram_model = Word2Vec.load(pth)
+# bigram_model = Word2Vec.load(pth)
 # Saves model to path
 model.save(pth)
 
