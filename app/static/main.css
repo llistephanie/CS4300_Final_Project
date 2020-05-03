@@ -1226,9 +1226,9 @@ input[type="submit"] {
 .transit {
   position: absolute;
   width: 142px;
-  height: 214px;
+  height: 266px;
   left: calc(567px - 224px);
-  top: calc(394px - 58px);
+  top: calc(394px - 108px);
 
   background: #ffffff;
   border-radius: 9px;
@@ -1251,6 +1251,23 @@ input[type="submit"] {
   /* identical to box height, or 11px */
   opacity: 1;
   color: #31a05f;
+}
+
+.services span {
+  text-align: center;
+  position: absolute;
+  width: 69px;
+  height: 6px;
+  left: calc(603px - 577.5px);
+  top: calc(473px - 487.5px);
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 8px;
+  line-height: 100%;
+  /* or 8px */
+  text-align: center;
+  color: #bdb8b8;
 }
 
 .transit span:nth-child(3) {
@@ -1312,7 +1329,7 @@ input[type="submit"] {
 }
 
 .commute span:nth-child(1) {
-  width: 93px;
+  width: 85px;
   display: inline-block;
 }
 
@@ -1340,13 +1357,13 @@ img.transit-img {
 
 .services {
   position: absolute;
-  width: 34px;
-  height: 15px;
+  width: 120px;
+  height: 12px;
   /*   left: 621px;
   top: 555px; */
   text-align: center;
-  left: calc(621px - 567px);
-  top: calc(560px - 394px);
+  left: calc(621px - 610px);
+  top: calc(560px - 375px);
 }
 
 .rents {
@@ -1572,4 +1589,8 @@ tspan {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.hoverunderline:hover {
+  text-decoration: underline;
 }
