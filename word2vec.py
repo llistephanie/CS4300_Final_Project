@@ -53,8 +53,8 @@ sentences = MySentences('./external_data')
 print(list(sentences))
 def build_phrases(sentences):
     phrases = Phrases(sentences,
-                      min_count=1,
-                      threshold=1)
+                      min_count=5,
+                      threshold=7)
     return Phraser(phrases)
 
 
@@ -106,7 +106,7 @@ sentences_to_bigrams(phrases_model, sentences, 'new_corpus.txt')
 # model.save(pth)
 
 # Prints length of vocab
-print('HELLO')
+# print('HELLO')
 # print(len(bigram_model.wv.vocab))
 
 # Prints vocab
