@@ -28,17 +28,17 @@ class MySentences(object):
             for line in open(os.path.join(self.dirname, fname), encoding="ISO-8859-1"):
                 reg = re.compile(r'[a-z]+')
                 # clean sentence
-                sentence = line.lower().strip()
-                sentence = re.sub(r'[^a-z0-9\s]', '', sentence)
-                cleaned_sentence = re.sub(r'\s{2,}', ' ', sentence)
+                # sentence = line.lower().strip()
+                # sentence = re.sub(r'[^a-z0-9\s]', '', sentence)
+                # cleaned_sentence = re.sub(r'\s{2,}', ' ', sentence)
                 # tokenized sentence
                 # tokenized_sentence = gensim.utils.tokenize(cleaned_sentence)
                 # yield tokenized_sentence
 
-                yield re.findall(reg, remove_stopwords(cleaned_sentence))
+                # yield [token for token in cleaned_sentence.split() if token not in STOP_WORDS]
 
                 # parse sentence = ' '.join(phrases_model[sentence])
-                # yield re.findall(reg, remove_stopwords(line.lower()))
+                yield re.findall(reg, remove_stopwords(line.lower()))
                 # clean sentence
                 # cleaned_sentence = clean_sentence(sentence)
                 # tokenized_sentence = tokenize(cleaned_sentence)
