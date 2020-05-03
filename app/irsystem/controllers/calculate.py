@@ -833,8 +833,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     prefix = 'app/irsystem/controllers/data/'
     # tokenize query
-    query_str = ' '.join(tokenize_query(likes_list))
-    # query_str = ' '.join(likes_list)
+    # query_str = ' '.join(tokenize_query(likes_list))
+    query_str = ' '.join(likes_list)
     #related_words = ' '.join(get_related_words(likes_list))
     #related_words = " ".join(likes_list)
     query_extended = query_str #+ ' ' + related_words
