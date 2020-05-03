@@ -50,7 +50,7 @@ class MySentences(object):
 
 # Gets the sentences using iterator from MySentences class
 sentences = MySentences('./external_data')
-print(list(sentences))
+# print(list(sentences))
 def build_phrases(sentences):
     phrases = Phrases(sentences,
                       min_count=5,
