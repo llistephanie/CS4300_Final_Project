@@ -84,7 +84,7 @@
                 placeholder="Enter a location"
               />
             </div>
-            <a onclick="commuteTwo()">I want to live near a subway service.</a>
+            <a class="hoverunderline" onclick="commuteTwo()">Add a preferred subway service to live near.</a>
           </div>
           <div id="commute-two">
             <select placeholder="Line N" name="subway-service" id="subway">
@@ -99,7 +99,7 @@
               <ul id="a"></ul>
               </div>
               </div>
-              <a onclick="commuteOne()">I want to commute from/by.</a>
+              <a class="hoverunderline"  onclick="commuteOne()">Add a location to commute to.</a>
           </div>
             <div id="budget-input">
               <label>Budget</label>
@@ -234,30 +234,30 @@
           <div class="transit">
             <img src="static/icons/commute-black-18dp.svg" width="19" class="transit-img">
             <h1>{% if d['commute destination'] %} {{d['commute destination']}} {% else %} Transit {% endif %} </h1>
-            <span>COMMUTE</span>
+            <span>COMMUTE TIME</span>
             <div class="all-commutes">
               <div class="commute">
                 <span>Walking</span>
-                <span>{{d['walk-duration']}}</span>
+                <span>{{d['walk-duration']}}m</span>
               </div>
               <div class="commute">
                 <span>Bicyling</span>
-                <span>{{d['bike-duration']}}</span>
+                <span>{{d['bike-duration']}}m</span>
               </div>
               <div class="commute">
                 <span>Driving</span>
-                <span>{{d['car-duration']}}</span>
+                <span>{{d['car-duration']}}m</span>
               </div>
               <div class="commute">
                 <span>Public Transit</span>
-                <span>{{d['transit-duration']}}</span>
+                <span>{{d['transit-duration']}}m</span>
               </div>
             </div>
             <div class="services">
+              <span>SUBWAY LINES</span>
               {% for s in d['subway'] %}
-              <img src="{{s['img-url']}}" width="15">
+              <img src="{{s['img-url']}}" width="12">
               {% endfor %}
-              <span>Subway Lines</span>
             </div>
           </div>
           <div class="rents">

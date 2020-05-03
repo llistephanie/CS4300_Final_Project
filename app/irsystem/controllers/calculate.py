@@ -914,13 +914,15 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         mergeDict(data, norm_likes_scores, "likes score")
     return norm_likes_scores, docs_with_query
 
-def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
+def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, commuteSubwayService):
     with open("app/irsystem/controllers/data/walkscore.json") as f:
         walkscore_data = json.load(f)
     with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
         carscore_data = json.load(c)
     with open("app/irsystem/controllers/data/gas_stations.json") as g:
         gasscore_data = json.load(g)
+    with open("app/irsystem/controllers/data/new_subway_scores.json") as s:
+        subwayscore_data = json.load(s)
 
     type_key = {'Walk': "walk score", 'Bike': "bike score", 'Public Transit': "transit score"}
 
@@ -938,11 +940,16 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     car_scores = np.array([int(v['Car-Score']) for k, v in carscore_data.items()])
     walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
     gas_scores = np.array([int(v['score']) for k, v in gasscore_data.items()])
-    cscores = np.add(.25*car_scores, .25*gas_scores, .5*walk_scores)
+    cscores = np.add(.5*car_scores, .5*gas_scores)
     all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(scoreCalculation(cscores))}
     if commuteType=='Car':
         commute_scores=cscores
 
+    original_transit_scores = np.array([int(v['rankings']['transit score']) for k, v in walkscore_data.items()])
+    subway_scores = np.array([int(v['Score']) for k, v in subwayscore_data.items()])
+    cscores = np.add(.5*original_transit_scores, .5*subway_scores)
+    if commuteType =='Public Transit':
+        commute_scores = cscores
     normalized = scoreCalculation(commute_scores)
 
     all_durations=None
@@ -971,9 +978,23 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
 
         normalized=0.2*np.array(normalized)+0.8*np.array(scoreCalculation(ratio))
 
+    if(commuteSubwayService):
+        subway_service_scores = []
+        selected_subway_service = commuteSubwayService.capitalize()
+        selected_subway_service = re.sub(r"(?<=\d)d", ' Express', selected_subway_service)
+        for k,v in subwayscore_data.items():
+            # print(v['Services'][-1] == selected_subway_service, v['Services'][-1], selected_subway_service)
+            if selected_subway_service in v['Services']:
+                subway_service_scores.append(1)
+            else:
+                subway_service_scores.append(0)
+        # print(subway_service_scores)
+        normalized = 0.6*np.asarray(normalized) + 0.4*np.asarray(scoreCalculation(subway_service_scores))
+
     # (commute_scores-min(commute_scores)) / \
     # (max(commute_scores)-min(commute_scores))*100
     norm_commute_scores = {neighborhood_list[i]: v for i, v in enumerate(normalized)}
+    # print(norm_commute_scores)
     mergeDict(data, norm_commute_scores, "commute score")
 
     all_scores=all_durations if commuteDestination else all_walkscores
@@ -1007,10 +1028,13 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/compass.json", encoding="utf-8") as f:
         compass_data = json.load(f)
 
+    with open("app/irsystem/controllers/data/new_subway_scores.json") as f:
+        subway_raw_data = json.load(f)
+
     loadCrimeScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']))
     calculateAgeScore(query['age'])
-    _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'])
+    _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'], query['subway-service'])
     _, docs_with_query=calculateTextSimLikes(query['likes'], True)
     # totalOtherScores = 5 if len(query['likes']) > 0 else 4
     # otherWeights = 1.0/totalOtherScores
@@ -1031,8 +1055,16 @@ def getTopNeighborhoods(query):
         neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
-        subway_data = [
-            {"name": "1", "img-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"}]
+        subway_data_name = name.replace("'", "").replace(" ", "-").lower()
+        subway_data = []
+        curr_subway_services = sorted(subway_raw_data[subway_data_name]['Services'])
+        for service in curr_subway_services:
+            subway_service_name = re.sub(r"(?<=\d) Express", 'd', service)
+            subway_data.append({"name": str(subway_service_name),
+                                "img-url": "static/subways/" + subway_service_name + ".svg"})
+        # subway_data = [
+        #     {"name": "1", "img-url": "static/subways/1.svg"}]
+        # "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"
         rent = {'median': renthop_data[name]['1BR']['Median'], 'top': renthop_data[name]
                 ['1BR']['Top 25%'], 'bottom': renthop_data[name]['1BR']['Bottom 25%']}
         n = {'name': name, 'score': round(score, 2), 'score-text': getScoreText(score), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(

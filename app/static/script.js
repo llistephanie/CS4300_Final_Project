@@ -317,14 +317,14 @@ $(document).ready(function () {
 function commuteOne() {
 	$("#commute-two").hide();
 	$("#commute-one").show();
-	$("#subway option:selected").prop("selected", false)
+	// $("#subway option:selected").prop("selected", false)
 }
 
 function commuteTwo() {
 	$("#commute-one").hide();
 	$("#commute-two").show();
-	$("#commute option:selected").prop("selected", false);
-	$('#commute-duration').val('');
-	$('#pac-input').val('');
-	$('#pac-input').val('');
+	// $("#commute option:selected").prop("selected", false);
+	// $('#commute-duration').val('');
+	// $('#pac-input').val('');
+	// $('#pac-input').val('');
 }
