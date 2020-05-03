@@ -10,8 +10,6 @@ from gensim.models import Word2Vec
 from nltk.corpus import wordnet
 import googlemaps
 from datetime import datetime
-from gensim.models.phrases import Phrases, Phraser
-from spacy.lang.en.stop_words import STOP_WORDS
 from nltk import tokenize
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
@@ -315,10 +313,10 @@ def tokenize(text):
     Returns: List
     """
     lower_case = text.lower()
-    # reg = re.compile(r'[a-z]+')
-    # result = re.findall(reg, lower_case)
-    # return result
-    return [token for token in text.split() if token not in STOP_WORDS]
+    reg = re.compile(r'[a-z]+')
+    result = re.findall(reg, lower_case)
+    return result
+
 
 def tokenize_query(query):
     return ['_'.join(word.split()) for word in query]
@@ -824,81 +822,6 @@ def print_cossim_results(id_to_neighborhoods, query, results):
         print()
 
 
-def get_sentences(data_files, neighborhood_list):
-    sentences = []
-    niche = data_files[0]
-    streeteasy = data_files[1]
-    compass = data_files[2]
-    goodmigrations = data_files[4]
-    external_data = data_files[5]
-    for neighborhood in neighborhood_list:
-        if neighborhood in niche.keys():
-            niche_desc = niche[neighborhood]['description']
-            sentences.extend(tokenize.sent_tokenize(niche_desc))
-            for review in niche[neighborhood]['reviews']:
-                text = review['text']
-                sentences.extend(tokenize.sent_tokenize(text))
-        if neighborhood in streeteasy.keys():
-            desc = streeteasy[neighborhood]['description']
-            sentences.extend(tokenize.sent_tokenize(desc))
-            mood = streeteasy[neighborhood]['the mood']
-            sentences.extend(tokenize.sent_tokenize(mood))
-            more = streeteasy[neighborhood]['more']
-            sentences.extend(tokenize.sent_tokenize(more))
-            # downside = streeteasy[neighborhood]['biggest downside']
-            # sentences.extend(tokenize.sent_tokenize(downside))
-            housing = streeteasy[neighborhood]['housing']
-            sentences.extend(tokenize.sent_tokenize(housing))
-            best_perk = streeteasy[neighborhood]['best perk']
-            sentences.extend(tokenize.sent_tokenize(best_perk))
-        if neighborhood in compass.keys():
-            desc = compass[neighborhood]['description']
-            sentences.extend(tokenize.sent_tokenize(desc))
-            lifestyle = compass[neighborhood]['THE LIFESTYLE']
-            sentences.extend(tokenize.sent_tokenize(lifestyle))
-            market = compass[neighborhood]['THE MARKET']
-            sentences.extend(tokenize.sent_tokenize(market))
-            highlight = compass[neighborhood]["FALL IN LOVE"]
-            sentences.extend(tokenize.sent_tokenize(highlight))
-            expectation = compass[neighborhood]['WHAT TO EXPECT']
-            sentences.extend(tokenize.sent_tokenize(expectation))
-        if neighborhood in goodmigrations.keys():
-            desc1 = goodmigrations[neighborhood]['short description']
-            desc2 = goodmigrations[neighborhood]['long description']
-        if neighborhood in external_data.keys():
-            posts_list = external_data[neighborhood]
-            for post in posts_list:
-                sent = tokenize.sent_tokenize(post)
-                sentences.extend(sent)
-        return sentences
-
-
-def clean_sentence(sentence):
-    sentence = sentence.lower().strip()
-    sentence = re.sub(r'[^a-z0-9\s]', '', sentence)
-    return re.sub(r'\s{2,}', ' ', sentence)
-
-
-def build_phrases(sentences):
-    phrases = Phrases(sentences,
-                      min_count=5,
-                      threshold=7,
-                      progress_per=1000)
-    return Phraser(phrases)
-
-
-def sentence_to_bi_grams(phrases_model, sentence):
-    return ' '.join(phrases_model[sentence])
-
-
-def sentences_to_bi_grams(n_grams, sentences, output_file_name):
-        with open(output_file_name, 'w+') as out_file:
-            for sentence in sentences:
-                cleaned_sentence = clean_sentence(sentence)
-                tokenized_sentence = tokenize(cleaned_sentence)
-                parsed_sentence = sentence_to_bi_grams(n_grams, tokenized_sentence)
-                out_file.write(parsed_sentence + '\n')
-
 def calculateTextSimLikes(likes_list, merge_dict=False):
     global no_likes
     no_likes = False
@@ -941,10 +864,6 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
                             tokenize_goodmigrations, tokenize_externaldata]
         data_files = [niche_data, streeteasy_data,
                       compass_data, reddit_data, goodmigrations_data, externaldata_data]
-
-        # Bigram Phrases
-        sentences = get_sentences(data_files, neighborhood_list)
-        phrases_model = build_phrases(sentences)
 
         # Information retrieval
         inv_idx, mappings = build_inverted_index(
