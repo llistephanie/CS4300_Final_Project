@@ -25,12 +25,14 @@ def search():
 
         subway_service = request.form["subway-service"]
 
+        number_beds = int(request.form["number-beds"])
         budget_min = int(request.form["budget-min"])
         budget_max = int(request.form["budget-max"])
+
         likes = request.form.getlist('likes')
 
     query = {'age': age, 'commute-type': commute_type, 'commute-duration': commute_duration,
-             'commute-destination': commute_destination, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes, 'subway-service': subway_service}
+             'commute-destination': commute_destination, 'number-beds': number_beds, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes, 'subway-service': subway_service}
 
     print(query)
 

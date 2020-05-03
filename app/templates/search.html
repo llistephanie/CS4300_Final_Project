@@ -103,6 +103,10 @@
           </div>
             <div id="budget-input">
               <label>Budget</label>
+              <select id="beds" name="number-beds">
+                <option value="1BD" {% if query and query['number-beds']=='1BD' %} selected="selected"{% endif %}>1 BD</option>
+                <option value="2BD" {% if query and query['number-beds']=='2BD' %} selected="selected"{% endif %}>2 BD</option>
+              </select>
               <input
                 id="budget-min"
                 type="number"

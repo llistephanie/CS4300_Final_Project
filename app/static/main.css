@@ -115,10 +115,6 @@ body {
   position: relative;
   display: block;
   margin-bottom: 5px;
-  /* left: 60.5%;
-  right: 32.12%;
-  top: 34.43%;
-  bottom: 63.29%; */
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 600;
@@ -143,7 +139,15 @@ body {
 #commute-one {
   position: absolute;
   left: calc(697px - 661px);
-  top: calc(153px - 129px);
+  top: calc(235px - 129px);
+}
+
+#commute-two {
+  position: absolute;
+  top: calc(235px - 129px);
+  width: 100%;
+  left: calc(697px - 661px);
+  display: none;
 }
 
 #commute-one a,
@@ -170,7 +174,7 @@ body {
   position: relative;
   width: 145px;
   height: 68px;
-  left: calc(850px - 661px);
+  left: calc(865px - 661px);
   /*   top: calc(163px - 129px); */
 }
 
@@ -184,18 +188,18 @@ body {
 
 #budget-input {
   position: absolute;
-  width: 240px;
+  width: 276px;
   height: 68px;
   left: calc(697px - 661px);
-  top: calc(328px - 129px);
+  top: calc(153px - 129px);
 }
 
 #age-input {
   position: absolute;
-  width: 120px;
+  width: 60px;
   height: 68px;
-  left: calc(962px - 661px);
-  top: calc(328px - 129px);
+  left: calc(981px - 661px);
+  top: calc(153px - 129px);
 }
 
 #keywords-type-input {
@@ -208,7 +212,26 @@ body {
 
 select#commute {
   /* position: absolute; */
-  width: 145px;
+  width: 175px;
+  height: 45px;
+  /* left: 697px;
+  top: 186px; */
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+  border-radius: 9px;
+  font-family: IBM Plex Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 100%;
+  /* identical to box height, or 14px */
+  color: #ffffff;
+  background-color: transparent;
+}
+
+select#beds {
+  /* position: absolute; */
+  width: 70px;
   height: 45px;
   /* left: 697px;
   top: 186px; */
@@ -345,13 +368,6 @@ select#subway option {
 .btn-select:focus {
   outline: none;
 }
-#commute-two {
-  position: absolute;
-  top: 30px;
-  width: 100%;
-  left: calc(697px - 661px);
-  display: none;
-}
 
 #search-form label.btn-select {
   background-color: transparent;
@@ -438,9 +454,11 @@ input#commute-duration {
 }
 
 #budget-min {
-  width: 100px;
+/*   width: 100px; */
+width: 80px;
   height: 45px;
-  margin-right: 10px;
+  margin-left: 10px;
+  margin-right: 5px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
   border-radius: 9px;
@@ -456,9 +474,10 @@ input#commute-duration {
 }
 
 #budget-max {
-  width: 100px;
+/*   width: 100px; */
+width: 80px;
   height: 45px;
-  margin-left: 10px;
+  margin-left: 5px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
   border-radius: 9px;
@@ -506,7 +525,8 @@ input#commute-duration {
 }
 
 #age {
-  width: 85px;
+/*   width: 85px; */
+width: 65px;
   height: 45px;
 
   border: 2px solid rgba(255, 255, 255, 0.2);
