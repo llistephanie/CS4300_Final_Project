@@ -911,6 +911,7 @@ input[type="submit"] {
   box-shadow: none;
   /* left: -10%; */
   background-color: #1d1d22;
+  /* opacity: .7; */
 }
 
 .modal a.close-modal {
@@ -932,6 +933,7 @@ input[type="submit"] {
   right: 0;
   position: absolute;
   z-index: -1;
+  opacity: .6;
 }
 
 #battery-park::after {
@@ -1245,24 +1247,27 @@ input[type="submit"] {
 
 .transit {
   position: absolute;
-  width: 142px;
-  height: 266px;
+  width: 122px;
+  height: fit-content;
   left: calc(567px - 224px);
-  top: calc(394px - 108px);
-
+/*   top: calc(394px - 108px); */
+  bottom: 0%;
+  margin-bottom: 30px;
   background: #ffffff;
   border-radius: 9px;
+  text-align: center;
+  padding: 10px;
 }
 
 .transit h1 {
-  position: absolute;
-  width: 79px;
+  /* position: absolute; */
+  /* width: 79px; */
   height: 11px;
   text-align: center;
   /* left: 597px;
   top: 444px; */
-  left: calc(628px - 597px);
-  top: calc(455px - 414px);
+  /* left: calc(628px - 597px); */
+  /* top: calc(455px - 414px); */
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 600;
@@ -1275,28 +1280,30 @@ input[type="submit"] {
 
 .services span {
   text-align: center;
-  position: absolute;
-  width: 69px;
-  height: 6px;
+  /* position: absolute; */
+  /* width: 69px; */
+  /* height: 6px; */
   left: calc(603px - 577.5px);
   top: calc(473px - 487.5px);
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 8px;
-  line-height: 100%;
+  /* line-height: 100%; */
   /* or 8px */
   text-align: center;
+  display: block;
   color: #bdb8b8;
+  margin: 10px;
 }
 
 .transit span:nth-child(3) {
   text-align: center;
-  position: absolute;
-  width: 69px;
-  height: 6px;
-  left: calc(603px - 567px);
-  top: calc(473px - 394px);
+  /* position: absolute; */
+  /* width: 69px; */
+  /* height: 6px; */
+  /* left: calc(603px - 567px); */
+  /* top: calc(473px - 394px); */
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
@@ -1305,6 +1312,8 @@ input[type="submit"] {
   /* or 8px */
   text-align: center;
   color: #bdb8b8;
+  margin: 10px;
+  display: block;
 }
 
 .transit span:nth-child(2) {
@@ -1325,9 +1334,9 @@ input[type="submit"] {
 }
 
 .all-commutes {
-  position: absolute;
-  width: 109px;
-  height: 49px;
+  /* position: absolute; */
+  /* width: 109px; */
+  /* height: 49px; */
   /*   left: 583px;
   top: 485px; */
   left: calc(583px - 567px);
@@ -1339,6 +1348,7 @@ input[type="submit"] {
   line-height: 100%;
   /* identical to box height, or 9px */
   color: #747474;
+  margin: 10px;
 }
 
 .commute {
@@ -1370,20 +1380,23 @@ input[type="submit"] {
 }
 
 img.transit-img {
-  position: absolute;
+  /* position: absolute; */
   left: calc(628px - 567px);
   top: calc(414px - 394px);
+  text-align: center;
+  /* width: auto; */
+  margin: 10px;
 }
 
 .services {
-  position: absolute;
-  width: 120px;
-  height: 12px;
+  /* position: absolute; */
+  /* width: 120px; */
+  /* height: 12px; */
   /*   left: 621px;
   top: 555px; */
   text-align: center;
-  left: calc(621px - 610px);
-  top: calc(560px - 375px);
+  /* left: calc(621px - 610px); */
+  /* top: calc(560px - 375px); */
 }
 
 .rents {
@@ -1518,14 +1531,19 @@ tspan {
 }
 
 .links a {
-  color: transparent;
-  width: 10px;
-  height: 10px;
+/*   color: transparent; */
+  color: #fff;
+  padding: 3px 5px;
+/*   width: 10px; */
+/*   height: 10px; */
   margin: 0px 2.5px;
   display: inline-block;
   border: 1px solid #35965b;
   background-color: transparent;
-  border-radius: 15px;
+  border-radius: 6px;
+  font-size: 10px;
+/*   text-transform: uppercase; */
+  font-style: italic;
 }
 
 .links a.active {

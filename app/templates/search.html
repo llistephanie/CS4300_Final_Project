@@ -104,8 +104,8 @@
             <div id="budget-input">
               <label>Budget</label>
               <select id="beds" name="number-beds">
-                <option value="1BD" {% if query and query['number-beds']=='1BD' %} selected="selected"{% endif %}>1 BD</option>
-                <option value="2BD" {% if query and query['number-beds']=='2BD' %} selected="selected"{% endif %}>2 BD</option>
+                <option value="1BR" {% if query and query['number-beds']=='1BR' %} selected="selected"{% endif %}>1 BR</option>
+                <option value="2BR" {% if query and query['number-beds']=='2BR' %} selected="selected"{% endif %}>2 BR</option>
               </select>
               <input
                 id="budget-min"
@@ -186,7 +186,7 @@
             overall-order="{{d['score']}}"
             age-order="{{d['age']}}"
             commute-order="{{d['commute']}}"
-            budget-order="{{d['budget order']}}"
+            budget-order="{{d['budget']}}"
             likes-order="{{d['likes']}}"
           >
             <div
@@ -234,23 +234,23 @@
           <div class="transit">
             <img src="static/icons/commute-black-18dp.svg" width="19" class="transit-img">
             <h1>{% if d['commute destination'] %} {{d['commute destination']}} {% else %} Transit {% endif %} </h1>
-            <span>COMMUTE TIME</span>
+            <span>COMMUTE {% if d['commute destination'] %}TIME{% else %}SCORES{% endif %}</span>
             <div class="all-commutes">
               <div class="commute">
                 <span>Walking</span>
-                <span>{{d['walk-duration']}}m</span>
+                <span>{{d['walk-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
               </div>
               <div class="commute">
                 <span>Bicyling</span>
-                <span>{{d['bike-duration']}}m</span>
+                <span>{{d['bike-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
               </div>
               <div class="commute">
                 <span>Driving</span>
-                <span>{{d['car-duration']}}m</span>
+                <span>{{d['car-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
               </div>
               <div class="commute">
                 <span>Public Transit</span>
-                <span>{{d['transit-duration']}}m</span>
+                <span>{{d['transit-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
               </div>
             </div>
             <div class="services">
@@ -261,7 +261,7 @@
             </div>
           </div>
           <div class="rents">
-            <span>1 Bedroom Rental Prices</span>
+            <span>{{d['rent text']}} Bedroom Rental Prices</span>
             <div class="rent">
               <span>Bottom 25%</span>
               <span>{{d['rent']['bottom']}}</span>

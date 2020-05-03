@@ -178,8 +178,8 @@ jQuery.fn.sortNeighborhoodsByBudget = function sortNeighborhoodsByBudget() {
 	function dec_sort(a, b) {
 		return parseFloat(b.getAttribute("budget-order")) <
 			parseFloat(a.getAttribute("budget-order")) ?
-			1 :
-			-1;
+			-1 :
+			1;
 	}
 };
 
@@ -302,7 +302,9 @@ $(document).ready(function () {
 		currentId = modal_ids.indexOf(currentDiv);
 
 		console.log(currentId);
-		if (e.which === 37 && currentId > 1) {
+
+		console.log(currentId);
+		if (e.which === 37 && currentId > 0) {
 			currentDiv = modal_ids[--currentId];
 			$("#" + currentDiv).modal();
 		}

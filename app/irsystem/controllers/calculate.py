@@ -240,7 +240,7 @@ def calculateAgeScore(age):
     mergeDict(data, norm_age_scores, "age score")
     return norm_age_scores
 
-def calculateBudget(minBudget, maxBudget):
+def calculateBudget(minBudget, maxBudget, numberBeds='1BR'):
     with open("app/irsystem/controllers/data/renthop.json") as f:
         renthop_data = json.load(f)
 
@@ -257,9 +257,9 @@ def calculateBudget(minBudget, maxBudget):
         # top = int(v.get("Studio", v.get("1BR"))[
         #           "Top 25%"].replace('$', '').replace(',', ''))
 
-        bottom = int(v["1BR"]["Bottom 25%"].replace('$', '').replace(',', ''))
-        median = int(v["1BR"]["Median"].replace('$', '').replace(',', ''))
-        top = int(v["1BR"]["Top 25%"].replace('$', '').replace(',', ''))
+        bottom = int(v[numberBeds]["Bottom 25%"].replace('$', '').replace(',', ''))
+        median = int(v[numberBeds]["Median"].replace('$', '').replace(',', ''))
+        top = int(v[numberBeds]["Top 25%"].replace('$', '').replace(',', ''))
 
         top_25s.append(top)
         bottom_25s.append(bottom)
@@ -1032,7 +1032,7 @@ def getTopNeighborhoods(query):
         subway_raw_data = json.load(f)
 
     loadCrimeScores()
-    calculateBudget(int(query['budget-min']), int(query['budget-max']))
+    calculateBudget(int(query['budget-min']), int(query['budget-max']), query['number-beds'])
     calculateAgeScore(query['age'])
     _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'], query['subway-service'])
     _, docs_with_query=calculateTextSimLikes(query['likes'], True)
@@ -1065,10 +1065,11 @@ def getTopNeighborhoods(query):
         # subway_data = [
         #     {"name": "1", "img-url": "static/subways/1.svg"}]
         # "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"
-        rent = {'median': renthop_data[name]['1BR']['Median'], 'top': renthop_data[name]
-                ['1BR']['Top 25%'], 'bottom': renthop_data[name]['1BR']['Bottom 25%']}
+        rent = {'median': renthop_data[name][query['number-beds']]['Median'], 'top': renthop_data[name]
+                [query['number-beds']]['Top 25%'], 'bottom': renthop_data[name][query['number-beds']]['Bottom 25%']}
+        rent_text = "1" if query['number-beds']=='1BR' else "2"
         n = {'name': name, 'score': round(score, 2), 'score-text': getScoreText(score), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
-            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>"), 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0], "docs": docs_with_query[name] if len(query['likes']) > 0 else []}
+            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>"), 'rent': rent, 'budget order': int(renthop_data[name][query['number-beds']]['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0], "docs": docs_with_query[name] if len(query['likes']) > 0 else [], "rent text": rent_text}
         # if(query['commute-destination']!=''):
         n['walk-duration']=durations['Walk'][name]
         n['bike-duration']=durations['Bike'][name]

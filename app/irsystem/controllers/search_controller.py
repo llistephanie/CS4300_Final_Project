@@ -25,7 +25,7 @@ def search():
 
         subway_service = request.form["subway-service"]
 
-        number_beds = int(request.form["number-beds"])
+        number_beds = request.form["number-beds"]
         budget_min = int(request.form["budget-min"])
         budget_max = int(request.form["budget-max"])
 
