@@ -53,8 +53,9 @@ sentences = MySentences('./external_data')
 # print(list(sentences))
 def build_phrases(sentences):
     phrases = Phrases(sentences,
-                      min_count=5,
-                      threshold=7)
+                      min_count=10,
+                      threshold=0.85,
+                      scoring='npmi')
     return Phraser(phrases)
 
 
@@ -83,7 +84,7 @@ phrases_model.save('phrases_model.txt')
 # loads bigram model
 phrases_model= Phraser.load('phrases_model.txt')
 # create new corpus
-sentences_to_bigrams(phrases_model, sentences, 'new_corpus.txt')
+sentences_to_bigrams(phrases_model, sentences, 'new_corpus_high.txt')
 
 # load the model
 # bigram_model = Word2Vec.load(bigram_pth)
