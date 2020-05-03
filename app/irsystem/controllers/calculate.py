@@ -9,7 +9,8 @@ import nltk
 from gensim.models import Word2Vec
 from nltk.corpus import wordnet
 import googlemaps
-import datetime
+from datetime import datetime
+from nltk import tokenize
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
@@ -315,6 +316,10 @@ def tokenize(text):
     reg = re.compile(r'[a-z]+')
     result = re.findall(reg, lower_case)
     return result
+
+
+def tokenize_query(query):
+    return ['_'.join(word.split()) for word in query]
 
 def mergeMapping(original, new):
     for k,v in new.items():
@@ -672,6 +677,7 @@ def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
             idf_dict[term] = idf
     return idf_dict
 
+
 def compute_neighborhood_norms(index, idf, n_neighborhoods):
     """ Precompute the euclidean norm of each document.
 
@@ -703,10 +709,9 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
                 norm_array[neighborhood_id] += prod
     return np.sqrt(norm_array)
 
+
 def compute_query_info(query, idf, tokenizer, syn=True):
     toks = treebank_tokenizer.tokenize(query.lower()) ## also get rid of puncutation
-
-
     # get norm of query
     query_norm_inner_sum = 0
 
@@ -817,25 +822,18 @@ def print_cossim_results(id_to_neighborhoods, query, results):
         print()
 
 
-def get_related_words(likes):
-    related_tokens_list = []
-    for like in likes:
-        if like in relevant_keywords.keys():
-            related_tokens_list.extend(relevant_keywords[like])
-    return related_tokens_list
-
-
 def calculateTextSimLikes(likes_list, merge_dict=False):
     global no_likes
     no_likes = False
     if len(likes_list) == 0:
         norm_likes_scores = {n: 0.0 for n in neighborhood_list}
-
         if merge_dict:
             mergeDict(data, norm_likes_scores, "likes score")
         return norm_likes_scores, {}
 
     prefix = 'app/irsystem/controllers/data/'
+    # tokenize query
+    # query_str = ' '.join(tokenize_query(likes_list))
     query_str = ' '.join(likes_list)
     #related_words = ' '.join(get_related_words(likes_list))
     #related_words = " ".join(likes_list)
@@ -843,7 +841,12 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     likes_scores = []
     docs_with_query={}
 
-    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, open(prefix + 'compass.json', encoding="utf-8") as compass_file, open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file, open(prefix + 'external_data.json', encoding="utf-8") as externaldata_file:
+    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, \
+         open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, \
+         open(prefix + 'compass.json', encoding="utf-8") as compass_file, \
+         open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, \
+         open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file, \
+         open(prefix + 'external_data.json', encoding="utf-8") as externaldata_file:
 
         # Loading all the data
         niche_data = json.load(niche_file)
