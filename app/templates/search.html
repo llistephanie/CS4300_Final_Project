@@ -46,7 +46,6 @@
           <p>
             Stephanie Chang (sc2524), Kati Hsu (kyh24), Robert Zhang (rdz26),
             Sneha Kumar (sk2279), Shirley Kabir (szk4)
-            <i>Description</i>
           </p>
         </div>
         <div id="search-form">
@@ -85,9 +84,10 @@
                 placeholder="Enter a location"
               />
             </div>
-            <a class="hoverunderline" onclick="commuteTwo()">Add a preferred subway service to live near.</a>
+            <!-- <a class="hoverunderline" onclick="commuteTwo()">Add a preferred subway service to live near.</a> -->
           </div>
           <div id="commute-two">
+            <label>Subway Line</label>
             <select placeholder="Line N" name="subway-service" id="subway">
               <option value="" data-thumbnail="static/subways/none.svg">None</option>
               {% for k,v in subways.items() %}
@@ -100,7 +100,7 @@
               <ul id="a"></ul>
               </div>
               </div>
-              <a class="hoverunderline"  onclick="commuteOne()">Add a location to commute to.</a>
+              <!-- <a class="hoverunderline"  onclick="commuteOne()">Add a location to commute to.</a> -->
           </div>
             <div id="budget-input">
               <label>Budget</label>
@@ -116,7 +116,6 @@
                 {% if query %}
                 value="{{ query['budget-min'] }}"
                 {% else %}
-                value="1200"
                 {% endif %}
                 required
               />
@@ -129,7 +128,6 @@
                 {% if query %}
                 value="{{ query['budget-max'] }}"
                 {% else %}
-                value="3700"
                 {% endif %}
                 required
               />
@@ -144,14 +142,14 @@
                 {% if query %}
                 value="{{ query['age'] }}"
                 {% else %}
-                value="22"
+                required
                 {% endif %}
               />
             </div>
 
             <div id="keywords-type-input">
               <label>Keywords <div class="tooltip"><img width="10" src="static/icons/help-white-18dp.svg">
-                <span class="tooltiptext">Keywords can be neighborhood characteristics (trendy, artsy), building characteristics (modern, rustic), features (Cornell), activities (soccer, shopping, gym), and more.</span>
+                <span class="tooltiptext">Keywords can be neighborhood characteristics (trendy, artsy, groovy, quaint), building characteristics (modern, rustic), features (boba, coffee shops, bars, Cornell), activities (soccer, shopping, gym), and more.</span>
               </div> </label>
               <select placeholder="Gym, Coffee, Restaurants" name="likes" multiple id="keywords">
                 {% if query %}
@@ -235,15 +233,15 @@
             <span>COMMUTE {% if d['commute destination'] %}TIME{% else %}SCORES{% endif %}</span>
             <div class="all-commutes">
               <div class="commute">
-                <span>Walking</span>
+                <span>Walk</span>
                 <span>{{d['walk-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
               </div>
               <div class="commute">
-                <span>Bicyling</span>
+                <span>Bike</span>
                 <span>{{d['bike-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
               </div>
               <div class="commute">
-                <span>Driving</span>
+                <span>Car</span>
                 <span>{{d['car-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
               </div>
               <div class="commute">
@@ -281,10 +279,6 @@
             likes-order="{{d['likes']}}"
             happiness-order="{{d['safety']}}"></div>
           </div>
-          <div class="tags">
-            <span>Tags</span>
-            <span>Trendy</span> <span>Chic</span> <span>Expensive</span> <span>For Families</span>
-          </div>
           <div class="map" id="{{d['div-id']}}-map"></div>
           <div class="docs" id="{{d['div-id']}}-docs">
             {% for doc in d['docs'] %}
@@ -296,7 +290,7 @@
           <div class="links">
             <a class="active" onclick="closeMap(this)" data-x="{{d['div-id']}}">info</a>
             <a onclick="openMap(this)" data-x="{{d['div-id']}}">map</a>
-            {% if d['docs'] %}<a onclick="openDocs(this)" data-x="{{d['div-id']}}">docs</a>{% endif %}
+            {% if d['docs'] %}<a onclick="openDocs(this)" data-x="{{d['div-id']}}">reviews</a>{% endif %}
           </div>
         </div>
         {% endfor %}

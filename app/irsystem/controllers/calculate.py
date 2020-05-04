@@ -15,6 +15,7 @@ from nltk import tokenize
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
 nlp = Word2Vec.load("./word2vec.pth")
+nlp_phrases = Word2Vec.load("./word2vec-phrases.pth")
 gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
 
 neighborhood_list = ['Battery Park',
@@ -120,38 +121,22 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                                 "character"],
                      "Trendy": ["trendy", "popular", "upcoming"],
                      "College": ["college", "university", "student"]}
-"""
-relevant_keys = []
-with open ("app/irsystem/controllers/data/relevant_keys.json") as f:
-    data = json.load(f)
-relevant_keys = list(set(data["k"]))
-"""
-"""
-Shared data containing all the scores and information for each neighborhood.
-Scores will be a value from
-Includes the following components:
-    - description (of the neighborhood)
-    - commute scores
-    - safety/happiness score
-    - budget
-    - hobbies/interests
-"""
+
 data = {}
 for x in neighborhood_list:
     data[x] = {}
 
 
-def scoreCalculation(data_list):
+def scoreCalculation(data_list, bar = 1.5):
     arr = np.array(data_list)
     mean = np.mean(data_list)
     std = np.std(data_list)
     if (std == 0): std = 1
-    # max_score = 1.5
-    # min_score = -1.5
+
     new_scores = []
     for x in (data_list):
         score = (x - mean)/std
-        score = (score+1.5)*100/3
+        score = (score+bar)*100/(bar*2)
         score = min(score, 100)
         score = max(score, 0)
         
@@ -166,7 +151,7 @@ def mergeDict(original, updates, key_name):
         new_val = {key_name: v}
         original[k].update(new_val)
 
-def loadCrimeScores():
+def loadHappinessScores():
     """
     Function adds in the attributes "description" and "safety_score" for each neighborhood.
     Description is pulled from the niche data
@@ -174,16 +159,14 @@ def loadCrimeScores():
     """
     # global data # declare global in order to update global data variable
 
-    with open("app/irsystem/controllers/data/safety.json", "r") as f:
+    with open("app/irsystem/controllers/data/happiness.json", "r") as f:
         safety_data = json.load(f)
 
     percentages = np.array([float(v) for k, v in safety_data.items()])
-    normalized = scoreCalculation(
-        percentages)  # (percentages-min(percentages)) / \
-    # (max(percentages)-min(percentages))*100
+    normalized = scoreCalculation(percentages,3.0)
     norm_safety_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
-    mergeDict(data, norm_safety_scores, "safety score")
+    mergeDict(data, norm_safety_scores, "happiness score")
     return norm_safety_scores
 
 
@@ -711,30 +694,38 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
 
 
 def compute_query_info(query, idf, tokenizer, syn=True):
-    toks = treebank_tokenizer.tokenize(query.lower()) ## also get rid of puncutation
+    print(f"query {query}")
+    # toks = treebank_tokenizer.tokenize(query.lower()) ## also get rid of puncutation
+    # query=query.lower()
+    # print(f"toks {toks}")
     # get norm of query
     query_norm_inner_sum = 0
-
-    # Replaces tokens when it cannot be found with similar words from the corpus
-    # if the word is misspelled it will not be replaced
-    # For example: if toks = ["asdf","dolphins"] after the loop toks = ["asdf","turtle"]
-    # since turtle was the closest word it could fine. "asdf" is simply misspelled
-    # uses a combination of the stem words to find the best output tokens
     query_tf = {}
     new_toks = []
-    print(toks)
-    for i in toks:
+    for i in query:
+        i=i.lower()
         related_list = []
-        if (i in nlp):
-            related_list = nlp.wv.most_similar(i)
-            #print("###HERE")
-            #print(related_list)
+        # phrase lookup
+        if (len(i.split(' '))>1):
+            phrase=i.replace(' ', '_')
+            if (phrase in nlp_phrases):
+                related_list = nlp_phrases.wv.most_similar(phrase)
+            
+            if phrase in idf.keys():
+                new_toks.append(phrase)
 
-        if i in idf.keys():
-            new_toks.append(i)
+            for r_word, r_score in related_list:
+                if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
 
-        for r_word, r_score in related_list:
-            if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
+        # single word lookup
+        else: 
+            if (i in nlp):
+                related_list = nlp.wv.most_similar(i)
+            if i in idf.keys():
+                new_toks.append(i)
+
+            for r_word, r_score in related_list:
+                if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
     print(new_toks)
     # term frequencies in query
     for tok in set(new_toks):
@@ -742,7 +733,6 @@ def compute_query_info(query, idf, tokenizer, syn=True):
     #print("###TESTING###")
     #print(new_toks)
     #print(query_tf)
-
 
     for word in new_toks:
         if word in idf.keys():
@@ -834,7 +824,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     prefix = 'app/irsystem/controllers/data/'
     # tokenize query
     # query_str = ' '.join(tokenize_query(likes_list))
-    query_str = ' '.join(likes_list)
+    query_str = likes_list
     #related_words = ' '.join(get_related_words(likes_list))
     #related_words = " ".join(likes_list)
     query_extended = query_str #+ ' ' + related_words
@@ -1031,7 +1021,7 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/new_subway_scores.json") as f:
         subway_raw_data = json.load(f)
 
-    loadCrimeScores()
+    loadHappinessScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']), query['number-beds'])
     calculateAgeScore(query['age'])
     _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'], query['subway-service'])
@@ -1047,10 +1037,10 @@ def getTopNeighborhoods(query):
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = budget_likes_commute_score*v['budget score'] + age_safety_score*v['age score'] + budget_likes_commute_score*v['commute score'] + age_safety_score*v['safety score'] + (budget_likes_commute_score*v['likes score'] if len(query['likes']) > 0 and not(no_likes) else 0.0)
+        score = budget_likes_commute_score*v['budget score'] + age_safety_score*v['age score'] + budget_likes_commute_score*v['commute score'] + age_safety_score*v['happiness score'] + (budget_likes_commute_score*v['likes score'] if len(query['likes']) > 0 and not(no_likes) else 0.0)
 
         neighborhood_scores.append(
-            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
+            (k, score, v['budget score'], v['age score'], v['commute score'], v['happiness score'], v['likes score']))
     top_neighborhoods = sorted(
         neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
@@ -1093,9 +1083,9 @@ def main():
     # #a = getTopNeighborhoods(query)
     # output =  calculateTextSimLikes(query['likes'], True)
 
-    # output =  calculateTextSimLikes(["asdf","dolphin"], True)
+    output =  calculateTextSimLikes(["coffee shops", "boba"])
 
-    # loadCrimeScores()
+    # loadHappinessScores()
     # calculateBudget(1500, 1750)
     # calculateAgeScore(22)
     # calculateCommuteScore('Bike', '345 Hudson St, New York, NY 10014, USA', 15)
