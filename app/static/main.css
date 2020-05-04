@@ -140,7 +140,10 @@ body {
   font-size: 8px;
   text-transform: none;
   font-style: italic;
-  width: 100%;
+  width: 100px;
+  margin-top: -10px;
+  margin-left: 2px;
+  text-shadow: #000 1px 1px 5px;
 }
 
 #commute-one {
@@ -173,13 +176,14 @@ body {
 
 #commute-type-input {
   position: absolute;
-  width: 145px;
+  width: 176px;
   height: 68px;
   /*   left: calc(697px - 661px);
   top: calc(163px - 129px); */
 }
 
 #commute-duration-input {
+  /* margin: 0px; */
   position: relative;
   width: 145px;
   height: 68px;
@@ -407,14 +411,12 @@ select#subway option {
 }
 
 input#commute-duration {
-  position: absolute;
+  /* position: absolute; */
   width: 145px;
   height: 45px;
-
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
   border-radius: 9px;
-
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
@@ -423,7 +425,6 @@ input#commute-duration {
   text-align: right;
   padding-right: 25px;
   /* identical to box height, or 14px */
-
   color: #ffffff;
   background-color: transparent;
 }
@@ -431,7 +432,7 @@ input#commute-duration {
 #commute-duration-input::after {
   display: block;
   position: absolute;
-  margin-top: 16px;
+  margin-top: -28px;
   margin-left: 110px;
   text-transform: lowercase;
   content: "min";
