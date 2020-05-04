@@ -3,6 +3,8 @@ import numpy as np
 import re
 import math
 from nltk.tokenize import TreebankWordTokenizer
+from nltk.tokenize import RegexpTokenizer
+from nltk.tokenize import MWETokenizer
 from sklearn import preprocessing
 import os
 import nltk
@@ -153,7 +155,7 @@ def scoreCalculation(data_list):
         score = (score+1.5)*100/3
         score = min(score, 100)
         score = max(score, 0)
-        
+
         if (x == 0):
             new_scores.append(0)
         else:
@@ -306,15 +308,22 @@ def calculateBudget(minBudget, maxBudget):
 
 # Activities/Likes Score Code
 
-def tokenize(text):
+def tokenize_query(query):
+    return['_'.join(word.split(' ')) for word in query]
+
+def tokenize(multi_word_queries, text):
     """Returns a list of words that make up the text.
     Params: {text: String}
     Returns: List
     """
     lower_case = text.lower()
-    reg = re.compile(r'[a-z]+')
-    result = re.findall(reg, lower_case)
-    return result
+    tokenizer = RegexpTokenizer('not\s+very\s+[a-z]+|not\s+[a-z]+|no\s+[a-z]+|[a-z]+')
+    result = tokenizer.tokenize(lower_case)
+    multi_tokenizer = MWETokenizer([('working', 'out'), ('coffee', 'shops'), ('average', 'prices'), ('union', 'square'), ('real', 'estate'), ('ice', 'cream'), ('whole', 'foods'), ('co', 'op'), ('wall', 'street'), ('world', 'trade'), ('high', 'school'), ('dim', 'sum'), ('empire', 'state'), ('high', 'rise'), ('walk', 'ups')])
+    if len(multi_word_queries)>0:
+        [multi_tokenizer.add_mwe((tok.split(' ')[0], tok.split(' ')[1])) for tok in multi_word_queries]
+    result2 = multi_tokenizer.tokenize(result)
+    return result2
 
 def mergeMapping(original, new):
     for k,v in new.items():
@@ -706,7 +715,6 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
 def compute_query_info(query, idf, tokenizer, syn=True):
     toks = treebank_tokenizer.tokenize(query.lower()) ## also get rid of puncutation
 
-
     # get norm of query
     query_norm_inner_sum = 0
 
@@ -836,7 +844,9 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         return norm_likes_scores, {}
 
     prefix = 'app/irsystem/controllers/data/'
-    query_str = ' '.join(likes_list)
+    query_str = ' '.join(tokenize_query(likes_list))
+    print('query str:')
+    print(query_str)
     #related_words = ' '.join(get_related_words(likes_list))
     #related_words = " ".join(likes_list)
     query_extended = query_str #+ ' ' + related_words
@@ -952,7 +962,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
         all_matrices={}
 
         all_durations={}
-        
+
         for k,v in travel_modes.items():
             all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v)
             # print(json.dumps(all_matrices[k], indent=4))
