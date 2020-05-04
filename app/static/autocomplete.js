@@ -3742,7 +3742,7 @@ function initMap() {
         },
         styles: [
           {
-            elementType: "geometry",
+            elementType: "geometry.stroke",
             stylers: [
               {
                 color: "#1d1d22",
@@ -3757,6 +3757,11 @@ function initMap() {
               },
             ],
           },
+          {
+              featureType: 'landscape',
+              elementType: 'geometry',
+              stylers: [{color: '#1d1d22'}]
+            },
           {
             elementType: "labels.text.fill",
             stylers: [
@@ -3818,7 +3823,7 @@ function initMap() {
             ],
           },
           {
-            featureType: "poi.park",
+            featureType: "poi",
             elementType: "geometry",
             stylers: [
               {
@@ -3846,7 +3851,7 @@ function initMap() {
           },
           {
             featureType: "road",
-            elementType: "geometry.fill",
+            elementType: "geometry",
             stylers: [
               {
                 color: "#2c2c2c",
@@ -3898,12 +3903,22 @@ function initMap() {
               },
             ],
           },
-          {
+            {
             featureType: "transit",
-            elementType: "labels.text.fill",
+            elementType: "geometry",
             stylers: [
               {
-                color: "#757575",
+                "saturation": -20,
+                // "lightness": -100
+              },
+            ],
+          },
+            {
+            featureType: "transit",
+            elementType: "labels.icon",
+            stylers: [
+              {
+                "visibility": "on"
               },
             ],
           },
@@ -3928,10 +3943,13 @@ function initMap() {
         ],
       })),
         map.data.setStyle({
-          fillColor: "#31a05f",
-          strokeColor: "#31a05f",
+          fillColor: "#3cfA8b",
+          strokeColor: "#3cfA8b",
           strokeWeight: 1,
+          fillOpacity: 0.6
         });
+      var transitLayer=new google.maps.TransitLayer();
+      transitLayer.setMap(map);
       var o = {
         type: "FeatureCollection",
         features: [],

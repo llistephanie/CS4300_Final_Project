@@ -11,8 +11,9 @@ import nltk
 from gensim.models import Word2Vec
 from nltk.corpus import wordnet
 import googlemaps
-from datetime import datetime
 from nltk import tokenize
+import datetime
+from time import mktime
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
@@ -962,9 +963,18 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
 
         all_durations={}
 
+<<<<<<< HEAD
+=======
+        today = datetime.date.today()
+        monday=today + datetime.timedelta(days=(7 - today.weekday()))
+        nineam = datetime.time(9, 0)
+        monday_9am=datetime.datetime.combine(monday, nineam)
+
+        timestamp_monday_9am=mktime(monday_9am.timetuple())
+        
+>>>>>>> ceedaae9715f75a9fd60ce48ac656f818bc535e1
         for k,v in travel_modes.items():
-            # nineam = datetime.datetime.combine(datetime.date.today(), datetime.time(9, 0))
-            all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v)
+            all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v, departure_time=timestamp_monday_9am)
             # print(json.dumps(all_matrices[k], indent=4))
             # print(k)
             all_durations[k] = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) if 'duration' in v['elements'][0].keys() else None for i, v in enumerate(all_matrices[k]['rows']) }
@@ -1062,7 +1072,7 @@ def getTopNeighborhoods(query):
         for service in curr_subway_services:
             subway_service_name = re.sub(r"(?<=\d) Express", 'd', service)
             subway_data.append({"name": str(subway_service_name),
-                                "img-url": "static/subways/" + subway_service_name + ".svg"})
+                                "img-url": "static/subways/" + subway_service_name.lower() + ".svg"})
         # subway_data = [
         #     {"name": "1", "img-url": "static/subways/1.svg"}]
         # "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"

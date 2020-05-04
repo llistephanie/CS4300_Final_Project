@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
     <script src="/static/autocomplete.min.js"></script>
-    <!-- <script src="/static/autocomplete.js"></script> -->
+<!-- {#    <script src="/static/autocomplete.js"></script>#} -->
     <script type="text/javascript" src="/static/selectize.js"></script>
     <script type="text/javascript" src="/static/radarChart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -87,7 +87,7 @@
             <!-- <a class="hoverunderline" onclick="commuteTwo()">Add a preferred subway service to live near.</a> -->
           </div>
           <div id="commute-two">
-            <label>Subway Line</label>
+            <label>Neary Subway Line</label>
             <select placeholder="Line N" name="subway-service" id="subway">
               <option value="" data-thumbnail="static/subways/none.svg">None</option>
               {% for k,v in subways.items() %}
@@ -149,7 +149,7 @@
 
             <div id="keywords-type-input">
               <label>Keywords <div class="tooltip"><img width="10" src="static/icons/help-white-18dp.svg">
-                <span class="tooltiptext">Keywords can be neighborhood characteristics (trendy, artsy), building characteristics (modern, rustic), features (Cornell), activities (soccer, shopping, gym), and more.</span>
+                <span class="tooltiptext">Keywords can be neighborhood characteristics (trendy, artsy, groovy, quaint), building characteristics (modern, rustic), features (boba, coffee shops, bars, Cornell), activities (soccer, shopping, gym), and more.</span>
               </div> </label>
               <select placeholder="Gym, Coffee, Restaurants" name="likes" multiple id="keywords">
                 {% if query %}
@@ -290,7 +290,7 @@
           <div class="links">
             <a class="active" onclick="closeMap(this)" data-x="{{d['div-id']}}">info</a>
             <a onclick="openMap(this)" data-x="{{d['div-id']}}">map</a>
-            {% if d['docs'] %}<a onclick="openDocs(this)" data-x="{{d['div-id']}}">docs</a>{% endif %}
+            {% if d['docs'] %}<a onclick="openDocs(this)" data-x="{{d['div-id']}}">reviews</a>{% endif %}
           </div>
         </div>
         {% endfor %}
