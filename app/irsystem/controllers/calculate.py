@@ -1061,7 +1061,7 @@ def getTopNeighborhoods(query):
         for service in curr_subway_services:
             subway_service_name = re.sub(r"(?<=\d) Express", 'd', service)
             subway_data.append({"name": str(subway_service_name),
-                                "img-url": "static/subways/" + subway_service_name + ".svg"})
+                                "img-url": "static/subways/" + subway_service_name.lower() + ".svg"})
         # subway_data = [
         #     {"name": "1", "img-url": "static/subways/1.svg"}]
         # "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"
