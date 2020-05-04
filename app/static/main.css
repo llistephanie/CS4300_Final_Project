@@ -86,9 +86,19 @@ body {
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: 300;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 150%;
   color: #ffffff;
+  width: 70%;
+  font-style: italic;
+}
+
+#intro p i {
+  display: block;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 10px 0px;
 }
 
 #search-form {
@@ -791,17 +801,28 @@ input[type="submit"] {
   color: #ffffff;
 }
 
+.snippet a {
+    background-color: #000;
+    width: 24px;
+    height: 24px;
+    font-size: 9.5px;
+    color: #fff;
+    text-decoration: none;
+    /* font-weight: bold; */
+    text-align: center;
+    text-transform: lowercase;
+    font-style: italic;
+    display: block;
+    line-height: 25px;
+    padding: 3px;
+    border-radius: 40px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .snippet img.more-link {
   position: relative;
-  /*   left: 11.44%;
-  right: 80.72%;
-  top: 50.3%;
-  bottom: 44.97%; */
-
   width: 24px;
   height: 24px;
-
-  /* background: url(image.png); */
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 240px;
 }

@@ -46,6 +46,7 @@
           <p>
             Stephanie Chang (sc2524), Kati Hsu (kyh24), Robert Zhang (rdz26),
             Sneha Kumar (sk2279), Shirley Kabir (szk4)
+            <i>Description</i>
           </p>
         </div>
         <div id="search-form">
@@ -201,9 +202,7 @@
               <div class="label">Median Rent</div>
               <h6>{{d['rent']['median']}}</h6>
 
-              <a href="#{{d['div-id']}}" data-modal>
-                <img src="static/more.jpg" class="more-link" />
-              </a>
+              <a href="#{{d['div-id']}}" data-modal>more<!-- <img src="static/more.jpg" class="more-link" /> --></a>
             </div>
             <div class="description">
               <h4>All to know...</h4>
@@ -223,13 +222,12 @@
             {% for para in d['long description'] %}
               <p>{{para}}</p>
             {% endfor %}
-            <!-- <p>{{d['long description']}}</p> -->
           </div>
           <div class="score">
             {{d['score']}} <span>{{d['score-text']}}</span>
           </div>
           <div class="love">
-            <img src="static/icons/favorite_border-white-18dp.svg" width="18">{{d['love']}}
+            {% if d['love'] %}<img src="static/icons/favorite_border-white-18dp.svg" width="18">{{d['love']}}{% endif %} 
           </div>
           <div class="transit">
             <img src="static/icons/commute-black-18dp.svg" width="19" class="transit-img">
