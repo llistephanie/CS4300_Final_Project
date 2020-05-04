@@ -124,6 +124,7 @@ for neighborhood_name, currpolygon in neighborhood_polygons.items():
     for attraction_name, currpoint in attraction_points.items():
         if currbuffer.contains(currpoint):
             neighborhood_attractions[neighborhood_name].append(attraction_results[attraction_name])
+    neighborhood_attractions[neighborhood_name] = neighborhood_attractions[neighborhood_name][:3]
     print(neighborhood_name, [attraction['name'] for attraction in neighborhood_attractions[neighborhood_name]])
 
 with open(file_directory_template + 'neighborhood-attractions.json', 'w') as outfile:
