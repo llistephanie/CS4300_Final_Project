@@ -150,7 +150,7 @@ def mergeDict(original, updates, key_name):
         new_val = {key_name: v}
         original[k].update(new_val)
 
-def loadCrimeScores():
+def loadHappinessScores():
     """
     Function adds in the attributes "description" and "safety_score" for each neighborhood.
     Description is pulled from the niche data
@@ -158,14 +158,14 @@ def loadCrimeScores():
     """
     # global data # declare global in order to update global data variable
 
-    with open("app/irsystem/controllers/data/safety.json", "r") as f:
+    with open("app/irsystem/controllers/data/happiness.json", "r") as f:
         safety_data = json.load(f)
 
     percentages = np.array([float(v) for k, v in safety_data.items()])
     normalized = scoreCalculation(percentages,3.0)
     norm_safety_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
-    mergeDict(data, norm_safety_scores, "safety score")
+    mergeDict(data, norm_safety_scores, "happiness score")
     return norm_safety_scores
 
 
@@ -1013,7 +1013,7 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/new_subway_scores.json") as f:
         subway_raw_data = json.load(f)
 
-    loadCrimeScores()
+    loadHappinessScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']), query['number-beds'])
     calculateAgeScore(query['age'])
     _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'], query['subway-service'])
@@ -1029,10 +1029,10 @@ def getTopNeighborhoods(query):
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = budget_likes_commute_score*v['budget score'] + age_safety_score*v['age score'] + budget_likes_commute_score*v['commute score'] + age_safety_score*v['safety score'] + (budget_likes_commute_score*v['likes score'] if len(query['likes']) > 0 and not(no_likes) else 0.0)
+        score = budget_likes_commute_score*v['budget score'] + age_safety_score*v['age score'] + budget_likes_commute_score*v['commute score'] + age_safety_score*v['happiness score'] + (budget_likes_commute_score*v['likes score'] if len(query['likes']) > 0 and not(no_likes) else 0.0)
 
         neighborhood_scores.append(
-            (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
+            (k, score, v['budget score'], v['age score'], v['commute score'], v['happiness score'], v['likes score']))
     top_neighborhoods = sorted(
         neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
@@ -1077,7 +1077,7 @@ def main():
 
     # output =  calculateTextSimLikes(["asdf","dolphin"], True)
 
-    # loadCrimeScores()
+    # loadHappinessScores()
     # calculateBudget(1500, 1750)
     # calculateAgeScore(22)
     # calculateCommuteScore('Bike', '345 Hudson St, New York, NY 10014, USA', 15)
