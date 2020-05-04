@@ -12,6 +12,7 @@ from gensim.models import Word2Vec
 from nltk.corpus import wordnet
 import googlemaps
 from datetime import datetime
+from nltk import tokenize
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
@@ -241,7 +242,7 @@ def calculateAgeScore(age):
     mergeDict(data, norm_age_scores, "age score")
     return norm_age_scores
 
-def calculateBudget(minBudget, maxBudget):
+def calculateBudget(minBudget, maxBudget, numberBeds='1BR'):
     with open("app/irsystem/controllers/data/renthop.json") as f:
         renthop_data = json.load(f)
 
@@ -258,9 +259,9 @@ def calculateBudget(minBudget, maxBudget):
         # top = int(v.get("Studio", v.get("1BR"))[
         #           "Top 25%"].replace('$', '').replace(',', ''))
 
-        bottom = int(v["1BR"]["Bottom 25%"].replace('$', '').replace(',', ''))
-        median = int(v["1BR"]["Median"].replace('$', '').replace(',', ''))
-        top = int(v["1BR"]["Top 25%"].replace('$', '').replace(',', ''))
+        bottom = int(v[numberBeds]["Bottom 25%"].replace('$', '').replace(',', ''))
+        median = int(v[numberBeds]["Median"].replace('$', '').replace(',', ''))
+        top = int(v[numberBeds]["Top 25%"].replace('$', '').replace(',', ''))
 
         top_25s.append(top)
         bottom_25s.append(bottom)
@@ -319,11 +320,15 @@ def tokenize(multi_word_queries, text):
     lower_case = text.lower()
     tokenizer = RegexpTokenizer('not\s+very\s+[a-z]+|not\s+[a-z]+|no\s+[a-z]+|[a-z]+')
     result = tokenizer.tokenize(lower_case)
-    multi_tokenizer = MWETokenizer([('working', 'out'), ('coffee', 'shops'), ('average', 'prices'), ('union', 'square'), ('real', 'estate'), ('ice', 'cream'), ('whole', 'foods'), ('co', 'op'), ('wall', 'street'), ('world', 'trade'), ('high', 'school'), ('dim', 'sum'), ('empire', 'state'), ('high', 'rise'), ('walk', 'ups')])
+    multi_tokenizer = MWETokenizer([('working', 'out'), ('coffee', 'shops'), ('average', 'prices'), ('union', 'square'), ('real', 'estate'), ('ice', 'cream'), ('whole', 'foods'), ('co', 'op'), ('wall', 'street'), ('world', 'trade'), ('high', 'school'), ('dim', 'sum'), ('empire', 'state'), ('high', 'rise'), ('walk', 'ups'), ('battery', 'park'), ('civic', 'center'), ('east', 'harlem'), ('east', 'village'), ('financial', 'district'), ('greenwich', 'village'), ("hell's", 'kitchen'), ('kips', 'bay'), ('little', 'italy')])
     if len(multi_word_queries)>0:
         [multi_tokenizer.add_mwe((tok.split(' ')[0], tok.split(' ')[1])) for tok in multi_word_queries]
     result2 = multi_tokenizer.tokenize(result)
     return result2
+
+
+def tokenize_query(query):
+    return ['_'.join(word.split()) for word in query]
 
 def mergeMapping(original, new):
     for k,v in new.items():
@@ -681,6 +686,7 @@ def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
             idf_dict[term] = idf
     return idf_dict
 
+
 def compute_neighborhood_norms(index, idf, n_neighborhoods):
     """ Precompute the euclidean norm of each document.
 
@@ -712,9 +718,9 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
                 norm_array[neighborhood_id] += prod
     return np.sqrt(norm_array)
 
+
 def compute_query_info(query, idf, tokenizer, syn=True):
     toks = treebank_tokenizer.tokenize(query.lower()) ## also get rid of puncutation
-
     # get norm of query
     query_norm_inner_sum = 0
 
@@ -825,20 +831,11 @@ def print_cossim_results(id_to_neighborhoods, query, results):
         print()
 
 
-def get_related_words(likes):
-    related_tokens_list = []
-    for like in likes:
-        if like in relevant_keywords.keys():
-            related_tokens_list.extend(relevant_keywords[like])
-    return related_tokens_list
-
-
 def calculateTextSimLikes(likes_list, merge_dict=False):
     global no_likes
     no_likes = False
     if len(likes_list) == 0:
         norm_likes_scores = {n: 0.0 for n in neighborhood_list}
-
         if merge_dict:
             mergeDict(data, norm_likes_scores, "likes score")
         return norm_likes_scores, {}
@@ -853,7 +850,12 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     likes_scores = []
     docs_with_query={}
 
-    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, open(prefix + 'compass.json', encoding="utf-8") as compass_file, open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file, open(prefix + 'external_data.json', encoding="utf-8") as externaldata_file:
+    with open(prefix + 'niche.json', encoding="utf-8") as niche_file, \
+         open(prefix + 'streeteasy.json', encoding="utf-8") as streeteasy_file, \
+         open(prefix + 'compass.json', encoding="utf-8") as compass_file, \
+         open(prefix + 'relevant_data.json', encoding="utf-8") as reddit_file, \
+         open(prefix + 'goodmigrations.json', encoding="utf-8") as goodmigrations_file, \
+         open(prefix + 'external_data.json', encoding="utf-8") as externaldata_file:
 
         # Loading all the data
         niche_data = json.load(niche_file)
@@ -884,13 +886,13 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
             map_n, map_se, map_c, map_r, map_gm, map_ed=v
             rel_docs=[]
             for q in query_info[0]:
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "niche") for x in map_n.get(q, [])])
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "streeteasy")for x in map_se.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "niche") for x in map_n.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "streeteasy")for x in map_se.get(q, [])])
                 # print(map_c)
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "compass") for x in map_c.get(q, [])])
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "reddit") for x in map_r.get(q, [])])
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "goodmigrations") for x in map_gm.get(q, [])])
-                rel_docs.extend([(x.replace(q, "<b>" + q + "</b>").replace(q.capitalize(), "<b>" + q.capitalize() + "</b>"), "") for x in map_ed.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "compass") for x in map_c.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "reddit") for x in map_r.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "goodmigrations") for x in map_gm.get(q, [])])
+                rel_docs.extend([((re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I) + "</b>"), "") for x in map_ed.get(q, [])])
             docs_with_query[k]=rel_docs
 
         print(f"query_info {query_info}")
@@ -921,13 +923,15 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         mergeDict(data, norm_likes_scores, "likes score")
     return norm_likes_scores, docs_with_query
 
-def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
+def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, commuteSubwayService):
     with open("app/irsystem/controllers/data/walkscore.json") as f:
         walkscore_data = json.load(f)
     with open("app/irsystem/controllers/data/nyc-parking-spots.json") as c:
         carscore_data = json.load(c)
     with open("app/irsystem/controllers/data/gas_stations.json") as g:
         gasscore_data = json.load(g)
+    with open("app/irsystem/controllers/data/new_subway_scores.json") as s:
+        subwayscore_data = json.load(s)
 
     type_key = {'Walk': "walk score", 'Bike': "bike score", 'Public Transit': "transit score"}
 
@@ -945,11 +949,16 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
     car_scores = np.array([int(v['Car-Score']) for k, v in carscore_data.items()])
     walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
     gas_scores = np.array([int(v['score']) for k, v in gasscore_data.items()])
-    cscores = np.add(.25*car_scores, .25*gas_scores, .5*walk_scores)
+    cscores = np.add(.5*car_scores, .5*gas_scores)
     all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(scoreCalculation(cscores))}
     if commuteType=='Car':
         commute_scores=cscores
 
+    original_transit_scores = np.array([int(v['rankings']['transit score']) for k, v in walkscore_data.items()])
+    subway_scores = np.array([int(v['Score']) for k, v in subwayscore_data.items()])
+    cscores = np.add(.5*original_transit_scores, .5*subway_scores)
+    if commuteType =='Public Transit':
+        commute_scores = cscores
     normalized = scoreCalculation(commute_scores)
 
     all_durations=None
@@ -964,6 +973,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
         all_durations={}
 
         for k,v in travel_modes.items():
+            # nineam = datetime.datetime.combine(datetime.date.today(), datetime.time(9, 0))
             all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v)
             # print(json.dumps(all_matrices[k], indent=4))
             # print(k)
@@ -977,9 +987,23 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration):
 
         normalized=0.2*np.array(normalized)+0.8*np.array(scoreCalculation(ratio))
 
+    if(commuteSubwayService):
+        subway_service_scores = []
+        selected_subway_service = commuteSubwayService.capitalize()
+        selected_subway_service = re.sub(r"(?<=\d)d", ' Express', selected_subway_service)
+        for k,v in subwayscore_data.items():
+            # print(v['Services'][-1] == selected_subway_service, v['Services'][-1], selected_subway_service)
+            if selected_subway_service in v['Services']:
+                subway_service_scores.append(1)
+            else:
+                subway_service_scores.append(0)
+        # print(subway_service_scores)
+        normalized = 0.6*np.asarray(normalized) + 0.4*np.asarray(scoreCalculation(subway_service_scores))
+
     # (commute_scores-min(commute_scores)) / \
     # (max(commute_scores)-min(commute_scores))*100
     norm_commute_scores = {neighborhood_list[i]: v for i, v in enumerate(normalized)}
+    # print(norm_commute_scores)
     mergeDict(data, norm_commute_scores, "commute score")
 
     all_scores=all_durations if commuteDestination else all_walkscores
@@ -1013,23 +1037,28 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/compass.json", encoding="utf-8") as f:
         compass_data = json.load(f)
 
+    with open("app/irsystem/controllers/data/new_subway_scores.json") as f:
+        subway_raw_data = json.load(f)
+
     loadCrimeScores()
-    calculateBudget(int(query['budget-min']), int(query['budget-max']))
+    calculateBudget(int(query['budget-min']), int(query['budget-max']), query['number-beds'])
     calculateAgeScore(query['age'])
-    _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'])
+    _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'], query['subway-service'])
     _, docs_with_query=calculateTextSimLikes(query['likes'], True)
     # totalOtherScores = 5 if len(query['likes']) > 0 else 4
     # otherWeights = 1.0/totalOtherScores
 
-    budget_likes_commute_score = 0.24
-    age_safety_score = 0.14
+    budget_likes_commute_score = 0.25
+    age_score = 0.15
+    safety_score = 0.1
     if len(query['likes']) == 0 or no_likes:
-        budget_likes_commute_score = 0.3
-        age_safety_score = 0.2
+        budget_likes_commute_score = 0.32
+        age_score = 0.22
+        safety_score = 0.14
 
     neighborhood_scores = []
     for k, v in data.items():
-        score = budget_likes_commute_score*v['budget score'] + age_safety_score*v['age score'] + budget_likes_commute_score*v['commute score'] + age_safety_score*v['safety score'] + (budget_likes_commute_score*v['likes score'] if len(query['likes']) > 0 and not(no_likes) else 0.0)
+        score = budget_likes_commute_score*v['budget score'] + age_score*v['age score'] + budget_likes_commute_score*v['commute score'] + safety_score*v['safety score'] + (budget_likes_commute_score*v['likes score'] if len(query['likes']) > 0 and not(no_likes) else 0.0)
 
         neighborhood_scores.append(
             (k, score, v['budget score'], v['age score'], v['commute score'], v['safety score'], v['likes score']))
@@ -1037,12 +1066,21 @@ def getTopNeighborhoods(query):
         neighborhood_scores, key=lambda x: x[1], reverse=True)
     best_matches = []
     for (name, score, budget, age, commute, safety, likes) in top_neighborhoods:
-        subway_data = [
-            {"name": "1", "img-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"}]
-        rent = {'median': renthop_data[name]['1BR']['Median'], 'top': renthop_data[name]
-                ['1BR']['Top 25%'], 'bottom': renthop_data[name]['1BR']['Bottom 25%']}
+        subway_data_name = name.replace("'", "").replace(" ", "-").lower()
+        subway_data = []
+        curr_subway_services = sorted(subway_raw_data[subway_data_name]['Services'])
+        for service in curr_subway_services:
+            subway_service_name = re.sub(r"(?<=\d) Express", 'd', service)
+            subway_data.append({"name": str(subway_service_name),
+                                "img-url": "static/subways/" + subway_service_name + ".svg"})
+        # subway_data = [
+        #     {"name": "1", "img-url": "static/subways/1.svg"}]
+        # "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"
+        rent = {'median': renthop_data[name][query['number-beds']]['Median'], 'top': renthop_data[name]
+                [query['number-beds']]['Top 25%'], 'bottom': renthop_data[name][query['number-beds']]['Bottom 25%']}
+        rent_text = "1" if query['number-beds']=='1BR' else "2"
         n = {'name': name, 'score': round(score, 2), 'score-text': getScoreText(score), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
-            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>"), 'rent': rent, 'budget order': int(renthop_data[name]['1BR']['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0], "docs": docs_with_query[name]}
+            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>"), 'rent': rent, 'budget order': int(renthop_data[name][query['number-beds']]['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0], "docs": docs_with_query[name] if len(query['likes']) > 0 else [], "rent text": rent_text}
         # if(query['commute-destination']!=''):
         n['walk-duration']=durations['Walk'][name]
         n['bike-duration']=durations['Bike'][name]
