@@ -20,7 +20,6 @@
     <script type="text/javascript" src="/static/selectize.js"></script>
     <script type="text/javascript" src="/static/radarChart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <!-- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="/static/script.js"></script>
     <script
@@ -178,9 +177,10 @@
           <a onclick="sortBudget(this)">Budget</a>
           <a onclick="sortAge(this)">Age</a>
           <a onclick="sortCommute(this)">Commute</a>
-          <a onclick="sortLikes(this)">Keywords</a>
+          <a onclick="sortLikes(this, '{{valid_queries}}')">Keywords</a>
         </section>
           <br />
+          <div id="cards">
           {% for d in data %}
 
           <div
@@ -214,7 +214,13 @@
             </div>
           </div>
           {% endfor %}
+        </div>
+
+          <div id="keyword-error">
+            Sorry, can't find keyword(s): {% if query %} {{ query['likes']|join(', ') }} {% endif %} 🥺
+          </div>
       </div>
+      
       <div id="all-modals">
         {% for d in data %}
         <div id="{{d['div-id']}}" class="modal">
@@ -236,24 +242,32 @@
             <span>COMMUTE {% if d['commute destination'] %}TIME{% else %}SCORES{% endif %}</span>
             <div class="all-commutes">
               <div class="commute">
+                {% if query and query['commute-type']=='Walk' %}<b>{% endif %}
                 <span>Walk</span>
                 <span>{{d['walk-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
+                {% if query and query['commute-type']=='Walk' %}</b>{% endif %}
               </div>
               <div class="commute">
+                {% if query and query['commute-type']=='Bike' %}<b>{% endif %}
                 <span>Bike</span>
                 <span>{{d['bike-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
+                {% if query and query['commute-type']=='Bike' %}</b>{% endif %}
               </div>
               <div class="commute">
+                {% if query and query['commute-type']=='Car' %}<b>{% endif %}
                 <span>Car</span>
                 <span>{{d['car-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
+                {% if query and query['commute-type']=='Car' %}</b>{% endif %}
               </div>
               <div class="commute">
+                {% if query and query['commute-type']=='Public Transit' %}<b>{% endif %}
                 <span>Public Transit</span>
                 <span>{{d['transit-duration']}}{% if d['commute destination'] %}m{% endif %}</span>
+                {% if query and query['commute-type']=='Public Transit' %}</b>{% endif %}
               </div>
             </div>
             <div class="services">
-              <span>SUBWAY LINES</span>
+              <span>Subway Lines</span>
               {% for s in d['subway'] %}
               <img src="{{s['img-url']}}" width="12">
               {% endfor %}

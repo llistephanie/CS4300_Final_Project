@@ -708,11 +708,11 @@ def get_new_multiword_toks(query, tokenizer, syn=True):
             for r_word, r_score in related_list:
                 if r_score > 0.85: new_toks.append(r_word)
 
-    print(f"new_toks {new_toks}")
+    # print(f"new_toks {new_toks}")
     return new_toks
 
 def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
-    print(f"query {query}")
+    # print(f"query {query}")
     # toks = treebank_tokenizer.tokenize(query.lower()) ## also get rid of puncutation
     # query=query.lower()
     # print(f"toks {toks}")
@@ -744,7 +744,7 @@ def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
 
             for r_word, r_score in related_list:
                 if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
-    print(f"new_toks {new_toks}")
+    # print(f"new_toks {new_toks}")
     # term frequencies in query
     for tok in set(new_toks):
         query_tf[tok] = new_toks.count(tok)
@@ -842,8 +842,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     prefix = 'app/irsystem/controllers/data/'
     query_str = likes_list
-    print('query str:')
-    print(query_str)
+    # print('query str:')
+    # print(query_str)
     #related_words = ' '.join(get_related_words(likes_list))
     #related_words = " ".join(likes_list)
     query_extended = query_str #+ ' ' + related_words
@@ -905,7 +905,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         if sum(likes_scores) == 0:
             no_likes = True
 
-    print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
+    # print_cossim_results(neighborhood_id_to_name, query_str, likes_scores)
 
     included_ids = set(likes_scores.keys())
     zero_scored_neighborhoods = list(
@@ -923,7 +923,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     if merge_dict:
         mergeDict(data, norm_likes_scores, "likes score")
-    return norm_likes_scores, docs_with_query
+    return norm_likes_scores, docs_with_query, query_info[0]
 
 def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, commuteSubwayService):
     with open("app/irsystem/controllers/data/walkscore.json") as f:
@@ -1055,9 +1055,7 @@ def getTopNeighborhoods(query):
     calculateBudget(int(query['budget-min']), int(query['budget-max']), query['number-beds'])
     calculateAgeScore(query['age'])
     _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'], query['subway-service'])
-    _, docs_with_query=calculateTextSimLikes(query['likes'], True)
-    # totalOtherScores = 5 if len(query['likes']) > 0 else 4
-    # otherWeights = 1.0/totalOtherScores
+    _, docs_with_query, valid_queries=calculateTextSimLikes(query['likes'], True)
 
     budget_likes_commute_score = 0.25
     age_score = 0.15
@@ -1099,7 +1097,7 @@ def getTopNeighborhoods(query):
         n['transit-duration']=durations['Public Transit'][name]
 
         best_matches.append(n)
-    return best_matches
+    return best_matches, valid_queries
 
 
 def main():
