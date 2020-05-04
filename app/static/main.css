@@ -921,6 +921,7 @@ input[type="submit"] {
 /* Modals */
 .blocker {
   background-color: #1d1d22;
+  z-index: 1000;
 }
 
 .modal {
@@ -1298,6 +1299,7 @@ input[type="submit"] {
   /* identical to box height, or 11px */
   opacity: 1;
   color: #31a05f;
+  margin: 0px;
 }
 
 .services span {
