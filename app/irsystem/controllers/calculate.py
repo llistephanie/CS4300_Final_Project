@@ -9,8 +9,9 @@ import nltk
 from gensim.models import Word2Vec
 from nltk.corpus import wordnet
 import googlemaps
-from datetime import datetime
 from nltk import tokenize
+import datetime
+from time import mktime
 # Full list of neighborhoods
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
@@ -233,13 +234,6 @@ def calculateBudget(minBudget, maxBudget, numberBeds='1BR'):
     # essentially finding percentage of homes under [min,max] range
     for k, v in renthop_data.items():
 
-        # bottom = int(v.get("Studio", v.get("1BR"))[
-        #              "Bottom 25%"].replace('$', '').replace(',', ''))
-        # median = int(v.get("Studio", v.get("1BR"))[
-        #              "Median"].replace('$', '').replace(',', ''))
-        # top = int(v.get("Studio", v.get("1BR"))[
-        #           "Top 25%"].replace('$', '').replace(',', ''))
-
         bottom = int(v[numberBeds]["Bottom 25%"].replace('$', '').replace(',', ''))
         median = int(v[numberBeds]["Median"].replace('$', '').replace(',', ''))
         top = int(v[numberBeds]["Top 25%"].replace('$', '').replace(',', ''))
@@ -260,25 +254,8 @@ def calculateBudget(minBudget, maxBudget, numberBeds='1BR'):
                               * percentage_points)
 
     fit_budget = np.array(fit_budget)
-    # print(f"fit_budget {fit_budget}")
 
-    # keywords={}
-    # if maxBudget >= np.mean(np.array(top_25s)):
-    #     expensive_scores = np.array(
-    #         list(calculateTextSimLikes(['Expensive']).values()))
-    #     fit_budget = fit_budget+expensive_scores
-
-    # print(f"fit_budget+expensive_scores {fit_budget}")
-
-    # if minBudget <= np.mean(np.array(bottom_25s)):
-    #     affordable_scores = np.array(
-    #         list(calculateTextSimLikes(['Affordable']).values()))
-    #     fit_budget = fit_budget+affordable_scores
-
-    # print(f"fit_budget+affordable_scores {fit_budget}")
-
-    normalized = scoreCalculation(fit_budget)  # (fit_budget-min(fit_budget)) / \
-    # (max(fit_budget)-min(fit_budget))*100
+    normalized = scoreCalculation(fit_budget)
 
     # for text analysis
     norm_budget_scores = {
@@ -952,10 +929,16 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
         all_matrices={}
 
         all_durations={}
+
+        today = datetime.date.today()
+        monday=today + datetime.timedelta(days=(7 - today.weekday()))
+        nineam = datetime.time(9, 0)
+        monday_9am=datetime.datetime.combine(monday, nineam)
+
+        timestamp_monday_9am=mktime(monday_9am.timetuple())
         
         for k,v in travel_modes.items():
-            # nineam = datetime.datetime.combine(datetime.date.today(), datetime.time(9, 0))
-            all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v)
+            all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v, departure_time=timestamp_monday_9am)
             # print(json.dumps(all_matrices[k], indent=4))
             # print(k)
             all_durations[k] = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) if 'duration' in v['elements'][0].keys() else None for i, v in enumerate(all_matrices[k]['rows']) }
@@ -1095,4 +1078,4 @@ def main():
     # print(docs_with_query)
 
 
-# main()
+main()
