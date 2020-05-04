@@ -234,13 +234,6 @@ def calculateBudget(minBudget, maxBudget, numberBeds='1BR'):
     # essentially finding percentage of homes under [min,max] range
     for k, v in renthop_data.items():
 
-        # bottom = int(v.get("Studio", v.get("1BR"))[
-        #              "Bottom 25%"].replace('$', '').replace(',', ''))
-        # median = int(v.get("Studio", v.get("1BR"))[
-        #              "Median"].replace('$', '').replace(',', ''))
-        # top = int(v.get("Studio", v.get("1BR"))[
-        #           "Top 25%"].replace('$', '').replace(',', ''))
-
         bottom = int(v[numberBeds]["Bottom 25%"].replace('$', '').replace(',', ''))
         median = int(v[numberBeds]["Median"].replace('$', '').replace(',', ''))
         top = int(v[numberBeds]["Top 25%"].replace('$', '').replace(',', ''))
@@ -261,25 +254,8 @@ def calculateBudget(minBudget, maxBudget, numberBeds='1BR'):
                               * percentage_points)
 
     fit_budget = np.array(fit_budget)
-    # print(f"fit_budget {fit_budget}")
 
-    # keywords={}
-    # if maxBudget >= np.mean(np.array(top_25s)):
-    #     expensive_scores = np.array(
-    #         list(calculateTextSimLikes(['Expensive']).values()))
-    #     fit_budget = fit_budget+expensive_scores
-
-    # print(f"fit_budget+expensive_scores {fit_budget}")
-
-    # if minBudget <= np.mean(np.array(bottom_25s)):
-    #     affordable_scores = np.array(
-    #         list(calculateTextSimLikes(['Affordable']).values()))
-    #     fit_budget = fit_budget+affordable_scores
-
-    # print(f"fit_budget+affordable_scores {fit_budget}")
-
-    normalized = scoreCalculation(fit_budget)  # (fit_budget-min(fit_budget)) / \
-    # (max(fit_budget)-min(fit_budget))*100
+    normalized = scoreCalculation(fit_budget)
 
     # for text analysis
     norm_budget_scores = {
@@ -1102,4 +1078,4 @@ def main():
     # print(docs_with_query)
 
 
-# main()
+main()
