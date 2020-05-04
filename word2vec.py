@@ -126,7 +126,7 @@ model = Word2Vec.load(pth)
 
 # print(model.wv.most_similar_cos())
 
-print(model.wv.most_similar('coffee'))
+print(model.wv.most_similar('gyms'))
 
 # print(model.wv.most_similar_cosmul(positive=['affordable'], negative=['expensive']))
 # print(model.wv.most_similar_cosmul(positive=['favorite', 'sweet']))
