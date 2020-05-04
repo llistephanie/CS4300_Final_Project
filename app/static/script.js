@@ -209,6 +209,7 @@ jQuery.fn.sortNeighborhoods = function sortNeighborhoods() {
 };
 
 function sortAge(e) {
+  $("#keyword-error").hide();
   $("#cards").show();
   $("div.result").show();
   $("#filters a").removeClass("active");
@@ -218,6 +219,7 @@ function sortAge(e) {
 }
 
 function sortBudget(e) {
+  $("#keyword-error").hide();
   $("#cards").show();
   $("div.result").show();
   $("#filters a").removeClass("active");
@@ -227,6 +229,7 @@ function sortBudget(e) {
 }
 
 function sort(e) {
+  $("#keyword-error").hide();
   $("#cards").show();
   $("div.result").show();
   $("#filters a").removeClass("active");
@@ -249,6 +252,7 @@ function sortLikes(e, valid) {
 }
 
 function sortCommute(e) {
+  $("#keyword-error").hide();
   $("#cards").show();
   $("div.result").show();
   $("#filters a").removeClass("active");
