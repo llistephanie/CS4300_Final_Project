@@ -149,7 +149,7 @@
 
             <div id="keywords-type-input">
               <label>Keywords <div class="tooltip"><img width="10" src="static/icons/help-white-18dp.svg">
-                <span class="tooltiptext">Keywords can be neighborhood characteristics (trendy, artsy), building characteristics (modern, rustic), features (Cornell), activities (soccer, shopping, gym), and more.</span>
+                <span class="tooltiptext">Keywords can be neighborhood characteristics (trendy, artsy, groovy, quaint), building characteristics (modern, rustic), features (boba, coffee shops, bars, Cornell), activities (soccer, shopping, gym), and more.</span>
               </div> </label>
               <select placeholder="Gym, Coffee, Restaurants" name="likes" multiple id="keywords">
                 {% if query %}
@@ -290,7 +290,7 @@
           <div class="links">
             <a class="active" onclick="closeMap(this)" data-x="{{d['div-id']}}">info</a>
             <a onclick="openMap(this)" data-x="{{d['div-id']}}">map</a>
-            {% if d['docs'] %}<a onclick="openDocs(this)" data-x="{{d['div-id']}}">docs</a>{% endif %}
+            {% if d['docs'] %}<a onclick="openDocs(this)" data-x="{{d['div-id']}}">reviews</a>{% endif %}
           </div>
         </div>
         {% endfor %}
