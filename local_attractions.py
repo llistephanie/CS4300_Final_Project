@@ -115,7 +115,7 @@ print(central_park_polygon)
 neighborhood_buffers = {}
 neighborhood_attractions = {}
 for neighborhood_name, currpolygon in neighborhood_polygons.items():
-    temp = transform(project_to_nad.transform, currpolygon).buffer(1200)
+    temp = transform(project_to_nad.transform, currpolygon).buffer(1320)
     currbuffer = transform(project_to_wgs.transform, temp)
     neighborhood_buffers[neighborhood_name] = currbuffer
     neighborhood_attractions[neighborhood_name] = []

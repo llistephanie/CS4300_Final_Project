@@ -41,7 +41,7 @@ project_to_wgs = pyproj.Transformer.from_proj(nadProjection, wgsProjection)
 neighborhood_buffers = {}
 neighborhood_stations = {}
 for neighborhood_name, currpolygon in neighborhood_polygons.items():
-    temp = transform(project_to_nad.transform, neighborhood_polygons[neighborhood_name]).buffer(2640)
+    temp = transform(project_to_nad.transform, neighborhood_polygons[neighborhood_name]).buffer(1320)
     neighborhood_buffers[neighborhood_name] = transform(project_to_wgs.transform, temp)
     neighborhood_stations[neighborhood_name] = []
     for station_id, station in station_dict.items():
