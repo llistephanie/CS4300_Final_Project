@@ -279,6 +279,12 @@
             likes-order="{{d['likes']}}"
             happiness-order="{{d['safety']}}"></div>
           </div>
+          <div class="tags">
+            <span>Attractions</span>
+            {% for a in d['attractions'] %}
+              <span><img src="static/icons/place-white-18dp.svg" width="15">{{a['name']}}</span>
+            {% endfor %}
+          </div>
           <div class="map" id="{{d['div-id']}}-map"></div>
           <div class="docs" id="{{d['div-id']}}-docs">
             {% for doc in d['docs'] %}

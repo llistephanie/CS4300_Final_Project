@@ -1,1 +1,1022 @@
-{"battery-park": [{"formatted_address": "285 Fulton St, New York, NY 10007, United States", "geometry": {"location": {"lat": 40.7127431, "lng": -74.0133795}, "viewport": {"northeast": {"lat": 40.71434452989272, "lng": -74.01181112010727}, "southwest": {"lat": 40.71164487010728, "lng": -74.01451077989272}}}, "name": "One World Trade Center"}, {"formatted_address": "11 Wall St, New York, NY 10005, United States", "geometry": {"location": {"lat": 40.706877, "lng": -74.0112654}, "viewport": {"northeast": {"lat": 40.70860352989271, "lng": -74.00940427010727}, "southwest": {"lat": 40.70590387010727, "lng": -74.01210392989272}}}, "name": "New York Stock Exchange"}, {"formatted_address": "230 Vesey St, New York, NY 10281, United States", "geometry": {"location": {"lat": 40.7127168, "lng": -74.01528239999999}, "viewport": {"northeast": {"lat": 40.7159453, "lng": -74.0106163}, "southwest": {"lat": 40.7092894, "lng": -74.0202497}}}, "name": "Brookfield Place"}], "chelsea": [{"formatted_address": "20 W 34th St, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7484405, "lng": -73.98566439999999}, "viewport": {"northeast": {"lat": 40.74971232989272, "lng": -73.98392452010728}, "southwest": {"lat": 40.74701267010728, "lng": -73.98662417989271}}}, "name": "Empire State Building"}, {"formatted_address": "20 Hudson Yards, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7534582, "lng": -74.0011206}, "viewport": {"northeast": {"lat": 40.75575279999999, "lng": -73.99828959999999}, "southwest": {"lat": 40.7508656, "lng": -74.0036504}}}, "name": "The Shops and Restaurants at Hudson Yards"}, {"formatted_address": "New York, NY 10011, United States", "geometry": {"location": {"lat": 40.7479925, "lng": -74.0047649}, "viewport": {"northeast": {"lat": 40.75890824999998, "lng": -73.99853175}, "southwest": {"lat": 40.73287364999999, "lng": -74.01141114999999}}}, "name": "The High Line"}], "chinatown": [{"formatted_address": "Brooklyn Bridge, New York, NY 10038, United States", "geometry": {"location": {"lat": 40.7060855, "lng": -73.9968643}, "viewport": {"northeast": {"lat": 40.7084499, "lng": -73.9920949}, "southwest": {"lat": 40.7031689, "lng": -73.99985219999999}}}, "name": "Brooklyn Bridge"}, {"formatted_address": "235 Bowery, New York, NY 10002, United States", "geometry": {"location": {"lat": 40.7223376, "lng": -73.9928905}, "viewport": {"northeast": {"lat": 40.72373397989272, "lng": -73.99167337010728}, "southwest": {"lat": 40.72103432010728, "lng": -73.99437302989273}}}, "name": "New Museum"}, {"formatted_address": "City Hall Park, New York, NY 10007, United States", "geometry": {"location": {"lat": 40.7127744, "lng": -74.006059}, "viewport": {"northeast": {"lat": 40.71426027989272, "lng": -74.00523752010727}, "southwest": {"lat": 40.71156062010728, "lng": -74.00793717989272}}}, "name": "New York City Hall"}], "civic-center": [{"formatted_address": "Brooklyn Bridge, New York, NY 10038, United States", "geometry": {"location": {"lat": 40.7060855, "lng": -73.9968643}, "viewport": {"northeast": {"lat": 40.7084499, "lng": -73.9920949}, "southwest": {"lat": 40.7031689, "lng": -73.99985219999999}}}, "name": "Brooklyn Bridge"}, {"formatted_address": "11 Wall St, New York, NY 10005, United States", "geometry": {"location": {"lat": 40.706877, "lng": -74.0112654}, "viewport": {"northeast": {"lat": 40.70860352989271, "lng": -74.00940427010727}, "southwest": {"lat": 40.70590387010727, "lng": -74.01210392989272}}}, "name": "New York Stock Exchange"}, {"formatted_address": "City Hall Park, New York, NY 10007, United States", "geometry": {"location": {"lat": 40.7127744, "lng": -74.006059}, "viewport": {"northeast": {"lat": 40.71426027989272, "lng": -74.00523752010727}, "southwest": {"lat": 40.71156062010728, "lng": -74.00793717989272}}}, "name": "New York City Hall"}], "east-harlem": [{"formatted_address": "New York, NY, United States", "geometry": {"location": {"lat": 40.7828647, "lng": -73.9653551}, "viewport": {"northeast": {"lat": 40.81804399999999, "lng": -73.9339825}, "southwest": {"lat": 40.74734159999999, "lng": -73.9970305}}}, "name": "Central Park"}, {"formatted_address": "1220 5th Ave, New York, NY 10029, United States", "geometry": {"location": {"lat": 40.7924939, "lng": -73.95190889999999}, "viewport": {"northeast": {"lat": 40.79401092989272, "lng": -73.95064277010727}, "southwest": {"lat": 40.79131127010728, "lng": -73.95334242989271}}}, "name": "Museum of the City of New York"}], "harlem": [{"formatted_address": "New York, NY, United States", "geometry": {"location": {"lat": 40.7828647, "lng": -73.9653551}, "viewport": {"northeast": {"lat": 40.81804399999999, "lng": -73.9339825}, "southwest": {"lat": 40.74734159999999, "lng": -73.9970305}}}, "name": "Central Park"}, {"formatted_address": "253 W 125th St, New York, NY 10027, United States", "geometry": {"location": {"lat": 40.810018, "lng": -73.95005600000002}, "viewport": {"northeast": {"lat": 40.81124392989272, "lng": -73.94880887010729}, "southwest": {"lat": 40.80854427010728, "lng": -73.95150852989272}}}, "name": "Apollo Theater"}, {"formatted_address": "1220 5th Ave, New York, NY 10029, United States", "geometry": {"location": {"lat": 40.7924939, "lng": -73.95190889999999}, "viewport": {"northeast": {"lat": 40.79401092989272, "lng": -73.95064277010727}, "southwest": {"lat": 40.79131127010728, "lng": -73.95334242989271}}}, "name": "Museum of the City of New York"}], "east-village": [{"formatted_address": "235 Bowery, New York, NY 10002, United States", "geometry": {"location": {"lat": 40.7223376, "lng": -73.9928905}, "viewport": {"northeast": {"lat": 40.72373397989272, "lng": -73.99167337010728}, "southwest": {"lat": 40.72103432010728, "lng": -73.99437302989273}}}, "name": "New Museum"}, {"formatted_address": "Union Square, New York, NY 10003, USA", "geometry": {"location": {"lat": 40.7358633, "lng": -73.9910835}, "viewport": {"northeast": {"lat": 40.7385105, "lng": -73.98697609999999}, "southwest": {"lat": 40.733992, "lng": -73.993641}}}, "name": "Union Square"}, {"formatted_address": "175 5th Ave, New York, NY 10010, United States", "geometry": {"location": {"lat": 40.7410605, "lng": -73.9896986}, "viewport": {"northeast": {"lat": 40.74242887989271, "lng": -73.98821012010727}, "southwest": {"lat": 40.73972922010727, "lng": -73.99090977989272}}}, "name": "Flatiron Building"}], "financial-district": [{"formatted_address": "Brooklyn Bridge, New York, NY 10038, United States", "geometry": {"location": {"lat": 40.7060855, "lng": -73.9968643}, "viewport": {"northeast": {"lat": 40.7084499, "lng": -73.9920949}, "southwest": {"lat": 40.7031689, "lng": -73.99985219999999}}}, "name": "Brooklyn Bridge"}, {"formatted_address": "285 Fulton St, New York, NY 10007, United States", "geometry": {"location": {"lat": 40.7127431, "lng": -74.0133795}, "viewport": {"northeast": {"lat": 40.71434452989272, "lng": -74.01181112010727}, "southwest": {"lat": 40.71164487010728, "lng": -74.01451077989272}}}, "name": "One World Trade Center"}, {"formatted_address": "11 Wall St, New York, NY 10005, United States", "geometry": {"location": {"lat": 40.706877, "lng": -74.0112654}, "viewport": {"northeast": {"lat": 40.70860352989271, "lng": -74.00940427010727}, "southwest": {"lat": 40.70590387010727, "lng": -74.01210392989272}}}, "name": "New York Stock Exchange"}], "flatiron": [{"formatted_address": "20 W 34th St, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7484405, "lng": -73.98566439999999}, "viewport": {"northeast": {"lat": 40.74971232989272, "lng": -73.98392452010728}, "southwest": {"lat": 40.74701267010728, "lng": -73.98662417989271}}}, "name": "Empire State Building"}, {"formatted_address": "4 Pennsylvania Plaza, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7505045, "lng": -73.9934387}, "viewport": {"northeast": {"lat": 40.75227090000001, "lng": -73.98980375}, "southwest": {"lat": 40.7490653, "lng": -73.99636075}}}, "name": "Madison Square Garden"}, {"formatted_address": "Union Square, New York, NY 10003, USA", "geometry": {"location": {"lat": 40.7358633, "lng": -73.9910835}, "viewport": {"northeast": {"lat": 40.7385105, "lng": -73.98697609999999}, "southwest": {"lat": 40.733992, "lng": -73.993641}}}, "name": "Union Square"}], "gramercy": [{"formatted_address": "20 W 34th St, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7484405, "lng": -73.98566439999999}, "viewport": {"northeast": {"lat": 40.74971232989272, "lng": -73.98392452010728}, "southwest": {"lat": 40.74701267010728, "lng": -73.98662417989271}}}, "name": "Empire State Building"}, {"formatted_address": "Union Square, New York, NY 10003, USA", "geometry": {"location": {"lat": 40.7358633, "lng": -73.9910835}, "viewport": {"northeast": {"lat": 40.7385105, "lng": -73.98697609999999}, "southwest": {"lat": 40.733992, "lng": -73.993641}}}, "name": "Union Square"}, {"formatted_address": "175 5th Ave, New York, NY 10010, United States", "geometry": {"location": {"lat": 40.7410605, "lng": -73.9896986}, "viewport": {"northeast": {"lat": 40.74242887989271, "lng": -73.98821012010727}, "southwest": {"lat": 40.73972922010727, "lng": -73.99090977989272}}}, "name": "Flatiron Building"}], "greenwich-village": [{"formatted_address": "235 Bowery, New York, NY 10002, United States", "geometry": {"location": {"lat": 40.7223376, "lng": -73.9928905}, "viewport": {"northeast": {"lat": 40.72373397989272, "lng": -73.99167337010728}, "southwest": {"lat": 40.72103432010728, "lng": -73.99437302989273}}}, "name": "New Museum"}, {"formatted_address": "Union Square, New York, NY 10003, USA", "geometry": {"location": {"lat": 40.7358633, "lng": -73.9910835}, "viewport": {"northeast": {"lat": 40.7385105, "lng": -73.98697609999999}, "southwest": {"lat": 40.733992, "lng": -73.993641}}}, "name": "Union Square"}, {"formatted_address": "175 5th Ave, New York, NY 10010, United States", "geometry": {"location": {"lat": 40.7410605, "lng": -73.9896986}, "viewport": {"northeast": {"lat": 40.74242887989271, "lng": -73.98821012010727}, "southwest": {"lat": 40.73972922010727, "lng": -73.99090977989272}}}, "name": "Flatiron Building"}], "hells-kitchen": [{"formatted_address": "New York, NY, United States", "geometry": {"location": {"lat": 40.7828647, "lng": -73.9653551}, "viewport": {"northeast": {"lat": 40.81804399999999, "lng": -73.9339825}, "southwest": {"lat": 40.74734159999999, "lng": -73.9970305}}}, "name": "Central Park"}, {"formatted_address": "Manhattan, NY 10036, United States", "geometry": {"location": {"lat": 40.7579747, "lng": -73.9855426}, "viewport": {"northeast": {"lat": 40.76098665, "lng": -73.9834256}, "southwest": {"lat": 40.75504125, "lng": -73.98768480000001}}}, "name": "Times Square"}, {"formatted_address": "20 Hudson Yards, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7534582, "lng": -74.0011206}, "viewport": {"northeast": {"lat": 40.75575279999999, "lng": -73.99828959999999}, "southwest": {"lat": 40.7508656, "lng": -74.0036504}}}, "name": "The Shops and Restaurants at Hudson Yards"}], "inwood": [{"formatted_address": "99 Margaret Corbin Dr, New York, NY 10040, United States", "geometry": {"location": {"lat": 40.8648628, "lng": -73.9317274}, "viewport": {"northeast": {"lat": 40.86665500000001, "lng": -73.9246285}, "southwest": {"lat": 40.86222299999999, "lng": -73.93519849999998}}}, "name": "The Met Cloisters"}, {"formatted_address": "Riverside, Dr To Broadway, New York, NY 10040, United States", "geometry": {"location": {"lat": 40.8625608, "lng": -73.9312995}, "viewport": {"northeast": {"lat": 40.86391062989272, "lng": -73.92994967010728}, "southwest": {"lat": 40.86121097010728, "lng": -73.93264932989271}}}, "name": "Fort Tryon Park"}, {"formatted_address": "Payson Ave. &, Seaman Ave, New York, NY 10034, United States", "geometry": {"location": {"lat": 40.8722007, "lng": -73.9255549}, "viewport": {"northeast": {"lat": 40.87333015, "lng": -73.91845599999999}, "southwest": {"lat": 40.86881235000001, "lng": -73.92792119999999}}}, "name": "Inwood Hill Park"}], "kips-bay": [{"formatted_address": "20 W 34th St, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7484405, "lng": -73.98566439999999}, "viewport": {"northeast": {"lat": 40.74971232989272, "lng": -73.98392452010728}, "southwest": {"lat": 40.74701267010728, "lng": -73.98662417989271}}}, "name": "Empire State Building"}, {"formatted_address": "405 Lexington Ave, New York, NY 10174, United States", "geometry": {"location": {"lat": 40.7516208, "lng": -73.97550199999999}, "viewport": {"northeast": {"lat": 40.75289702989272, "lng": -73.97429957010728}, "southwest": {"lat": 40.75019737010727, "lng": -73.97699922989273}}}, "name": "Chrysler Building"}, {"formatted_address": "89 E 42nd St, New York, NY 10017, United States", "geometry": {"location": {"lat": 40.7527262, "lng": -73.9772294}, "viewport": {"northeast": {"lat": 40.75501529999998, "lng": -73.97544694999999}, "southwest": {"lat": 40.75112850000001, "lng": -73.97863075}}}, "name": "Grand Central Terminal"}], "little-italy": [{"formatted_address": "Brooklyn Bridge, New York, NY 10038, United States", "geometry": {"location": {"lat": 40.7060855, "lng": -73.9968643}, "viewport": {"northeast": {"lat": 40.7084499, "lng": -73.9920949}, "southwest": {"lat": 40.7031689, "lng": -73.99985219999999}}}, "name": "Brooklyn Bridge"}, {"formatted_address": "235 Bowery, New York, NY 10002, United States", "geometry": {"location": {"lat": 40.7223376, "lng": -73.9928905}, "viewport": {"northeast": {"lat": 40.72373397989272, "lng": -73.99167337010728}, "southwest": {"lat": 40.72103432010728, "lng": -73.99437302989273}}}, "name": "New Museum"}, {"formatted_address": "New York, NY 10003, United States", "geometry": {"location": {"lat": 40.72951339999999, "lng": -73.9964609}, "viewport": {"northeast": {"lat": 40.73454915000001, "lng": -73.98985275}, "southwest": {"lat": 40.72399454999999, "lng": -74.00363175000001}}}, "name": "New York University"}], "lower-east-side": [{"formatted_address": "235 Bowery, New York, NY 10002, United States", "geometry": {"location": {"lat": 40.7223376, "lng": -73.9928905}, "viewport": {"northeast": {"lat": 40.72373397989272, "lng": -73.99167337010728}, "southwest": {"lat": 40.72103432010728, "lng": -73.99437302989273}}}, "name": "New Museum"}, {"formatted_address": "Manhattan Bridge, New York, NY 11201, United States", "geometry": {"location": {"lat": 40.7074959, "lng": -73.99077419999999}, "viewport": {"northeast": {"lat": 40.7103153, "lng": -73.9864382}, "southwest": {"lat": 40.7036618, "lng": -73.9962117}}}, "name": "Manhattan Bridge"}, {"formatted_address": "Brooklyn, NY 11249, United States", "geometry": {"location": {"lat": 40.7135741, "lng": -73.97240339999999}, "viewport": {"northeast": {"lat": 40.71432624999999, "lng": -73.9667661}, "southwest": {"lat": 40.71131765, "lng": -73.97428249999999}}}, "name": "Williamsburg Bridge"}], "marble-hill": [], "midtown": [{"formatted_address": "New York, NY, United States", "geometry": {"location": {"lat": 40.7828647, "lng": -73.9653551}, "viewport": {"northeast": {"lat": 40.81804399999999, "lng": -73.9339825}, "southwest": {"lat": 40.74734159999999, "lng": -73.9970305}}}, "name": "Central Park"}, {"formatted_address": "20 W 34th St, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7484405, "lng": -73.98566439999999}, "viewport": {"northeast": {"lat": 40.74971232989272, "lng": -73.98392452010728}, "southwest": {"lat": 40.74701267010728, "lng": -73.98662417989271}}}, "name": "Empire State Building"}, {"formatted_address": "Manhattan, NY 10036, United States", "geometry": {"location": {"lat": 40.7579747, "lng": -73.9855426}, "viewport": {"northeast": {"lat": 40.76098665, "lng": -73.9834256}, "southwest": {"lat": 40.75504125, "lng": -73.98768480000001}}}, "name": "Times Square"}], "morningside-heights": [{"formatted_address": "New York, NY, United States", "geometry": {"location": {"lat": 40.7828647, "lng": -73.9653551}, "viewport": {"northeast": {"lat": 40.81804399999999, "lng": -73.9339825}, "southwest": {"lat": 40.74734159999999, "lng": -73.9970305}}}, "name": "Central Park"}, {"formatted_address": "W 122nd St & Riverside Dr, New York, NY 10027, United States", "geometry": {"location": {"lat": 40.8134045, "lng": -73.9630671}, "viewport": {"northeast": {"lat": 40.81479342989272, "lng": -73.96171487010727}, "southwest": {"lat": 40.81209377010728, "lng": -73.96441452989272}}}, "name": "General Grant National Memorial"}, {"formatted_address": "New York, NY 10027, United States", "geometry": {"location": {"lat": 40.8075355, "lng": -73.9625727}, "viewport": {"northeast": {"lat": 40.80875842989273, "lng": -73.95968815}, "southwest": {"lat": 40.80605877010728, "lng": -73.96519635}}}, "name": "Columbia University"}], "murray-hill": [{"formatted_address": "20 W 34th St, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7484405, "lng": -73.98566439999999}, "viewport": {"northeast": {"lat": 40.74971232989272, "lng": -73.98392452010728}, "southwest": {"lat": 40.74701267010728, "lng": -73.98662417989271}}}, "name": "Empire State Building"}, {"formatted_address": "45 Rockefeller Plaza, New York, NY 10111, United States", "geometry": {"location": {"lat": 40.7587402, "lng": -73.9786736}, "viewport": {"northeast": {"lat": 40.75982057989272, "lng": -73.97721755}, "southwest": {"lat": 40.75712092010727, "lng": -73.98132935000001}}}, "name": "Rockefeller Center"}, {"formatted_address": "405 Lexington Ave, New York, NY 10174, United States", "geometry": {"location": {"lat": 40.7516208, "lng": -73.97550199999999}, "viewport": {"northeast": {"lat": 40.75289702989272, "lng": -73.97429957010728}, "southwest": {"lat": 40.75019737010727, "lng": -73.97699922989273}}}, "name": "Chrysler Building"}], "noho": [{"formatted_address": "235 Bowery, New York, NY 10002, United States", "geometry": {"location": {"lat": 40.7223376, "lng": -73.9928905}, "viewport": {"northeast": {"lat": 40.72373397989272, "lng": -73.99167337010728}, "southwest": {"lat": 40.72103432010728, "lng": -73.99437302989273}}}, "name": "New Museum"}, {"formatted_address": "Union Square, New York, NY 10003, USA", "geometry": {"location": {"lat": 40.7358633, "lng": -73.9910835}, "viewport": {"northeast": {"lat": 40.7385105, "lng": -73.98697609999999}, "southwest": {"lat": 40.733992, "lng": -73.993641}}}, "name": "Union Square"}, {"formatted_address": "New York, NY 10003, United States", "geometry": {"location": {"lat": 40.72951339999999, "lng": -73.9964609}, "viewport": {"northeast": {"lat": 40.73454915000001, "lng": -73.98985275}, "southwest": {"lat": 40.72399454999999, "lng": -74.00363175000001}}}, "name": "New York University"}], "nolita": [{"formatted_address": "235 Bowery, New York, NY 10002, United States", "geometry": {"location": {"lat": 40.7223376, "lng": -73.9928905}, "viewport": {"northeast": {"lat": 40.72373397989272, "lng": -73.99167337010728}, "southwest": {"lat": 40.72103432010728, "lng": -73.99437302989273}}}, "name": "New Museum"}, {"formatted_address": "New York, NY 10003, United States", "geometry": {"location": {"lat": 40.72951339999999, "lng": -73.9964609}, "viewport": {"northeast": {"lat": 40.73454915000001, "lng": -73.98985275}, "southwest": {"lat": 40.72399454999999, "lng": -74.00363175000001}}}, "name": "New York University"}], "roosevelt-island": [{"formatted_address": "2 W Loop Rd, New York, NY 10044, United States", "geometry": {"location": {"lat": 40.75469710000001, "lng": -73.95638840000001}, "viewport": {"northeast": {"lat": 40.75659407989272, "lng": -73.95520497010726}, "southwest": {"lat": 40.75389442010728, "lng": -73.95790462989271}}}, "name": "Cornell Tech"}], "soho": [{"formatted_address": "235 Bowery, New York, NY 10002, United States", "geometry": {"location": {"lat": 40.7223376, "lng": -73.9928905}, "viewport": {"northeast": {"lat": 40.72373397989272, "lng": -73.99167337010728}, "southwest": {"lat": 40.72103432010728, "lng": -73.99437302989273}}}, "name": "New Museum"}, {"formatted_address": "City Hall Park, New York, NY 10007, United States", "geometry": {"location": {"lat": 40.7127744, "lng": -74.006059}, "viewport": {"northeast": {"lat": 40.71426027989272, "lng": -74.00523752010727}, "southwest": {"lat": 40.71156062010728, "lng": -74.00793717989272}}}, "name": "New York City Hall"}, {"formatted_address": "99 Gansevoort St, New York, NY 10014, United States", "geometry": {"location": {"lat": 40.7395877, "lng": -74.0088629}, "viewport": {"northeast": {"lat": 40.74081427989272, "lng": -74.00790137010728}, "southwest": {"lat": 40.73811462010728, "lng": -74.01060102989273}}}, "name": "Whitney Museum of American Art"}], "stuyvesant-town": [{"formatted_address": "Gramercy Park, New York, NY, USA", "geometry": {"location": {"lat": 40.7367783, "lng": -73.9844722}, "viewport": {"northeast": {"lat": 40.74018510000001, "lng": -73.9785298}, "southwest": {"lat": 40.7313276, "lng": -73.98879459999999}}}, "name": "Gramercy Park"}], "theater-district": [{"formatted_address": "New York, NY, United States", "geometry": {"location": {"lat": 40.7828647, "lng": -73.9653551}, "viewport": {"northeast": {"lat": 40.81804399999999, "lng": -73.9339825}, "southwest": {"lat": 40.74734159999999, "lng": -73.9970305}}}, "name": "Central Park"}, {"formatted_address": "20 W 34th St, New York, NY 10001, United States", "geometry": {"location": {"lat": 40.7484405, "lng": -73.98566439999999}, "viewport": {"northeast": {"lat": 40.74971232989272, "lng": -73.98392452010728}, "southwest": {"lat": 40.74701267010728, "lng": -73.98662417989271}}}, "name": "Empire State Building"}, {"formatted_address": "Manhattan, NY 10036, United States", "geometry": {"location": {"lat": 40.7579747, "lng": -73.9855426}, "viewport": {"northeast": {"lat": 40.76098665, "lng": -73.9834256}, "southwest": {"lat": 40.75504125, "lng": -73.98768480000001}}}, "name": "Times Square"}], "tribeca": [{"formatted_address": "285 Fulton St, New York, NY 10007, United States", "geometry": {"location": {"lat": 40.7127431, "lng": -74.0133795}, "viewport": {"northeast": {"lat": 40.71434452989272, "lng": -74.01181112010727}, "southwest": {"lat": 40.71164487010728, "lng": -74.01451077989272}}}, "name": "One World Trade Center"}, {"formatted_address": "11 Wall St, New York, NY 10005, United States", "geometry": {"location": {"lat": 40.706877, "lng": -74.0112654}, "viewport": {"northeast": {"lat": 40.70860352989271, "lng": -74.00940427010727}, "southwest": {"lat": 40.70590387010727, "lng": -74.01210392989272}}}, "name": "New York Stock Exchange"}, {"formatted_address": "City Hall Park, New York, NY 10007, United States", "geometry": {"location": {"lat": 40.7127744, "lng": -74.006059}, "viewport": {"northeast": {"lat": 40.71426027989272, "lng": -74.00523752010727}, "southwest": {"lat": 40.71156062010728, "lng": -74.00793717989272}}}, "name": "New York City Hall"}], "two-bridges": [{"formatted_address": "Brooklyn Bridge, New York, NY 10038, United States", "geometry": {"location": {"lat": 40.7060855, "lng": -73.9968643}, "viewport": {"northeast": {"lat": 40.7084499, "lng": -73.9920949}, "southwest": {"lat": 40.7031689, "lng": -73.99985219999999}}}, "name": "Brooklyn Bridge"}, {"formatted_address": "235 Bowery, New York, NY 10002, United States", "geometry": {"location": {"lat": 40.7223376, "lng": -73.9928905}, "viewport": {"northeast": {"lat": 40.72373397989272, "lng": -73.99167337010728}, "southwest": {"lat": 40.72103432010728, "lng": -73.99437302989273}}}, "name": "New Museum"}, {"formatted_address": "City Hall Park, New York, NY 10007, United States", "geometry": {"location": {"lat": 40.7127744, "lng": -74.006059}, "viewport": {"northeast": {"lat": 40.71426027989272, "lng": -74.00523752010727}, "southwest": {"lat": 40.71156062010728, "lng": -74.00793717989272}}}, "name": "New York City Hall"}], "upper-east-side": [{"formatted_address": "New York, NY, United States", "geometry": {"location": {"lat": 40.7828647, "lng": -73.9653551}, "viewport": {"northeast": {"lat": 40.81804399999999, "lng": -73.9339825}, "southwest": {"lat": 40.74734159999999, "lng": -73.9970305}}}, "name": "Central Park"}, {"formatted_address": "1000 5th Ave, New York, NY 10028, United States", "geometry": {"location": {"lat": 40.7794366, "lng": -73.963244}, "viewport": {"northeast": {"lat": 40.78025357989272, "lng": -73.96137637010729}, "southwest": {"lat": 40.77755392010728, "lng": -73.96407602989272}}}, "name": "The Metropolitan Museum of Art"}, {"formatted_address": "1071 5th Ave, New York, NY 10128, United States", "geometry": {"location": {"lat": 40.7829796, "lng": -73.9589706}, "viewport": {"northeast": {"lat": 40.78443592989273, "lng": -73.95776212010728}, "southwest": {"lat": 40.78173627010729, "lng": -73.96046177989271}}}, "name": "Solomon R. Guggenheim Museum"}], "upper-west-side": [{"formatted_address": "New York, NY, United States", "geometry": {"location": {"lat": 40.7828647, "lng": -73.9653551}, "viewport": {"northeast": {"lat": 40.81804399999999, "lng": -73.9339825}, "southwest": {"lat": 40.74734159999999, "lng": -73.9970305}}}, "name": "Central Park"}, {"formatted_address": "Manhattan, NY 10036, United States", "geometry": {"location": {"lat": 40.7579747, "lng": -73.9855426}, "viewport": {"northeast": {"lat": 40.76098665, "lng": -73.9834256}, "southwest": {"lat": 40.75504125, "lng": -73.98768480000001}}}, "name": "Times Square"}, {"formatted_address": "170 Central Park West, New York, NY 10024, United States", "geometry": {"location": {"lat": 40.77934870000001, "lng": -73.9739079}, "viewport": {"northeast": {"lat": 40.78066177989272, "lng": -73.97247232010727}, "southwest": {"lat": 40.77796212010728, "lng": -73.97517197989272}}}, "name": "New-York Historical Society"}], "washington-heights": [{"formatted_address": "99 Margaret Corbin Dr, New York, NY 10040, United States", "geometry": {"location": {"lat": 40.8648628, "lng": -73.9317274}, "viewport": {"northeast": {"lat": 40.86665500000001, "lng": -73.9246285}, "southwest": {"lat": 40.86222299999999, "lng": -73.93519849999998}}}, "name": "The Met Cloisters"}, {"formatted_address": "Hudson River Greenway, New York, NY 10032, United States", "geometry": {"location": {"lat": 40.85067129999999, "lng": -73.9452115}, "viewport": {"northeast": {"lat": 40.85209807989272, "lng": -73.94399527010728}, "southwest": {"lat": 40.84939842010728, "lng": -73.94669492989273}}}, "name": "Fort Washington Park"}, {"formatted_address": "Riverside, Dr To Broadway, New York, NY 10040, United States", "geometry": {"location": {"lat": 40.8625608, "lng": -73.9312995}, "viewport": {"northeast": {"lat": 40.86391062989272, "lng": -73.92994967010728}, "southwest": {"lat": 40.86121097010728, "lng": -73.93264932989271}}}, "name": "Fort Tryon Park"}], "west-village": [{"formatted_address": "New York, NY 10011, United States", "geometry": {"location": {"lat": 40.7479925, "lng": -74.0047649}, "viewport": {"northeast": {"lat": 40.75890824999998, "lng": -73.99853175}, "southwest": {"lat": 40.73287364999999, "lng": -74.01141114999999}}}, "name": "The High Line"}, {"formatted_address": "75 9th Ave, New York, NY 10011, United States", "geometry": {"location": {"lat": 40.7424396, "lng": -74.0061439}, "viewport": {"northeast": {"lat": 40.74434345, "lng": -74.00389415000001}, "southwest": {"lat": 40.74079485, "lng": -74.00831434999999}}}, "name": "Chelsea Market"}, {"formatted_address": "99 Gansevoort St, New York, NY 10014, United States", "geometry": {"location": {"lat": 40.7395877, "lng": -74.0088629}, "viewport": {"northeast": {"lat": 40.74081427989272, "lng": -74.00790137010728}, "southwest": {"lat": 40.73811462010728, "lng": -74.01060102989273}}}, "name": "Whitney Museum of American Art"}]}
+{
+  "battery-park": [
+    {
+      "formatted_address": "285 Fulton St, New York, NY 10007, United States",
+      "geometry": {
+        "location": { "lat": 40.7127431, "lng": -74.0133795 },
+        "viewport": {
+          "northeast": { "lat": 40.71434452989272, "lng": -74.01181112010727 },
+          "southwest": { "lat": 40.71164487010728, "lng": -74.01451077989272 }
+        }
+      },
+      "name": "One World Trade Center"
+    },
+    {
+      "formatted_address": "11 Wall St, New York, NY 10005, United States",
+      "geometry": {
+        "location": { "lat": 40.706877, "lng": -74.0112654 },
+        "viewport": {
+          "northeast": { "lat": 40.70860352989271, "lng": -74.00940427010727 },
+          "southwest": { "lat": 40.70590387010727, "lng": -74.01210392989272 }
+        }
+      },
+      "name": "New York Stock Exchange"
+    },
+    {
+      "formatted_address": "230 Vesey St, New York, NY 10281, United States",
+      "geometry": {
+        "location": { "lat": 40.7127168, "lng": -74.01528239999999 },
+        "viewport": {
+          "northeast": { "lat": 40.7159453, "lng": -74.0106163 },
+          "southwest": { "lat": 40.7092894, "lng": -74.0202497 }
+        }
+      },
+      "name": "Brookfield Place"
+    }
+  ],
+  "chelsea": [
+    {
+      "formatted_address": "20 W 34th St, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7484405, "lng": -73.98566439999999 },
+        "viewport": {
+          "northeast": { "lat": 40.74971232989272, "lng": -73.98392452010728 },
+          "southwest": { "lat": 40.74701267010728, "lng": -73.98662417989271 }
+        }
+      },
+      "name": "Empire State Building"
+    },
+    {
+      "formatted_address": "20 Hudson Yards, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7534582, "lng": -74.0011206 },
+        "viewport": {
+          "northeast": { "lat": 40.75575279999999, "lng": -73.99828959999999 },
+          "southwest": { "lat": 40.7508656, "lng": -74.0036504 }
+        }
+      },
+      "name": "The Shops and Restaurants at Hudson Yards"
+    },
+    {
+      "formatted_address": "New York, NY 10011, United States",
+      "geometry": {
+        "location": { "lat": 40.7479925, "lng": -74.0047649 },
+        "viewport": {
+          "northeast": { "lat": 40.75890824999998, "lng": -73.99853175 },
+          "southwest": { "lat": 40.73287364999999, "lng": -74.01141114999999 }
+        }
+      },
+      "name": "The High Line"
+    }
+  ],
+  "chinatown": [
+    {
+      "formatted_address": "Brooklyn Bridge, New York, NY 10038, United States",
+      "geometry": {
+        "location": { "lat": 40.7060855, "lng": -73.9968643 },
+        "viewport": {
+          "northeast": { "lat": 40.7084499, "lng": -73.9920949 },
+          "southwest": { "lat": 40.7031689, "lng": -73.99985219999999 }
+        }
+      },
+      "name": "Brooklyn Bridge"
+    },
+    {
+      "formatted_address": "235 Bowery, New York, NY 10002, United States",
+      "geometry": {
+        "location": { "lat": 40.7223376, "lng": -73.9928905 },
+        "viewport": {
+          "northeast": { "lat": 40.72373397989272, "lng": -73.99167337010728 },
+          "southwest": { "lat": 40.72103432010728, "lng": -73.99437302989273 }
+        }
+      },
+      "name": "New Museum"
+    },
+    {
+      "formatted_address": "City Hall Park, New York, NY 10007, United States",
+      "geometry": {
+        "location": { "lat": 40.7127744, "lng": -74.006059 },
+        "viewport": {
+          "northeast": { "lat": 40.71426027989272, "lng": -74.00523752010727 },
+          "southwest": { "lat": 40.71156062010728, "lng": -74.00793717989272 }
+        }
+      },
+      "name": "New York City Hall"
+    }
+  ],
+  "civic-center": [
+    {
+      "formatted_address": "Brooklyn Bridge, New York, NY 10038, United States",
+      "geometry": {
+        "location": { "lat": 40.7060855, "lng": -73.9968643 },
+        "viewport": {
+          "northeast": { "lat": 40.7084499, "lng": -73.9920949 },
+          "southwest": { "lat": 40.7031689, "lng": -73.99985219999999 }
+        }
+      },
+      "name": "Brooklyn Bridge"
+    },
+    {
+      "formatted_address": "11 Wall St, New York, NY 10005, United States",
+      "geometry": {
+        "location": { "lat": 40.706877, "lng": -74.0112654 },
+        "viewport": {
+          "northeast": { "lat": 40.70860352989271, "lng": -74.00940427010727 },
+          "southwest": { "lat": 40.70590387010727, "lng": -74.01210392989272 }
+        }
+      },
+      "name": "New York Stock Exchange"
+    },
+    {
+      "formatted_address": "City Hall Park, New York, NY 10007, United States",
+      "geometry": {
+        "location": { "lat": 40.7127744, "lng": -74.006059 },
+        "viewport": {
+          "northeast": { "lat": 40.71426027989272, "lng": -74.00523752010727 },
+          "southwest": { "lat": 40.71156062010728, "lng": -74.00793717989272 }
+        }
+      },
+      "name": "New York City Hall"
+    }
+  ],
+  "east-harlem": [
+    {
+      "formatted_address": "New York, NY, United States",
+      "geometry": {
+        "location": { "lat": 40.7828647, "lng": -73.9653551 },
+        "viewport": {
+          "northeast": { "lat": 40.81804399999999, "lng": -73.9339825 },
+          "southwest": { "lat": 40.74734159999999, "lng": -73.9970305 }
+        }
+      },
+      "name": "Central Park"
+    },
+    {
+      "formatted_address": "1220 5th Ave, New York, NY 10029, United States",
+      "geometry": {
+        "location": { "lat": 40.7924939, "lng": -73.95190889999999 },
+        "viewport": {
+          "northeast": { "lat": 40.79401092989272, "lng": -73.95064277010727 },
+          "southwest": { "lat": 40.79131127010728, "lng": -73.95334242989271 }
+        }
+      },
+      "name": "Museum of the City of New York"
+    }
+  ],
+  "harlem": [
+    {
+      "formatted_address": "New York, NY, United States",
+      "geometry": {
+        "location": { "lat": 40.7828647, "lng": -73.9653551 },
+        "viewport": {
+          "northeast": { "lat": 40.81804399999999, "lng": -73.9339825 },
+          "southwest": { "lat": 40.74734159999999, "lng": -73.9970305 }
+        }
+      },
+      "name": "Central Park"
+    },
+    {
+      "formatted_address": "253 W 125th St, New York, NY 10027, United States",
+      "geometry": {
+        "location": { "lat": 40.810018, "lng": -73.95005600000002 },
+        "viewport": {
+          "northeast": { "lat": 40.81124392989272, "lng": -73.94880887010729 },
+          "southwest": { "lat": 40.80854427010728, "lng": -73.95150852989272 }
+        }
+      },
+      "name": "Apollo Theater"
+    },
+    {
+      "formatted_address": "1220 5th Ave, New York, NY 10029, United States",
+      "geometry": {
+        "location": { "lat": 40.7924939, "lng": -73.95190889999999 },
+        "viewport": {
+          "northeast": { "lat": 40.79401092989272, "lng": -73.95064277010727 },
+          "southwest": { "lat": 40.79131127010728, "lng": -73.95334242989271 }
+        }
+      },
+      "name": "Museum of the City of New York"
+    }
+  ],
+  "east-village": [
+    {
+      "formatted_address": "235 Bowery, New York, NY 10002, United States",
+      "geometry": {
+        "location": { "lat": 40.7223376, "lng": -73.9928905 },
+        "viewport": {
+          "northeast": { "lat": 40.72373397989272, "lng": -73.99167337010728 },
+          "southwest": { "lat": 40.72103432010728, "lng": -73.99437302989273 }
+        }
+      },
+      "name": "New Museum"
+    },
+    {
+      "formatted_address": "Union Square, New York, NY 10003, USA",
+      "geometry": {
+        "location": { "lat": 40.7358633, "lng": -73.9910835 },
+        "viewport": {
+          "northeast": { "lat": 40.7385105, "lng": -73.98697609999999 },
+          "southwest": { "lat": 40.733992, "lng": -73.993641 }
+        }
+      },
+      "name": "Union Square"
+    },
+    {
+      "formatted_address": "175 5th Ave, New York, NY 10010, United States",
+      "geometry": {
+        "location": { "lat": 40.7410605, "lng": -73.9896986 },
+        "viewport": {
+          "northeast": { "lat": 40.74242887989271, "lng": -73.98821012010727 },
+          "southwest": { "lat": 40.73972922010727, "lng": -73.99090977989272 }
+        }
+      },
+      "name": "Flatiron Building"
+    }
+  ],
+  "financial-district": [
+    {
+      "formatted_address": "Brooklyn Bridge, New York, NY 10038, United States",
+      "geometry": {
+        "location": { "lat": 40.7060855, "lng": -73.9968643 },
+        "viewport": {
+          "northeast": { "lat": 40.7084499, "lng": -73.9920949 },
+          "southwest": { "lat": 40.7031689, "lng": -73.99985219999999 }
+        }
+      },
+      "name": "Brooklyn Bridge"
+    },
+    {
+      "formatted_address": "285 Fulton St, New York, NY 10007, United States",
+      "geometry": {
+        "location": { "lat": 40.7127431, "lng": -74.0133795 },
+        "viewport": {
+          "northeast": { "lat": 40.71434452989272, "lng": -74.01181112010727 },
+          "southwest": { "lat": 40.71164487010728, "lng": -74.01451077989272 }
+        }
+      },
+      "name": "One World Trade Center"
+    },
+    {
+      "formatted_address": "11 Wall St, New York, NY 10005, United States",
+      "geometry": {
+        "location": { "lat": 40.706877, "lng": -74.0112654 },
+        "viewport": {
+          "northeast": { "lat": 40.70860352989271, "lng": -74.00940427010727 },
+          "southwest": { "lat": 40.70590387010727, "lng": -74.01210392989272 }
+        }
+      },
+      "name": "New York Stock Exchange"
+    }
+  ],
+  "flatiron": [
+    {
+      "formatted_address": "20 W 34th St, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7484405, "lng": -73.98566439999999 },
+        "viewport": {
+          "northeast": { "lat": 40.74971232989272, "lng": -73.98392452010728 },
+          "southwest": { "lat": 40.74701267010728, "lng": -73.98662417989271 }
+        }
+      },
+      "name": "Empire State Building"
+    },
+    {
+      "formatted_address": "4 Pennsylvania Plaza, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7505045, "lng": -73.9934387 },
+        "viewport": {
+          "northeast": { "lat": 40.75227090000001, "lng": -73.98980375 },
+          "southwest": { "lat": 40.7490653, "lng": -73.99636075 }
+        }
+      },
+      "name": "Madison Square Garden"
+    },
+    {
+      "formatted_address": "Union Square, New York, NY 10003, USA",
+      "geometry": {
+        "location": { "lat": 40.7358633, "lng": -73.9910835 },
+        "viewport": {
+          "northeast": { "lat": 40.7385105, "lng": -73.98697609999999 },
+          "southwest": { "lat": 40.733992, "lng": -73.993641 }
+        }
+      },
+      "name": "Union Square"
+    }
+  ],
+  "gramercy": [
+    {
+      "formatted_address": "20 W 34th St, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7484405, "lng": -73.98566439999999 },
+        "viewport": {
+          "northeast": { "lat": 40.74971232989272, "lng": -73.98392452010728 },
+          "southwest": { "lat": 40.74701267010728, "lng": -73.98662417989271 }
+        }
+      },
+      "name": "Empire State Building"
+    },
+    {
+      "formatted_address": "Union Square, New York, NY 10003, USA",
+      "geometry": {
+        "location": { "lat": 40.7358633, "lng": -73.9910835 },
+        "viewport": {
+          "northeast": { "lat": 40.7385105, "lng": -73.98697609999999 },
+          "southwest": { "lat": 40.733992, "lng": -73.993641 }
+        }
+      },
+      "name": "Union Square"
+    },
+    {
+      "formatted_address": "175 5th Ave, New York, NY 10010, United States",
+      "geometry": {
+        "location": { "lat": 40.7410605, "lng": -73.9896986 },
+        "viewport": {
+          "northeast": { "lat": 40.74242887989271, "lng": -73.98821012010727 },
+          "southwest": { "lat": 40.73972922010727, "lng": -73.99090977989272 }
+        }
+      },
+      "name": "Flatiron Building"
+    }
+  ],
+  "greenwich-village": [
+    {
+      "formatted_address": "235 Bowery, New York, NY 10002, United States",
+      "geometry": {
+        "location": { "lat": 40.7223376, "lng": -73.9928905 },
+        "viewport": {
+          "northeast": { "lat": 40.72373397989272, "lng": -73.99167337010728 },
+          "southwest": { "lat": 40.72103432010728, "lng": -73.99437302989273 }
+        }
+      },
+      "name": "New Museum"
+    },
+    {
+      "formatted_address": "Union Square, New York, NY 10003, USA",
+      "geometry": {
+        "location": { "lat": 40.7358633, "lng": -73.9910835 },
+        "viewport": {
+          "northeast": { "lat": 40.7385105, "lng": -73.98697609999999 },
+          "southwest": { "lat": 40.733992, "lng": -73.993641 }
+        }
+      },
+      "name": "Union Square"
+    },
+    {
+      "formatted_address": "175 5th Ave, New York, NY 10010, United States",
+      "geometry": {
+        "location": { "lat": 40.7410605, "lng": -73.9896986 },
+        "viewport": {
+          "northeast": { "lat": 40.74242887989271, "lng": -73.98821012010727 },
+          "southwest": { "lat": 40.73972922010727, "lng": -73.99090977989272 }
+        }
+      },
+      "name": "Flatiron Building"
+    }
+  ],
+  "hells-kitchen": [
+    {
+      "formatted_address": "New York, NY, United States",
+      "geometry": {
+        "location": { "lat": 40.7828647, "lng": -73.9653551 },
+        "viewport": {
+          "northeast": { "lat": 40.81804399999999, "lng": -73.9339825 },
+          "southwest": { "lat": 40.74734159999999, "lng": -73.9970305 }
+        }
+      },
+      "name": "Central Park"
+    },
+    {
+      "formatted_address": "Manhattan, NY 10036, United States",
+      "geometry": {
+        "location": { "lat": 40.7579747, "lng": -73.9855426 },
+        "viewport": {
+          "northeast": { "lat": 40.76098665, "lng": -73.9834256 },
+          "southwest": { "lat": 40.75504125, "lng": -73.98768480000001 }
+        }
+      },
+      "name": "Times Square"
+    },
+    {
+      "formatted_address": "20 Hudson Yards, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7534582, "lng": -74.0011206 },
+        "viewport": {
+          "northeast": { "lat": 40.75575279999999, "lng": -73.99828959999999 },
+          "southwest": { "lat": 40.7508656, "lng": -74.0036504 }
+        }
+      },
+      "name": "The Shops and Restaurants at Hudson Yards"
+    }
+  ],
+  "inwood": [
+    {
+      "formatted_address": "99 Margaret Corbin Dr, New York, NY 10040, United States",
+      "geometry": {
+        "location": { "lat": 40.8648628, "lng": -73.9317274 },
+        "viewport": {
+          "northeast": { "lat": 40.86665500000001, "lng": -73.9246285 },
+          "southwest": { "lat": 40.86222299999999, "lng": -73.93519849999998 }
+        }
+      },
+      "name": "The Met Cloisters"
+    },
+    {
+      "formatted_address": "Riverside, Dr To Broadway, New York, NY 10040, United States",
+      "geometry": {
+        "location": { "lat": 40.8625608, "lng": -73.9312995 },
+        "viewport": {
+          "northeast": { "lat": 40.86391062989272, "lng": -73.92994967010728 },
+          "southwest": { "lat": 40.86121097010728, "lng": -73.93264932989271 }
+        }
+      },
+      "name": "Fort Tryon Park"
+    },
+    {
+      "formatted_address": "Payson Ave. &, Seaman Ave, New York, NY 10034, United States",
+      "geometry": {
+        "location": { "lat": 40.8722007, "lng": -73.9255549 },
+        "viewport": {
+          "northeast": { "lat": 40.87333015, "lng": -73.91845599999999 },
+          "southwest": { "lat": 40.86881235000001, "lng": -73.92792119999999 }
+        }
+      },
+      "name": "Inwood Hill Park"
+    }
+  ],
+  "kips-bay": [
+    {
+      "formatted_address": "20 W 34th St, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7484405, "lng": -73.98566439999999 },
+        "viewport": {
+          "northeast": { "lat": 40.74971232989272, "lng": -73.98392452010728 },
+          "southwest": { "lat": 40.74701267010728, "lng": -73.98662417989271 }
+        }
+      },
+      "name": "Empire State Building"
+    },
+    {
+      "formatted_address": "405 Lexington Ave, New York, NY 10174, United States",
+      "geometry": {
+        "location": { "lat": 40.7516208, "lng": -73.97550199999999 },
+        "viewport": {
+          "northeast": { "lat": 40.75289702989272, "lng": -73.97429957010728 },
+          "southwest": { "lat": 40.75019737010727, "lng": -73.97699922989273 }
+        }
+      },
+      "name": "Chrysler Building"
+    },
+    {
+      "formatted_address": "89 E 42nd St, New York, NY 10017, United States",
+      "geometry": {
+        "location": { "lat": 40.7527262, "lng": -73.9772294 },
+        "viewport": {
+          "northeast": { "lat": 40.75501529999998, "lng": -73.97544694999999 },
+          "southwest": { "lat": 40.75112850000001, "lng": -73.97863075 }
+        }
+      },
+      "name": "Grand Central Terminal"
+    }
+  ],
+  "little-italy": [
+    {
+      "formatted_address": "Brooklyn Bridge, New York, NY 10038, United States",
+      "geometry": {
+        "location": { "lat": 40.7060855, "lng": -73.9968643 },
+        "viewport": {
+          "northeast": { "lat": 40.7084499, "lng": -73.9920949 },
+          "southwest": { "lat": 40.7031689, "lng": -73.99985219999999 }
+        }
+      },
+      "name": "Brooklyn Bridge"
+    },
+    {
+      "formatted_address": "235 Bowery, New York, NY 10002, United States",
+      "geometry": {
+        "location": { "lat": 40.7223376, "lng": -73.9928905 },
+        "viewport": {
+          "northeast": { "lat": 40.72373397989272, "lng": -73.99167337010728 },
+          "southwest": { "lat": 40.72103432010728, "lng": -73.99437302989273 }
+        }
+      },
+      "name": "New Museum"
+    },
+    {
+      "formatted_address": "New York, NY 10003, United States",
+      "geometry": {
+        "location": { "lat": 40.72951339999999, "lng": -73.9964609 },
+        "viewport": {
+          "northeast": { "lat": 40.73454915000001, "lng": -73.98985275 },
+          "southwest": { "lat": 40.72399454999999, "lng": -74.00363175000001 }
+        }
+      },
+      "name": "New York University"
+    }
+  ],
+  "lower-east-side": [
+    {
+      "formatted_address": "235 Bowery, New York, NY 10002, United States",
+      "geometry": {
+        "location": { "lat": 40.7223376, "lng": -73.9928905 },
+        "viewport": {
+          "northeast": { "lat": 40.72373397989272, "lng": -73.99167337010728 },
+          "southwest": { "lat": 40.72103432010728, "lng": -73.99437302989273 }
+        }
+      },
+      "name": "New Museum"
+    },
+    {
+      "formatted_address": "Manhattan Bridge, New York, NY 11201, United States",
+      "geometry": {
+        "location": { "lat": 40.7074959, "lng": -73.99077419999999 },
+        "viewport": {
+          "northeast": { "lat": 40.7103153, "lng": -73.9864382 },
+          "southwest": { "lat": 40.7036618, "lng": -73.9962117 }
+        }
+      },
+      "name": "Manhattan Bridge"
+    },
+    {
+      "formatted_address": "Brooklyn, NY 11249, United States",
+      "geometry": {
+        "location": { "lat": 40.7135741, "lng": -73.97240339999999 },
+        "viewport": {
+          "northeast": { "lat": 40.71432624999999, "lng": -73.9667661 },
+          "southwest": { "lat": 40.71131765, "lng": -73.97428249999999 }
+        }
+      },
+      "name": "Williamsburg Bridge"
+    }
+  ],
+  "marble-hill": [],
+  "midtown": [
+    {
+      "formatted_address": "New York, NY, United States",
+      "geometry": {
+        "location": { "lat": 40.7828647, "lng": -73.9653551 },
+        "viewport": {
+          "northeast": { "lat": 40.81804399999999, "lng": -73.9339825 },
+          "southwest": { "lat": 40.74734159999999, "lng": -73.9970305 }
+        }
+      },
+      "name": "Central Park"
+    },
+    {
+      "formatted_address": "20 W 34th St, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7484405, "lng": -73.98566439999999 },
+        "viewport": {
+          "northeast": { "lat": 40.74971232989272, "lng": -73.98392452010728 },
+          "southwest": { "lat": 40.74701267010728, "lng": -73.98662417989271 }
+        }
+      },
+      "name": "Empire State Building"
+    },
+    {
+      "formatted_address": "Manhattan, NY 10036, United States",
+      "geometry": {
+        "location": { "lat": 40.7579747, "lng": -73.9855426 },
+        "viewport": {
+          "northeast": { "lat": 40.76098665, "lng": -73.9834256 },
+          "southwest": { "lat": 40.75504125, "lng": -73.98768480000001 }
+        }
+      },
+      "name": "Times Square"
+    }
+  ],
+  "morningside-heights": [
+    {
+      "formatted_address": "New York, NY, United States",
+      "geometry": {
+        "location": { "lat": 40.7828647, "lng": -73.9653551 },
+        "viewport": {
+          "northeast": { "lat": 40.81804399999999, "lng": -73.9339825 },
+          "southwest": { "lat": 40.74734159999999, "lng": -73.9970305 }
+        }
+      },
+      "name": "Central Park"
+    },
+    {
+      "formatted_address": "W 122nd St & Riverside Dr, New York, NY 10027, United States",
+      "geometry": {
+        "location": { "lat": 40.8134045, "lng": -73.9630671 },
+        "viewport": {
+          "northeast": { "lat": 40.81479342989272, "lng": -73.96171487010727 },
+          "southwest": { "lat": 40.81209377010728, "lng": -73.96441452989272 }
+        }
+      },
+      "name": "General Grant National Memorial"
+    },
+    {
+      "formatted_address": "New York, NY 10027, United States",
+      "geometry": {
+        "location": { "lat": 40.8075355, "lng": -73.9625727 },
+        "viewport": {
+          "northeast": { "lat": 40.80875842989273, "lng": -73.95968815 },
+          "southwest": { "lat": 40.80605877010728, "lng": -73.96519635 }
+        }
+      },
+      "name": "Columbia University"
+    }
+  ],
+  "murray-hill": [
+    {
+      "formatted_address": "20 W 34th St, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7484405, "lng": -73.98566439999999 },
+        "viewport": {
+          "northeast": { "lat": 40.74971232989272, "lng": -73.98392452010728 },
+          "southwest": { "lat": 40.74701267010728, "lng": -73.98662417989271 }
+        }
+      },
+      "name": "Empire State Building"
+    },
+    {
+      "formatted_address": "45 Rockefeller Plaza, New York, NY 10111, United States",
+      "geometry": {
+        "location": { "lat": 40.7587402, "lng": -73.9786736 },
+        "viewport": {
+          "northeast": { "lat": 40.75982057989272, "lng": -73.97721755 },
+          "southwest": { "lat": 40.75712092010727, "lng": -73.98132935000001 }
+        }
+      },
+      "name": "Rockefeller Center"
+    },
+    {
+      "formatted_address": "405 Lexington Ave, New York, NY 10174, United States",
+      "geometry": {
+        "location": { "lat": 40.7516208, "lng": -73.97550199999999 },
+        "viewport": {
+          "northeast": { "lat": 40.75289702989272, "lng": -73.97429957010728 },
+          "southwest": { "lat": 40.75019737010727, "lng": -73.97699922989273 }
+        }
+      },
+      "name": "Chrysler Building"
+    }
+  ],
+  "noho": [
+    {
+      "formatted_address": "235 Bowery, New York, NY 10002, United States",
+      "geometry": {
+        "location": { "lat": 40.7223376, "lng": -73.9928905 },
+        "viewport": {
+          "northeast": { "lat": 40.72373397989272, "lng": -73.99167337010728 },
+          "southwest": { "lat": 40.72103432010728, "lng": -73.99437302989273 }
+        }
+      },
+      "name": "New Museum"
+    },
+    {
+      "formatted_address": "Union Square, New York, NY 10003, USA",
+      "geometry": {
+        "location": { "lat": 40.7358633, "lng": -73.9910835 },
+        "viewport": {
+          "northeast": { "lat": 40.7385105, "lng": -73.98697609999999 },
+          "southwest": { "lat": 40.733992, "lng": -73.993641 }
+        }
+      },
+      "name": "Union Square"
+    },
+    {
+      "formatted_address": "New York, NY 10003, United States",
+      "geometry": {
+        "location": { "lat": 40.72951339999999, "lng": -73.9964609 },
+        "viewport": {
+          "northeast": { "lat": 40.73454915000001, "lng": -73.98985275 },
+          "southwest": { "lat": 40.72399454999999, "lng": -74.00363175000001 }
+        }
+      },
+      "name": "New York University"
+    }
+  ],
+  "nolita": [
+    {
+      "formatted_address": "235 Bowery, New York, NY 10002, United States",
+      "geometry": {
+        "location": { "lat": 40.7223376, "lng": -73.9928905 },
+        "viewport": {
+          "northeast": { "lat": 40.72373397989272, "lng": -73.99167337010728 },
+          "southwest": { "lat": 40.72103432010728, "lng": -73.99437302989273 }
+        }
+      },
+      "name": "New Museum"
+    },
+    {
+      "formatted_address": "New York, NY 10003, United States",
+      "geometry": {
+        "location": { "lat": 40.72951339999999, "lng": -73.9964609 },
+        "viewport": {
+          "northeast": { "lat": 40.73454915000001, "lng": -73.98985275 },
+          "southwest": { "lat": 40.72399454999999, "lng": -74.00363175000001 }
+        }
+      },
+      "name": "New York University"
+    }
+  ],
+  "roosevelt-island": [
+    {
+      "formatted_address": "2 W Loop Rd, New York, NY 10044, United States",
+      "geometry": {
+        "location": { "lat": 40.75469710000001, "lng": -73.95638840000001 },
+        "viewport": {
+          "northeast": { "lat": 40.75659407989272, "lng": -73.95520497010726 },
+          "southwest": { "lat": 40.75389442010728, "lng": -73.95790462989271 }
+        }
+      },
+      "name": "Cornell Tech"
+    }
+  ],
+  "soho": [
+    {
+      "formatted_address": "235 Bowery, New York, NY 10002, United States",
+      "geometry": {
+        "location": { "lat": 40.7223376, "lng": -73.9928905 },
+        "viewport": {
+          "northeast": { "lat": 40.72373397989272, "lng": -73.99167337010728 },
+          "southwest": { "lat": 40.72103432010728, "lng": -73.99437302989273 }
+        }
+      },
+      "name": "New Museum"
+    },
+    {
+      "formatted_address": "City Hall Park, New York, NY 10007, United States",
+      "geometry": {
+        "location": { "lat": 40.7127744, "lng": -74.006059 },
+        "viewport": {
+          "northeast": { "lat": 40.71426027989272, "lng": -74.00523752010727 },
+          "southwest": { "lat": 40.71156062010728, "lng": -74.00793717989272 }
+        }
+      },
+      "name": "New York City Hall"
+    },
+    {
+      "formatted_address": "99 Gansevoort St, New York, NY 10014, United States",
+      "geometry": {
+        "location": { "lat": 40.7395877, "lng": -74.0088629 },
+        "viewport": {
+          "northeast": { "lat": 40.74081427989272, "lng": -74.00790137010728 },
+          "southwest": { "lat": 40.73811462010728, "lng": -74.01060102989273 }
+        }
+      },
+      "name": "Whitney Museum of American Art"
+    }
+  ],
+  "stuyvesant-town": [
+    {
+      "formatted_address": "Gramercy Park, New York, NY, USA",
+      "geometry": {
+        "location": { "lat": 40.7367783, "lng": -73.9844722 },
+        "viewport": {
+          "northeast": { "lat": 40.74018510000001, "lng": -73.9785298 },
+          "southwest": { "lat": 40.7313276, "lng": -73.98879459999999 }
+        }
+      },
+      "name": "Gramercy Park"
+    }
+  ],
+  "theater-district": [
+    {
+      "formatted_address": "New York, NY, United States",
+      "geometry": {
+        "location": { "lat": 40.7828647, "lng": -73.9653551 },
+        "viewport": {
+          "northeast": { "lat": 40.81804399999999, "lng": -73.9339825 },
+          "southwest": { "lat": 40.74734159999999, "lng": -73.9970305 }
+        }
+      },
+      "name": "Central Park"
+    },
+    {
+      "formatted_address": "20 W 34th St, New York, NY 10001, United States",
+      "geometry": {
+        "location": { "lat": 40.7484405, "lng": -73.98566439999999 },
+        "viewport": {
+          "northeast": { "lat": 40.74971232989272, "lng": -73.98392452010728 },
+          "southwest": { "lat": 40.74701267010728, "lng": -73.98662417989271 }
+        }
+      },
+      "name": "Empire State Building"
+    },
+    {
+      "formatted_address": "Manhattan, NY 10036, United States",
+      "geometry": {
+        "location": { "lat": 40.7579747, "lng": -73.9855426 },
+        "viewport": {
+          "northeast": { "lat": 40.76098665, "lng": -73.9834256 },
+          "southwest": { "lat": 40.75504125, "lng": -73.98768480000001 }
+        }
+      },
+      "name": "Times Square"
+    }
+  ],
+  "tribeca": [
+    {
+      "formatted_address": "285 Fulton St, New York, NY 10007, United States",
+      "geometry": {
+        "location": { "lat": 40.7127431, "lng": -74.0133795 },
+        "viewport": {
+          "northeast": { "lat": 40.71434452989272, "lng": -74.01181112010727 },
+          "southwest": { "lat": 40.71164487010728, "lng": -74.01451077989272 }
+        }
+      },
+      "name": "One World Trade Center"
+    },
+    {
+      "formatted_address": "11 Wall St, New York, NY 10005, United States",
+      "geometry": {
+        "location": { "lat": 40.706877, "lng": -74.0112654 },
+        "viewport": {
+          "northeast": { "lat": 40.70860352989271, "lng": -74.00940427010727 },
+          "southwest": { "lat": 40.70590387010727, "lng": -74.01210392989272 }
+        }
+      },
+      "name": "New York Stock Exchange"
+    },
+    {
+      "formatted_address": "City Hall Park, New York, NY 10007, United States",
+      "geometry": {
+        "location": { "lat": 40.7127744, "lng": -74.006059 },
+        "viewport": {
+          "northeast": { "lat": 40.71426027989272, "lng": -74.00523752010727 },
+          "southwest": { "lat": 40.71156062010728, "lng": -74.00793717989272 }
+        }
+      },
+      "name": "New York City Hall"
+    }
+  ],
+  "two-bridges": [
+    {
+      "formatted_address": "Brooklyn Bridge, New York, NY 10038, United States",
+      "geometry": {
+        "location": { "lat": 40.7060855, "lng": -73.9968643 },
+        "viewport": {
+          "northeast": { "lat": 40.7084499, "lng": -73.9920949 },
+          "southwest": { "lat": 40.7031689, "lng": -73.99985219999999 }
+        }
+      },
+      "name": "Brooklyn Bridge"
+    },
+    {
+      "formatted_address": "235 Bowery, New York, NY 10002, United States",
+      "geometry": {
+        "location": { "lat": 40.7223376, "lng": -73.9928905 },
+        "viewport": {
+          "northeast": { "lat": 40.72373397989272, "lng": -73.99167337010728 },
+          "southwest": { "lat": 40.72103432010728, "lng": -73.99437302989273 }
+        }
+      },
+      "name": "New Museum"
+    },
+    {
+      "formatted_address": "City Hall Park, New York, NY 10007, United States",
+      "geometry": {
+        "location": { "lat": 40.7127744, "lng": -74.006059 },
+        "viewport": {
+          "northeast": { "lat": 40.71426027989272, "lng": -74.00523752010727 },
+          "southwest": { "lat": 40.71156062010728, "lng": -74.00793717989272 }
+        }
+      },
+      "name": "New York City Hall"
+    }
+  ],
+  "upper-east-side": [
+    {
+      "formatted_address": "New York, NY, United States",
+      "geometry": {
+        "location": { "lat": 40.7828647, "lng": -73.9653551 },
+        "viewport": {
+          "northeast": { "lat": 40.81804399999999, "lng": -73.9339825 },
+          "southwest": { "lat": 40.74734159999999, "lng": -73.9970305 }
+        }
+      },
+      "name": "Central Park"
+    },
+    {
+      "formatted_address": "1000 5th Ave, New York, NY 10028, United States",
+      "geometry": {
+        "location": { "lat": 40.7794366, "lng": -73.963244 },
+        "viewport": {
+          "northeast": { "lat": 40.78025357989272, "lng": -73.96137637010729 },
+          "southwest": { "lat": 40.77755392010728, "lng": -73.96407602989272 }
+        }
+      },
+      "name": "The Metropolitan Museum of Art"
+    },
+    {
+      "formatted_address": "1071 5th Ave, New York, NY 10128, United States",
+      "geometry": {
+        "location": { "lat": 40.7829796, "lng": -73.9589706 },
+        "viewport": {
+          "northeast": { "lat": 40.78443592989273, "lng": -73.95776212010728 },
+          "southwest": { "lat": 40.78173627010729, "lng": -73.96046177989271 }
+        }
+      },
+      "name": "Solomon R. Guggenheim Museum"
+    }
+  ],
+  "upper-west-side": [
+    {
+      "formatted_address": "New York, NY, United States",
+      "geometry": {
+        "location": { "lat": 40.7828647, "lng": -73.9653551 },
+        "viewport": {
+          "northeast": { "lat": 40.81804399999999, "lng": -73.9339825 },
+          "southwest": { "lat": 40.74734159999999, "lng": -73.9970305 }
+        }
+      },
+      "name": "Central Park"
+    },
+    {
+      "formatted_address": "Manhattan, NY 10036, United States",
+      "geometry": {
+        "location": { "lat": 40.7579747, "lng": -73.9855426 },
+        "viewport": {
+          "northeast": { "lat": 40.76098665, "lng": -73.9834256 },
+          "southwest": { "lat": 40.75504125, "lng": -73.98768480000001 }
+        }
+      },
+      "name": "Times Square"
+    },
+    {
+      "formatted_address": "170 Central Park West, New York, NY 10024, United States",
+      "geometry": {
+        "location": { "lat": 40.77934870000001, "lng": -73.9739079 },
+        "viewport": {
+          "northeast": { "lat": 40.78066177989272, "lng": -73.97247232010727 },
+          "southwest": { "lat": 40.77796212010728, "lng": -73.97517197989272 }
+        }
+      },
+      "name": "New-York Historical Society"
+    }
+  ],
+  "washington-heights": [
+    {
+      "formatted_address": "99 Margaret Corbin Dr, New York, NY 10040, United States",
+      "geometry": {
+        "location": { "lat": 40.8648628, "lng": -73.9317274 },
+        "viewport": {
+          "northeast": { "lat": 40.86665500000001, "lng": -73.9246285 },
+          "southwest": { "lat": 40.86222299999999, "lng": -73.93519849999998 }
+        }
+      },
+      "name": "The Met Cloisters"
+    },
+    {
+      "formatted_address": "Hudson River Greenway, New York, NY 10032, United States",
+      "geometry": {
+        "location": { "lat": 40.85067129999999, "lng": -73.9452115 },
+        "viewport": {
+          "northeast": { "lat": 40.85209807989272, "lng": -73.94399527010728 },
+          "southwest": { "lat": 40.84939842010728, "lng": -73.94669492989273 }
+        }
+      },
+      "name": "Fort Washington Park"
+    },
+    {
+      "formatted_address": "Riverside, Dr To Broadway, New York, NY 10040, United States",
+      "geometry": {
+        "location": { "lat": 40.8625608, "lng": -73.9312995 },
+        "viewport": {
+          "northeast": { "lat": 40.86391062989272, "lng": -73.92994967010728 },
+          "southwest": { "lat": 40.86121097010728, "lng": -73.93264932989271 }
+        }
+      },
+      "name": "Fort Tryon Park"
+    }
+  ],
+  "west-village": [
+    {
+      "formatted_address": "New York, NY 10011, United States",
+      "geometry": {
+        "location": { "lat": 40.7479925, "lng": -74.0047649 },
+        "viewport": {
+          "northeast": { "lat": 40.75890824999998, "lng": -73.99853175 },
+          "southwest": { "lat": 40.73287364999999, "lng": -74.01141114999999 }
+        }
+      },
+      "name": "The High Line"
+    },
+    {
+      "formatted_address": "75 9th Ave, New York, NY 10011, United States",
+      "geometry": {
+        "location": { "lat": 40.7424396, "lng": -74.0061439 },
+        "viewport": {
+          "northeast": { "lat": 40.74434345, "lng": -74.00389415000001 },
+          "southwest": { "lat": 40.74079485, "lng": -74.00831434999999 }
+        }
+      },
+      "name": "Chelsea Market"
+    },
+    {
+      "formatted_address": "99 Gansevoort St, New York, NY 10014, United States",
+      "geometry": {
+        "location": { "lat": 40.7395877, "lng": -74.0088629 },
+        "viewport": {
+          "northeast": { "lat": 40.74081427989272, "lng": -74.00790137010728 },
+          "southwest": { "lat": 40.73811462010728, "lng": -74.01060102989273 }
+        }
+      },
+      "name": "Whitney Museum of American Art"
+    }
+  ]
+}

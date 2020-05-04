@@ -1004,6 +1004,9 @@ def getTopNeighborhoods(query):
     with open("app/irsystem/controllers/data/new_subway_scores.json") as f:
         subway_raw_data = json.load(f)
 
+    with open("app/irsystem/controllers/data/neighborhood-attractions.json") as f:
+        attractions_data = json.load(f)
+
     loadHappinessScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']), query['number-beds'])
     calculateAgeScore(query['age'])
@@ -1042,7 +1045,7 @@ def getTopNeighborhoods(query):
                 [query['number-beds']]['Top 25%'], 'bottom': renthop_data[name][query['number-beds']]['Bottom 25%']}
         rent_text = "1" if query['number-beds']=='1BR' else "2"
         n = {'name': name, 'score': round(score, 2), 'score-text': getScoreText(score), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
-            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>"), 'rent': rent, 'budget order': int(renthop_data[name][query['number-beds']]['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0], "docs": docs_with_query[name] if len(query['likes']) > 0 else [], "rent text": rent_text}
+            safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>"), 'rent': rent, 'budget order': int(renthop_data[name][query['number-beds']]['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0], "docs": docs_with_query[name] if len(query['likes']) > 0 else [], "rent text": rent_text, "attractions": attractions_data[name.lower().replace(' ', '-').replace("'", '')]}
         # if(query['commute-destination']!=''):
         n['walk-duration']=durations['Walk'][name]
         n['bike-duration']=durations['Bike'][name]

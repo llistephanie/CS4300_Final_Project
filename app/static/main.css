@@ -1500,7 +1500,7 @@ tspan {
 
 .tags {
   position: absolute;
-  width: 153px;
+  width: 250px;
   height: 53px;
   left: calc(761px - 224px);
   top: calc(521px - 58px);
@@ -1508,15 +1508,18 @@ tspan {
 
 .tags span {
   display: inline-block;
-  margin: 5px;
+  /* margin-top: 5px; */
+  margin: 8px 0px;
   font-family: IBM Plex Sans;
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
+  font-size: 11px;
+  display: block;
   line-height: 100%;
   /* identical to box height, or 12px */
-
   color: #ffffff;
+  /* height: 15px; */
+  /* vertical-align: middle; */
 }
 
 .tags span:nth-child(1) {
