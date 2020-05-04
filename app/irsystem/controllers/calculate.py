@@ -120,38 +120,22 @@ relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes",
                                 "character"],
                      "Trendy": ["trendy", "popular", "upcoming"],
                      "College": ["college", "university", "student"]}
-"""
-relevant_keys = []
-with open ("app/irsystem/controllers/data/relevant_keys.json") as f:
-    data = json.load(f)
-relevant_keys = list(set(data["k"]))
-"""
-"""
-Shared data containing all the scores and information for each neighborhood.
-Scores will be a value from
-Includes the following components:
-    - description (of the neighborhood)
-    - commute scores
-    - safety/happiness score
-    - budget
-    - hobbies/interests
-"""
+
 data = {}
 for x in neighborhood_list:
     data[x] = {}
 
 
-def scoreCalculation(data_list):
+def scoreCalculation(data_list, bar = 1.5):
     arr = np.array(data_list)
     mean = np.mean(data_list)
     std = np.std(data_list)
     if (std == 0): std = 1
-    # max_score = 1.5
-    # min_score = -1.5
+
     new_scores = []
     for x in (data_list):
         score = (x - mean)/std
-        score = (score+1.5)*100/3
+        score = (score+bar)*100/(bar*2)
         score = min(score, 100)
         score = max(score, 0)
         
@@ -178,9 +162,7 @@ def loadCrimeScores():
         safety_data = json.load(f)
 
     percentages = np.array([float(v) for k, v in safety_data.items()])
-    normalized = scoreCalculation(
-        percentages)  # (percentages-min(percentages)) / \
-    # (max(percentages)-min(percentages))*100
+    normalized = scoreCalculation(percentages,3.0)
     norm_safety_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
     mergeDict(data, norm_safety_scores, "safety score")
