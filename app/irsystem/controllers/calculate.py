@@ -888,13 +888,13 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
             map_n, map_se, map_c, map_r, map_gm, map_ed=v
             rel_docs=[]
             for q in query_info[0]:
-                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "niche") for x in map_n.get(q, [])])
-                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "streeteasy")for x in map_se.get(q, [])])
-                # print(map_c)
-                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "compass") for x in map_c.get(q, [])])
-                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "reddit") for x in map_r.get(q, [])])
-                rel_docs.extend([(re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I), "goodmigrations") for x in map_gm.get(q, [])])
-                rel_docs.extend([((re.sub(rf"\b{q}\b", "<b>" + q + "</b>" , x, flags=re.I) + "</b>"), "") for x in map_ed.get(q, [])])
+                qu=q.replace('_', '(.?)')
+                rel_docs.extend([(re.sub(rf"\b{qu}\b", "<b>" + q.replace('_', re.findall(rf"\b{qu}\b", x)[0] if re.findall(rf"\b{qu}\b", x) else ' ') + "</b>" , x, flags=re.I), "niche") for x in map_n.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{qu}\b", "<b>" + q.replace('_', re.findall(rf"\b{qu}\b", x)[0] if re.findall(rf"\b{qu}\b", x) else ' ') + "</b>" , x, flags=re.I), "streeteasy")for x in map_se.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{qu}\b", "<b>" + q.replace('_', re.findall(rf"\b{qu}\b", x)[0] if re.findall(rf"\b{qu}\b", x) else ' ') + "</b>" , x, flags=re.I), "compass") for x in map_c.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{qu}\b", "<b>" + q.replace('_', re.findall(rf"\b{qu}\b", x)[0] if re.findall(rf"\b{qu}\b", x) else ' ') + "</b>" , x, flags=re.I), "reddit") for x in map_r.get(q, [])])
+                rel_docs.extend([(re.sub(rf"\b{qu}\b", "<b>" + q.replace('_', re.findall(rf"\b{qu}\b", x)[0] if re.findall(rf"\b{qu}\b", x) else ' ') + "</b>" , x, flags=re.I), "goodmigrations") for x in map_gm.get(q, [])])
+                rel_docs.extend([((re.sub(rf"\b{qu}\b", "<b>" + q.replace('_', re.findall(rf"\b{qu}\b", x)[0] if re.findall(rf"\b{qu}\b", x) else ' ') + "</b>" , x, flags=re.I) + "</b>"), "") for x in map_ed.get(q, [])])
             docs_with_query[k]=rel_docs
 
         print(f"query_info {query_info}")
@@ -1127,4 +1127,4 @@ def main():
     # print(docs_with_query)
 
 
-main()
+# main()
