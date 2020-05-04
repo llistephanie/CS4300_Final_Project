@@ -792,7 +792,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         norm_likes_scores = {n: 0.0 for n in neighborhood_list}
         if merge_dict:
             mergeDict(data, norm_likes_scores, "likes score")
-        return norm_likes_scores, {}, False
+        return norm_likes_scores, {}, []
 
     prefix = 'app/irsystem/controllers/data/'
     query_str = likes_list
