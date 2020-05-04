@@ -53,6 +53,7 @@ neighborhood_list = ['Battery Park',
                      'Upper West Side',
                      'Washington Heights',
                      'West Village']
+neighbborhood_name_phrases=[x.lower().replace(' ', '_') for x in neighborhood_list]
 
 n_neighborhoods = len(neighborhood_list)
 treebank_tokenizer = TreebankWordTokenizer()
@@ -269,20 +270,6 @@ def calculateBudget(minBudget, maxBudget, numberBeds='1BR'):
 
 # Activities/Likes Score Code
 
-def tokenize_query(query):
-    return['_'.join(word.split(' ')) for word in query]
-
-# def tokenize(text):
-#     """Returns a list of words that make up the text.
-#     Params: {text: String}
-#     Returns: List
-#     """
-#     lower_case = text.lower()
-#     tokenizer = RegexpTokenizer('not\s+very\s+[a-z]+|not\s+[a-z]+|no\s+[a-z]+|[a-z]+')
-#     result = tokenizer.tokenize(lower_case)
-#     multi_tokenizer = MWETokenizer([('working', 'out'), ('coffee', 'shops'), ('average', 'prices'), ('union', 'square'), ('real', 'estate'), ('ice', 'cream'), ('whole', 'foods'), ('co', 'op'), ('wall', 'street'), ('world', 'trade'), ('high', 'school'), ('dim', 'sum'), ('empire', 'state'), ('high', 'rise'), ('walk', 'ups'), ('battery', 'park'), ('civic', 'center'), ('east', 'harlem'), ('east', 'village'), ('financial', 'district'), ('greenwich', 'village'), ("hell's", 'kitchen'), ('kips', 'bay'), ('little', 'italy')])
-#     result2 = multi_tokenizer.tokenize(result)
-#     return result2
 def tokenize(multi_word_queries, text):
     """Returns a list of words that make up the text.
     Params: {text: String}
@@ -291,17 +278,17 @@ def tokenize(multi_word_queries, text):
     lower_case = text.lower()
     tokenizer = RegexpTokenizer('not\s+very\s+[a-z]+|not\s+[a-z]+|no\s+[a-z]+|[a-z]+')
     result = tokenizer.tokenize(lower_case)
-    multi_tokenizer = MWETokenizer([('working', 'out'),('coffee', 'shops'), ('average', 'prices'), ('union', 'square'), ('real', 'estate'), ('ice', 'cream'), ('whole', 'foods'), ('co', 'op'), ('wall', 'street'), ('world', 'trade'), ('high', 'school'), ('dim', 'sum'), ('empire', 'state'), ('high', 'rise'), ('walk', 'ups'), ('battery', 'park'), ('civic', 'center'), ('east', 'harlem'), ('east', 'village'), ('financial', 'district'), ('greenwich', 'village'), ('kips', 'bay'), ('little', 'italy'), ('lower', 'east', 'side'), ('marble', 'hill'), ('morningside', 'heights'), ('murray', 'hill'), ('roosevelt', 'island'), ('stuyvesant', 'town'), ('theater', 'district'), ('two', 'bridges'), ('upper', 'east', 'side'), ('upper', 'west', 'side'), ('washington', 'heights'), ('west', 'village')])
+    multi_tokenizer = MWETokenizer([('working', 'out'),('coffee', 'shops'), ('average', 'prices'), ('union', 'square'), ('real', 'estate'), ('ice', 'cream'), ('whole', 'foods'), ('co', 'op'), ('wall', 'street'), ('world', 'trade'), ('high', 'school'), ('dim', 'sum'), ('empire', 'state'), ('high', 'rise'), ('walk', 'ups')])
     if len(multi_word_queries)>0:
         for tok in multi_word_queries:
-            if len(tok.split('_')) > 1:
-                multi_tokenizer.add_mwe((tok.split('_')[0], tok.split('_')[1]))
+            if(len(tok.split('_'))>1):
+                multi_tokenizer.add_mwe(tuple(tok.split('_')))
+    #add neighborhood names
+    for n in neighbborhood_name_phrases:
+        multi_tokenizer.add_mwe(tuple(n.split('_')))
+
     result2 = multi_tokenizer.tokenize(result)
     return result2
-
-
-def tokenize_query(query):
-    return ['_'.join(word.split()) for word in query]
 
 def mergeMapping(original, new):
     for k,v in new.items():
@@ -707,56 +694,23 @@ def get_new_multiword_toks(query, tokenizer, syn=True):
 
             for r_word, r_score in related_list:
                 if r_score > 0.85: new_toks.append(r_word)
-
-    # print(f"new_toks {new_toks}")
+    new_toks=[x for x in new_toks if x not in neighbborhood_name_phrases] # remove neighborhood names from relevant queries
     return new_toks
 
-def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
-    # print(f"query {query}")
-    # toks = treebank_tokenizer.tokenize(query.lower()) ## also get rid of puncutation
-    # query=query.lower()
-    # print(f"toks {toks}")
-    # get norm of query
+def compute_query_info(query, query_old, idf, tokenizer, syn=True):
     query_norm_inner_sum = 0
     query_tf = {}
-    for i in query:
-        i=i.lower()
-        related_list = []
-        # phrase lookup
-        if (len(i.split(' '))<=1):
-        #     print('IM IN HERE')
-        #     phrase=i.replace(' ', '_')
-        #     if (phrase in nlp_phrases):
-        #         related_list = nlp_phrases.wv.most_similar(phrase)
-        #
-        #     if phrase in idf.keys():
-        #         new_toks.append(phrase)
-        #
-        #     for r_word, r_score in related_list:
-        #         if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
-        #
-        # # single word lookup
-        # else:
-            if (i in nlp):
-                related_list = nlp.wv.most_similar(i)
-            if i in idf.keys():
-                new_toks.append(i)
-
-            for r_word, r_score in related_list:
-                if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
-    # print(f"new_toks {new_toks}")
-    # term frequencies in query
+    new_toks=[]
+    for tok in query:
+        if tok in idf.keys():
+            new_toks.append(tok)
     for tok in set(new_toks):
         query_tf[tok] = new_toks.count(tok)
-    #print("###TESTING###")
-    #print(new_toks)
-    #print(query_tf)
 
     for word in new_toks:
         if word in idf.keys():
             query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
     query_norm = math.sqrt(query_norm_inner_sum)
-    # print(new_toks)
     return new_toks, query_tf, query_norm
 
 
