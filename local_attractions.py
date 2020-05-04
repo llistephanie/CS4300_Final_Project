@@ -21,6 +21,7 @@ for neighborhood_name, neighborhood_bounds in exact_bounds.items():
 # deal with central park separately
 # sources: https://www.timeout.com/newyork/attractions/new-york-attractions
 # https://trending.virginholidays.co.uk/new-york-city/attractions
+# Google Maps
 attractions = ['Empire State Building',
                'Times Square',
                'Brooklyn Bridge',
@@ -38,7 +39,6 @@ attractions = ['Empire State Building',
                'Guggenheim Museum',
                'Chelsea Market',
                'Apollo Theater',
-               'New Museum',
                'Yankee Stadium',
                'American Museum of Natural History',
                'Union Square',
@@ -72,7 +72,12 @@ attractions = ['Empire State Building',
                "Macy's Herald Square",
                'Fort Tryon Park',
                'Edgar Allen Poe Cottage',
-               'Inwood Hill Park']
+               'Inwood Hill Park',
+               'Museum of Chinese in America',
+               'International Center of Photography Museum',
+               'Washington Square Park',
+               'National Arts Club',
+               'New Museum',]
 
 central_park_attraction = placesAPI.find_place(input="Central Park",
                                                input_type="textquery",
@@ -112,17 +117,33 @@ with open('data/central_park_shapefile.geoJSON', 'r') as infile:
     central_park_polygon = geometry.Polygon(temp['features'][0]['geometry']['coordinates'][0])
 print(central_park_polygon)
 
-neighborhood_buffers = {}
+neighborhood_buffers_660 = {}
+neighborhood_buffers_1320 = {}
 neighborhood_attractions = {}
 for neighborhood_name, currpolygon in neighborhood_polygons.items():
-    temp = transform(project_to_nad.transform, currpolygon).buffer(1320)
-    currbuffer = transform(project_to_wgs.transform, temp)
-    neighborhood_buffers[neighborhood_name] = currbuffer
     neighborhood_attractions[neighborhood_name] = []
-    if neighborhood_buffers[neighborhood_name].intersects(central_park_polygon):
+    temp_1320 = transform(project_to_nad.transform, currpolygon).buffer(1320)
+    currbuffer_1320 = transform(project_to_wgs.transform, temp_1320)
+    neighborhood_buffers_1320[neighborhood_name] = currbuffer_1320
+    temp_660 = transform(project_to_nad.transform, currpolygon).buffer(660)
+    currbuffer_660 = transform(project_to_wgs.transform, temp_660)
+    neighborhood_buffers_660[neighborhood_name] = currbuffer_660
+    # checking if neighborhood is near Central Park; if so, adds Central Park to attractions list
+    if neighborhood_buffers_660[neighborhood_name].intersects(central_park_polygon):
         neighborhood_attractions[neighborhood_name].append(central_park_attraction)
+    # only the buffer up to 660ft away (excluding original polygon)
+    currbuffer_660_diff = currbuffer_660.difference(currpolygon)
+    # just the buffer btw 660ft and 1/4 mile away
+    currbuffer_1320_diff = currbuffer_1320.difference(currbuffer_660)
+    # first adds results within the neighborhood, followed by closer attractions and finally the furthest attractions
     for attraction_name, currpoint in attraction_points.items():
-        if currbuffer.contains(currpoint):
+        if currpolygon.contains(currpoint):
+            neighborhood_attractions[neighborhood_name].append(attraction_results[attraction_name])
+    for attraction_name, currpoint in attraction_points.items():
+        if currbuffer_660_diff.contains(currpoint):
+            neighborhood_attractions[neighborhood_name].append(attraction_results[attraction_name])
+    for attraction_name, currpoint in attraction_points.items():
+        if currbuffer_1320_diff.contains(currpoint):
             neighborhood_attractions[neighborhood_name].append(attraction_results[attraction_name])
     neighborhood_attractions[neighborhood_name] = neighborhood_attractions[neighborhood_name][:3]
     print(neighborhood_name, [attraction['name'] for attraction in neighborhood_attractions[neighborhood_name]])
