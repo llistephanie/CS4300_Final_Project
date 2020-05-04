@@ -15,6 +15,7 @@ from nltk import tokenize
 # NOTE: if you use these as keys, you can simply update the shared data dictionary variable (data)
 
 nlp = Word2Vec.load("./word2vec.pth")
+nlp_phrases = Word2Vec.load("./word2vec-phrases.pth")
 gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
 
 neighborhood_list = ['Battery Park',
@@ -693,30 +694,38 @@ def compute_neighborhood_norms(index, idf, n_neighborhoods):
 
 
 def compute_query_info(query, idf, tokenizer, syn=True):
-    toks = treebank_tokenizer.tokenize(query.lower()) ## also get rid of puncutation
+    print(f"query {query}")
+    # toks = treebank_tokenizer.tokenize(query.lower()) ## also get rid of puncutation
+    # query=query.lower()
+    # print(f"toks {toks}")
     # get norm of query
     query_norm_inner_sum = 0
-
-    # Replaces tokens when it cannot be found with similar words from the corpus
-    # if the word is misspelled it will not be replaced
-    # For example: if toks = ["asdf","dolphins"] after the loop toks = ["asdf","turtle"]
-    # since turtle was the closest word it could fine. "asdf" is simply misspelled
-    # uses a combination of the stem words to find the best output tokens
     query_tf = {}
     new_toks = []
-    print(toks)
-    for i in toks:
+    for i in query:
+        i=i.lower()
         related_list = []
-        if (i in nlp):
-            related_list = nlp.wv.most_similar(i)
-            #print("###HERE")
-            #print(related_list)
+        # phrase lookup
+        if (len(i.split(' '))>1):
+            phrase=i.replace(' ', '_')
+            if (phrase in nlp_phrases):
+                related_list = nlp_phrases.wv.most_similar(phrase)
+            
+            if phrase in idf.keys():
+                new_toks.append(phrase)
 
-        if i in idf.keys():
-            new_toks.append(i)
+            for r_word, r_score in related_list:
+                if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
 
-        for r_word, r_score in related_list:
-            if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
+        # single word lookup
+        else: 
+            if (i in nlp):
+                related_list = nlp.wv.most_similar(i)
+            if i in idf.keys():
+                new_toks.append(i)
+
+            for r_word, r_score in related_list:
+                if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
     print(new_toks)
     # term frequencies in query
     for tok in set(new_toks):
@@ -724,7 +733,6 @@ def compute_query_info(query, idf, tokenizer, syn=True):
     #print("###TESTING###")
     #print(new_toks)
     #print(query_tf)
-
 
     for word in new_toks:
         if word in idf.keys():
@@ -816,7 +824,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
     prefix = 'app/irsystem/controllers/data/'
     # tokenize query
     # query_str = ' '.join(tokenize_query(likes_list))
-    query_str = ' '.join(likes_list)
+    query_str = likes_list
     #related_words = ' '.join(get_related_words(likes_list))
     #related_words = " ".join(likes_list)
     query_extended = query_str #+ ' ' + related_words
@@ -1075,7 +1083,7 @@ def main():
     # #a = getTopNeighborhoods(query)
     # output =  calculateTextSimLikes(query['likes'], True)
 
-    # output =  calculateTextSimLikes(["asdf","dolphin"], True)
+    output =  calculateTextSimLikes(["coffee shops", "boba"])
 
     # loadCrimeScores()
     # calculateBudget(1500, 1750)
@@ -1087,4 +1095,4 @@ def main():
     # print(docs_with_query)
 
 
-# main()
+main()
