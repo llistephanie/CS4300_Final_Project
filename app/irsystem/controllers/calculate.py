@@ -211,10 +211,6 @@ def calculateAgeScore(age):
     else:
         age_dist = "65+ years"
 
-    # for k,v in niche_data.items():
-    if not age:
-        return None
-
     percentages = np.array([int(v["age distribution"][age_dist].replace(
         '%', '')) for k, v in niche_data.items()])
 
@@ -223,7 +219,6 @@ def calculateAgeScore(age):
 
     norm_age_scores = {neighborhood_list[i] : v for i, v in enumerate(normalized)}
 
-    # data.update(norm_age_scores)
     mergeDict(data, norm_age_scores, "age score")
     return norm_age_scores
 
