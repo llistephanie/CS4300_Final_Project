@@ -274,6 +274,8 @@ function sortLikes(e, valid) {
     $("#results").sortNeighborhoodsByLikes();
     $("div.result:gt(8)").hide();
   } else {
+    $("#filters a").removeClass("active");
+    $(e).addClass("active");
     $(".result").hide();
     $("#keyword-error").show();
   }
