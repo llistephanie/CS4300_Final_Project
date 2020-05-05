@@ -238,7 +238,7 @@ jQuery.fn.sortNeighborhoods = function sortNeighborhoods() {
 
 function sortAge(e) {
   $("#keyword-error").hide();
-  $("#cards").show();
+  $(".result").show();
   $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
@@ -248,7 +248,7 @@ function sortAge(e) {
 
 function sortBudget(e) {
   $("#keyword-error").hide();
-  $("#cards").show();
+  $(".result").show();
   $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
@@ -258,7 +258,7 @@ function sortBudget(e) {
 
 function sort(e) {
   $("#keyword-error").hide();
-  $("#cards").show();
+  $(".result").show();
   $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
@@ -268,20 +268,20 @@ function sort(e) {
 
 function sortLikes(e, valid) {
   if (valid == "True") {
-    $("div.result").show();
+    $(".result").show();
     $("#filters a").removeClass("active");
     $(e).addClass("active");
     $("#results").sortNeighborhoodsByLikes();
     $("div.result:gt(8)").hide();
   } else {
-    $("#cards").hide();
+    $(".result").hide();
     $("#keyword-error").show();
   }
 }
 
 function sortCommute(e) {
   $("#keyword-error").hide();
-  $("#cards").show();
+  $(".result").show();
   $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");

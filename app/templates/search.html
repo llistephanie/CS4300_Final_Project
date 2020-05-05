@@ -184,9 +184,7 @@
           <a onclick="sortLikes(this, '{{valid_queries}}')">Keywords</a>
         </section>
           <br />
-          <div id="cards">
           {% for d in data %}
-
           <div
             class="result"
             overall-order="{{d['score']}}"
@@ -218,8 +216,6 @@
             </div>
           </div>
           {% endfor %}
-        </div>
-
           <div id="keyword-error">
             Sorry, can't find keyword(s): {% if query %} {{ query['likes']|join(', ') }} {% endif %} 🥺
           </div>
