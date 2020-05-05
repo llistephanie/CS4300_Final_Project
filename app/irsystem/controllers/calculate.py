@@ -694,19 +694,29 @@ def get_new_multiword_toks(query, tokenizer, syn=True):
 
             for r_word, r_score in related_list:
                 if r_score > 0.85: new_toks.append(r_word)
+            
+    print(f"OLD NEW TOKS {new_toks}")
     new_toks=[x for x in new_toks if x not in neighbborhood_name_phrases] # remove neighborhood names from relevant queries
+    print(f"NEW NEW TOKS {new_toks}")
     return new_toks
 
-def compute_query_info(query, query_old, idf, tokenizer, syn=True):
+def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
     query_norm_inner_sum = 0
     query_tf = {}
-    new_toks=[]
-    for tok in query:
-        if tok in idf.keys():
-            new_toks.append(tok)
+    for i in query:
+        i=i.lower()
+        related_list = []
+        if (len(i.split(' '))<=1):
+            if (i in nlp):
+                related_list = nlp.wv.most_similar(i)
+            if i in idf.keys():
+                new_toks.append(i)
+
+            for r_word, r_score in related_list:
+                if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
+    print(f"new_toks {new_toks}")
     for tok in set(new_toks):
         query_tf[tok] = new_toks.count(tok)
-
     for word in new_toks:
         if word in idf.keys():
             query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
@@ -838,6 +848,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
             json.dump(idf, j)
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
         query_info = compute_query_info(multi_word_tokens, query_extended, idf, treebank_tokenizer)
+        print(query_info[0])
         for k,v in mappings.items():
             map_n, map_se, map_c, map_r, map_gm, map_ed=v
             rel_docs=[]
@@ -1067,7 +1078,7 @@ def main():
     # #a = getTopNeighborhoods(query)
     # output =  calculateTextSimLikes(query['likes'], True)
 
-    output =  calculateTextSimLikes(["coffee shops", "boba"])
+    # output =  calculateTextSimLikes(["coffee shops", "boba"])
 
     # loadHappinessScores()
     # calculateBudget(1500, 1750)
