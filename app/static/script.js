@@ -17,6 +17,7 @@ $(function () {
     },
   });
   var langArray = [];
+  var selected = false;
   $("#subway option").each(function () {
     var img = $(this).attr("data-thumbnail");
     var text = this.innerText;
@@ -29,15 +30,25 @@ $(function () {
       '"/><span>' +
       text +
       "</span></li>";
+
+    if ($(this).is(":selected")) {
+      console.log(this);
+      $(".btn-select").html(item);
+      $(".btn-select").attr("value", value);
+      $("#subway").val(value).prop("selected", true);
+      selected = true;
+    }
+
     langArray.push(item);
   });
 
   $("#a").html(langArray);
 
   //Set the button value to the first el of the array
-  $(".btn-select").html(langArray[0]);
-  $(".btn-select").attr("value", "en");
-
+  if (!selected) {
+    $(".btn-select").html(langArray[0]);
+    $(".btn-select").attr("value", "en");
+  }
   //change button stuff on click
   $("#a li").click(function () {
     var img = $(this).find("img").attr("src");
@@ -239,7 +250,7 @@ function sort(e) {
 }
 
 function sortLikes(e, valid) {
-  if (valid=="True") {
+  if (valid == "True") {
     $("div.result").show();
     $("#filters a").removeClass("active");
     $(e).addClass("active");

@@ -90,7 +90,7 @@
             <select placeholder="Line N" name="subway-service" id="subway">
               <option value="" data-thumbnail="static/subways/none.svg">None</option>
               {% for k,v in subways.items() %}
-                <option value="{{k}}" data-thumbnail="{{v['img']}}">{{v['name']}}</option>
+                <option value="{{k}}" {% if query and query['subway-service']==k %} selected {% endif %} data-thumbnail="{{v['img']}}">{{v['name']}}</option>
               {% endfor %}
             </select>
             <div class="subway-select">

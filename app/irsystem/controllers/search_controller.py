@@ -30,7 +30,7 @@ def search():
     query = {'age': age, 'commute-type': commute_type, 'commute-duration': commute_duration,
              'commute-destination': commute_destination, 'number-beds': number_beds, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes, 'subway-service': subway_service}
 
-    data, valid_queries = getTopNeighborhoods(query)
+    data, valid_queries, query = getTopNeighborhoods(query)
     return render_template('search.html', name=project_name, first_prototype=v1_link, netid=net_id, query=query, data=data, subways=subways, valid_queries=str(len(valid_queries)>0))
 
 

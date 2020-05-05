@@ -695,9 +695,9 @@ def get_new_multiword_toks(query, tokenizer, syn=True):
             for r_word, r_score in related_list:
                 if r_score > 0.85: new_toks.append(r_word)
             
-    print(f"OLD NEW TOKS {new_toks}")
+    # print(f"OLD NEW TOKS {new_toks}")
     new_toks=[x for x in new_toks if x not in neighbborhood_name_phrases] # remove neighborhood names from relevant queries
-    print(f"NEW NEW TOKS {new_toks}")
+    # print(f"NEW NEW TOKS {new_toks}")
     return new_toks
 
 def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
@@ -714,7 +714,7 @@ def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
 
             for r_word, r_score in related_list:
                 if r_word in idf.keys() and r_score > 0.85: new_toks.append(r_word)
-    print(f"new_toks {new_toks}")
+    # print(f"new_toks {new_toks}")
     for tok in set(new_toks):
         query_tf[tok] = new_toks.count(tok)
     for word in new_toks:
@@ -1021,6 +1021,9 @@ def getTopNeighborhoods(query):
     loadHappinessScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']), query['number-beds'])
     calculateAgeScore(query['age'])
+    if(gmaps.geocode(query['commute-destination'])==[]):
+        query['commute-destination']=""
+
     _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'], query['subway-service'])
     _, docs_with_query, valid_queries=calculateTextSimLikes(query['likes'], True)
 
@@ -1049,47 +1052,25 @@ def getTopNeighborhoods(query):
             subway_service_name = re.sub(r"(?<=\d) Express", 'd', service)
             subway_data.append({"name": str(subway_service_name),
                                 "img-url": "static/subways/" + subway_service_name.lower() + ".svg"})
-        # subway_data = [
-        #     {"name": "1", "img-url": "static/subways/1.svg"}]
-        # "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/NYCS-bull-trans-M-Std.svg/40px-NYCS-bull-trans-M-Std.svg.png"
         rent = {'median': renthop_data[name][query['number-beds']]['Median'], 'top': renthop_data[name]
                 [query['number-beds']]['Top 25%'], 'bottom': renthop_data[name][query['number-beds']]['Bottom 25%']}
         rent_text = "1" if query['number-beds']=='1BR' else "2"
         n = {'name': name, 'score': round(score, 2), 'score-text': getScoreText(score), 'budget': round(budget, 2), 'age': round(age, 2), 'commute': round(commute, 2), 'safety': round(
             safety, 2), 'likes': round(likes, 2),  'image-url': all_data[name]['images'].split(',')[0], 'short description': goodmigrations_data[name]["short description"], 'long description': goodmigrations_data[name]["long description"].split("<br>"), 'rent': rent, 'budget order': int(renthop_data[name][query['number-beds']]['Median'].replace('$', '').replace(',', '')), 'div-id': name.lower().replace(' ', '-').replace("'", ''), "love": compass_data[name]['FALL IN LOVE']['short'] if (name in compass_data) else "", "subway": subway_data, "commute destination": query['commute-destination'].split(",")[0], "docs": docs_with_query[name] if len(query['likes']) > 0 else [], "rent text": rent_text, "attractions": attractions_data[name.lower().replace(' ', '-').replace("'", '')]}
-        # if(query['commute-destination']!=''):
         n['walk-duration']=durations['Walk'][name]
         n['bike-duration']=durations['Bike'][name]
         n['car-duration']=int(durations['Car'][name])
         n['transit-duration']=durations['Public Transit'][name]
 
         best_matches.append(n)
-    return best_matches, valid_queries
+    return best_matches, valid_queries, query
 
 
 def main():
     """
         Function will be loading all the data to update the global data variable
         """
-    # query = {}
-    # query["budget-min"] = "1500"
-    # query["budget-max"] = "3000"
-    # query["age"] = 22
-    # query["commute-type"] = "walk"
-    # query["likes"] = ["theatre"]
-    # #a = getTopNeighborhoods(query)
-    # output =  calculateTextSimLikes(query['likes'], True)
-
     # output =  calculateTextSimLikes(["coffee shops", "boba"])
-
-    # loadHappinessScores()
-    # calculateBudget(1500, 1750)
-    # calculateAgeScore(22)
-    # calculateCommuteScore('Bike', '345 Hudson St, New York, NY 10014, USA', 15)
-    # print(gmaps.distance_matrix("345 Hudson St, New York, NY 10014, USA", "144 Avenue A, New York, NY 10009", mode="transit"))
-
-    # _, docs_with_query=calculateTextSimLikes(['expensive', 'love', 'boba'])
-    # print(docs_with_query)
 
 
 # main()
