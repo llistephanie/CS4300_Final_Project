@@ -926,7 +926,8 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
     cscores = np.add(.5*original_transit_scores, .5*subway_scores)
     if commuteType =='Public Transit':
         commute_scores = cscores
-    normalized = scoreCalculation(commute_scores)
+    normalized = scoreCalculation(commute_scores, 0.73)
+    # print(commute_scores, normalized, "ORIG-NORM")
 
     all_durations=None
 
@@ -971,7 +972,8 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
             else:
                 subway_service_scores.append(0)
         # print(subway_service_scores)
-        normalized = 0.6*np.asarray(normalized) + 0.4*np.asarray(scoreCalculation(subway_service_scores))
+        normalized = 0.6*np.asarray(normalized) + 0.4*np.asarray(scoreCalculation(subway_service_scores, 1))
+        # print(np.asarray(scoreCalculation(subway_service_scores, 1)))
 
     # (commute_scores-min(commute_scores)) / \
     # (max(commute_scores)-min(commute_scores))*100
