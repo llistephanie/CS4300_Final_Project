@@ -14,13 +14,26 @@ $(function () {
           return $("#pac-input").val().length > 0;
         },
       },
+      "budget-max": {
+        min: function () {
+          return parseInt($("#budget-min").val());
+        },
+      }
+    },
+    messages: {
       "budget-min": {
-        min:0,
-        max:$("#budget-max").val(),
+        required: "Required",
       },
-      "budget-max":{
-        min:$("#budget-min").val(),
-        max:100000
+      "budget-max": {
+        required: "Required",
+      },
+      age: {
+        min: "Invalid",
+        required: "Required",
+      },
+      "commute-duration": {
+        min: "Invalid",
+        required: "Required",
       },
     },
   });
@@ -331,7 +344,7 @@ $(document).ready(function () {
 
     // left arrow
     currentId = modal_ids.indexOf(currentDiv);
-    
+
     if (e.which === 37 && currentId > 0) {
       currentDiv = modal_ids[--currentId];
       $("#" + currentDiv).modal();

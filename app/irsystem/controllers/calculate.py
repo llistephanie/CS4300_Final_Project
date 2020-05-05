@@ -694,10 +694,8 @@ def get_new_multiword_toks(query, tokenizer, syn=True):
 
             for r_word, r_score in related_list:
                 if r_score > 0.85: new_toks.append(r_word)
-            
-    # print(f"OLD NEW TOKS {new_toks}")
+
     new_toks=[x for x in new_toks if x not in neighbborhood_name_phrases] # remove neighborhood names from relevant queries
-    # print(f"NEW NEW TOKS {new_toks}")
     return new_toks
 
 def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
@@ -717,11 +715,13 @@ def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
     # print(f"new_toks {new_toks}")
     for tok in set(new_toks):
         query_tf[tok] = new_toks.count(tok)
+    new_toks_checked = []
     for word in new_toks:
         if word in idf.keys():
+            new_toks_checked.append(word)
             query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
     query_norm = math.sqrt(query_norm_inner_sum)
-    return new_toks, query_tf, query_norm
+    return new_toks_checked, query_tf, query_norm
 
 
 def cosine_sim(query, index, idf, doc_norms, tokenizer):
@@ -806,10 +806,6 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     prefix = 'app/irsystem/controllers/data/'
     query_str = likes_list
-    # print('query str:')
-    # print(query_str)
-    #related_words = ' '.join(get_related_words(likes_list))
-    #related_words = " ".join(likes_list)
     query_extended = query_str #+ ' ' + related_words
     likes_scores = []
     docs_with_query={}
@@ -848,7 +844,6 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
             json.dump(idf, j)
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
         query_info = compute_query_info(multi_word_tokens, query_extended, idf, treebank_tokenizer)
-        print(query_info[0])
         for k,v in mappings.items():
             map_n, map_se, map_c, map_r, map_gm, map_ed=v
             rel_docs=[]
@@ -861,8 +856,6 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
                 rel_docs.extend([(re.sub(rf"\b{qu}\b", "<b>" + q.replace('_', re.findall(rf"\b{qu}\b", x)[0] if re.findall(rf"\b{qu}\b", x) else ' ') + "</b>" , x, flags=re.I), "goodmigrations") for x in map_gm.get(q, [])])
                 rel_docs.extend([((re.sub(rf"\b{qu}\b", "<b>" + q.replace('_', re.findall(rf"\b{qu}\b", x)[0] if re.findall(rf"\b{qu}\b", x) else ' ') + "</b>" , x, flags=re.I) + "</b>"), "") for x in map_ed.get(q, [])])
             docs_with_query[k]=rel_docs
-
-        print(f"query_info {query_info}")
 
         # score, doc id use neighborhood_id_to_name
         likes_scores = cosine_sim(
