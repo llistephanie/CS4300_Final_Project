@@ -1136,7 +1136,7 @@ input[type="submit"] {
 }
 
 .summary:hover {
-  max-height: 300px;
+  max-height: 500px;
   transition-timing-function: ease;
   transition-property: all;
   transition-duration: 700ms;
