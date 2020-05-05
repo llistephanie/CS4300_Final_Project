@@ -14,7 +14,7 @@ subways = {'1': {'name': 'Broadway–Seventh Avenue Local', 'img': 'static/subwa
 @irsystem.route('/', methods=['POST'])
 def search():
     if request.method == 'POST':
-        age = request.form["age"]
+        age = int(float(request.form["age"]))
         commute_type = request.form["commute-type"]
         commute_duration = request.form["commute-duration"]
         commute_destination = request.form["commute-destination"]
@@ -22,8 +22,8 @@ def search():
         subway_service = request.form["subway-service"]
 
         number_beds = request.form["number-beds"]
-        budget_min = int(request.form["budget-min"])
-        budget_max = int(request.form["budget-max"])
+        budget_min = int(float(request.form["budget-min"]))
+        budget_max = int(float(request.form["budget-max"]))
 
         likes = request.form.getlist('likes')
 

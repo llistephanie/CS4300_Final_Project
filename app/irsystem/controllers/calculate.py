@@ -941,7 +941,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
 
         # print(json.dumps(all_matrices['Public Transit'], indent=4))
 
-        ratio=15.0/(np.array([v['elements'][0]['duration']['value']/60 if 'duration' in v['elements'][0].keys() else 160.0 for v in all_matrices[commuteType]['rows']])+1e-1)
+        ratio=int(float(commuteDuration)+1)/(np.array([v['elements'][0]['duration']['value']/60 if 'duration' in v['elements'][0].keys() else 160.0 for v in all_matrices[commuteType]['rows']])+1)
 
         ratio[ratio <1.0]=ratio[ratio <1.0]/5.0
 
