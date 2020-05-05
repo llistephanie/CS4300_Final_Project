@@ -14,6 +14,14 @@ $(function () {
           return $("#pac-input").val().length > 0;
         },
       },
+      "budget-min": {
+        min:0,
+        max:$("#budget-max").val(),
+      },
+      "budget-max":{
+        min:$("#budget-min").val(),
+        max:100000
+      },
     },
   });
   var langArray = [];
@@ -32,7 +40,6 @@ $(function () {
       "</span></li>";
 
     if ($(this).is(":selected")) {
-      console.log(this);
       $(".btn-select").html(item);
       $(".btn-select").attr("value", value);
       $("#subway").val(value).prop("selected", true);
@@ -60,7 +67,6 @@ $(function () {
     $(".btn-select").attr("value", value);
     $("#subway").val(value).prop("selected", true);
     $(".b").toggle();
-    //console.log(value);
   });
 
   $(".btn-select").click(function () {
@@ -117,7 +123,6 @@ $(function () {
 
     //Call function to draw the Radar chart
     $(".radarChart").each(function () {
-      // console.log($( this )[0]);
       var data = [
         [
           {
@@ -156,7 +161,6 @@ $(function () {
 
   $("a[data-modal]").click(function (event) {
     currentDiv = $(this)[0].getAttribute("href").replace("#", "");
-    console.log(currentDiv);
     $(this).modal({
       fadeDuration: 350,
     });
@@ -327,10 +331,7 @@ $(document).ready(function () {
 
     // left arrow
     currentId = modal_ids.indexOf(currentDiv);
-
-    console.log(currentId);
-
-    console.log(currentId);
+    
     if (e.which === 37 && currentId > 0) {
       currentDiv = modal_ids[--currentId];
       $("#" + currentDiv).modal();

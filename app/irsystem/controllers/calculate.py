@@ -932,8 +932,6 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
     all_durations=None
 
     if(commuteDestination):
-        # geocode_result = gmaps.geocode(commuteDestination)[0]
-
         travel_modes={"Walk": "walking", "Bike": "bicycling", "Car": "driving", "Public Transit": "transit"}
 
         all_matrices={}
@@ -1021,8 +1019,9 @@ def getTopNeighborhoods(query):
     loadHappinessScores()
     calculateBudget(int(query['budget-min']), int(query['budget-max']), query['number-beds'])
     calculateAgeScore(query['age'])
-    if(gmaps.geocode(query['commute-destination'])==[]):
-        query['commute-destination']=""
+    if(query['commute-destination']):
+        if(gmaps.geocode(query['commute-destination'])==[]):
+            query['commute-destination']=""
 
     _, durations=calculateCommuteScore(query['commute-type'], query['commute-destination'], query['commute-duration'], query['subway-service'])
     _, docs_with_query, valid_queries=calculateTextSimLikes(query['likes'], True)
