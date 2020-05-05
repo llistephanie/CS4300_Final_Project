@@ -694,7 +694,7 @@ def get_new_multiword_toks(query, tokenizer, syn=True):
 
             for r_word, r_score in related_list:
                 if r_score > 0.85: new_toks.append(r_word)
-            
+
     print(f"OLD NEW TOKS {new_toks}")
     new_toks=[x for x in new_toks if x not in neighbborhood_name_phrases] # remove neighborhood names from relevant queries
     print(f"NEW NEW TOKS {new_toks}")
@@ -717,11 +717,13 @@ def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
     print(f"new_toks {new_toks}")
     for tok in set(new_toks):
         query_tf[tok] = new_toks.count(tok)
+    new_toks_checked = []
     for word in new_toks:
         if word in idf.keys():
+            new_toks_checked.append(word)
             query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
     query_norm = math.sqrt(query_norm_inner_sum)
-    return new_toks, query_tf, query_norm
+    return new_toks_checked, query_tf, query_norm
 
 
 def cosine_sim(query, index, idf, doc_norms, tokenizer):
