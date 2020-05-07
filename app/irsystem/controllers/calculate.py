@@ -935,8 +935,6 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
 
         for k,v in travel_modes.items():
             all_matrices[k] = gmaps.distance_matrix(place_ids, commuteDestination, mode=v, departure_time=timestamp_monday_9am)
-            # print(json.dumps(all_matrices[k], indent=4))
-            # print(k)
             all_durations[k] = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) if 'duration' in v['elements'][0].keys() else None for i, v in enumerate(all_matrices[k]['rows']) }
 
 
