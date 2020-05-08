@@ -104,28 +104,6 @@ place_ids=[
         "367 Bleecker St, New York, NY 10014, USA"
     ]
 
-relevant_keywords = {"Coffee Shops": ["coffee", "tea", "shops", "cafe", "cafes", "shop", "bakeries", "bookstores"],
-                     "Working Out": ["gym", "gyms", "yoga", "run", "skating", "basketball", "volleyball", "running", "exercise"],
-                     "Watching Movies": ["film", "theatre", "movies", "movie"],
-                     "Nightlife": ["nightlife", "bars", "clubs", "rooftops", "party", "cocktail", "drinking", "partiers"],
-                     "Music": ["music", "entertainment", "jazz", "performance", "performances", "concert", "talent"],
-                     "Theater": ["theatre", "entertainment", "theaters", "broadway", "performances", "off-Broadway", "dance", "drama", "talent", "shows"],
-                     "Restaurants": ["restaurants", "restaurant", "foodie", "foodies", "food", "eat", "eateries", "culinary", "cuisine", "bistros", "dining", "meal", "farmer's", "market", "eats", "snack"],
-                     "Shopping": ["shopping", "shopper", "boutiques", "shopper's", "commercial", "fashion-forward", "fashion", "retailers", "commerce", "stores", "markets"],
-                     "Art": ["art", "artsy", "architecture", "buildings", "artists", "gallery", "galleries", "artistic", "photographers", "sculptors", "painters", "trendy", "bohemian", "creative", "museum", "museums", "picturesque", "creative"],
-                     "Outdoors": ["outdoors", "parks", "park", "recreation", "waterfront", "spaces", "outdoor", "tree", "flowers", "garden", "gardens", "picnics", "green", "nature", "greenspace", "open", "bike", "water", "biking", "kayaking", "boating", "piers", "pier"],
-                     "Expensive": ["expensive", "pricey", "luxury", "affluent", "posh", "expensive"],
-                     "Affordable": ["affordable", "inexpensive", "below-market", "diverse budgets", "cheap"],
-                     "Quiet": ["quiet", "escape", "peaceful", "serene", "calm", "laid-back", "tranquil", "mellow", "low key", "low-key", "early", "secluded", "simplicity", "empty", "uncluttered", "simple", "slower", "relaxed", "grace"],
-                     "Loud": ["loud", "lively", "fast-paced", "congested", "energetic", "traffic", "hustle", "noise", "vibrant", "packed", "tight"],
-                     "Young": ["young", "students", "younger"],
-                     "Modern": ["modern", "high-rises", "skyscrapers", "lofts", "skyline", "industrial", "posh",
-                                "elevator", "doorman"],
-                     "Rustic": ["old", "rustic", "pre-war", "historic", "brownstones", "historical", "walk-ups", "old-world",
-                                "character"],
-                     "Trendy": ["trendy", "popular", "upcoming"],
-                     "College": ["college", "university", "student"]}
-
 data = {}
 for x in neighborhood_list:
     data[x] = {}
@@ -834,7 +812,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         # Information retrieval
         inv_idx, mappings = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods, multi_word_tokens)
-        idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=0.95)
+        idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=1)
         with open("dump.json","w") as j:
             json.dump(idf, j)
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
