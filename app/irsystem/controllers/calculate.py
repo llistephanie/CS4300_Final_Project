@@ -610,13 +610,15 @@ def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
         For each term, the dict contains the idf value.
 
     """
+
     idf_dict = {}
     for term, list_of_postings in inv_idx.items():
         num_postings = len(list_of_postings)
         large_frac = num_postings / n_neighborhoods
         if num_postings >= min_df and large_frac <= max_df_ratio:
-            idf = math.log2(n_neighborhoods / (1 + num_postings))
+            idf = math.log2(n_neighborhoods / (1 + num_postings+1))+1
             idf_dict[term] = idf
+
     return idf_dict
 
 
@@ -689,6 +691,7 @@ def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
     for tok in set(new_toks):
         query_tf[tok] = new_toks.count(tok)
     new_toks_checked = []
+
     for word in new_toks:
         if word in idf.keys():
             new_toks_checked.append(word)
@@ -750,7 +753,6 @@ def cosine_sim(query, index, idf, doc_norms, tokenizer):
 
     divide_dict = {k: v/(doc_norms[k] * query_norm)
                    for k, v in score_dict.items()}
-
     return {k: v for k, v in sorted(divide_dict.items(), key=lambda tup: tup[1], reverse=True)}
 
     # to_list = [(k, v) for k, v in divide_dict.items()]
@@ -812,7 +814,8 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         # Information retrieval
         inv_idx, mappings = build_inverted_index(
             tokenize, neighborhood_name_to_id, data_files, tokenize_methods, multi_word_tokens)
-        idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=1)
+        idf = compute_idf(inv_idx, n_neighborhoods, min_df=0, max_df_ratio=1.0)
+
         with open("dump.json","w") as j:
             json.dump(idf, j)
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
@@ -847,7 +850,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     likes_scores = sorted(likes_scores_list, key=lambda x: x[0])
     likes_scores = np.array([l[1] for l in likes_scores])
-    normalized = scoreCalculation(likes_scores)
+    normalized = scoreCalculation(likes_scores, 2.0)
 
     norm_likes_scores = {
         neighborhood_list[i]: v for i, v in enumerate(normalized)}
