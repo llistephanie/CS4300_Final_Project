@@ -15,7 +15,7 @@ subways = {'1': {'name': 'Broadway–Seventh Avenue Local', 'img': 'static/subwa
 def search():
     if request.method == 'POST':
         age = int(float(request.form["age"]))
-        commute_type = request.form["commute-type"]
+        commute_type = request.form.getlist("commute-type")
         commute_duration = request.form["commute-duration"]
         commute_destination = request.form["commute-destination"]
 
@@ -25,7 +25,7 @@ def search():
         budget_min = int(float(request.form["budget-min"]))
         budget_max = int(float(request.form["budget-max"]))
 
-        likes = request.form.getlist('likes')
+        likes = request.form.getlist("likes")
 
     query = {'age': age, 'commute-type': commute_type, 'commute-duration': commute_duration,
              'commute-destination': commute_destination, 'number-beds': number_beds, 'budget-min': budget_min, 'budget-max': budget_max, 'likes': likes, 'subway-service': subway_service}

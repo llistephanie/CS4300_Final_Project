@@ -153,21 +153,9 @@ body {
   z-index: 10;
 }
 
-#commute-one a,
-#commute-two a {
-  font-style: italic;
-  width: 350px !important;
-  font-size: 10px;
-  font-weight: 500;
-  color: #aaa;
-  display: inline-block;
-  margin-top: 5px;
-  text-align: center;
-}
-
 #commute-type-input {
   position: absolute;
-  width: 176px;
+  width: 241px;
   height: 68px;
 }
 
@@ -175,7 +163,7 @@ body {
   position: relative;
   width: 145px;
   height: 68px;
-  left: calc(865px - 661px);
+  left: calc(915px - 661px);
 }
 
 #pac-container {
@@ -210,9 +198,7 @@ body {
 }
 
 select#commute {
-  width: 175px;
-  height: 45px;
-
+  height: 45px !important;
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
   border-radius: 9px;
@@ -221,9 +207,17 @@ select#commute {
   font-weight: normal;
   font-size: 14px;
   line-height: 100%;
-
   color: #ffffff;
   background-color: transparent;
+}
+
+#commute-type-input .item {
+    font-size: 12px;
+    background: #31a05f;
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    line-height: 26px;
 }
 
 select#beds {
@@ -382,8 +376,12 @@ select#subway option {
   color: #000;
 }
 
+#beds option {
+  color: #000;
+}
+
 input#commute-duration {
-  width: 145px;
+  width: 95px;
   height: 45px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
@@ -395,7 +393,6 @@ input#commute-duration {
   line-height: 100%;
   text-align: right;
   padding-right: 25px;
-
   color: #ffffff;
   background-color: transparent;
 }
@@ -404,7 +401,7 @@ input#commute-duration {
   display: block;
   position: absolute;
   margin-top: -28px;
-  margin-left: 110px;
+  margin-left: 60px;
   text-transform: lowercase;
   content: "min";
   font-family: IBM Plex Sans;
@@ -545,7 +542,7 @@ input#commute-duration {
 }
 
 .selectize-input {
-  width: 352px;
+  width: 100%;
 
   background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -558,6 +555,10 @@ input#commute-duration {
   line-height: 100%;
 
   color: #ffffff;
+}
+
+.selectize-input.full {
+  background-color: transparent;
 }
 
 .selectize-control.multi .selectize-input.has-items {
@@ -580,7 +581,7 @@ input#commute-duration {
 .selectize-input,
 .selectize-input input {
   color: #fff;
-  line-height: 22.5px;
+  line-height: 25px;
 }
 
 .selectize-input.dropdown-active {

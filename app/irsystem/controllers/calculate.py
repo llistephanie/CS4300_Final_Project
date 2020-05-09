@@ -639,6 +639,9 @@ def compute_idf(inv_idx, n_neighborhoods, min_df=10, max_df_ratio=0.95):
         if num_postings >= min_df and large_frac <= max_df_ratio:
             idf = math.log2(n_neighborhoods / (1 + num_postings))
             idf_dict[term] = idf
+        else:
+            print("OOPS")
+            print(large_frac)
     return idf_dict
 
 
@@ -889,8 +892,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
         subwayscore_data = json.load(s)
 
     type_key = {'Walk': "walk score", 'Bike': "bike score", 'Public Transit': "transit score"}
-
-    # if commuteType.lower() in ['walk', 'bike', 'public transit']:
+    
 
     all_walkscores={}
     commute_scores=[]

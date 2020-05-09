@@ -100,6 +100,17 @@ $(function () {
     },
   });
 
+  $('#commute').selectize({
+    plugins: ["remove_button"],
+    create: false,
+    sortField: {
+      field: 'text',
+      direction: 'asc'
+    },
+    dropdownParent: 'body'
+  });
+
+
   if ($("#results").is(":visible")) {
     $("html, body").animate(
       {

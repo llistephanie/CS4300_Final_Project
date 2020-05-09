@@ -17,9 +17,9 @@ logging.basicConfig(
 
 # pth = "./word2vec.model-yelp2"
 # bigram_pth = "./word2vec.model-bigrams"
-# pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model-yelp2" # just our data
+pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.pth" # just our data
 
-pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model-bigram-super-low" # just our data
+# pth="/Users/shirleykabir/Desktop/cs4300sp2020-sc2524-kyh24-rdz26-sk2279-szk4/word2vec.model-bigram-super-low" # just our data
 
 
 class MySentences(object):
@@ -126,7 +126,7 @@ model = Word2Vec.load(pth)
 
 # print(model.wv.most_similar_cos())
 
-print(model.wv.most_similar('gyms'))
+print(model.wv.most_similar('restaurants'))
 
 # print(model.wv.most_similar_cosmul(positive=['affordable'], negative=['expensive']))
 # print(model.wv.most_similar_cosmul(positive=['favorite', 'sweet']))
