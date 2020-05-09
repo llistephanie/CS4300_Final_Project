@@ -155,15 +155,15 @@ body {
 
 #commute-type-input {
   position: absolute;
-  width: 241px;
+  width: 251px;
   height: 68px;
 }
 
 #commute-duration-input {
   position: relative;
-  width: 145px;
+  width: 135px;
   height: 68px;
-  left: calc(915px - 661px);
+  left: calc(925px - 661px);
 }
 
 #pac-container {
@@ -212,12 +212,17 @@ select#commute {
 }
 
 #commute-type-input .item {
-    font-size: 12px;
-    background: #31a05f;
-    color: #fff;
-    border: 0;
-    border-radius: 6px;
-    line-height: 26px;
+  font-size: 12px;
+  background: #31a05f;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  line-height: 26px;
+}
+
+.selectize-control.plugin-remove_button [data-value] {
+    position: relative;
+    padding-right: 20px !important;
 }
 
 select#beds {
@@ -381,7 +386,7 @@ select#subway option {
 }
 
 input#commute-duration {
-  width: 95px;
+  width: 85px;
   height: 45px;
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-sizing: border-box;
@@ -401,7 +406,7 @@ input#commute-duration {
   display: block;
   position: absolute;
   margin-top: -28px;
-  margin-left: 60px;
+  margin-left: 53px;
   text-transform: lowercase;
   content: "min";
   font-family: IBM Plex Sans;
