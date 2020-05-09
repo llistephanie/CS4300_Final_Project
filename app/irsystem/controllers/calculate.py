@@ -869,31 +869,38 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
     with open("app/irsystem/controllers/data/new_subway_scores.json") as s:
         subwayscore_data = json.load(s)
 
-    type_key = {'Walk': "walk score", 'Bike': "bike score", 'Public Transit': "transit score"}
-    
+    # type_key = {'Walk': "walk score", 'Bike': "bike score", 'Public Transit': "transit score"}
+    type_key = {'Walk': "walk score", 'Bike': "bike score"}
+
 
     all_walkscores={}
-    commute_scores=[]
-    #print(walkscore_data.items())
-    for cType,v in type_key.items():
-        cscores = np.array([int(v['rankings'][type_key[cType]]) for k, v in walkscore_data.items()])
-        all_walkscores[cType] = {neighborhood_list[i]: v for i, v in enumerate(cscores) }
-        if cType==commuteType:
-            commute_scores=cscores
+    commute_scores=np.zeros(len(neighborhood_list))
+    weight = 1/len(commuteType)
 
-    car_scores = np.array([int(v['Car-Score']) for k, v in carscore_data.items()])
-    walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
-    gas_scores = np.array([int(v['score']) for k, v in gasscore_data.items()])
-    cscores = np.add(.5*car_scores, .5*gas_scores)
-    all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(scoreCalculation(cscores))}
-    if commuteType=='Car':
-        commute_scores=cscores
+    for i in range(len(commuteType)):
+        #get pre-computed score for each neighborhood for walking and biking
+        for cType,v in type_key.items():
+            cscores = np.array([int(v['rankings'][type_key[cType]]) for k, v in walkscore_data.items()])
+            all_walkscores[cType] = {neighborhood_list[i]: v for i, v in enumerate(cscores) }
+            if cType==commuteType[i]:
+                commute_scores = np.add(commute_scores, weight*cscores)
 
-    original_transit_scores = np.array([int(v['rankings']['transit score']) for k, v in walkscore_data.items()])
-    subway_scores = np.array([int(v['Score']) for k, v in subwayscore_data.items()])
-    cscores = np.add(.5*original_transit_scores, .5*subway_scores)
-    if commuteType =='Public Transit':
-        commute_scores = cscores
+        #get car score for each neighborhood by combining parking lot, walk, and gas score
+        car_scores = np.array([int(v['Car-Score']) for k, v in carscore_data.items()])
+        walk_scores = np.array([int(v['rankings']['walk score']) for k, v in walkscore_data.items()])
+        gas_scores = np.array([int(v['score']) for k, v in gasscore_data.items()])
+        cscores = np.add(.5*car_scores, .5*gas_scores)
+        all_walkscores['Car'] = {neighborhood_list[i]: v for i, v in enumerate(scoreCalculation(cscores))}
+        if commuteType[i]=='Car':
+            commute_scores = np.add(commute_scores, weight*cscores)
+
+        #update transit score for each neighborhood based on subway scores and add transit scores to all_walkscores
+        original_transit_scores = np.array([int(v['rankings']['transit score']) for k, v in walkscore_data.items()])
+        all_walkscores['Public Transit'] = {neighborhood_list[i]: v for i, v in enumerate(original_transit_scores) }
+        subway_scores = np.array([int(v['Score']) for k, v in subwayscore_data.items()])
+        cscores = np.add(.5*original_transit_scores, .5*subway_scores)
+        if commuteType[i] =='Public Transit':
+            commute_scores = np.add(commute_scores, weight*cscores)
     normalized = scoreCalculation(commute_scores, 0.73)
     # print(commute_scores, normalized, "ORIG-NORM")
 
@@ -905,6 +912,7 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
         all_matrices={}
 
         all_durations={}
+        ratio=np.zeros(len(neighborhood_list))
 
         today = datetime.date.today()
         monday=today + datetime.timedelta(days=(7 - today.weekday()))
@@ -918,8 +926,9 @@ def calculateCommuteScore(commuteType, commuteDestination, commuteDuration, comm
             all_durations[k] = {neighborhood_list[i]: int(v['elements'][0]['duration']['value']/60) if 'duration' in v['elements'][0].keys() else None for i, v in enumerate(all_matrices[k]['rows']) }
 
 
-        ratio=int(float(commuteDuration)+1)/(np.array([v['elements'][0]['duration']['value']/60 if 'duration' in v['elements'][0].keys() else 160.0 for v in all_matrices[commuteType]['rows']])+1)
-
+        for i in range(len(commuteType)):
+            commute_ratio=int(float(commuteDuration)+1)/(np.array([v['elements'][0]['duration']['value']/60 if 'duration' in v['elements'][0].keys() else 160.0 for v in all_matrices[commuteType[i]]['rows']])+1)
+            ratio = np.add(ratio, commute_ratio*weight)
         ratio[ratio <1.0]=ratio[ratio <1.0]/5.0
 
         normalized=0.2*np.array(normalized)+0.8*np.array(scoreCalculation(ratio))
