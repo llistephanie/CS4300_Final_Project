@@ -3980,8 +3980,10 @@ function initMap() {
         clickable: false
       });
       selectedNeighborhood.setMap(map);
-      for (i=0; i<Object.keys(coordinate_data).length; i++) {
-        currKey = Object.keys(coordinate_data)[i];
+      top9Neighborhoods = getTop9();
+      console.log(top9Neighborhoods);
+      for (i=0; i<top9Neighborhoods.length; i++) {
+        currKey = top9Neighborhoods[i];
         // console.log(currKey);
         if (currKey != e) {
           var o = {
