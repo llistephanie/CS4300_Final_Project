@@ -3698,6 +3698,15 @@ const coordinate_data = {
   },
 };
 
+function getTop9() {
+  if($('#keyword-error').is(':visible')) { 
+    return []
+  }
+  top9=[]
+  for (var i=0; i < 9; i++) top9.push($(".result a")[i].href.split("#")[1]);
+  return top9;
+}
+
 function initMap() {
   var stateBounds = {
     nynj: ["40.571327", "-74.202197", "40.927132", "-73.779223"],
