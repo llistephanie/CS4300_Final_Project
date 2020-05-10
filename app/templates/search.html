@@ -52,7 +52,7 @@
             <div id="commute-one">
             <div id="commute-type-input">
               <label>Commute Type</label>
-              <select id="commute" multiple name="commute-type">
+              <select id="commute" required multiple name="commute-type">
                 <option value="Walk" {% if query and 'Walk' in query['commute-type'] %} selected="selected"{% endif %}>Walk</option>
                 <option value="Bike" {% if query and 'Bike' in query['commute-type'] %} selected="selected"{% endif %}>Bike</option>
                 <option value="Car" {% if query and 'Car' in query['commute-type'] %} selected="selected"{% endif %}>Car</option>
