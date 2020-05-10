@@ -3721,6 +3721,7 @@ function initMap() {
   }
 
   var e = document.getElementById("pac-input");
+
   o = new google.maps.places.Autocomplete(e, {
     componentRestrictions: { country: "us" },
     bounds: getStateBounds("nynj"), // get LatLngBounds for ca.
@@ -3952,17 +3953,43 @@ function initMap() {
         ],
       })),
         map.data.setStyle({
-          fillColor: "#3cfA8b",
+          fillColor: "#d9d9d9",
           strokeColor: "#3cfA8b",
           strokeWeight: 1,
-          fillOpacity: 0.6
+          fillOpacity: 0.2,
+          strokeOpacity: 0.25,
+          strokeWeight: 2,
+          clickable: false
         });
       var transitLayer=new google.maps.TransitLayer();
       transitLayer.setMap(map);
-      var o = {
-        type: "FeatureCollection",
-        features: [],
-      };
-      o.features.push(coordinate_data[e]), map.data.addGeoJson(o);
+      var latLng = [];
+      for (i=0; i<coordinate_data[e].geometry.coordinates[0].length; i++) {
+        origtemp = coordinate_data[e].geometry.coordinates[0][i];
+        currlat = origtemp[1];
+        currlng = origtemp[0];
+        temp = {lat: currlat, lng: currlng};
+        latLng.push(temp)
+      }
+      var selectedNeighborhood = new google.maps.Polygon({
+        paths: latLng,
+        fillColor: "#3cfA8b",
+        strokeColor: "#3cfA8b",
+        strokeWeight: 1,
+        fillOpacity: 0.6,
+        clickable: false
+      });
+      selectedNeighborhood.setMap(map);
+      for (i=0; i<Object.keys(coordinate_data).length; i++) {
+        currKey = Object.keys(coordinate_data)[i];
+        // console.log(currKey);
+        if (currKey != e) {
+          var o = {
+            type: "FeatureCollection",
+            features: [],
+          };
+          o.features.push(coordinate_data[currKey]), map.data.addGeoJson(o);
+        }
+      }
     });
 }
