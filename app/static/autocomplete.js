@@ -7,6 +7,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Battery_Park_City",
+      center: {
+        lat: 40.7032775,
+        lng: -74.0170279,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -225,6 +229,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Chelsea",
+      center: {
+        lat: 40.7465004,
+        lng: -74.00137370000002,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -430,6 +438,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Chinatown",
+      center: {
+        lat: 40.7157509,
+        lng: -73.9970307,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -470,6 +482,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Civic_Center",
+      center: {
+        lat: 40.7140519,
+        lng: -74.00283639999999,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -508,6 +524,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/East_Harlem",
+      center: {
+        lat: 40.7957399,
+        lng: -73.93892129999999,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -600,6 +620,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": null,
+      center: {
+        lat: 40.8115504,
+        lng: -73.9464769,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -677,6 +701,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/East_Village",
+      center: {
+        lat: 40.7264773,
+        lng: -73.98153370000001,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -718,6 +746,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Financial_District",
+      center: {
+        lat: 40.7077143,
+        lng: -74.00827869999999,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -1012,6 +1044,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Flatiron_District",
+      center: {
+        lat: 40.740083,
+        lng: -73.9903489,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -1038,6 +1074,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Gramercy",
+      center: {
+        lat: 40.7367783,
+        lng: -73.9844722,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -1071,6 +1111,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Greenwich_Village",
+      center: {
+        lat: 40.7335719,
+        lng: -74.0027418,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -1097,6 +1141,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Hell_s_Kitchen",
+      center: {
+        lat: 40.7637581,
+        lng: -73.9918181,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -1308,6 +1356,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Inwood",
+      center: {
+        lat: 40.8677145,
+        lng: -73.9212019,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2286,6 +2338,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Kips_Bay",
+      center: {
+        lat: 40.74232920000001,
+        lng: -73.9800645,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2418,6 +2474,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Little_Italy",
+      center: {
+        lat: 40.7191413,
+        lng: -73.9973273,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2444,6 +2504,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Lower_East_Side",
+      center: {
+        lat: 40.715033,
+        lng: -73.9842724,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2513,6 +2577,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Marble_Hill",
+      center: {
+        lat: 40.8761173,
+        lng: -73.9102628,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2558,6 +2626,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Midtown",
+      center: {
+        lat: 40.7549309,
+        lng: -73.9840195,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2605,6 +2677,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Morningside_Heights",
+      center: {
+        lat: 40.8105443,
+        lng: -73.9620581,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2637,6 +2713,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Murray_Hill",
+      center: {
+        lat: 40.7478792,
+        lng: -73.9756567,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2721,6 +2801,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/NoHo",
+      center: {
+        lat: 40.7286587,
+        lng: -73.9925526,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2744,6 +2828,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Nolita",
+      center: {
+        lat: 40.7230413,
+        lng: -73.99486069999999,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2768,6 +2856,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Roosevelt_Island",
+      center: {
+        lat: 40.76050310000001,
+        lng: -73.9509934,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2886,6 +2978,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/SoHo",
+      center: {
+        lat: 40.723301,
+        lng: -74.0029883,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -2931,6 +3027,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Stuyvesant_Town",
+      center: {
+        lat: 40.7316903,
+        lng: -73.9778494,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -3002,6 +3102,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Theater_District",
+      center: {
+        lat: 40.759011,
+        lng: -73.9844722,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -3023,6 +3127,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Tribeca",
+      center: {
+        lat: 40.7162692,
+        lng: -74.0086323,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -3078,6 +3186,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/Two_Bridges",
+      center: {
+        lat: 40.7107469,
+        lng: -73.99696,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -3114,6 +3226,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Upper_East_Side",
+      center: {
+        lat: 40.7735649,
+        lng: -73.9565551,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -3159,6 +3275,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Upper_West_Side",
+      center: {
+        lat: 40.7870106,
+        lng: -73.9753676,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -3323,6 +3443,10 @@ const coordinate_data = {
       borough: "Manhattan",
       "X.id":
         "http://nyc.pediacities.com/Resource/Neighborhood/Washington_Heights",
+      center: {
+        lat: 40.8417082,
+        lng: -73.9393554,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -3562,6 +3686,10 @@ const coordinate_data = {
       boroughCode: "1",
       borough: "Manhattan",
       "X.id": "http://nyc.pediacities.com/Resource/Neighborhood/West_Village",
+      center: {
+        lat: 40.73468,
+        lng: -74.0047554,
+      },
     },
     geometry: {
       type: "Polygon",
@@ -3699,18 +3827,44 @@ const coordinate_data = {
 };
 
 function getTop9() {
-  if($('#keyword-error').is(':visible')) { 
-    return []
+  if ($("#keyword-error").is(":visible")) {
+    return [];
   }
-  top9=[]
-  for (var i=0; i < 9; i++) top9.push($(".result a")[i].href.split("#")[1]);
+  top9 = [];
+  for (var i = 0; i < 9; i++) top9.push($(".result a")[i].href.split("#")[1]);
   return top9;
+}
+
+function addInfoWindow(map) {
+  var infoWindow = new google.maps.InfoWindow({
+    position: {
+      lat: 40.7032775,
+      lng: -74.0170279,
+    },
+    pixelOffset: new google.maps.Size(0, -40)
+  });
+
+  map.data.addListener("mouseover", function (evt) {
+    var n_id = evt.feature
+      .getProperty("neighborhood")
+      .toLowerCase()
+      .replace(" ", "-");
+
+    infoWindow.setContent(evt.feature.getProperty("neighborhood"));
+
+    infoWindow.setPosition({"lat": coordinate_data[n_id].properties.center.lat, "lng": coordinate_data[n_id].properties.center.lng});
+
+    infoWindow.open(map);
+  });
+
+  map.data.addListener("mouseout", function (evt) {
+    infoWindow.close(map);
+  });
 }
 
 function initMap() {
   var stateBounds = {
-    nynj: ["40.571327", "-74.202197", "40.927132", "-73.779223"],
-    // lat/long boundaries list for states/provinces.
+    nynj: ["40.571327", "-74.202197", "40.927132", "-73.779223"]
   };
 
   function getStateBounds(state) {
@@ -3768,10 +3922,10 @@ function initMap() {
             ],
           },
           {
-              featureType: 'landscape',
-              elementType: 'geometry',
-              stylers: [{color: '#1d1d22'}]
-            },
+            featureType: "landscape",
+            elementType: "geometry",
+            stylers: [{ color: "#1d1d22" }],
+          },
           {
             elementType: "labels.text.fill",
             stylers: [
@@ -3913,22 +4067,22 @@ function initMap() {
               },
             ],
           },
-            {
+          {
             featureType: "transit",
             elementType: "geometry",
             stylers: [
               {
-                "saturation": -20,
+                saturation: -20,
                 // "lightness": -100
               },
             ],
           },
-            {
+          {
             featureType: "transit",
             elementType: "labels.icon",
             stylers: [
               {
-                "visibility": "on"
+                visibility: "on",
               },
             ],
           },
@@ -3953,38 +4107,34 @@ function initMap() {
         ],
       })),
         map.data.setStyle({
-          fillColor: "#d9d9d9",
-          strokeColor: "#3cfA8b",
-          strokeWeight: 1,
-          fillOpacity: 0.2,
-          strokeOpacity: 0.25,
+          fillColor: "#fff",
+          // strokeColor: "#d9d9d9",
+          strokeColor: "#fff",
+          fillOpacity: 0.15,
+          strokeOpacity: 0.8,
           strokeWeight: 2,
-          clickable: false
+          clickable: true
         });
-      var transitLayer=new google.maps.TransitLayer();
-      transitLayer.setMap(map);
       var latLng = [];
-      for (i=0; i<coordinate_data[e].geometry.coordinates[0].length; i++) {
+      for (i = 0; i < coordinate_data[e].geometry.coordinates[0].length; i++) {
         origtemp = coordinate_data[e].geometry.coordinates[0][i];
         currlat = origtemp[1];
         currlng = origtemp[0];
-        temp = {lat: currlat, lng: currlng};
-        latLng.push(temp)
+        temp = { lat: currlat, lng: currlng };
+        latLng.push(temp);
       }
       var selectedNeighborhood = new google.maps.Polygon({
         paths: latLng,
         fillColor: "#3cfA8b",
         strokeColor: "#3cfA8b",
-        strokeWeight: 1,
+        strokeWeight: 2,
         fillOpacity: 0.6,
-        clickable: false
+        clickable: true
       });
       selectedNeighborhood.setMap(map);
       top9Neighborhoods = getTop9();
-      console.log(top9Neighborhoods);
-      for (i=0; i<top9Neighborhoods.length; i++) {
+      for (i = 0; i < top9Neighborhoods.length; i++) {
         currKey = top9Neighborhoods[i];
-        // console.log(currKey);
         if (currKey != e) {
           var o = {
             type: "FeatureCollection",
@@ -3993,5 +4143,10 @@ function initMap() {
           o.features.push(coordinate_data[currKey]), map.data.addGeoJson(o);
         }
       }
+
+      addInfoWindow(map);
+
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
     });
 }
