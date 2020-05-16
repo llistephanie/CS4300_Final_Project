@@ -804,7 +804,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         externaldata_data = json.load(externaldata_file)
 
 
-        multi_word_tokens = get_new_multiword_toks(query_extended, treebank_tokenizer)
+        multi_word_tokens = get_new_multiword_toks(query_str, treebank_tokenizer)
         # Compiling data and tokenization methods
         tokenize_methods = [tokenize_niche,
                             tokenize_streeteasy,
