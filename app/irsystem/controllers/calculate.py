@@ -53,7 +53,7 @@ neighborhood_list = ['Battery Park',
                      'Upper West Side',
                      'Washington Heights',
                      'West Village']
-neighbborhood_name_phrases=[x.lower().replace(' ', '_') for x in neighborhood_list]
+neighborhood_name_phrases=[x.lower().replace(' ', '_') for x in neighborhood_list]
 
 n_neighborhoods = len(neighborhood_list)
 treebank_tokenizer = TreebankWordTokenizer()
@@ -257,7 +257,7 @@ def tokenize(multi_word_queries, text):
             if(len(tok.split('_'))>1):
                 multi_tokenizer.add_mwe(tuple(tok.split('_')))
     #add neighborhood names
-    for n in neighbborhood_name_phrases:
+    for n in neighborhood_name_phrases:
         multi_tokenizer.add_mwe(tuple(n.split('_')))
 
     result2 = multi_tokenizer.tokenize(result)
@@ -669,7 +669,7 @@ def get_new_multiword_toks(query, tokenizer, syn=True):
             for r_word, r_score in related_list:
                 if r_score > 0.85: new_toks.append(r_word)
 
-    new_toks=[x for x in new_toks if x not in neighbborhood_name_phrases] # remove neighborhood names from relevant queries
+    new_toks=[x for x in new_toks if x not in neighborhood_name_phrases] # remove neighborhood names from relevant queries
     return new_toks
 
 def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
@@ -694,7 +694,11 @@ def compute_query_info(new_toks, query, idf, tokenizer, syn=True):
     for word in new_toks:
         if word in idf.keys():
             new_toks_checked.append(word)
-            query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
+            # if the word is in the original query, double the score for it
+            if word in query:
+                query_norm_inner_sum += 0.5 * math.pow(query_tf[word] * idf[word], 2)
+            else:
+                query_norm_inner_sum += math.pow(query_tf[word] * idf[word], 2)
     query_norm = math.sqrt(query_norm_inner_sum)
     return new_toks_checked, query_tf, query_norm
 
