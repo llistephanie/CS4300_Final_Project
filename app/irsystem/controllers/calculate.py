@@ -784,7 +784,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
 
     prefix = 'app/irsystem/controllers/data/'
     query_str = likes_list
-    query_extended = query_str #+ ' ' + related_words
+    # query_extended = query_str #+ ' ' + related_words
     likes_scores = []
     docs_with_query={}
 
@@ -822,7 +822,7 @@ def calculateTextSimLikes(likes_list, merge_dict=False):
         with open("dump.json","w") as j:
             json.dump(idf, j)
         doc_norms = compute_neighborhood_norms(inv_idx, idf, n_neighborhoods)
-        query_info = compute_query_info(multi_word_tokens, query_extended, idf, treebank_tokenizer)
+        query_info = compute_query_info(multi_word_tokens, query_str, idf, treebank_tokenizer)
         for k,v in mappings.items():
             map_n, map_se, map_c, map_r, map_gm, map_ed=v
             rel_docs=[]
