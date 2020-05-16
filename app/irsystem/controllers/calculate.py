@@ -19,7 +19,7 @@ from time import mktime
 
 nlp = Word2Vec.load("./word2vec.pth")
 nlp_phrases = Word2Vec.load("./word2vec-phrases.pth")
-gmaps = googlemaps.Client(key='AIzaSyDkJTfA9iboEc6Wc1y-FEPrH3-wIBfonDE')
+gmaps = googlemaps.Client(key='AIzaSyCnKNIOmaCU1h3MA_SnyDGjpNgIkyF6E4Y')
 
 neighborhood_list = ['Battery Park',
                      'Chelsea',
