@@ -3841,7 +3841,7 @@ function addInfoWindow(map) {
       lat: 40.7032775,
       lng: -74.0170279,
     },
-    pixelOffset: new google.maps.Size(0, -40)
+    pixelOffset: new google.maps.Size(0, -40),
   });
 
   map.data.addListener("mouseover", function (evt) {
@@ -3852,9 +3852,21 @@ function addInfoWindow(map) {
 
     infoWindow.setContent(evt.feature.getProperty("neighborhood"));
 
-    infoWindow.setPosition({"lat": coordinate_data[n_id].properties.center.lat, "lng": coordinate_data[n_id].properties.center.lng});
+    infoWindow.setPosition({
+      lat: coordinate_data[n_id].properties.center.lat,
+      lng: coordinate_data[n_id].properties.center.lng,
+    });
 
     infoWindow.open(map);
+  });
+
+  map.data.addListener("click", function (evt) {
+    var n_id = evt.feature
+      .getProperty("neighborhood")
+      .toLowerCase()
+      .replace(" ", "-");
+
+    $("#" + n_id).modal();
   });
 
   map.data.addListener("mouseout", function (evt) {
@@ -3864,7 +3876,7 @@ function addInfoWindow(map) {
 
 function initMap() {
   var stateBounds = {
-    nynj: ["40.571327", "-74.202197", "40.927132", "-73.779223"]
+    nynj: ["40.571327", "-74.202197", "40.927132", "-73.779223"],
   };
 
   function getStateBounds(state) {
@@ -4113,7 +4125,7 @@ function initMap() {
           fillOpacity: 0.15,
           strokeOpacity: 0.8,
           strokeWeight: 2,
-          clickable: true
+          clickable: true,
         });
       var latLng = [];
       for (i = 0; i < coordinate_data[e].geometry.coordinates[0].length; i++) {
@@ -4129,7 +4141,7 @@ function initMap() {
         strokeColor: "#3cfA8b",
         strokeWeight: 2,
         fillOpacity: 0.6,
-        clickable: true
+        clickable: true,
       });
       selectedNeighborhood.setMap(map);
       top9Neighborhoods = getTop9();
