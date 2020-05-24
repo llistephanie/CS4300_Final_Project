@@ -629,22 +629,64 @@ input[type="submit"] {
 
 #results h2 {
   position: relative;
-  width: 471px;
+  width: calc(100% - 200px);
   height: 38px;
-
-  top: 60px;
-
+  top: 20px;
   font-style: normal;
   font-weight: 500;
   font-size: 32px;
   line-height: 38px;
-
   color: #000000;
   text-align: left;
+  padding: 0% 100px;
+}
+
+#view-toggle {
+  display: inline-block;
+  font-weight: 400;
+}
+
+#view-toggle a img {
+    width: 15px;
+    line-height: 24px;
+    display: inline-block;
+    margin-right: 3px;
+}
+
+#view-toggle a {
+    background-color: transparent;
+    border: 0px;
+    padding: 5px;
+    font-size: 14px;
+    vertical-align: center;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+}
+
+#view-toggle a.active {
+  /* border-bottom: 3px solid #30a05f; */
+  color: #31a05f;
+}
+
+#view-toggle a img {
+  filter: brightness(0);
+}
+#view-toggle a.active img {
+  filter: brightness(1);
+}
+
+#map-view {
+  display: none;
 }
 
 #filters {
   text-align: left;
+  /* margin-top: -35px; */
+  top: 10px;
+  position: relative;
+  display: block;
+  /* height: 10px; */
 }
 
 #filters a {
@@ -652,16 +694,13 @@ input[type="submit"] {
   display: inline-block;
   width: auto;
   height: 21px;
-
-  top: 46px;
+  /* top: 46px; */
   margin-right: 20px;
-
   font-style: normal;
   font-weight: 300;
   text-decoration: none;
   font-size: 16px;
   line-height: 21px;
-
   color: #a7a7a7;
 }
 
@@ -669,7 +708,7 @@ input[type="submit"] {
   color: #000000;
 }
 
-#results {
+#grid-view {
   padding: 0% 100px;
   padding-bottom: 100px;
   width: calc(100% - 200px);
@@ -684,7 +723,7 @@ input[type="submit"] {
   margin: 20px;
   left: 0%;
   right: 0%;
-  top: 60px;
+  top: 30px;
   bottom: 0%;
   width: 306px;
   height: 507px;
@@ -1434,6 +1473,14 @@ tspan {
   display: none;
 }
 
+#map-view {
+  height: 80%;
+  width: 80%;
+  border-radius: 9px;
+  left: 100px;
+  margin-top: 40px;
+}
+
 .links {
   position: absolute;
   width: 100%;
@@ -1633,4 +1680,7 @@ button.gm-ui-hover-effect {
     padding: 0;
     top: 55px !important;
     left: 10px !important;
+}
+.transit-line-group-content div {
+    width: 15px;
 }

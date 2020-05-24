@@ -253,7 +253,7 @@ function sortAge(e) {
   $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
-  $("#results").sortNeighborhoodsByAge();
+  $("#grid-view").sortNeighborhoodsByAge();
   $("div.result:gt(8)").hide();
 }
 
@@ -263,7 +263,7 @@ function sortBudget(e) {
   $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
-  $("#results").sortNeighborhoodsByBudget();
+  $("#grid-view").sortNeighborhoodsByBudget();
   $("div.result:gt(8)").hide();
 }
 
@@ -273,7 +273,7 @@ function sort(e) {
   $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
-  $("#results").sortNeighborhoods();
+  $("#grid-view").sortNeighborhoods();
   $("div.result:gt(8)").hide();
 }
 
@@ -282,7 +282,7 @@ function sortLikes(e, valid) {
     $(".result").show();
     $("#filters a").removeClass("active");
     $(e).addClass("active");
-    $("#results").sortNeighborhoodsByLikes();
+    $("#grid-view").sortNeighborhoodsByLikes();
     $("div.result:gt(8)").hide();
   } else {
     $("#filters a").removeClass("active");
@@ -298,7 +298,7 @@ function sortCommute(e) {
   $("div.result").show();
   $("#filters a").removeClass("active");
   $(e).addClass("active");
-  $("#results").sortNeighborhoodsByCommute();
+  $("#grid-view").sortNeighborhoodsByCommute();
   $("div.result:gt(8)").hide();
 }
 
@@ -341,6 +341,22 @@ function openDocs(e) {
   $(n + "-map").hide(500);
   $(n + " .radar").hide(500);
   $(n + " .tags").hide(500);
+}
+
+function toggleMap(e) {
+  console.log("HELLO");
+  $("#grid-view").hide();
+  $("#map-view").show();
+  $("#view-toggle a").removeClass("active");
+  $(e).addClass("active");
+}
+
+function toggleGrid(e) {
+  console.log("WORLD");
+  $("#map-view").hide();
+  $("#grid-view").show();
+  $("#view-toggle a").removeClass("active");
+  $(e).addClass("active");
 }
 
 $(document).ready(function () {
